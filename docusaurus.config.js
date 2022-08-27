@@ -34,17 +34,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/redstone-finance/redstone-docs/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -57,24 +47,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Docs',
+        title: 'Documentation',
         logo: {
           alt: 'RedStone',
           src: 'img/redstone-logo-full.svg',
         },
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'intro',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
           {
             type: 'docsVersionDropdown',
             position: 'right',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/redstone-finance',
             label: 'GitHub',
             position: 'right',
           },
@@ -84,46 +68,50 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '👋 Community',
             items: [
               {
-                label: 'Docs',
-                to: '/',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Website',
+                href: 'https://redstone.finance',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://redstone.finance/discord',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/redstone_defi',
               },
             ],
           },
           {
-            title: 'More',
+            title: '🚀 We are hiring',
+            items: [
+              {
+                label: 'Open Positions',
+                href: 'https://angel.co/company/redstonefinance',
+              },
+              {
+                label: 'Our Team',
+                href: 'https://redstone.finance/team',
+              },
+            ],
+          },
+          {
+            title: '📚 More',
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                href: 'https://medium.com/@RedStone_Finance',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/redstone-finance',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} RedStone Oracles. <br/> Built with ❤️ and Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
