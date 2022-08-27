@@ -3,6 +3,6 @@ sidebar_position: 3
 sidebar_label: "📈 RedStone Web App"
 ---
 
-# RedStone Node
+# 📈 RedStone Web App
 
 TODO: add more content here
