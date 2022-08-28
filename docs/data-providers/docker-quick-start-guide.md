@@ -5,4 +5,6 @@ sidebar_label: "🚀 Docker Quick Start Guide"
 
 # 🚀 Docker Quick Start Guide
 
-TODO: add more content here
+:::info
+This section is under construction. But you can always reach out to us [on discord](https://redstone.finance/discord)
+:::
