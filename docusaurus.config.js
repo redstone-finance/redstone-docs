@@ -64,6 +64,9 @@ const config = {
           },
         ],
       },
+      announcementBar: {
+        content: '⭐️ If you like RedStone, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/redstone-finance/redstone-oracles-monorepo">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/redstone_defi">Twitter</a> ⭐️',
+      },
       footer: {
         style: 'dark',
         links: [
