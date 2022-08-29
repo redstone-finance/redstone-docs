@@ -36,3 +36,5 @@ You can check the integration with few of supported chains in the [RedStone Show
 - Oasis Network
 - Velas
 - And many more...
+
+You can write your own implementation for the blockchain of your choice. Feel free to contact us [on discord](https://redstone.finance/discord) for details.
