@@ -19,7 +19,17 @@ npm install redstone-evm-connector
 
 ## Usage
 
-### 1. Modifying your contracts
+:::tip
+TLDR; You need to do 2 things:
+1. [Adjust your smart contracts](#1-adjust-your-smart-contracts)
+2. [Adjust Javascript code of your dApp](#2-adjust-javascript-code-of-your-dapp) (**it is required**, otherwise you will get "ECDSA: invalid signature..." errors)
+:::
+
+:::caution
+Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that redstone-evm-connector does
+:::
+
+### 1. Adjust your smart contracts
 
 You need to apply a minium change to the source code to enable smart contract to access data. Your contract needs to extend the [PriceAware](https://github.com/redstone-finance/redstone-evm-connector/blob/master/contracts/message-based/PriceAware.sol) contract and override the implementation of `isSignerAuthorized` function.
 
@@ -67,7 +77,7 @@ uint256 ethPrice = getPriceFromMsg(bytes32("ETH"));
 
 You can see all available assets and symbols [in our web app.](https://app.redstone.finance/#/app/providers)
 
-### 2. Updating the interface
+### 2. Adjust Javascript code of your dApp
 
 You should also update the code responsible for submitting transactions. If you're using [ethers.js](https://github.com/ethers-io/ethers.js/), we've prepared a dedicated library to make the transition seamless.
 
