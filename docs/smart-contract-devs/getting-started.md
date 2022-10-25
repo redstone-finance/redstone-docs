@@ -7,75 +7,65 @@ sidebar_label: "🚀 Getting started"
 
 ## Installation
 
-Install [redstone-evm-connector](https://www.npmjs.com/package/redstone-evm-connector) from NPM registry
+Install [@redstone-finance/evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) from NPM registry
 
 ```bash
 # Using yarn
-yarn add redstone-evm-connector
+yarn add @redstone-finance/evm-connector
 
 # Using NPM
-npm install redstone-evm-connector
+npm install @redstone-finance/evm-connector
 ```
 
 ## Usage
 
 :::tip
 TLDR; You need to do 2 things:
+
 1. [Adjust your smart contracts](#1-adjust-your-smart-contracts)
-2. [Adjust Javascript code of your dApp](#2-adjust-javascript-code-of-your-dapp) (**it is required**, otherwise you will get "ECDSA: invalid signature..." errors)
-:::
+2. [Adjust Javascript code of your dApp](#2-adjust-javascript-code-of-your-dapp) (**it is required**, otherwise you will get smart contract errors)
+   :::
 
 :::caution
-Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that redstone-evm-connector does
+Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
 :::
 
 ### 1. Adjust your smart contracts
 
-You need to apply a minium change to the source code to enable smart contract to access data. Your contract needs to extend the [PriceAware](https://github.com/redstone-finance/redstone-evm-connector/blob/master/contracts/message-based/PriceAware.sol) contract and override the implementation of `isSignerAuthorized` function.
+You need to apply a minium change to the source code to enable smart contract to access data. Your contract needs to extend one of our custom base contracts, which can be found [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/contracts/data-services)
+
+We strongly recommend you to have some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly swtich to the latest trusted data providers in case of changes or problems with the current providers.
 
 ```js
-import "redstone-evm-connector/lib/contracts/message-based/PriceAware.sol";
+import "@redstone-finance/evm-connector/contracts/data-services/AvalancheDataServiceConsumerBase.sol";
 
-contract YourContractName is PriceAware {
-
-  function isSignerAuthorized(address _receviedSigner) public override virtual view returns (bool) {
-    // Put your logic of signers authorisation here
-    // You can check check evm addresses for providers at: https://api.redstone.finance/providers
-    return _receviedSigner == 0x0C39486f770B26F5527BBBf942726537986Cd7eb; // redstone main demo provider
-
-    // Uncomment for redstone-stocks demo provider
-    // return _receviedSigner == 0x926E370fD53c23f8B71ad2B3217b227E41A92b12;
-
-    // Uncomment for redstone-rapid demo provider
-    // return _receviedSigner == 0xf786a909D559F5Dee2dc6706d8e5A81728a39aE9;
-
-    // Uncomment for redstone-avalanche price feed (it has 2 authorised signers)
-    // return _receviedSigner == 0x3a7d971De367FE15D164CDD952F64205F2D9f10c
-    //   || _receviedSigner == 0x41ed5321B76C045f5439eCf9e73F96c6c25B1D75;
-
-    // Uncomment for redstone-avalanche-prod price feed (it has 12 authorised signers)
-    // return _receviedSigner == 0x981bdA8276ae93F567922497153de7A5683708d3
-    //   || _receviedSigner == 0x3BEFDd935b50F172e696A5187DBaCfEf0D208e48
-    //   || _receviedSigner == 0xc1D5b940659e57b7bDF8870CDfC43f41Ca699460
-    //   || _receviedSigner == 0x1Cd8F9627a2838a7DAE6b98CF71c08B9CbF5174a
-    //   || _receviedSigner == 0xbC5a06815ee80dE7d20071703C1F1B8fC511c7d4
-    //   || _receviedSigner == 0xe9Fa2869C5f6fC3A0933981825564FD90573A86D
-    //   || _receviedSigner == 0xDf6b1cA313beE470D0142279791Fa760ABF5C537
-    //   || _receviedSigner == 0xa50abc5D76dAb99d5fe59FD32f239Bd37d55025f
-    //   || _receviedSigner == 0x496f4E8aC11076350A59b88D2ad62bc20d410EA3
-    //   || _receviedSigner == 0x41FB6b8d0f586E73d575bC57CFD29142B3214A47
-    //   || _receviedSigner == 0xC1068312a6333e6601f937c4773065B70D38A5bF
-    //   || _receviedSigner == 0xAE9D49Ea64DF38B9fcbC238bc7004a1421f7eeE8
-  }
+contract YourContractName is AvalancheDataServiceConsumerBase {
+  ...
+}
 ```
 
-After applying the mentioned change you will be able to access the data calling the local [getPriceFromMsg](https://github.com/redstone-finance/redstone-evm-connector/blob/price-aware/contracts/message-based/PriceAware.sol#L29) function. You should pass the symbol of the asset converted to `bytes32`:
+💡 Note: You can also override the following functions (do it on your own risk):
+
+- `isTimestampValid(uint256 receivedTimestamp) returns (bool)` - to enable custom logic of timestamp validation
+- `aggregateValues(uint256[] memory values) returns (uint256)` - to enable custom logic of aggregating values from different providers (by default this function takes the median value)
+- `getAuthorisedSignerIndex(address _signerAddress) returns (uint256)` function and `uniqueSignersThreshold` contract variable - to enable custom logic of signers authorisation
+
+After applying the mentioned change you will be able to access the data calling the local `getOracleNumericValueFromTxMsg` function. You should pass the data feed id converted to `bytes32`.
 
 ```js
-uint256 ethPrice = getPriceFromMsg(bytes32("ETH"));
+// Getting a single value
+uint256 ethPrice = getOracleNumericValueFromTxMsg(bytes32("ETH"));
+
+// Getting several values
+bytes32[] memory dataFeedIds = new bytes32[](2);
+dataFeedIds[0] = bytes32("ETH");
+dataFeedIds[1] = bytes32("BTC");
+uint256[] memory values = getOracleNumericValuesFromTxMsg(dataFeedIds);
+uint256 ethPrice = values[0];
+uint256 btcPrice = values[1];
 ```
 
-You can see all available assets and symbols [in our web app.](https://app.redstone.finance/#/app/providers)
+You can see all available data feeds [in our web app.](https://app.redstone.finance)
 
 ### 2. Adjust Javascript code of your dApp
 
@@ -87,42 +77,26 @@ First, you need to import the wrapper code to your project
 
 ```ts
 // Typescript
-import { WrapperBuilder } from "redstone-evm-connector";
+import { WrapperBuilder } from "@redstone-finance/evm-connector";
 
 // Javascript
-const { WrapperBuilder } = require("redstone-evm-connector");
+const { WrapperBuilder } = require("@redstone-finance/evm-connector");
 ```
 
-Then you can wrap your ethers contract pointing to the selected [Redstone data provider.](https://api.redstone.finance/providers) You can also specify the single asset that you would like to pass to your contract. It helps to decrease transactions GAS cost, because in this case only the data for the provided asset will be passed to the contract.
+Then you can wrap your ethers contract pointing to the selected [Redstone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and optionally urls for the redstone cache nodes.
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
 
 // Connecting all provider's prices (consumes more GAS)
-const wrappedContract = WrapperBuilder
-                          .wrapLite(yourEthersContract)
-                          .usingPriceFeed("redstone");
-
-// Connecting a single price from selected provider
-const wrappedContract = WrapperBuilder
-                          .wrapLite(yourEthersContract)
-                          .usingPriceFeed("redstone-stocks", { asset: "AAPL" });
-
-// Connecting a custom provider (with a custom price feed configuration)
-// You can check example price feed configurations here: https://github.com/redstone-finance/redstone-evm-connector/tree/master/utils/v2/connector/impl/default-data-sources
-const wrappedContract = WrapperBuilder
-                          .wrapLite(yourEthersContract)
-                          .usingPriceFeed("custom", {
-                            asset: "AAPL",
-                            dataSources: {
-                              sources: [...],
-                              valueSelectionAlgorithm: "first-valid",
-                              timeoutMilliseconds: 10000,
-                              maxTimestampDiffMilliseconds: 150000,
-                              preVerifySignatureOffchain: true,
-                            }
-                          });
-
+const wrappedContract = WrapperBuilder.wrap(contract).usingDataService(
+  {
+    dataServiceId: "redstone-avalanche-prod",
+    uniqueSignersCount: 10,
+    dataFeeds: ["AVAX", "ETH", "PNG"],
+  },
+  ["https://d33trozg86ya9x.cloudfront.net"]
+);
 ```
 
 Now you can access any of the contract's methods in exactly the same way as interacting with the ethers-js code:
@@ -131,67 +105,10 @@ Now you can access any of the contract's methods in exactly the same way as inte
 wrappedContract.executeYourMethod();
 ```
 
-<!-- Hidden since we moved the logic of provider authorisation to the smart contract function -->
-<!-- #### Provider authorization
-If you're the owner of the contract, you should authorize a data provider after the contract deployment. You should do it before users will interact with your contract. Because the provider authenticity will be checked via signature verification whenever a user submits a transaction accessing the data. There are 2 ways of provider authorization:
-##### 1. Simple authorization
-We recommend to use this option. It will automatically authorize the correct public address based on your configured price feed.
-```js
-await wrappedContract.authorizeProvider();
-```
-##### 2. Authorization by ethereum address
-This option requires the provider's ethereum address. You can check the redstone providers' details using [RedStone API.](https://api.redstone.finance/providers)
-```js
-await yourEthersContract.authorizeSigner("REPLACE_WITH_DATA_PROVIDER_ETHEREUM_ADDRESS")
-``` -->
-
 #### Mock provider
 
-If you'd like to use the wrapper in a test context, we recommend using a mock provider when you can easily override the price to test different scenarios:
-
-To test contracts with mock provider please be sure to authorize the following signer address: `0xFE71e9691B9524BC932C23d0EeD5c9CE41161884`. But **don't use this address in production**, because its private key s publicly known.
-
-##### Example authorization in contract
-
-```js
-import "redstone-evm-connector/lib/contracts/message-based/PriceAware.sol";
-
-contract YourContractName is PriceAware {
-
-  function isSignerAuthorized(address _receviedSigner) public override virtual view returns (bool) {
-    return _receviedSigner == 0xFE71e9691B9524BC932C23d0EeD5c9CE41161884; // mock provider address
-  }
-```
-
-##### Option 1. Object with prices
-
-```js
-const wrappedContract = WrapperBuilder.mockLite(yourEthersContract).using({
-  ETH: 2005,
-  BTC: 45000,
-  REDSTONE: 100000,
-});
-```
-
-##### Option 2. Function (timestamp => PricePackage)
-
-```js
-function mockPriceFun(curTimestamp) {
-  return {
-    timestamp: curTimestamp - 5000,
-    prices: [
-      { symbol: "ETH", value: 2005 },
-      { symbol: "BTC", value: 45000 },
-    ],
-  };
-}
-
-const wrappedContract =
-  WrapperBuilder.mockLite(yourEthersContract).using(mockPriceFun);
-```
-
-We're also working on a wrapper for the truffle/web3 contracts. Please [let us know](https://redstone.finance/discord) if you need a solution for other frameworks as well.
+If you'd like to use the wrapper in a test context, we recommend using a mock wrapper when you can easily override the oracle values to test different scenarios. To use the mock wrapper just use the `usingMockData(signedDataPackages)` function instead of the `usingDataService` function. You can see examples of the mock wrapper [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/test/mock-wrapper)
 
 ## Working demo
 
-You can see examples of `redstone-evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-connector-examples).
+You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
