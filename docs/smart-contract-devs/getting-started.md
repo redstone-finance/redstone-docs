@@ -24,7 +24,8 @@ TLDR; You need to do 2 things:
 
 1. [Adjust your smart contracts](#1-adjust-your-smart-contracts)
 2. [Adjust Javascript code of your dApp](#2-adjust-javascript-code-of-your-dapp) (**it is required**, otherwise you will get smart contract errors)
-   :::
+
+:::
 
 :::caution
 Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
@@ -107,7 +108,7 @@ wrappedContract.executeYourMethod();
 
 #### Mock provider
 
-If you'd like to use the wrapper in a test context, we recommend using a mock wrapper when you can easily override the oracle values to test different scenarios. To use the mock wrapper just use the `usingMockData(signedDataPackages)` function instead of the `usingDataService` function. You can see examples of the mock wrapper [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/test/mock-wrapper)
+If you'd like to use the wrapper in a test context, we recommend using a mock wrapper so that you can easily override the oracle values to test different scenarios. To use the mock wrapper just use the `usingMockData(signedDataPackages)` function instead of the `usingDataService` function. You can see examples of the mock wrapper usage [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/test/mock-wrapper)
 
 ## Working demo
 

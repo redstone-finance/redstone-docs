@@ -80,7 +80,7 @@ We support 2 types of data to be received in contract:
 
 ## Benchmarks
 
-You can check the benchmarks script and reports in the [benchmarks](./benchmarks) folder.
+You can check the benchmarks script and reports [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/benchmarks)
 
 ### Gas report for 1 unique signer:
 
