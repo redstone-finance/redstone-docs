@@ -33,9 +33,9 @@ Please don't use Remix to test RedStone oracles, as Remix does not support modif
 
 ### 1. Adjust your smart contracts
 
-You need to apply a minium change to the source code to enable smart contract to access data. Your contract needs to extend one of our custom base contracts, which can be found [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/contracts/data-services)
+You need to apply a minimum change to the source code to enable smart contract to access data. Your contract needs to extend one of our custom base contracts, which can be found [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/contracts/data-services)
 
-We strongly recommend you to have some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly swtich to the latest trusted data providers in case of changes or problems with the current providers.
+We strongly recommend having some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly switch to the latest trusted data providers in case of changes or problems with the current providers.
 
 ```js
 import "@redstone-finance/evm-connector/contracts/data-services/AvalancheDataServiceConsumerBase.sol";
@@ -45,7 +45,7 @@ contract YourContractName is AvalancheDataServiceConsumerBase {
 }
 ```
 
-💡 Note: You can also override the following functions (do it on your own risk):
+💡 Note: You can also override the following functions (do it at your own risk):
 
 - `isTimestampValid(uint256 receivedTimestamp) returns (bool)` - to enable custom logic of timestamp validation
 - `aggregateValues(uint256[] memory values) returns (uint256)` - to enable custom logic of aggregating values from different providers (by default this function takes the median value)
@@ -84,7 +84,7 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
 ```
 
-Then you can wrap your ethers contract pointing to the selected [Redstone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and optionally urls for the redstone cache nodes.
+Then you can wrap your ethers contract pointing to the selected [Redstone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
