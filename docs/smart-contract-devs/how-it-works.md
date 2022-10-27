@@ -54,7 +54,7 @@ To increase the security of the Redstone oracle system, we've created the on-cha
 
 There are the following on-chain aggregation params in Redstone consumer base contract:
 
-- `uniqueSignersThreshold` value
+- `getUniqueSignersThreshold` function
 - `getAuthorisedSignerIndex` function
 - `aggregateValues` function (for numeric values)
 - `aggregateByteValues` function (for bytes arrays)
@@ -68,7 +68,7 @@ We support 2 types of data to be received in contract:
 
 ## Security considerations
 
-- Do not modify the `uniqueSignersThreshold` variable, unless you are 100% sure about it
+- Do not override the `getUniqueSignersThreshold` function, unless you are 100% sure about it
 - Pay attention to the timestamp validation logic. For some use-cases (e.g. synthetic DEX), you would need to cache the latest values in your contract storage to avoid arbitrage attacks
 - Enable secure upgradability mechanism for your contract (ideally based on multi-sig or DAO)
 - Monitor the Redstone data services registry and quickly modify signer authorisation logic in your contracts in case of changes (we will also notify you if you are a paying client)
