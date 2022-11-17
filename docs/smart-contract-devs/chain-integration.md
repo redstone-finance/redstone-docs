@@ -13,9 +13,10 @@ If you want to test your chain there is an example contract and script [here](ht
 
 1. Deploy integration example contract to your chain
 2. Fill in missing parameters and run an example Typescript script that does the following things:
-  - fetches data from the decentralized cache layer,
-  - adds signed price data to transaction data,
-  - interacts with the contract and receives price data.
+
+- fetches data from the decentralized cache layer,
+- adds signed price data to transaction data,
+- interacts with the contract and receives price data.
 
 You should be able to see price data logged to the console.
 
@@ -23,4 +24,10 @@ You should be able to see price data logged to the console.
 
 Currently, we support mainly EVM-compatible chains. Our team developed an [evm-connector](https://docs.redstone.finance/docs/smart-contract-devs/getting-started#usage) that makes RedStone Oracles integrated with them out of the box.
 
-There are examples of other connectors implemented by the community or developers from a specific chain. One of them can be seen [here](https://stacks.org/redstone). In terms of building connectors for specific chains feel free to contact us.
+But we also support some non-EVM-compatible chains:
+
+- [TRON](https://github.com/redstone-finance/redstone-tron-integration)
+- [Stacks](https://stacks.org/redstone)
+- [Near](https://github.com/redstone-finance/redstone-near-connectors)
+
+Feel free to contact us [on discord](https://redstone.finance/discord) if you would like to implement a connector to any other non-EVM-compatible chain. We'll be happy to assist you.
