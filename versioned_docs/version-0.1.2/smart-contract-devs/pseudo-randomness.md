@@ -1,9 +1,9 @@
 ---
 sidebar_position: 7
-sidebar_label: "🎲 Pseudo randomness"
+sidebar_label: "🎲 Randomness"
 ---
 
-# 🎲 Pseudo randomness
+# 🎲 Randomness
 
 RedStone deliver entropy proxied from https://drand.love/, which can be used to power pseudo-random number generation in Smart Contracts.
 
