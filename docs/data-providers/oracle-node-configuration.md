@@ -15,14 +15,23 @@ sidebar_label: "⚙️ Oracle node configuration"
 
 ### Environment variables configuration
 
-To see all the supported environment variables take a look at [this file.](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/src/config.ts)
+You can configure environment vairables using the local `.env` file.
 
-- `USE_NEW_SIGNING_AND_BROADCASTING=true`
+1. Set the `ECDSA_PRIVATE_KEY` and `ARWEAVE_KEYS_JWK` variables to your proviate keys. The private keys will be used to sign the oracle data by your node.
+
 - `ECDSA_PRIVATE_KEY=0x123...`
 - `ARWEAVE_KEYS_JWK={"k":...`
-- `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["xxx.yyy.secret-1.com","xxx.yyy.secret-2.com"]`
+
+2. Specify the manifest file using the `OVERRIDE_MANIFEST_USING_FILE` variable.
+
 - `OVERRIDE_MANIFEST_USING_FILE=./manifests/data-services/avalanche.json`
-- `ENABLE_STREAMR_BROADCASTING=true`
+
+3. Specify the list of direct cache service URLs that you have recevied from the RedStone team. These are web applications hosted by the RedStone team, and they can be used as data sources with lower latency. The RedStone architecture can also work without them, relying only on the Streamr Network, but direct cache services provide faster access to the oracle data. Please **keep these URLs in secret**, as the data from the direct cache services are served under different ones.
+
+- `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://xxx.yyy.secret-1.com","https://zzz.aaa.secret-2.com"]`
+
+4. Set the path to the level DB. Each RedStone oracle node relies on a single level DB. It is used to store recently fetched pricing values from the last 10-15 minutes. These values can be used for checking value deviations and preventing price manipulations attacks.
+
 - `LEVEL_DB_LOCATION=/oracle-node-level-db`
 
-You can configure environment vairables using the local `.env` file.
+To see all the supported environment variables (including optional), please take a look at [this file.](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/src/config.ts)
