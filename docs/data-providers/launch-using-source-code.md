@@ -9,5 +9,5 @@ sidebar_label: "Launch using source code"
 - Install dependencies using `yarn install` command
 - Go to the oracle-node folder using `cd packages/oracle-node` command
 - Run `yarn build` (it will build Typescript to Javascript and put the output code to the `dist` folder)
-- Configure environment variables using the .env fileoracle-node-configuration)
+- Configure environment variables using the .env file
 - Run `yarn start:prod`
