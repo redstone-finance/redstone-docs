@@ -1,9 +1,9 @@
 ---
-sidebar_position: 1
-sidebar_label: "🖥 Requirements"
+sidebar_position: 3
+sidebar_label: "System Requirements"
 ---
 
-# 🖥 Requirements
+# System Requirements
 
 The hardware requirements for running a RedStone node are incredibly low. Obviously, the more resources you spare when provisioning your machine, the better it will perform and the less likely it will be to run into issues.
 
@@ -11,4 +11,4 @@ The hardware requirements for running a RedStone node are incredibly low. Obviou
 
 - 1GB of RAM
 - Reliable access to the Internet
-- At least 30 GB of storage
+- At least 30 GB of storage (mainly for logs data)

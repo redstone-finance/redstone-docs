@@ -1,9 +1,0 @@
-{
-  "label": "🚀 Launch a node",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "You can select any way you prefer to launch the RedStone oracle node"
-  },
-  "collapsed": false
-}
