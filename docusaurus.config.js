@@ -74,6 +74,12 @@ const config = {
         backgroundColor: '#FD627A',
         textColor: 'white',
       },
+      algolia: {
+        appId: 'BXXQLGVS3Y',
+        apiKey: '3e7ddfe0b2a2ce34495188bd1e433dd4',
+        indexName: 'redstone',
+        contextualSearch: true,
+      },
       footer: {
         style: 'dark',
         links: [
