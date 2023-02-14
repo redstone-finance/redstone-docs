@@ -11,7 +11,7 @@ You can run RedStone oracle node [using source code](./launch-using-source-code)
 :::
 
 :::info Data availability
-RedStone consumers will be able to use the data published by your node [on all supported chains.](../smart-contract-devs//supported-chains) You can learn more about the RedStone model [here.](../smart-contract-devs/how-it-works.md)
+RedStone consumers will be able to use the data published by your node [on all supported chains.](../smart-contract-devs/supported-chains) You can learn more about the RedStone model [here.](../smart-contract-devs/how-it-works.md)
 :::
 
 ### Requirements
