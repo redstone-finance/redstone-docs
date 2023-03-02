@@ -55,6 +55,10 @@ The RedStone ecosystem could be divided into 3 main areas:
   - Concept → [Argue protocol](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/docs/DISPUTE_RESOLUTION.md)
   - Implementation → [RedStone eth contracts](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/eth-contracts)
 
+### Data flow diagram
+
+![redstone-data-flow-diagram](https://user-images.githubusercontent.com/48165439/219980955-7f82a300-a8d8-41af-861d-0efa1fcbb0c7.png)
+
 ## Token design
 
 The token facilitates the provision of reliable and accurate information from the outside world to blockchain networks.
