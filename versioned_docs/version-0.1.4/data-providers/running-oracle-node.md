@@ -44,7 +44,7 @@ Be sure to put your environment variables in the `.env` file using the instructi
 Then, you can launch the RedStone oracle node using the following command:
 
 ```sh
-docker run --env-file .env -d --restart=always -v redstone-oracle-node:/oracle-node-level-db --name redstone-oracle-node public.ecr.aws/y7v2w8b2/redstone-oracle-node:7d49220
+docker run --env-file .env -d --restart=always -v redstone-oracle-node:/oracle-node-level-db --name redstone-oracle-node public.ecr.aws/y7v2w8b2/redstone-oracle-node:7410a39
 ```
 
 ## 2. Running a production node
