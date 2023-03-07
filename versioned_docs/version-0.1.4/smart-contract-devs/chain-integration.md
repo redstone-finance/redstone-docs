@@ -22,7 +22,7 @@ You should be able to see price data logged to the console.
 
 ## Starknet
 
-RedStone Oracles can be integrated with Starknet thanks to the [cairo-connector](https://github.com/redstone-finance/redstone-oracles-monorepo/packages/cairo-connector/). Examples can be found [here](https://starknet-showroom.redstone.finance/). The documentation of contracts can be found [here](https://github.com/redstone-finance/redstone-oracles-monorepo/packages/cairo-connector/src/contracts/README.md)
+RedStone Oracles can be integrated with Starknet thanks to the [cairo-connector](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/cairo-connector/). Examples can be found [here](https://starknet-showroom.redstone.finance/). The documentation of contracts can be found [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/cairo-connector/src/contracts/README.md)
 
 ## Non EVM-compatible chains
 
