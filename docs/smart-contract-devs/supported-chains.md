@@ -35,6 +35,7 @@ You can check the integration with few of supported chains in the [RedStone Show
 - OKC
 - Oasis Network
 - Velas
+- Caduceus
 - And many more...
 
 ### We also support few non-EVM-compatible chains
