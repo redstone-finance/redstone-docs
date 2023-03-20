@@ -28,13 +28,13 @@ The model consists of two main parts. The first one is the off-chain [relayer](#
 
 The relayer is a service which works in a customizable way based on [environment variables](#environment-variables). It periodically checks a defined set of conditions, pushing the prices when they are satisfied. It is possible to pass multiple conditions to the `UPDATE_CONDITIONS`, then relayer will work in the manner that if any conditions are met prices would be updated. Currently, two conditions are implemented:
 
-- `time` condition described by `UPDATE_PRICE_INTERVAL` variable in milliseconds, which states how often prices should be updated (aka heartbeat), [code](./src/core/update-conditions/time-condition.ts)
+- `time` condition described by `UPDATE_PRICE_INTERVAL` variable in milliseconds, which states how often prices should be updated (aka heartbeat), [code](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/src/core/update-conditions/time-condition.ts)
 
-- `value-deviation` condition described by `MIN_DEVIATION_PERCENTAGE` variable which indicates how much value should change in order to trigger the price update, [code](./src/core/update-conditions/value-deviation-condition.ts)
+- `value-deviation` condition described by `MIN_DEVIATION_PERCENTAGE` variable which indicates how much value should change in order to trigger the price update, [code](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/src/core/update-conditions/value-deviation-condition.ts)
 
 ### Contracts
 
-The on-chain relayer is based on is the [PriceFeedsAdapter contract](./contracts/price-feeds/PriceFeedsAdapter.sol) which is responsible for:
+The on-chain relayer is based on is the [PriceFeedsAdapter contract](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/contracts/price-feeds/PriceFeedsAdapter.sol) which is responsible for:
 
 - storing all price feeds symbols (mappings to RedStone dataFeedId),
 - storing price feeds values,
@@ -42,7 +42,7 @@ The on-chain relayer is based on is the [PriceFeedsAdapter contract](./contracts
 - storing information regarding the round number and timestamp of the last update,
 - getting prices for multiple feeds values in a single call.
 
-Additionally, if the protocol wants to be 100% compatible with the Chainlink PriceFeed architecture, it's possible to deploy additional [PriceFeed](./contracts/price-feeds/PriceFeed.sol) contracts to mimic this solution.
+Additionally, if the protocol wants to be 100% compatible with the Chainlink PriceFeed architecture, it's possible to deploy additional [PriceFeed](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/contracts/price-feeds/PriceFeed.sol) contracts to mimic this solution.
 
 ### Environment variables
 
@@ -63,4 +63,4 @@ Additionally, if the protocol wants to be 100% compatible with the Chainlink Pri
 | CACHE_SERVICE_URLS         | RedStone Wrapper parameter which describes what cache services URLs will be used to fetch the price, more can be found [here](https://docs.redstone.finance/docs/smart-contract-devs/getting-started#2-adjust-javascript-code-of-your-dapp) |
 | GAS_LIMIT                  | Gas limit used to push data to the price feed contract                                                                                                                                                                                      |
 
-Examples of environment variables already working can be found [here](./deployed-config/).
+Examples of environment variables already working can be found [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/on-chain-relayer/deployed-config).
