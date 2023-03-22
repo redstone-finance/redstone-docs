@@ -1,15 +1,26 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 sidebar_label: "💡 How it works?"
 ---
 
 # 💡 How it works
 
-## Storage-less approach
+## Modular design
 
-Putting data directly into storage is the easiest to make information accessible to smart contracts. However, the convenience comes at a high price, as the storage access is the most costly operation in [EVM](https://ethereum.github.io/yellowpaper/paper.pdf) (20k gas for 256bit word ~ $160k for 1Mb checked 30/08/2021) making it prohibitively expensive to use.
+Putting data directly into storage is the easiest to make information accessible to smart contracts. This approach used to work well for large update intervals and small number of assets. However, there are more and more tokens coming to DeFi and modern derivative protocols require much lower latency boosting the maintenance costs of the simple model.
 
-That's why, Redstone proposes a completely new storage-less approach.
+That's why, Redstone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol. 
+
+Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
+
+- Redstone Core, where data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process is fits into a single transaction
+
+- Redstone Classic, where data is put into storage catering to protocols that have a code base designed for the traditional Oracle model but would like to have efficiency and flexibility by deciding on the data update conditions
+
+- Redstone X, targetting the needs of the most advanced protocols such as perpetuals and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
+
+
+## Data Flow
 
 At a top level, transferring data to an EVM environment requires packing an extra payload to a user's transaction and processing the message on-chain.
 
