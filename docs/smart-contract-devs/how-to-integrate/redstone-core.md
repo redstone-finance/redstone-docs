@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
-sidebar_label: "🚀 Core (on-demand feeds)"
+sidebar_label: "⚙️ Core (on-demand feeds)"
 ---
 
-# 🚀 Core Model - fetching prices on-demand
+# ⚙️ Core Model
+## Fetching prices on-demand
 
 This is our basic operating model when the data ia automatically appended to users transaction.  
 

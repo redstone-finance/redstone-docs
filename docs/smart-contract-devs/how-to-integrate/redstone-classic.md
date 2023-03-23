@@ -3,7 +3,8 @@ sidebar_position: 2
 sidebar_label: "🏛 Classic (push model)"
 ---
 
-# 🏛 Classic Model - pushing feeds on chain
+# 🏛 Classic Model
+## Pushing feeds on chain
 
 
 Although the pure on-demand fetching model ([Redstone Core](./redstone-core.md)) is more efficient and scalable we acknowledge that some protocols may prefer to stick to a traditional design when data is pushed on-chain. This setup could be reasonable if:
@@ -32,7 +33,7 @@ The relayer is a service that works in a customizable way based on [environment 
 - a `value-deviation` condition described by `MIN_DEVIATION_PERCENTAGE` variable which indicates how much value should change in order to trigger the price update, [code](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/src/core/update-conditions/value-deviation-condition.ts).
 
 :::info
-Relayers are permissionless and anyone could run the service as the data is eventually validated on-chain using conditions defined by the protocol stakeholders. Moreover, the relayers could work in parallel and we recommend having multiple (ideally independent) nodes to mitigate the risks of a single point of failure and censorship.  
+Relayers are permissionless and anyone could run the service as the data is eventually validated on-chain using conditions defined by the protocol stakeholders. Moreover, the relayers designed to work in parallel and we recommend having multiple (ideally independent) nodes to mitigate the risks of a single point of failure and censorship.  
 :::
 
 ### Contracts
