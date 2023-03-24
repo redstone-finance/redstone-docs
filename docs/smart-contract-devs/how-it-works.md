@@ -19,8 +19,21 @@ Depending of the smart contract architecture and business demands we can deliver
 
 - [Redstone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
 
-
 ## Data Flow
+
+![Redstone Architecture Diagram](/img/architecture.png)
+
+The price feeds comes from multiiple sources such as off-chain DEX'ed ([Binance](https://binance.com), [Coinbase](https://coinbase.com) & [Kraken](https://kraken.com), etc.), on-chain DEX'es ([Uniswap](https://uniswap.org/), [Sushiswap](https://www.sushi.com/), [Balancer](https://balancer.fi/), etc.) and aggregators ([CoinmarketCap](https://coinmarketcap.com/), [Coingecko](https://www.coingecko.com/), [Kaiko](https://www.kaiko.com/)). Currently, we've got more than [50 sources integrated](https://app.redstone.finance/#/app/sources).
+
+The data is aggregated in independent nodes operated by data providers using various methodologies (eg. median, TWAP, LWAP) and safety measures like outliers detection. The cleaned and processed data is then signed by node operators underwriting the quality. 
+
+The feeds are broadcasted both on the [StreamR](https://streamr.network/) and directly to open-source [gateways](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/cache-service) which could be easily spun off on demand. 
+
+The data could be pushed on-chain either by a dedicated relayer operating under predefined conditions (ie. heartbeat or price deviation), by a bot (ie. performing liquidations), or even by end users interacting with the protocol. 
+
+Inside the protocol, the data is unpacked and verified by cryptographically checking both the origin and timestamps.
+
+## Data Format
 
 At a top level, transferring data to an EVM environment requires packing an extra payload to a user's transaction and processing the message on-chain.
 
