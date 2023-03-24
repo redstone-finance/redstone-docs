@@ -13,11 +13,11 @@ That's why, Redstone proposes a completely new modular design where data is firs
 
 Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
 
-- [Redstone Core](./how-to-integrate/redstone-core.md), where data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process is fits into a single transaction
+- [Redstone Core](./get-started/redstone-core.md), where data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process is fits into a single transaction
 
-- [Redstone Classic](./how-to-integrate/redstone-classic.md), where data is put into storage catering to protocols that have a code base designed for the traditional Oracle model but would like to have efficiency and flexibility by deciding on the data update conditions
+- [Redstone Classic](./get-started/redstone-classic.md), where data is put into storage catering to protocols that have a code base designed for the traditional Oracle model but would like to have efficiency and flexibility by deciding on the data update conditions
 
-- [Redstone X](./how-to-integrate/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
+- [Redstone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
 
 
 ## Data Flow

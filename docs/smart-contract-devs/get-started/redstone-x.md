@@ -8,9 +8,9 @@ sidebar_label: "⏱ X (no front-running)"
 
 The model implements a `Deferred execution pattern` where transactions are processed in two steps:
 
-1. A user initiates the transaction by recording on-chain an intention to interact with the protocol (ie. open a perpetual position) without knowing the context (ie. price) in which the transaction will be executed. This mitigates any attempts to arbitrage the protocols by front-running price delivery from Oracles. 
+1. A user initiates the transaction by recording on-chain an intention to interact with the protocol (ie. open a perpetual position) without knowing the exact context (ie. price) in which the transaction will be executed. This mitigates any attempts to arbitrage the protocols by front-running price delivery from Oracles. 
 
-2. The price is delivered only in the second step, which usually happens at the very next block. Anyone (including the user himself) could provide on-chain a price that is valid in the very next block and such a price will be used to settle the transaction. 
+2. The price is pushed on-chain only in the second step, which usually happens at the very next block. Anyone (including the user himself) could push the price, as its integrity is validated on-chain based on the protocol constraints. Such a price will be used to finally settle the transaction. 
 
 This model was popularised by perpetual protocols such as [GMX](https://gmx.io/#/) and it enables a new wave of super-efficient DeFi projects that are rapidly growing despite the bear market. 
 

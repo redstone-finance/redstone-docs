@@ -8,6 +8,13 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 
 This is our basic operating model when the data ia automatically appended to users transaction.  
 
+:::important In Prod
+
+It is the most mature way to use RedStone, battle tested in production, protecting ~$20M for [DeltaPrime](https://deltaprime.io/) protocol where the price feeds were injected 
+to [~25K transactions](https://dune.com/hatskier/redstone). 
+
+:::
+
 ## Installation
 
 Install [@redstone-finance/evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) from NPM registry
