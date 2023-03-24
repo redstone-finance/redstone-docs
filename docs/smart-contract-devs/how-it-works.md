@@ -11,6 +11,8 @@ Putting data directly into storage is the easiest to make information accessible
 
 That's why, RedStone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol. 
 
+## 3 Ways to integrate
+
 Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
 
 - [Redstone Core](./get-started/redstone-core.md), data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process fits into a single transaction

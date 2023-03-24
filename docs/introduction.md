@@ -29,8 +29,8 @@ RedStone offers a radically different design of Oracles catering to the needs of
 
 ## Key facts
 
-- The [modular architecture](./smart-contract-devs/how-it-works.md##DataFlow) maintains [data integrity](./smart-contract-devs/how-it-works.md##DataFormat) from source to smart contracts
-- There are [3 different ways](./smart-contract-devs/get-started/) to integrate our service tailored to your needs
+- The [modular architecture](./smart-contract-devs/how-it-works.md#data-flow) maintains [data integrity](./smart-contract-devs/how-it-works.md#data-format) from source to smart contracts
+- There are [3 different ways](./smart-contract-devs/how-it-works.md#3-ways-to-integrate) to integrate our service tailored to your needs
 - We provide feeds for more than [1000 assets](https://app.redstone.finance/#/app/tokens) integrating [~50 data sources](https://app.redstone.finance/#/app/sources)
 - We are present on [20+ chains](https://showroom.redstone.finance/) 
 
