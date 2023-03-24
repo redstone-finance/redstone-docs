@@ -41,6 +41,12 @@ You can check the integration with few of supported chains in the [RedStone Show
 
 - [TRON](https://github.com/redstone-finance/redstone-tron-integration)
 - [Stacks](https://stacks.org/redstone)
+- [StarkNet](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/cairo-connector)
 - [Near](https://github.com/redstone-finance/redstone-near-connectors)
 
+:::important Other chains
+Potentially you can use it on any other chain but it would require some custom development.
 You can write your own implementation for the blockchain of your choice. Feel free to contact us [on discord](https://redstone.finance/discord) for details.
+:::
+
+

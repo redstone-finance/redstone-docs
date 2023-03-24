@@ -38,7 +38,7 @@ Relayers are permissionless and anyone could run the service as the data is even
 
 ### Contracts
 
-The on-chain relayer is based on is the [PriceFeedsAdapter contract](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/contracts/price-feeds/PriceFeedsAdapter.sol) which is responsible for:
+The on-chain relayer is based on the [PriceFeedsAdapter contract](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/contracts/price-feeds/PriceFeedsAdapter.sol) which is responsible for:
 
 - storing all price feeds' symbols (mappings to RedStone dataFeedId),
 - storing price feeds values,
@@ -61,10 +61,10 @@ Additionally, if the protocol wants to be 100% compatible with the Chainlink Pri
 | CHAIN_ID                   | Chain id of the blockchain relayer should work on                                                                                                                                                                                           |
 | PRIVATE_KEY                | Private key of the wallet with funds on a proper network to push prices to the adapter contract                                                                                                                                          |
 | ADAPTER_CONTRACT_ADDRESS   | Address of the adapter contract deployed on a proper network                                                                                                                                                                                |
-| DATA_SERVICE_ID            | RedStone Wrapper parameter that describes what data services should be used to fetch the price, more can be found [here](https://docs.redstone.finance/docs/smart-contract-devs/getting-started#2-adjust-javascript-code-of-your-dapp)     |
-| UNIQUE_SIGNERS_COUNT       | RedStone Wrapper parameter that describes how many unique signers should sign price data, more can be found [here](https://docs.redstone.finance/docs/smart-contract-devs/getting-started#2-adjust-javascript-code-of-your-dapp)            |
-| DATA_FEEDS                 | RedStone Wrapper parameter that describes what tokens will be used, more can be found [here](https://docs.redstone.finance/docs/smart-contract-devs/getting-started#2-adjust-javascript-code-of-your-dapp)                                 |
-| CACHE_SERVICE_URLS         | RedStone Wrapper parameter that describes what cache services URLs will be used to fetch the price, more can be found [here](https://docs.redstone.finance/docs/smart-contract-devs/getting-started#2-adjust-javascript-code-of-your-dapp) |
+| DATA_SERVICE_ID            | RedStone Wrapper parameter that describes what data services should be used to fetch the price     |
+| UNIQUE_SIGNERS_COUNT       | RedStone Wrapper parameter that describes how many unique signers should sign price data            |
+| DATA_FEEDS                 | RedStone Wrapper parameter that describes what tokens will be used                                 |
+| CACHE_SERVICE_URLS         | RedStone Wrapper parameter that describes what cache services URLs will be used to fetch the price |
 | GAS_LIMIT                  | Gas limit used to push data to the price feed contract                                                                                                                                                                                      |
 
 Examples of environment variables already working can be found [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/on-chain-relayer/deployed-config).

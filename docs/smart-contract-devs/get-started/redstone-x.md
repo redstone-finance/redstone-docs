@@ -3,7 +3,7 @@ sidebar_position: 3
 sidebar_label: "⏱ X (no front-running)"
 ---
 
-# ⏱ Redstone X
+# ⏱ RedStone X
 ## An eXtreme protection against front-running
 
 The model implements a `Deferred execution pattern` where transactions are processed in two steps:
@@ -18,7 +18,7 @@ This model was popularised by perpetual protocols such as [GMX](https://gmx.io/#
 TLDR; You need to do 2 things:
 
 1. Adjust your contracts to execute price-sensitive transactions in 2-phases (we provide libraries to facilitate it).
-2. Deploy a relayer that automatically fetches the price and triggers the execution.  
+2. Deploy a resolver service that automatically fetches the price and triggers the execution.  
 :::
 
 ![Redstone X diagram](/img/redstone-x.png)

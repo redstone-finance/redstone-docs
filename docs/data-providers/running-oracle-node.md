@@ -23,7 +23,7 @@ RedStone consumers will be able to use the data published by your node [on all s
 
 ### Node configuration
 
-Redstone oracle node should be configured usning environment variables. You can configure them in any preferred way, e.g. using a local `.env` file.
+RedStone oracle node should be configured usning environment variables. You can configure them in any preferred way, e.g. using a local `.env` file.
 
 :::success Quick start configuration
 We've prepared a simple .env file and a bash script so you can quickly run your first oracle node. You can find them [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node/tools/quick-start)
@@ -70,7 +70,7 @@ Please send your ethereum address and public key to the RedStone team. Your addr
 
 You can use [this script](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/tools/ethereum/get-details-from-private-key.js) for obtaining your address and public key from your private key, but we strongly recommend to use your own trusted infrastructure for interacting with your private keys.
 
-We will also send you personal private gateways to the Redstone data delivery network, which should be specified using the `OVERRIDE_DIRECT_CACHE_SERVICE_URLS` environment variable.
+We will also send you personal private gateways to the RedStone data delivery network, which should be specified using the `OVERRIDE_DIRECT_CACHE_SERVICE_URLS` environment variable.
 
 ### Deploy your node
 

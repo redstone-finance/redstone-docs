@@ -9,15 +9,15 @@ sidebar_label: "💡 How it works?"
 
 Putting data directly into storage is the easiest to make information accessible to smart contracts. This approach used to work well for large update intervals and small number of assets. However, there are more and more tokens coming to DeFi and modern derivative protocols require much lower latency boosting the maintenance costs of the simple model.
 
-That's why, Redstone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol. 
+That's why, RedStone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol. 
 
 Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
 
-- [Redstone Core](./get-started/redstone-core.md), where data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process is fits into a single transaction
+- [Redstone Core](./get-started/redstone-core.md), data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process fits into a single transaction
 
-- [Redstone Classic](./get-started/redstone-classic.md), where data is put into storage catering to protocols that have a code base designed for the traditional Oracle model but would like to have efficiency and flexibility by deciding on the data update conditions
+- [Redstone Classic](./get-started/redstone-classic.md), data is pushed into on-chain storage via relayer. Dedicated to protocols designed for the traditional Oracles model, that want to have full control of the data source and update conditions.
 
-- [Redstone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
+- [Redstone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals, options and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
 
 ## Data Flow
 
@@ -31,7 +31,7 @@ The feeds are broadcasted both on the [StreamR](https://streamr.network/) and di
 
 The data could be pushed on-chain either by a dedicated relayer operating under predefined conditions (ie. heartbeat or price deviation), by a bot (ie. performing liquidations), or even by end users interacting with the protocol. 
 
-Inside the protocol, the data is unpacked and verified by cryptographically checking both the origin and timestamps.
+Inside the protocol, the data is unpacked and verified cryptographically checking both the origin and timestamps.
 
 ## Data Format
 
@@ -74,9 +74,9 @@ _This logic is executed in the on-chain environment and we optimised the executi
 
 ## On-chain aggregation
 
-To increase the security of the Redstone oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of passing at least X signatures from different authorised data providers for a given data feed. The values of different providers are then aggregated before returning to a consumer contract (by default, we use median value calculation for aggregation). This way, even if some small subset of providers corrupt (e.g. 2 of 10), it should not significantly affect the aggregated value.
+To increase the security of the RedStone oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of passing at least X signatures from different authorised data providers for a given data feed. The values of different providers are then aggregated before returning to a consumer contract (by default, we use median value calculation for aggregation). This way, even if some small subset of providers corrupt (e.g. 2 of 10), it should not significantly affect the aggregated value.
 
-There are the following on-chain aggregation params in Redstone consumer base contract:
+There are the following on-chain aggregation params in RedStone consumer base contract:
 
 - `getUniqueSignersThreshold` function
 - `getAuthorisedSignerIndex` function
@@ -95,7 +95,7 @@ We support 2 types of data to be received in contract:
 - Do not override the `getUniqueSignersThreshold` function, unless you are 100% sure about it
 - Pay attention to the timestamp validation logic. For some use-cases (e.g. synthetic DEX), you would need to cache the latest values in your contract storage to avoid arbitrage attacks
 - Enable secure upgradability mechanism for your contract (ideally based on multi-sig or DAO)
-- Monitor the Redstone data services registry and quickly modify signer authorisation logic in your contracts in case of changes (we will also notify you if you are a paying client)
+- Monitor the RedStone data services registry and quickly modify signer authorisation logic in your contracts in case of changes (we will also notify you if you are a paying client)
 
 ## Recommendations
 

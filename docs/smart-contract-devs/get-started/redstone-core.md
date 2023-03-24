@@ -29,7 +29,7 @@ npm install @redstone-finance/evm-connector
 
 ## Usage
 
-:::important Requirements
+:::info Requirements
 TLDR; You need to do 2 things:
 
 1. [Adjust your smart contracts](#1-adjust-your-smart-contracts)
@@ -50,7 +50,7 @@ We strongly recommend having some upgradability mechanism for your contracts (it
 ```js
 import "@redstone-finance/evm-connector/contracts/data-services/AvalancheDataServiceConsumerBase.sol";
 
-contract YourContractName is AvalancheDataServiceConsumerBase {
+contract YourContractName is RedstoneNumericConsumerBase {
   ...
 }
 ```
