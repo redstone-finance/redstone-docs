@@ -35,7 +35,7 @@ This simple and flexible solution was pioneered by Oraclize (now Provable) and C
 
 Currently, the most popular approach taken by blockchains in an attempt to address the aforementioned issues is to persist all data directly on-chain, so that the information is available in the context of a single transaction. Protocols have also formed syndicates around the most popular oracles using common standardized configuration. Here, we listed some of popular Oracle solutions:
 
-| Name of Project                       | Redstone | Chainlink | Band Protocol                                       | DIA                                            | API3                   | Flux    | Pyth    |
+| Name of Project                       | RedStone | Chainlink | Band Protocol                                       | DIA                                            | API3                   | Flux    | Pyth    |
 | ------------------------------------- | -------- | --------- | --------------------------------------------------- | ---------------------------------------------- | ---------------------- | ------- | ------- |
 | Blockchain of data storage            | Arweave  | Ethereum  | Cosmos                                              | Database host with oracles on different chains | DAO on Ethereum        | NEAR    | Solana  |
 | Number of assets supported            | 1084     | 79        | 175                                                 | 50                                             | No Info                | No Info | No Info |

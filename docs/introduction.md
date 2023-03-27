@@ -5,46 +5,44 @@ sidebar_label: "Introduction"
 
 # Introduction
 
-## Overview
+![Banner](/img/redstone-banner.png)
 
-RedStone is a data ecosystem that delivers frequently updated, reliable and
-diverse data for your dApp and smart contracts.
 
-### Problem Statement (Defi Pain points)
+RedStone is an Oracle that delivers frequently updated, reliable, and diverse data feeds for your dApp and smart contracts on multiple L1s & L2s.
 
-- It is not sustainable to put all the pricing data into blockchains, as they aren't designed for this purpose. Sourcing data becomes enormously expensive with Gas price spikes. On a historically busy day on Ethereum mainnet, with a day average Gas price of 500gwei, a single transaction may cost above $100, so if we persist every 10m across 30 sources, the daily bill will be more than $400k per token
-- To reduce costs, current providers cover only a small subset of tokens and have a low update frequency
-- DeFi protocols cannot expand beyond a small set of assets and cannot offer advanced solutions like [margin lending](https://www.nasdaq.com/articles/hodling-coins-is-one-plan-of-action-but-serious-investors-will-look-at-marginal-lending) (which require a higher update frequency)
+### Why we build another Oracle system
+
+- Pushing data on-chain regardless of wheter is used or not is a huge waste of resources
+- Obsolete and monolithic architecture limits scalability (it's hard to list new assets or reduce latency)
+- Protocols cannot fully decide on trusted sources and data update conditions
+- End-users are fully dependent on relayers and could be cut off from the service
 
 ### Solution
 
-RedStone offers a radically different design of Oracles catering for the needs of modern Defi protocols.
+RedStone offers a radically different design of Oracles catering to the needs of modern DeFi protocols.
 
 - Data providers can avoid the requirement of continuous on-chain data delivery
 - Allow end users to self-deliver signed Oracle data on-chain
 - Use the decentralized Streamr network to deliver signed oracle data to the end users
 - Use token incentives to motivate data providers to maintain data integrity and uninterrupted service
-- Leverage the Arweave blockchain as a cheap and permanent storage for archiving Oracle data and maintaining data providers' accountability
+- Leverage the Arweave blockchain as cheap and permanent storage for archiving Oracle data and maintaining data providers' accountability
 
-### Oracles landscape
+## Key facts
 
-Initially, the most commonly used form for Oracle operations was the "two-phase approach":
+- The [modular architecture](./smart-contract-devs/how-it-works.md#data-flow) maintains [data integrity](./smart-contract-devs/how-it-works.md#data-format) from source to smart contracts
+- There are [3 different ways](./smart-contract-devs/how-it-works.md#3-ways-to-integrate) to integrate our service tailored to your needs
+- We provide feeds for more than [1000 assets](https://app.redstone.finance/#/app/tokens) integrating [~50 data sources](https://app.redstone.finance/#/app/sources)
+- We are present on [20+ chains](https://showroom.redstone.finance/) 
+- RedStone has been live on mainnets since March 2022 with no downtime. Code was audited by ABDK, Packshield and L2Beat Co-Founder.
+- RedStone was a launch partner for [DeltaPrime](https://deltaprime.io/) on Avalanche and delivered data feeds not available anywhere else. Thanks to that DeltaPrime became the top 3 fastest growing dApps according to DefiLama.
 
-1. A contract submits a request for data to an Oracle Service;
-2. An Oracle Service sends back a response with data.
-
-This simple and flexible solution was pioneered by Oraclize (now Provable) and Chainlink as the Basic Request Pattern, but the main disadvantage to this approach is that the contract cannot access data immediately as it requires two separate transactions. Such design kills usability, as the client needs to wait until the data goes into the contract to see the result of an action. An even bigger problem is that fetching data is not atomic (meaning not in a single transaction), which means that synchronizing multiple contracts is complex, slow, and ultimately kills interoperability.
-
-Currently, the most popular approach taken by blockchains in an attempt to address the aforementioned issues is to persist all data directly on-chain, so that the information is available in the context of a single transaction. But as we already mentioned above, this approach is not scalable.
-
-RedStone combines the best of the two approaches and creates a scalable yet convenient way of providing reliable Oracle data to smart contracts.
-
-## System architecture
+<!-- ## Building blocks
 
 The RedStone ecosystem could be divided into 3 main areas:
 
 - **Data provision** is responsible for fetching the data from external sources, transforming it into a common format, signing it, and broadcasting the collected information.
   - Implemented as → [RedStone Oracle Node](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node)
+
 - **Data access** is responsible for serving data to end users by various means, such as a web portal, an HTTP API, on-chain feeds, or third-party applications.
 
   - Web portal → [RedStone App](https://github.com/redstone-finance/redstone-app)
@@ -53,34 +51,5 @@ The RedStone ecosystem could be divided into 3 main areas:
 
 - **Data integrity** is responsible for enforcing high quality of data by incentivizing providers with tokens for keeping their service and punishing them for outages and misrepresented data.
   - Concept → [Argue protocol](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/docs/DISPUTE_RESOLUTION.md)
-  - Implementation → [RedStone eth contracts](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/eth-contracts)
+  - Implementation → [RedStone eth contracts](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/eth-contracts) -->
 
-### Data flow diagram
-
-![redstone-data-flow-diagram](https://user-images.githubusercontent.com/48165439/219980955-7f82a300-a8d8-41af-861d-0efa1fcbb0c7.png)
-
-## Token design
-
-The token facilitates the provision of reliable and accurate information from the outside world to blockchain networks.
-
-### Usage of the token
-
-Tokens have proven to be a very useful tool for achieving coordination in distributed systems and aligning the incentives of various actors. RedStone facilitates a data sharing ecosystem by incentivizing participants to produce, publish, and validate data in a continuous and diligent way.
-
-#### Data access fees
-
-The end users who benefit from access to valuable information use tokens to reward providers that published these data. The exact fee and the subscription terms are at the discretion of the provider and depend on their effort, demand for data and potential competition.
-
-#### Locking
-
-Every provider needs to publish a Service Level Agreement describing the scope of data being served, the source of information, and the frequency of updates. In the event that a provider breaches the terms of service, there will be a penalty applied that is also denominated in tokens. To reassure users that any future claims will be fully covered, providers must set aside a certain number of tokens and lock them for a set period of time. These funds are locked in the ecosystem and are an important factor for users when selecting the most reliable provider.
-
-##### Dispute resolution
-
-Because of the diverse nature of the provided information, it will not always be possible to decide if a data was corrupted. Therefore, it will be necessary to have a fallback procedure to resolve any disputes about the data quality. The process could be facilitated by tokens, where juries will be rewarded for voting with the majority and punished for supporting the losing side.
-
-##### Bootstrapping the market
-
-At the early stage of development, the token could be distributed to providers to reward their availability and bootstrap the market before there is enough demand from data users.
-
-<img alt="redstone-token-design" src="https://github.com/redstone-finance/redstone-node/blob/main/docs/img/redstone-token-design.png?raw=true" width="600" />

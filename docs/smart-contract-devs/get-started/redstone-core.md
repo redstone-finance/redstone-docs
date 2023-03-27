@@ -1,9 +1,19 @@
 ---
 sidebar_position: 1
-sidebar_label: "🚀 Getting started"
+sidebar_label: "⚙️ Core (on-demand feeds)"
 ---
 
-# 🚀 Getting started
+# ⚙️ Core Model
+## Fetching prices on-demand
+
+This is our basic operating model when the data ia automatically appended to users transaction.  
+
+:::tip In Prod
+
+It is the most mature way to use RedStone, battle tested in production, protecting ~$20M for [DeltaPrime](https://deltaprime.io/) protocol where the price feeds were injected 
+to [~25K transactions](https://dune.com/hatskier/redstone). 
+
+:::
 
 ## Installation
 
@@ -19,16 +29,12 @@ npm install @redstone-finance/evm-connector
 
 ## Usage
 
-:::important Requirements
+:::caution Requirements
 TLDR; You need to do 2 things:
 
 1. [Adjust your smart contracts](#1-adjust-your-smart-contracts)
 2. [Adjust Javascript code of your dApp](#2-adjust-javascript-code-of-your-dapp) (**it is required**, otherwise you will get smart contract errors)
 
-:::
-
-:::caution Don't use remix
-Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
 :::
 
 ### 1. Adjust your smart contracts
@@ -38,9 +44,9 @@ You need to apply a minimum change to the source code to enable smart contract t
 We strongly recommend having some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly switch to the latest trusted data providers in case of changes or problems with the current providers.
 
 ```js
-import "@redstone-finance/evm-connector/contracts/data-services/AvalancheDataServiceConsumerBase.sol";
+import "@redstone-finance/evm-connector/contracts/data-services/RedstoneNumericConsumerBase.sol";
 
-contract YourContractName is AvalancheDataServiceConsumerBase {
+contract YourContractName is RedstoneNumericConsumerBase {
   ...
 }
 ```
@@ -68,6 +74,10 @@ uint256 btcPrice = values[1];
 
 You can see all available data feeds [in our web app.](https://app.redstone.finance)
 
+:::caution Don't use remix
+Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
+:::
+
 ### 2. Adjust Javascript code of your dApp
 
 You should also update the code responsible for submitting transactions. If you're using [ethers.js](https://github.com/ethers-io/ethers.js/), we've prepared a dedicated library to make the transition seamless.
@@ -84,7 +94,7 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
 ```
 
-Then you can wrap your ethers contract pointing to the selected [Redstone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
+Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
