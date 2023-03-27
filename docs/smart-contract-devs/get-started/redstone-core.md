@@ -8,7 +8,7 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 
 This is our basic operating model when the data ia automatically appended to users transaction.  
 
-:::important In Prod
+:::tip In Prod
 
 It is the most mature way to use RedStone, battle tested in production, protecting ~$20M for [DeltaPrime](https://deltaprime.io/) protocol where the price feeds were injected 
 to [~25K transactions](https://dune.com/hatskier/redstone). 
@@ -29,16 +29,12 @@ npm install @redstone-finance/evm-connector
 
 ## Usage
 
-:::info Requirements
+:::caution Requirements
 TLDR; You need to do 2 things:
 
 1. [Adjust your smart contracts](#1-adjust-your-smart-contracts)
 2. [Adjust Javascript code of your dApp](#2-adjust-javascript-code-of-your-dapp) (**it is required**, otherwise you will get smart contract errors)
 
-:::
-
-:::caution Don't use remix
-Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
 :::
 
 ### 1. Adjust your smart contracts
@@ -77,6 +73,10 @@ uint256 btcPrice = values[1];
 ```
 
 You can see all available data feeds [in our web app.](https://app.redstone.finance)
+
+:::caution Don't use remix
+Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
+:::
 
 ### 2. Adjust Javascript code of your dApp
 
