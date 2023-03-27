@@ -23,7 +23,9 @@ Depending of the smart contract architecture and business demands we can deliver
 
 ## Data Flow
 
-![RedStone Architecture Diagram](/img/architecture-updated.png)
+<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture-updated.png">
+ <img src="/img/architecture-updated.png" target="_blank"/>
+</a>
 
 The price feeds comes from multiiple sources such as off-chain DEX'ed ([Binance](https://binance.com), [Coinbase](https://coinbase.com) & [Kraken](https://kraken.com), etc.), on-chain DEX'es ([Uniswap](https://uniswap.org/), [Sushiswap](https://www.sushi.com/), [Balancer](https://balancer.fi/), etc.) and aggregators ([CoinmarketCap](https://coinmarketcap.com/), [Coingecko](https://www.coingecko.com/), [Kaiko](https://www.kaiko.com/)). Currently, we've got more than [50 sources integrated](https://app.redstone.finance/#/app/sources).
 
