@@ -21,7 +21,7 @@ TLDR; You need to do 2 things:
 2. Deploy a resolver service that automatically fetches the price and triggers the execution.  
 :::
 
-![Redstone X diagram](/img/redstone-x.png)
+![RedStone X diagram](/img/redstone-x.png)
 
 
 :::caution Details are coming

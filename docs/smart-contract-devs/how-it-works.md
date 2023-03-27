@@ -15,15 +15,15 @@ That's why, RedStone proposes a completely new modular design where data is firs
 
 Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
 
-- [Redstone Core](./get-started/redstone-core.md), data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process fits into a single transaction
+- [RedStone Core](./get-started/redstone-core.md), data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process fits into a single transaction
 
-- [Redstone Classic](./get-started/redstone-classic.md), data is pushed into on-chain storage via relayer. Dedicated to protocols designed for the traditional Oracles model, that want to have full control of the data source and update conditions.
+- [RedStone Classic](./get-started/redstone-classic.md), data is pushed into on-chain storage via relayer. Dedicated to protocols designed for the traditional Oracles model, that want to have full control of the data source and update conditions.
 
-- [Redstone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals, options and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
+- [RedStone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals, options and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
 
 ## Data Flow
 
-![Redstone Architecture Diagram](/img/architecture.png)
+![RedStone Architecture Diagram](/img/architecture-updated.png)
 
 The price feeds comes from multiiple sources such as off-chain DEX'ed ([Binance](https://binance.com), [Coinbase](https://coinbase.com) & [Kraken](https://kraken.com), etc.), on-chain DEX'es ([Uniswap](https://uniswap.org/), [Sushiswap](https://www.sushi.com/), [Balancer](https://balancer.fi/), etc.) and aggregators ([CoinmarketCap](https://coinmarketcap.com/), [Coingecko](https://www.coingecko.com/), [Kaiko](https://www.kaiko.com/)). Currently, we've got more than [50 sources integrated](https://app.redstone.finance/#/app/sources).
 

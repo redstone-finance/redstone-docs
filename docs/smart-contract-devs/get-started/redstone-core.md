@@ -48,7 +48,7 @@ You need to apply a minimum change to the source code to enable smart contract t
 We strongly recommend having some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly switch to the latest trusted data providers in case of changes or problems with the current providers.
 
 ```js
-import "@redstone-finance/evm-connector/contracts/data-services/AvalancheDataServiceConsumerBase.sol";
+import "@redstone-finance/evm-connector/contracts/data-services/RedstoneNumericConsumerBase.sol";
 
 contract YourContractName is RedstoneNumericConsumerBase {
   ...
@@ -94,7 +94,7 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
 ```
 
-Then you can wrap your ethers contract pointing to the selected [Redstone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
+Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
