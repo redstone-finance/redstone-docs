@@ -23,7 +23,7 @@ RedStone consumers will be able to use the data published by your node [on all s
 
 ### Node configuration
 
-RedStone oracle node should be configured usning environment variables. You can configure them in any preferred way, e.g. using a local `.env` file.
+RedStone oracle node should be configured using environment variables. You can configure them in any preferred way, e.g. using a local `.env` file.
 
 :::success Quick start configuration
 We've prepared a simple .env file and a bash script so you can quickly run your first oracle node. You can find them [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node/tools/quick-start)

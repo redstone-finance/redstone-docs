@@ -19,7 +19,7 @@ Tokens have proven to be a very useful tool for achieving coordination in distri
 
 ### Data access fees
 
-The end users who benefit from access to valuable information use tokens to reward providers that published these data. The exact fee and the subscription terms are at the discretion of the provider and depend on their effort, demand for data and potential competition.
+The end users who benefit from access to valuable information use tokens to reward providers that published this data. The exact fee and the subscription terms are at the discretion of the provider and depend on their effort, demand for data and potential competition.
 
 ### Locking
 

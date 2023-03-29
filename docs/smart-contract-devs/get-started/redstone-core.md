@@ -6,7 +6,7 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 # ⚙️ Core Model
 ## Fetching prices on-demand
 
-This is our basic operating model when the data ia automatically appended to users transaction.  
+This is our basic operating model when the data is automatically appended to user transaction.
 
 :::tip In Prod
 

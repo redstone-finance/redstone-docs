@@ -12,7 +12,7 @@ RedStone is an Oracle that delivers frequently updated, reliable, and diverse da
 
 ### Why we build another Oracle system
 
-- Pushing data on-chain regardless of wheter is used or not is a huge waste of resources
+- Pushing data on-chain regardless of wheter it is used or not is a huge waste of resources
 - Obsolete and monolithic architecture limits scalability (it's hard to list new assets or reduce latency)
 - Protocols cannot fully decide on trusted sources and data update conditions
 - End-users are fully dependent on relayers and could be cut off from the service

@@ -7,15 +7,15 @@ sidebar_label: "💡 How it works?"
 
 ## Modular design
 
-Putting data directly into storage is the easiest to make information accessible to smart contracts. This approach used to work well for large update intervals and small number of assets. However, there are more and more tokens coming to DeFi and modern derivative protocols require much lower latency boosting the maintenance costs of the simple model.
+Putting data directly into storage is the easiest way to make information accessible to smart contracts. This approach used to work well for large update intervals and small number of assets. However, there are more and more tokens coming to DeFi and modern derivative protocols require much lower latency boosting the maintenance costs of the simple model.
 
-That's why, RedStone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol. 
+That's why, RedStone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast a large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol.
 
 ## 3 Ways to integrate
 
 Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
 
-- [RedStone Core](./get-started/redstone-core.md), data is dynamically injected to users' transactions achieving maximum gas efficiency and maintaing great user experience as the whole process fits into a single transaction
+- [RedStone Core](./get-started/redstone-core.md), data is dynamically injected to user transactions achieving maximum gas efficiency and maintaining a great user experience as the whole process fits into a single transaction
 
 - [RedStone Classic](./get-started/redstone-classic.md), data is pushed into on-chain storage via relayer. Dedicated to protocols designed for the traditional Oracles model, that want to have full control of the data source and update conditions.
 
