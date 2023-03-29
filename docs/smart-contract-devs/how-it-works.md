@@ -23,8 +23,8 @@ Depending of the smart contract architecture and business demands we can deliver
 
 ## Data Flow
 
-<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture-updated.png">
- <img src="/img/architecture-updated.png" target="_blank"/>
+<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture.png">
+ <img src="/img/architecture.png" target="_blank"/>
 </a>
 
 The price feeds comes from multiiple sources such as off-chain DEX'ed ([Binance](https://binance.com), [Coinbase](https://coinbase.com) & [Kraken](https://kraken.com), etc.), on-chain DEX'es ([Uniswap](https://uniswap.org/), [Sushiswap](https://www.sushi.com/), [Balancer](https://balancer.fi/), etc.) and aggregators ([CoinmarketCap](https://coinmarketcap.com/), [Coingecko](https://www.coingecko.com/), [Kaiko](https://www.kaiko.com/)). Currently, we've got more than [50 sources integrated](https://app.redstone.finance/#/app/sources).
@@ -41,7 +41,9 @@ Inside the protocol, the data is unpacked and verified cryptographically checkin
 
 At a top level, transferring data to an EVM environment requires packing an extra payload to a user's transaction and processing the message on-chain.
 
-[![image.png](https://i.postimg.cc/5NZSqtFT/image.png)](https://postimg.cc/xc3m9n53)
+<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-tx-wrapping.png">
+ <img src="/img/redstone-tx-wrapping.png" target="_blank"/>
+</a>
 
 ### Data packing (off-chain data encoding)
 
@@ -49,15 +51,6 @@ At a top level, transferring data to an EVM environment requires packing an extr
 2. Data is packed into a message according to the following structure
 
 ![redstone-tx-payload-improved-2](https://user-images.githubusercontent.com/48165439/196044365-8cb3e020-56f4-46cd-b058-105772aca3a5.png)
-
-<!---
-- `TX_PAYLOAD` = `[DATA_PACKAGES][UNSIGNED_METADATA]`
-  - `UNSIGNED_METADATA` = `[ANY_MESSAGE][MESSAGE_BYTE_SIZE:3b][REDSTONE_MARKER:9b]`
-    - `REDSTONE_MARKER` = `0x000002ed57011e0000`
-  - `DATA_PACKAGES` = `[DATA_PACKAGE[0]]..[DATA_PACKAGE[N]][NUMBER_OF_DATA_PACKAGES:2b]`
-    - `DATA_PACKAGE` = `[DATA_POINTS][TIMESTAMP:6b][DATA_POINT_VALUE_BYTE_SIZE:4b][DATA_POINTS_COUNT:3b][SIGNATURE:65b]`
-      - `DATA_POINT` = `[DATA_POINT_VALUE][DATA_FEED_ID:32b]`
--->
 
 3. The package is appended to the original transaction message, signed and submitted to the network
 
