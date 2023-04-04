@@ -44,9 +44,9 @@ You need to apply a minimum change to the source code to enable smart contract t
 We strongly recommend having some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly switch to the latest trusted data providers in case of changes or problems with the current providers.
 
 ```js
-import "@redstone-finance/evm-connector/contracts/data-services/RedstoneNumericConsumerBase.sol";
+import "@redstone-finance/evm-connector/contracts/data-services/MainDemoConsumerBase.sol";
 
-contract YourContractName is RedstoneNumericConsumerBase {
+contract YourContractName is MainDemoConsumerBase {
   ...
 }
 ```
