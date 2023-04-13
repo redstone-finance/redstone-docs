@@ -39,7 +39,7 @@ TLDR; You need to do 2 things:
 
 ### 1. Adjust your smart contracts
 
-You need to apply a minimum change to the source code to enable smart contract to access data. Your contract needs to extend one of our custom base contracts, which can be found [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/contracts/data-services)
+You need to apply a minimum change to the source code to enable smart contract to access data. Your contract needs to extend one of our [base contracts] (https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/contracts/data-services), depending on which data service are you going to use. [Here](https://app.redstone.finance/#/app/data-services) you could find available data services with the list of supported assets.
 
 We strongly recommend having some upgradability mechanism for your contracts (it can be based on multisig, DAO, or anything else). This way, you can quickly switch to the latest trusted data providers in case of changes or problems with the current providers.
 
@@ -94,17 +94,16 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
 ```
 
-Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://api.redstone.finance/providers) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
+Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://app.redstone.finance/#/app/data-services) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
 
-// Connecting all provider's prices (consumes more GAS)
 const wrappedContract = WrapperBuilder.wrap(contract).usingDataService(
   {
-    dataServiceId: "redstone-avalanche-prod",
+    dataServiceId: "redstone-main-demo",
     uniqueSignersCount: 10,
-    dataFeeds: ["AVAX", "ETH", "PNG"],
+    dataFeeds: ["ETH", "BTC"],
   },
   ["https://d33trozg86ya9x.cloudfront.net"]
 );

@@ -50,7 +50,9 @@ At a top level, transferring data to an EVM environment requires packing an extr
 1. Relevant data needs to be fetched from the decentralized cache layer, powered by the [streamr network](https://streamr.network/) and the RedStone light cache nodes
 2. Data is packed into a message according to the following structure
 
-![redstone-tx-payload-improved-2](https://user-images.githubusercontent.com/48165439/196044365-8cb3e020-56f4-46cd-b058-105772aca3a5.png)
+<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/payload.png">
+ <img src="/img/payload.png" target="_blank"/>
+</a>
 
 3. The package is appended to the original transaction message, signed and submitted to the network
 
