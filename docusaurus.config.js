@@ -35,6 +35,14 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/redstone-finance/redstone-docs/tree/main',
+          lastVersion: 'current',
+          includeCurrentVersion: true,
+          versions: {
+            current: {
+              label: 'Current',
+              path: '/',
+            },
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -58,10 +66,6 @@ const config = {
           src: 'img/redstone-logo-full.svg',
         },
         items: [
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-          },
           {
             href: 'https://github.com/redstone-finance',
             label: 'GitHub',
