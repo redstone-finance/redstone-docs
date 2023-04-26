@@ -4,14 +4,15 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 ---
 
 # ⚙️ Core Model
+
 ## Fetching prices on-demand
 
 This is our basic operating model when the data is automatically appended to user transaction.
 
 :::tip In Prod
 
-It is the most mature way to use RedStone, battle tested in production, protecting ~$20M for [DeltaPrime](https://deltaprime.io/) protocol where the price feeds were injected 
-to [~25K transactions](https://dune.com/hatskier/redstone). 
+It is the most mature way to use RedStone, battle tested in production, protecting ~$20M for [DeltaPrime](https://deltaprime.io/) protocol where the price feeds were injected
+to [~25K transactions](https://dune.com/hatskier/redstone).
 
 :::
 
@@ -121,4 +122,5 @@ If you'd like to use the wrapper in a test context, we recommend using a mock wr
 
 ## Working demo
 
-You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
+- You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
+- [The minimal repo](https://github.com/redstone-finance/minimal-foundry-repo) showing how you can use and test Redstone with [Foundry toolkit](https://github.com/foundry-rs/foundry).
