@@ -20,12 +20,39 @@ to [~25K transactions](https://dune.com/hatskier/redstone).
 
 Install [@redstone-finance/evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) from NPM registry
 
+### Hardhat
+
 ```bash
 # Using yarn
 yarn add @redstone-finance/evm-connector
 
 # Using NPM
 npm install @redstone-finance/evm-connector
+```
+
+### Foundry
+
+Foundry installs dependencies using git submodules. Thus additional steps are needed to [install dependencies](https://book.getfoundry.sh/projects/dependencies).
+
+In foundry project:
+
+1. Install `@redstone-finance/evm-connector` - it will install current code from main branch
+
+```bash
+forge install redstone-finance/redstone-oracles-monorepo
+```
+
+2. Install `@OpenZeppelin` contracts (dependency of `@redstone-finance/evm-connector`) - it will install current code from main branch
+
+```bash
+forge install OpenZeppelin/openzeppelin-contracts
+```
+
+3. Add libraries to `remappings.txt`
+
+```bash
+echo "@redstone-finance/evm-connector/dist/contracts/=lib/redstone-oracles-monorepo/packages/evm-connector/contracts/
+@openzeppelin/contracts=lib/openzeppelin-contracts/contracts/" >> remappings.txt
 ```
 
 ## Usage
@@ -57,6 +84,7 @@ contract YourContractName is MainDemoConsumerBase {
 - `isTimestampValid(uint256 receivedTimestamp) returns (bool)` - to enable custom logic of timestamp validation
 - `aggregateValues(uint256[] memory values) returns (uint256)` - to enable custom logic of aggregating values from different providers (by default this function takes the median value)
 - `getAuthorisedSignerIndex(address _signerAddress) returns (uint256)` and `getUniqueSignersThreshold() returns (unt256)` functions - to enable custom logic of signers authorisation
+- `getDataServiceId() returns (string memory)` - to return custom dataServiceId 
 
 After applying the mentioned change you will be able to access the data calling the local `getOracleNumericValueFromTxMsg` function. You should pass the data feed id converted to `bytes32`.
 
@@ -95,18 +123,15 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
 ```
 
-Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://app.redstone.finance/#/app/data-services) You should also specify a number of unique signers, data feed identifiers, and (optionally) URLs for the redstone cache nodes.
+Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://app.redstone.finance/#/app/data-services) You can (optionally) specify a number of unique signers, data feed identifiers, and  URLs for the redstone cache nodes.
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
 
 const wrappedContract = WrapperBuilder.wrap(contract).usingDataService(
   {
-    dataServiceId: "redstone-main-demo",
-    uniqueSignersCount: 1,
     dataFeeds: ["ETH", "BTC"],
   },
-  ["https://d33trozg86ya9x.cloudfront.net"]
 );
 ```
 
@@ -116,11 +141,19 @@ Now you can access any of the contract's methods in exactly the same way as inte
 wrappedContract.executeYourMethod();
 ```
 
-#### Mock provider
+#### Testing
+
+##### Hardhat
 
 If you'd like to use the wrapper in a test context, we recommend using a mock wrapper so that you can easily override the oracle values to test different scenarios. To use the mock wrapper just use the `usingMockData(signedDataPackages)` function instead of the `usingDataService` function. You can see examples of the mock wrapper usage [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/test/mock-wrapper)
 
+##### Foundry
+
+To use Redstone Oracles with Foundry in test context, we recommend using foundry `vm.ffi` function to generate mocked dataPackages.
+We have prepared [repository](https://github.com/redstone-finance/minimal-foundry-repo) showing how we can integrate foundry with redstone.
+- [consuming redstone payload in foundry contract](https://github.com/redstone-finance/minimal-foundry-repo/blob/main/test/Counter.t.sol)
+- [generating mock redstone payload](https://github.com/redstone-finance/minimal-foundry-repo/blob/main/getRedstonePayload.js)
+
 ## Working demo
 
-- You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
-- [The minimal repo](https://github.com/redstone-finance/minimal-foundry-repo) showing how you can use and test Redstone with [Foundry toolkit](https://github.com/foundry-rs/foundry).
+You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
