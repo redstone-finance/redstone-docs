@@ -83,6 +83,10 @@ const config = {
         apiKey: '3e7ddfe0b2a2ce34495188bd1e433dd4',
         indexName: 'redstone',
         contextualSearch: true,
+        replaceSearchResultPathname: {
+          from: '/next/',
+          to: '/',
+        },
       },
       footer: {
         style: 'dark',
