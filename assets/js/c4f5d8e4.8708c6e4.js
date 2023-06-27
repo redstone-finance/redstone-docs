@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkredstone_docs=self.webpackChunkredstone_docs||[]).push([[195],{2841:(e,s,t)=>{t.r(s),t.d(s,{default:()=>d});var c=t(7294),o=t(6775);const d=()=>c.createElement(o.l_,{to:"/docs/introduction"})}}]);
