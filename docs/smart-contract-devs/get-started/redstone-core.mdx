@@ -201,7 +201,7 @@ wrappedContract.executeYourMethod();
 If you'd like to use the wrapper in a test context, we recommend using a mock wrapper so that you can easily override the oracle values to test different scenarios. To use the mock wrapper just use the `usingMockData(signedDataPackages)` function instead of the `usingDataService` function.
 
 ```js
-const { SimpleNumericMockWrapper } = require("@redstone-finance/evm-connector/dist/src/wrappers/SimpleMockNumericWrapper");
+const { SimpleMockNumericWrapper } = require("@redstone-finance/evm-connector/dist/src/wrappers/SimpleMockNumericWrapper");
 
 const wrappedContract =
   WrapperBuilder.wrap(yourContract).usingSimpleNumericMock(
