@@ -5,7 +5,7 @@ sidebar_label: "Running Oracle Node"
 
 # Running Oracle Node
 
-This guide will teach you how to run a RedStone node with Docker. It will fetch data from main public APIs, sign them with your pirvate keys and broadcast to the streamr network and redstone data delivery network.
+This guide will teach you how to run a RedStone node with Docker. It will fetch data from main public APIs, sign them with your private keys and broadcast to the streamr network and redstone data delivery network.
 :::info Running from source
 You can run RedStone oracle node [using source code](./launch-using-source-code), but it's recommended to run it with Docker. We continuously build and deploy the code from our Github repository, so you don’t need a complete development environment to run a node.
 :::
