@@ -226,8 +226,9 @@ We have prepared [repository](https://github.com/redstone-finance/minimal-foundr
 - [generating mock redstone payload](https://github.com/redstone-finance/minimal-foundry-repo/blob/main/getRedstonePayload.js)
 
 ## Manual payload
-If your contracts are written in solidity in a version lower than `0.8.4` it could be problematic to extend from the `RedstoneConsumerBase` contract.
+This approach is helpful if you need to pass the pricing data from one contract to another in your protocol. 
 
+It's also a solution for a case, where your contracts are written in solidity in a version lower than `0.8.4` it could be problematic to extend from the `RedstoneConsumerBase` contract.
 In that case we recomment to deploy a separate `Extractor` contract that will contain the verification logic: 
 
 ```js
@@ -237,7 +238,7 @@ import "@redstone-finance/evm-connector/contracts/mocks/RedstoneConsumerNumericM
 
 contract RedstoneExtractor is RedstoneConsumerNumericMock {
 
-  function extractPrice(bytes32 feedId) public view returns(uint256) {
+  function extractPrice(bytes32 feedId, bytes calldata redstonePayload) public view returns(uint256) {
       return getOracleNumericValueFromTxMsg(feedId);
   }
 }
@@ -246,35 +247,8 @@ contract RedstoneExtractor is RedstoneConsumerNumericMock {
 and proxy the payload from your originating contract
 
 ```js
-function getPriceFromRedstoneOracle(bytes calldata redstonePayload) public view returns(uint256) {
-  // Prepare call to RedStone base function
-  bytes memory encodedFunction = abi.encodeWithSignature(
-    "extractPrice(bytes32 feedId)",
-    yourFeedId
-    );
-
-  bytes memory encodedFunctionWithRedstonePayload = abi.encodePacked(
-    encodedFunction,
-    redstonePayload
-  );
-
-  // Securely getting oracle value
-  (bool success, bytes memory result) = redstoneOracle.staticcall(
-    encodedFunctionWithRedstonePayload
-  );
-
-  // Parsing response
-  uint256 priceValue;
-  if (!success) {
-    assembly {
-      revert(add(32, result), mload(result))
-    }
-  }
-  assembly {
-    priceValue := mload(add(result, 32))
-  }
-
-  return priceValue;
+function getPriceFromRedstoneOracle(bytes32 feedId, bytes calldata redstonePayload) public view returns(uint256) {
+  return redstoneOracle.extractPrice(feedId, redstonePayload);
 }
 ```
 
