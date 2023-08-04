@@ -248,25 +248,20 @@ and proxy the payload from your originating contract
 
 ```js
 function getPriceFromRedstoneOracle(bytes32 feedId, bytes calldata redstonePayload) public view returns(uint256) {
-  return redstoneOracle.extractPrice(feedId, redstonePayload);
+  return redstoneExtractor.extractPrice(feedId, redstonePayload);
 }
 ```
 
 The manual payload could be obtained using the following code on the client side:
 
 ```js
-const redstonePayload = await sdk.requestRedstonePayload(
-  {
-    dataServiceId: "redstone-main-demo",
-    uniqueSignersCount: 1,
-    dataFeeds: ["ETH"],
-    urls: ["https://d33trozg86ya9x.cloudfront.net"],
-  },
-  "manual-payload"
-);
+const redstonePayload = await (new DataServiceWrapper({
+  dataServiceId: "redstone-main-demo",
+  dataFeeds: ["ETH"]
+}).getRedstonePayloadForManualUsage(yourContract));
 
 // Interact with the contract (getting oracle value securely)
-const price = await yourContract.getPriceFromRedstoneOracle(`0x${redstonePayload}`);
+const price = await yourContract.getPriceFromRedstoneOracle(redstonePayload);
 ```
 
 ## Working demo
