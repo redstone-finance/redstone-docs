@@ -226,8 +226,9 @@ We have prepared [repository](https://github.com/redstone-finance/minimal-foundr
 - [generating mock redstone payload](https://github.com/redstone-finance/minimal-foundry-repo/blob/main/getRedstonePayload.js)
 
 ## Manual payload
-If your contracts are written in solidity in a version lower than `0.8.4` it could be problematic to extend from the `RedstoneConsumerBase` contract.
+This approach is helpful if you need to pass the pricing data from one contract to another in your protocol. 
 
+It's also a solution for a case, where your contracts are written in solidity in a version lower than `0.8.4` it could be problematic to extend from the `RedstoneConsumerBase` contract.
 In that case we recomment to deploy a separate `Extractor` contract that will contain the verification logic: 
 
 ```js
@@ -237,7 +238,7 @@ import "@redstone-finance/evm-connector/contracts/mocks/RedstoneConsumerNumericM
 
 contract RedstoneExtractor is RedstoneConsumerNumericMock {
 
-  function extractPrice(bytes32 feedId) public view returns(uint256) {
+  function extractPrice(bytes32 feedId, bytes calldata redstonePayload) public view returns(uint256) {
       return getOracleNumericValueFromTxMsg(feedId);
   }
 }
@@ -246,53 +247,21 @@ contract RedstoneExtractor is RedstoneConsumerNumericMock {
 and proxy the payload from your originating contract
 
 ```js
-function getPriceFromRedstoneOracle(bytes calldata redstonePayload) public view returns(uint256) {
-  // Prepare call to RedStone base function
-  bytes memory encodedFunction = abi.encodeWithSignature(
-    "extractPrice(bytes32 feedId)",
-    yourFeedId
-    );
-
-  bytes memory encodedFunctionWithRedstonePayload = abi.encodePacked(
-    encodedFunction,
-    redstonePayload
-  );
-
-  // Securely getting oracle value
-  (bool success, bytes memory result) = redstoneOracle.staticcall(
-    encodedFunctionWithRedstonePayload
-  );
-
-  // Parsing response
-  uint256 priceValue;
-  if (!success) {
-    assembly {
-      revert(add(32, result), mload(result))
-    }
-  }
-  assembly {
-    priceValue := mload(add(result, 32))
-  }
-
-  return priceValue;
+function getPriceFromRedstoneOracle(bytes32 feedId, bytes calldata redstonePayload) public view returns(uint256) {
+  return redstoneExtractor.extractPrice(feedId, redstonePayload);
 }
 ```
 
 The manual payload could be obtained using the following code on the client side:
 
 ```js
-const redstonePayload = await sdk.requestRedstonePayload(
-  {
-    dataServiceId: "redstone-main-demo",
-    uniqueSignersCount: 1,
-    dataFeeds: ["ETH"],
-    urls: ["https://d33trozg86ya9x.cloudfront.net"],
-  },
-  "manual-payload"
-);
+const redstonePayload = await (new DataServiceWrapper({
+  dataServiceId: "redstone-main-demo",
+  dataFeeds: ["ETH"]
+}).getRedstonePayloadForManualUsage(yourContract));
 
 // Interact with the contract (getting oracle value securely)
-const price = await yourContract.getPriceFromRedstoneOracle(`0x${redstonePayload}`);
+const price = await yourContract.getPriceFromRedstoneOracle(redstonePayload);
 ```
 
 ## Working demo
