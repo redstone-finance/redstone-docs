@@ -7,7 +7,7 @@ sidebar_label: "🏛 Classic (push model)"
 ## Pushing feeds on chain
 
 
-Although the pure on-demand fetching model ([RedStone Core](./redstone-core.md)) is more efficient and scalable we acknowledge that some protocols may prefer to stick to a traditional design when data is pushed on-chain. This setup could be reasonable if:
+Although the pure on-demand fetching model ([RedStone Core](./redstone-core.mdx)) is more efficient and scalable we acknowledge that some protocols may prefer to stick to a traditional design when data is pushed on-chain. This setup could be reasonable if:
 - There is an existing well-audited codebase and the team prefers not to make even tiny amendments 
 - The protocol is deployed on a private network or a chain where the gas costs are minimal
 - The prices don't need to be updated too frequently
@@ -18,7 +18,7 @@ RedStone Classic has significant advantage over traditional push Oracles. Our mo
 
 ## How RedStone Classic works
 
-This approach is built on top of the [RedStone Core](./redstone-core.md) model maintaining the security of on-chain validation of data providers and timestamps. 
+This approach is built on top of the [RedStone Core](./redstone-core.mdx) model maintaining the security of on-chain validation of data providers and timestamps. 
 
 The model consists of two main parts. The first one is the off-chain [relayer](#relayer) responsible for pushing data on-chain in a customized way using [environment variables](#environment-variables). The second part is the on-chain [contracts](#contracts) which enable storing prices and getting them through a familiar interface (e.g. the [Chainlink Aggregotor](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol) ). RedStone Classic can be used on all EVM-compatible L1s & L2s + Starknet + Fuel Network.
 

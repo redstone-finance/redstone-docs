@@ -15,7 +15,7 @@ That's why, RedStone proposes a completely new modular design where data is firs
 
 Depending of the smart contract architecture and business demands we can deliver data using 3 different models:
 
-- [RedStone Core](./get-started/redstone-core.md), data is dynamically injected to user transactions achieving maximum gas efficiency and maintaining a great user experience as the whole process fits into a single transaction
+- [RedStone Core](./get-started/redstone-core.mdx), data is dynamically injected to user transactions achieving maximum gas efficiency and maintaining a great user experience as the whole process fits into a single transaction
 
 - [RedStone Classic](./get-started/redstone-classic.md), data is pushed into on-chain storage via relayer. Dedicated to protocols designed for the traditional Oracles model, that want to have full control of the data source and update conditions.
 
