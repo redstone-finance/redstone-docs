@@ -1,13 +1,13 @@
 ---
 sidebar_position: 9
-sidebar_label: "🪙 Tokens"
+sidebar_label: "🪙 Tokenomics"
 ---
 
-# 🪙 Tokens
+# 🪙 Tokenomics
 
 :::danger Requirements
 
-The token has not being launched yet. Beware of anyone trying to sell you RedStone tokens.
+The RedStone token has not been launched yet. Beware of scammers and anyone trying to sell you RedStone tokens.
 
 :::
 

@@ -16,7 +16,7 @@ Although the pure on-demand fetching model ([RedStone Core](./redstone-core.md))
 RedStone Classic has significant advantage over traditional push Oracles. Our modular design gives you decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
 :::
 
-## How it works
+## How RedStone Classic works
 
 This approach is built on top of the [RedStone Core](./redstone-core.md) model maintaining the security of on-chain validation of data providers and timestamps. 
 
