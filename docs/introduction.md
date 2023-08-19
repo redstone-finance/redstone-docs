@@ -36,7 +36,9 @@ RedStone offers a radically different design of Oracles catering to the needs of
 - RedStone has been live on mainnets since March 2022 with no downtime. Code was audited by ABDK, Packshield and L2Beat Co-Founder.
 - RedStone was a launch partner for [DeltaPrime](https://deltaprime.io/) on Avalanche and delivered data feeds not available anywhere else. Thanks to that DeltaPrime became the top 3 fastest growing dApps according to DefiLama.
 
-![RedStone Architecure](/img/redstone-architecture-simple.png)
+<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-architecture-simple.png">
+  <img alt="RedStone Architecure" src="/img/redstone-architecture-simple.png" target="_blank"/>
+</a>
 
 <!-- ## Building blocks
 
