@@ -15,7 +15,7 @@ The token facilitates the provision of reliable and accurate information from th
 
 ## Usage of the token
 
-Tokens have proven to be a very useful tool for achieving coordination in distributed systems and aligning the incentives of various actors. RedStone facilitates a data sharing ecosystem by incentivizing participants to produce, publish, and validate data in a continuous and diligent way.
+Tokens have proven to be a very useful tool for achieving coordination in distributed systems and aligning the incentives of various actors. RedStone facilitates a data-sharing ecosystem by incentivizing participants to produce, publish, and validate data in a continuous and diligent way.
 
 ### Data access fees
 
@@ -27,7 +27,7 @@ Every provider needs to publish a Service Level Agreement describing the scope o
 
 ### Dispute resolution
 
-Because of the diverse nature of the provided information, it will not always be possible to decide if a data was corrupted. Therefore, it will be necessary to have a fallback procedure to resolve any disputes about the data quality. The process could be facilitated by tokens, where juries will be rewarded for voting with the majority and punished for supporting the losing side.
+Because of the diverse nature of the provided information, it will not always be possible to decide if data was corrupted. Therefore, it will be necessary to have a fallback procedure to resolve any disputes about the data quality. The process could be facilitated by tokens, where juries will be rewarded for voting with the majority and punished for supporting the losing side.
 
 ### Bootstrapping the market
 

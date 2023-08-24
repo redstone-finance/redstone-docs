@@ -15,7 +15,7 @@ In order to anticipate and address any issues before their occurrence, a proacti
 
 - Node Logs
 - CPU and Memory usage
-- Running your own monitoring service (like [this one](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-monitoring)) checking if your node's data is available for consumers and frequently updated
+- Running your own monitoring service checking if your node's data is available for consumers and frequently updated
 
 ## Secure your private keys
 

@@ -13,14 +13,14 @@ Although the pure on-demand fetching model ([RedStone Core](./redstone-core.mdx)
 - The prices don't need to be updated too frequently
 
 :::info
-RedStone Classic has significant advantage over traditional push Oracles. Our modular design gives you decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
+RedStone Classic has a significant advantage over traditional push Oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
 :::
 
 ## How RedStone Classic works
 
 This approach is built on top of the [RedStone Core](./redstone-core.mdx) model maintaining the security of on-chain validation of data providers and timestamps. 
 
-The model consists of two main parts. The first one is the off-chain [relayer](#relayer) responsible for pushing data on-chain in a customized way using [environment variables](#environment-variables). The second part is the on-chain [contracts](#contracts) which enable storing prices and getting them through a familiar interface (e.g. the [Chainlink Aggregotor](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol) ). RedStone Classic can be used on all EVM-compatible L1s & L2s + Starknet + Fuel Network.
+The model consists of two main parts. The first one is the off-chain [relayer](#relayer) responsible for pushing data on-chain in a customized way using [environment variables](#environment-variables). The second part is the on-chain [contracts](#contracts) which enable storing prices and getting them through a familiar interface (e.g. the [Chainlink Aggregator](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol) ). RedStone Classic can be used on all EVM-compatible L1s & L2s + Starknet + Fuel Network.
 
 ![RedStone Classic diagram](/img/redstone-classic.png)
 
@@ -33,7 +33,7 @@ The relayer is a service that works in a customizable way based on [environment 
 - a `value-deviation` condition described by `MIN_DEVIATION_PERCENTAGE` variable which indicates how much value should change in order to trigger the price update, [code](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/src/core/update-conditions/value-deviation-condition.ts).
 
 :::info
-Relayers are permissionless and anyone could run the service as the data is eventually validated on-chain using conditions defined by the protocol stakeholders. Moreover, the relayers designed to work in parallel and we recommend having multiple (ideally independent) instances to mitigate the risks of a single point of failure and censorship.  
+Relayers are permissionless and anyone could run the service as the data is eventually validated on-chain using conditions defined by the protocol stakeholders. Moreover, the relayers are designed to work in parallel and we recommend having multiple (ideally independent) instances to mitigate the risks of a single point of failure and censorship.  
 :::
 
 ### Contracts
@@ -66,5 +66,3 @@ Additionally, if the protocol wants to be 100% compatible with the Chainlink Pri
 | DATA_FEEDS                 | RedStone Wrapper parameter that describes what tokens will be used                                 |
 | CACHE_SERVICE_URLS         | RedStone Wrapper parameter that describes what cache services URLs will be used to fetch the price |
 | GAS_LIMIT                  | Gas limit used to push data to the price feed contract                                                                                                                                                                                      |
-
-Examples of environment variables already working can be found [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/on-chain-relayer/deployed-config).

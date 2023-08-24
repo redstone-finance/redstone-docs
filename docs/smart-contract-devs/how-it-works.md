@@ -19,7 +19,7 @@ Depending of the smart contract architecture and business demands we can deliver
 
 - [RedStone Classic](./get-started/redstone-classic.md), data is pushed into on-chain storage via relayer. Dedicated to protocols designed for the traditional Oracles model, that want to have full control of the data source and update conditions.
 
-- [RedStone X](./get-started/redstone-x.md), targetting the needs of the most advanced protocols such as perpetuals, options and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
+- [RedStone X](./get-started/redstone-x.md), targeting the needs of the most advanced protocols such as perpetuals, options and derivatives by eliminating the front-running risk providing price feeds at the very next block after users' interactions
 
 ## Data Flow
 
@@ -27,11 +27,11 @@ Depending of the smart contract architecture and business demands we can deliver
  <img src="/img/architecture.png" target="_blank"/>
 </a>
 
-The price feeds comes from multiiple sources such as off-chain DEX'ed ([Binance](https://binance.com), [Coinbase](https://coinbase.com) & [Kraken](https://kraken.com), etc.), on-chain DEX'es ([Uniswap](https://uniswap.org/), [Sushiswap](https://www.sushi.com/), [Balancer](https://balancer.fi/), etc.) and aggregators ([CoinmarketCap](https://coinmarketcap.com/), [Coingecko](https://www.coingecko.com/), [Kaiko](https://www.kaiko.com/)). Currently, we've got more than [50 sources integrated](https://app.redstone.finance/#/app/sources).
+The price feeds come from multiple sources such as off-chain DEX'ed ([Binance](https://binance.com), [Coinbase](https://coinbase.com) & [Kraken](https://kraken.com), etc.), on-chain DEX'es ([Uniswap](https://uniswap.org/), [Sushiswap](https://www.sushi.com/), [Balancer](https://balancer.fi/), etc.) and aggregators ([CoinmarketCap](https://coinmarketcap.com/), [Coingecko](https://www.coingecko.com/), [Kaiko](https://www.kaiko.com/)). Currently, we've got more than [50 sources integrated](https://app.redstone.finance/#/app/sources).
 
 The data is aggregated in independent nodes operated by data providers using various methodologies (eg. median, TWAP, LWAP) and safety measures like outliers detection. The cleaned and processed data is then signed by node operators underwriting the quality. 
 
-The feeds are broadcasted both on the [StreamR](https://streamr.network/) and directly to open-source [gateways](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/cache-service) which could be easily spun off on demand. 
+The feeds are broadcasted both on the [Streamr](https://streamr.network/) and directly to open-source [gateways](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/cache-service) which could be easily spun off on demand. 
 
 The data could be pushed on-chain either by a dedicated relayer operating under predefined conditions (ie. heartbeat or price deviation), by a bot (ie. performing liquidations), or even by end users interacting with the protocol. 
 
@@ -62,7 +62,7 @@ _All of the steps are executed automatically by the ContractWrapper and transpar
 
 1. The appended data packages are extracted from the `msg.data`
 2. For each data package we:
-   - Verify if the signature was created by trusted provider
+   - Verify if the signature was created by a trusted provider
    - Validate the timestamp, checking if the information is not obsolete
 3. Then, for each requested data feed we:
    - Calculate the number of received unique signers
@@ -84,7 +84,7 @@ There are the following on-chain aggregation params in RedStone consumer base co
 
 ## Types of values
 
-We support 2 types of data to be received in contract:
+We support 2 types of data to be received in a contract:
 
 1. Numeric 256-bit values (used by default)
 2. Bytes arrays with dynamic size
@@ -93,7 +93,7 @@ We support 2 types of data to be received in contract:
 
 - Do not override the `getUniqueSignersThreshold` function, unless you are 100% sure about it
 - Pay attention to the timestamp validation logic. For some use-cases (e.g. synthetic DEX), you would need to cache the latest values in your contract storage to avoid arbitrage attacks
-- Enable secure upgradability mechanism for your contract (ideally based on multi-sig or DAO)
+- Enable a secure upgradability mechanism for your contract (ideally based on multi-sig or DAO)
 - Monitor the RedStone data services registry and quickly modify signer authorisation logic in your contracts in case of changes (we will also notify you if you are a paying client)
 
 ## Recommendations
