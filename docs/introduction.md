@@ -33,7 +33,7 @@ RedStone offers a radically different design of Oracles catering to the needs of
 - There are [3 different ways](./smart-contract-devs/how-it-works.md#3-ways-to-integrate) to integrate our service tailored to your needs
 - We provide feeds for more than [1000 assets](https://app.redstone.finance/#/app/tokens) integrating [~50 data sources](https://app.redstone.finance/#/app/sources)
 - We are present on [20+ chains](https://showroom.redstone.finance/) 
-- RedStone has been supporting DeltaPrime Alpha since March 2022 and has been live on mainnets since January 2023. Our code was audited by multiple security experts including ABDK, Peckshield and L2Beat Co-Founder.
+- RedStone has been supporting [DeltaPrime](https://deltaprime.io/) since March 2022 and has been live on mainnets since January 2023. Our code was audited by multiple security experts including ABDK, Peckshield and L2Beat Co-Founder.
 - RedStone was a launch partner for [DeltaPrime](https://deltaprime.io/) on Avalanche and delivered data feeds not available anywhere else. Thanks to that DeltaPrime became the top 3 fastest growing dApps according to DefiLama.
 
 <a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-architecture-simple.png">
