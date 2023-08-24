@@ -40,6 +40,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Dogechain
 - Mantle Network
 - Base (Coinbase L2)
+- Linea
 - Scroll
 - Aurora
 - OKC
