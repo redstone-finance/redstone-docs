@@ -142,14 +142,14 @@ For all the supported feeds we provide [UI with charts and historical data](http
 
 💡 Note: You can also override the following functions (do it at your own risk):
 
-- `isTimestampValid(uint256 receivedTimestamp) returns (bool)` - to enable custom logic of timestamp validation. You may specify a shorter delay to accept only the most recent price fees. However, on networks with longer block times you may extend this period to avoid rejecting too many transactions.
+- `validateTimestamp(uint256 receivedTimestampMilliseconds)` - to enable custom logic of timestamp validation. You may specify a shorter delay to accept only the most recent price fees. However, on networks with longer block times you may extend this period to avoid rejecting too many transactions.
 
 - `aggregateValues(uint256[] memory values) returns (uint256)` - to enable custom logic of aggregating values from different providers (by default this function takes the median value). For example, you may request values from providers to be strictly equal while dealing with discrete numbers.  
 
-- `getAuthorisedSignerIndex(address _signerAddress) returns (uint256)` - to whitelist additional signers or remove corrupted ones. 
+- `getAuthorisedSignerIndex(address _signerAddress) returns (uint8)` - to whitelist additional signers or remove corrupted ones. 
 
 
-- `getUniqueSignersThreshold() returns (unt256)` - to modify number of required signers. The higher number means greater reliability but also higher gas costs.  
+- `getUniqueSignersThreshold() returns (uint8)` - to modify number of required signers. The higher number means greater reliability but also higher gas costs.  
 
 ### 2. Adjust Javascript code of your dApp
 
