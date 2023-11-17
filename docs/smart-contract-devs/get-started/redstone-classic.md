@@ -20,7 +20,7 @@ RedStone Classic has a significant advantage over traditional push Oracles. Our 
 
 This approach is built on top of the [RedStone Core](./redstone-core.mdx) model maintaining the security of on-chain validation of data providers and timestamps. 
 
-The model consists of two main parts. The first one is the off-chain [relayer](#relayer) responsible for pushing data on-chain in a customized way using [environment variables](#environment-variables). The second part is the on-chain [contracts](#contracts) which enable storing prices and getting them through a familiar interface (e.g. the [Chainlink Aggregator](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol) ). RedStone Classic can be used on all EVM-compatible L1s & L2s + Starknet + Fuel Network.
+The model consists of two main parts. The first one is the off-chain [relayer](#relayer) responsible for pushing data on-chain in a customized way using [environment variables](#environment-variables). The second part is the on-chain [contracts](#contracts) which enable storing prices and getting them through a familiar interface (e.g. the [Chainlink Aggregator](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.7/interfaces/AggregatorV3Interface.sol) ). RedStone Classic can be used on all EVM-compatible L1s & L2s + Starknet + Fuel Network.
 
 ![RedStone Classic diagram](/img/redstone-classic.png)
 
