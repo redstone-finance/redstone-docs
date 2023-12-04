@@ -9,7 +9,7 @@ sidebar_label: "💡 How it works?"
 
 Putting data directly into storage is the easiest way to make information accessible to smart contracts. This approach used to work well for large update intervals and small number of assets. However, there are more and more tokens coming to DeFi and modern derivative protocols require much lower latency boosting the maintenance costs of the simple model.
 
-That's why, RedStone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allow us to broadcast a large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol.
+That's why, RedStone proposes a completely new modular design where data is first put into a data availability layer and then fetched on-chain. This allows us to broadcast a large number of assets at high frequency to a cheaper layer and put it on chain only when required by the protocol.
 
 ## 3 Ways to integrate
 
@@ -69,11 +69,11 @@ _All of the steps are executed automatically by the ContractWrapper and transpar
    - Extract value for each unique signer
    - Calculate the aggregated value (median by default)
 
-_This logic is executed in the on-chain environment and we optimised the execution using a low-level assembly code to reduce gas consumption to the absolute minimum_
+_This logic is executed in the on-chain environment and we optimized the execution using a low-level assembly code to reduce gas consumption to the absolute minimum_
 
 ## On-chain aggregation
 
-To increase the security of the RedStone oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of passing at least X signatures from different authorised data providers for a given data feed. The values of different providers are then aggregated before returning to a consumer contract (by default, we use median value calculation for aggregation). This way, even if some small subset of providers corrupt (e.g. 2 of 10), it should not significantly affect the aggregated value.
+To increase the security of the RedStone oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of passing at least X signatures from different authorized data providers for a given data feed. The values of different providers are then aggregated before returning to a consumer contract (by default, we use median value calculation for aggregation). This way, even if some small subset of providers corrupt (e.g. 2 of 10), it should not significantly affect the aggregated value.
 
 There are the following on-chain aggregation params in RedStone consumer base contract:
 
@@ -94,7 +94,7 @@ We support 2 types of data to be received in a contract:
 - Do not override the `getUniqueSignersThreshold` function, unless you are 100% sure about it
 - Pay attention to the timestamp validation logic. For some use-cases (e.g. synthetic DEX), you would need to cache the latest values in your contract storage to avoid arbitrage attacks
 - Enable a secure upgradability mechanism for your contract (ideally based on multi-sig or DAO)
-- Monitor the RedStone data services registry and quickly modify signer authorisation logic in your contracts in case of changes (we will also notify you if you are a paying client)
+- Monitor the RedStone data services registry and quickly modify signer authorization logic in your contracts in case of changes (we will also notify you if you are a paying client)
 
 ## Recommendations
 
