@@ -31,7 +31,6 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Elrond
 - Fuel Network
 - Starknet (Cairo 1.0)
-- TON
 - Metis
 - Boba network
 - Stacks
@@ -56,6 +55,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - [Stacks](https://stacks.org/redstone)
 - [StarkNet](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/starknet-connector)
 - [Near](https://github.com/redstone-finance/redstone-near-connectors)
+- [TON](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/ton-connector/README.md)
 
 :::important Other chains
 Potentially you can use it on any other chain but it would require some custom development.
