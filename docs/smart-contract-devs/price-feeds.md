@@ -45,6 +45,31 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ETH | USD | 0.5% | 1h | [0xf4eC1DbD9047153c907e9D4a02CAD85864Ea16dc](https://pacific-explorer.manta.network/address/0xf4eC1DbD9047153c907e9D4a02CAD85864Ea16dc?tab=read_proxy) |
 
   </TabItem>
+    </TabItem>
+        <TabItem value="Manta">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| MANTA | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+| STONE | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+| ETH | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+| USDC | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+| wUSDM | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+| wstETH | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+| TIA | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
+  *) The feeds on Manta follow the multi-feed interface proposed by LayerBank. 
+  Please use the 'priceOf(address)' method passing the address of an asset. 
+  </TabItem>
+      <!-- <TabItem value="BLAST (Testnet)">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | 0.5% | 6h | [0x8d6d49Ddd5FE84B6B43d9420D1daC96B88dBa9a1](https://testnet.blastscan.io/address/0x8d6d49Ddd5FE84B6B43d9420D1daC96B88dBa9a1) | 
+| BTC | USD | 0.5% | 6h | [0xF2F35eA10FD83E880DD5264009f85936f191ccC3](https://testnet.blastscan.io/address/0xF2F35eA10FD83E880DD5264009f85936f191ccC3) |
+| USDB | USD | 0.5% | 6h | [0x4db0b52c85de6196D5449FBdC1B2F96e3F6B51C2](https://testnet.blastscan.io/address/0x4db0b52c85de6196D5449FBdC1B2F96e3F6B51C2) | 
+
+  </TabItem> -->
+
     <TabItem value="BSC">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
