@@ -64,9 +64,9 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ETH | USD | 0.5% | 6h | [0x8d6d49Ddd5FE84B6B43d9420D1daC96B88dBa9a1](https://testnet.blastscan.io/address/0x8d6d49Ddd5FE84B6B43d9420D1daC96B88dBa9a1) | 
-| BTC | USD | 0.5% | 6h | [0xF2F35eA10FD83E880DD5264009f85936f191ccC3](https://testnet.blastscan.io/address/0xF2F35eA10FD83E880DD5264009f85936f191ccC3) |
-| USDB | USD | 0.5% | 6h | [0x4db0b52c85de6196D5449FBdC1B2F96e3F6B51C2](https://testnet.blastscan.io/address/0x4db0b52c85de6196D5449FBdC1B2F96e3F6B51C2) | 
+| ETH | USD | 0.5% | 6h | [0x24b44096A381344A43559882c9A23A9DAd420781](https://testnet.blastscan.io/address/0x24b44096A381344A43559882c9A23A9DAd420781) | 
+| BTC | USD | 0.5% | 6h | [0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7](https://testnet.blastscan.io/address/0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7) |
+| USDB | USD | 0.5% | 6h | [0x2Bc667aDbf3ed021834114599C15388c49C9c773](https://testnet.blastscan.io/address/0x2Bc667aDbf3ed021834114599C15388c49C9c773) | 
 
   </TabItem> -->
 
