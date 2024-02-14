@@ -40,7 +40,7 @@ The table below contains the main environment variables required for running a n
 | Param | Description | Example value |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | ECDSA_PRIVATE_KEY | Your ECDSA private key | `ECDSA_PRIVATE_KEY=0x123...` |
-| OVERRIDE_DIRECT_CACHE_SERVICE_URLS | Your personal private URLs of gateways to the RedStone Data Distribution Layer (DDL). For running a local node you can simply put `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://httpbin.org/anything"]`. But for production node running you should [request them](https://redstone.finance/discord) from the RedStone team. | `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://xxx.yyy.secret-url-1.com","https://zzz.aaa.secret-url-2.com"]` |
+| OVERRIDE_DIRECT_CACHE_SERVICE_URLS | Your personal private URLs of gateways to the RedStone Data Distribution Layer (DDL). For running a local node you can simply put `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://httpbin.org/anything"]`. But for the production node running you should [request them](https://redstone.finance/discord) from the RedStone team. | `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://xxx.yyy.secret-url-1.com","https://zzz.aaa.secret-url-2.com"]` |
 | OVERRIDE_MANIFEST_USING_FILE | Path to your manifest file. Manifest is a public JSON file that defines the provider's obligation regarding the data that they provide. It sets fetching interval, tokens, sources and other public technical details for the provided data. You can check available manifests [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node/manifests) | `OVERRIDE_MANIFEST_USING_FILE=./manifests/dev/dev.json` |
 | LEVEL_DB_LOCATION | Path to the level DB. Each RedStone oracle node relies on a single-level DB. It is used to store recently fetched values from the last 15 minutes. These values are used for checking value deviations, filtering outliers and preventing price manipulation attacks. <br/><br/> You don't need to create a Level DB instance manually, it will be created automatically at the specified path during the first node launch. | `LEVEL_DB_LOCATION=/oracle-node-level-db` |
 
@@ -48,7 +48,7 @@ The table below contains the main environment variables required for running a n
 
 - [Link to the oracle-node Docker repository](https://gallery.ecr.aws/y7v2w8b2/redstone-oracle-node)
 
-Be sure to put your environment variables in the `.env` file using the instruction above.
+Be sure to put your environment variables in the `.env` file using the instructions above.
 
 Then, you can launch the RedStone oracle node using the following command:
 
