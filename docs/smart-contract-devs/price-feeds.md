@@ -45,8 +45,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ETH | USD | 0.5% | 1h | [0xf4eC1DbD9047153c907e9D4a02CAD85864Ea16dc](https://pacific-explorer.manta.network/address/0xf4eC1DbD9047153c907e9D4a02CAD85864Ea16dc?tab=read_proxy) |
 
   </TabItem>
-    </TabItem>
-        <TabItem value="Manta">
+  <TabItem value="Manta">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -60,7 +59,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   *) The feeds on Manta follow the multi-feed interface proposed by LayerBank. 
   Please use the 'priceOf(address)' method passing the address of an asset. 
   </TabItem>
-      <!-- <TabItem value="BLAST (Testnet)">
+  <TabItem value="BLAST (Testnet)">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -68,7 +67,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | BTC | USD | 0.5% | 6h | [0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7](https://testnet.blastscan.io/address/0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7) |
 | USDB | USD | 0.5% | 6h | [0x2Bc667aDbf3ed021834114599C15388c49C9c773](https://testnet.blastscan.io/address/0x2Bc667aDbf3ed021834114599C15388c49C9c773) | 
 
-  </TabItem> -->
+  </TabItem>
 
     <TabItem value="BSC">
 
