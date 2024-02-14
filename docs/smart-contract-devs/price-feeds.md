@@ -38,13 +38,6 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH | ETH | 0.5% | 12h | [0x119A190b510c9c0D5Ec301b60B2fE70A50356aE9](https://arbiscan.io/address/0x119A190b510c9c0D5Ec301b60B2fE70A50356aE9#readProxyContract) | 
 
   </TabItem>
-        <TabItem value="Manta">
-
-| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
-| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ETH | USD | 0.5% | 1h | [0xf4eC1DbD9047153c907e9D4a02CAD85864Ea16dc](https://pacific-explorer.manta.network/address/0xf4eC1DbD9047153c907e9D4a02CAD85864Ea16dc?tab=read_proxy) |
-
-  </TabItem>
   <TabItem value="Manta">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -56,20 +49,18 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | wUSDM | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
 | wstETH | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
 | TIA | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
-  *) The feeds on Manta follow the multi-feed interface proposed by LayerBank. 
-  Please use the 'priceOf(address)' method passing the address of an asset. 
+  *) The feeds on Manta follow the multi-feed interface proposed by LayerBank.Please use the `priceOf(address)` method passing the address of an asset. 
   </TabItem>
   <TabItem value="BLAST (Testnet)">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ETH | USD | 0.5% | 6h | [0x24b44096A381344A43559882c9A23A9DAd420781](https://testnet.blastscan.io/address/0x24b44096A381344A43559882c9A23A9DAd420781) | 
-| BTC | USD | 0.5% | 6h | [0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7](https://testnet.blastscan.io/address/0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7) |
-| USDB | USD | 0.5% | 6h | [0x2Bc667aDbf3ed021834114599C15388c49C9c773](https://testnet.blastscan.io/address/0x2Bc667aDbf3ed021834114599C15388c49C9c773) | 
+| ETH | USD | 0.5% | 1h | [0x24b44096A381344A43559882c9A23A9DAd420781](https://testnet.blastscan.io/address/0x24b44096A381344A43559882c9A23A9DAd420781) | 
+| BTC | USD | 0.5% | 1h | [0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7](https://testnet.blastscan.io/address/0xc447B8cAd2db7a8B0fDde540B038C9e06179c0f7) |
+| USDB | USD | 0.5% | 1h | [0x2Bc667aDbf3ed021834114599C15388c49C9c773](https://testnet.blastscan.io/address/0x2Bc667aDbf3ed021834114599C15388c49C9c773) | 
 
   </TabItem>
-
-    <TabItem value="BSC">
+  <TabItem value="BSC">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -85,7 +76,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | 0.2% | 1h | [0xc0c3B20Af1A431b9Ab4bfe1f396b12D97392e50f](https://kavascan.com/address/0xc0c3B20Af1A431b9Ab4bfe1f396b12D97392e50f/read-proxy#address-tabs) |
 
   </TabItem>
-    <TabItem value="Mantle">
+  <TabItem value="Mantle">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -94,7 +85,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | wstETH | ETH | 0.5% | 1h | [0xE8d850331faAbb277a24C09d91aabb68fb808748](https://explorer.mantle.xyz/address/0xE8d850331faAbb277a24C09d91aabb68fb808748/contracts?contract-tab=read-proxy#address-tabs) |
 
   </TabItem>
-      <TabItem value="Canto">
+  <TabItem value="Canto">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
