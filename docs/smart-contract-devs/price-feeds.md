@@ -28,7 +28,6 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | C3M | USD | - | 12:00 | [0x6E27A25999B3C665E44D903B2139F5a4Be2B6C26](https://etherscan.io/address/0x6E27A25999B3C665E44D903B2139F5a4Be2B6C26#readProxyContract) | 
 | eUSD | USD | 1% | 24h | [0xb347d2e3524D0F9e2321D84A2E9b2e60CbC4A836](https://etherscan.io/address/0xb347d2e3524D0F9e2321D84A2E9b2e60CbC4A836#readProxyContract) | 
 | apxETH | ETH | 1% | 24h | [0x19219BC90F48DeE4d5cF202E09c438FAacFd8Bea](https://etherscan.io/address/0x19219BC90F48DeE4d5cF202E09c438FAacFd8Bea#readProxyContract) | 
-| rsETH | ETH | 1% | 24h | [0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B](https://etherscan.io/address/0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B#readProxyContract) | 
 
   </TabItem>
   <TabItem value="Arbitrum">
