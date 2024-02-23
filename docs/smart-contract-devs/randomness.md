@@ -5,12 +5,4 @@ sidebar_label: "🎲 Randomness"
 
 # 🎲 Randomness
 
-RedStone delivers entropy proxied from https://drand.love/, which can be used to power pseudo-random number generation in Smart Contracts.
-
-### Example with RedStone's randomness
-
-- [Smart Contract](https://github.com/redstone-finance/redstone-evm-connector-examples/blob/main/contracts/example-pseudo-random.sol)
-- [JS code](https://github.com/redstone-finance/redstone-evm-connector-examples/blob/main/test/example-pseudo-random.test.js)
-
-:::caution
-Randomness provided by RedStone is not production-ready, you can definitely use it for proof of concepts or hackathon projects, but we do not recommend using it with production dApps. If you are interested in using this on production, feel free to [Contact Us](http://redstone.finance/discord).
+Verifiable cross-chain randomness is under development. Please reach out to us if you want to be notified about the progress.
