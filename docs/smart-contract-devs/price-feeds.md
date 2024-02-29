@@ -30,6 +30,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | apxETH | ETH | 1% | 24h | [0x19219BC90F48DeE4d5cF202E09c438FAacFd8Bea](https://etherscan.io/address/0x19219BC90F48DeE4d5cF202E09c438FAacFd8Bea#readProxyContract) | 
 | rsETH | ETH | 1% | 24h | [0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B](https://etherscan.io/address/0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B#readProxyContract) | 
 | ezETH | ETH | 1% | 12h | [0xF4a3e183F59D2599ee3DF213ff78b1B3b1923696](https://etherscan.io/address/0xF4a3e183F59D2599ee3DF213ff78b1B3b1923696#readProxyContract) | 
+| USDe | USD | 0.2% | 24h | [0xbC5FBcf58CeAEa19D523aBc76515b9AEFb5cfd58](https://etherscan.io/address/0xbC5FBcf58CeAEa19D523aBc76515b9AEFb5cfd58#readProxyContract) | 
+| sUSDe | USD | 0.2% | 24h | [0xb99D174ED06c83588Af997c8859F93E83dD4733f](https://etherscan.io/address/0xb99D174ED06c83588Af997c8859F93E83dD4733f#readProxyContract) | 
 
   </TabItem>
   <TabItem value="Arbitrum">
