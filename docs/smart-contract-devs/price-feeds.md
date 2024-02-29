@@ -56,7 +56,15 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | TIA | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
   *) The feeds on Manta follow the multi-feed interface proposed by LayerBank.Please use the `priceOf(address)` method passing the address of an asset. 
   </TabItem>
-  <TabItem value="BLAST (Testnet)">
+  <TabItem value="Blast">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| BTC | USD | 0.5% | 1h | 0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330 |
+| ETH | USD | 0.5% | 1h | 0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A |
+
+  </TabItem>
+  <TabItem value="Blast Testnet">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -101,7 +109,6 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | - | 1h | 0x5BA83F63c558cedba271a1892188b58360976acc |
 
   </TabItem>
-
 </Tabs>
 
 
