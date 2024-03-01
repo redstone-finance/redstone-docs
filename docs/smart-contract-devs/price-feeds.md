@@ -60,8 +60,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| BTC | USD | 0.5% | 1h | 0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330 |
-| ETH | USD | 0.5% | 1h | 0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A |
+| BTC | USD | 0.5% | 1h | [0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330](https://blastscan.io/address/0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330#readProxyContract) |
+| ETH | USD | 0.5% | 1h | [0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A](https://blastscan.io/address/0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A#readProxyContract) |
 
   </TabItem>
   <TabItem value="Blast Testnet">
