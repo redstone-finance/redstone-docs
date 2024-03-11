@@ -98,7 +98,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | MNT | USD | 0.5% | 1h | [0xed1f0df0b88889e5eA19c768613cDf3DbBF3d2a7](https://explorer.mantle.xyz/address/0xed1f0df0b88889e5eA19c768613cDf3DbBF3d2a7/contracts?contract-tab=read-proxy#address-tabs) |
 | wstETH | ETH | 0.5% | 1h | [0xE8d850331faAbb277a24C09d91aabb68fb808748](https://explorer.mantle.xyz/address/0xE8d850331faAbb277a24C09d91aabb68fb808748/contracts?contract-tab=read-proxy#address-tabs) |
 | USDe | USD | 0.2% | 24h | [0x3DFA26B9A15D37190bB8e50aE093730DcA88973E](https://explorer.mantle.xyz/address/0x3DFA26B9A15D37190bB8e50aE093730DcA88973E/contracts?contract-tab=read-proxy#address-tabs) |
-| sUSDe | ETH | 0.2% | 24h | [0xd6a987Ff6323F658D04da16c36CE00960137a115](https://explorer.mantle.xyz/address/0xd6a987Ff6323F658D04da16c36CE00960137a115/contracts?contract-tab=read-proxy#address-tabs) |
+| sUSDe | USD | 0.2% | 24h | [0xd6a987Ff6323F658D04da16c36CE00960137a115](https://explorer.mantle.xyz/address/0xd6a987Ff6323F658D04da16c36CE00960137a115/contracts?contract-tab=read-proxy#address-tabs) |
 
   </TabItem>
   <TabItem value="Canto">
