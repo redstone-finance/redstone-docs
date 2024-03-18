@@ -63,6 +63,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | BTC | USD | 0.5% | 1h | [0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330](https://blastscan.io/address/0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330#readProxyContract) |
 | ETH | USD | 0.5% | 1h | [0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A](https://blastscan.io/address/0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A#readProxyContract) |
+| USDB | USD | 0.5% | 6h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://blastscan.io/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) |
 
   </TabItem>
   <TabItem value="Blast Testnet">
