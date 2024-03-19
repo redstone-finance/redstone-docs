@@ -14,14 +14,54 @@
 <a href="#14" id="14">14</a>
 <a href="#15" id="15">15</a>
 <a href="#16" id="16">16</a>
+<a href="#17" id="17">17</a>
+<a href="#18" id="18">18</a>
+<a href="#19" id="19">19</a>
+<a href="#20" id="20">20</a>
+<a href="#21" id="21">21</a>
+<a href="#22" id="22">22</a>
+<a href="#23" id="23">23</a>
+<a href="#24" id="24">24</a>
+<a href="#25" id="25">25</a>
+<a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
+<a href="#29" id="29">29</a>
+<a href="#30" id="30">30</a>
+<a href="#31" id="31">31</a>
+<a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
+<a href="#35" id="35">35</a>
+<a href="#36" id="36">36</a>
 </pre><pre class="rust"><code><span class="kw">use </span>casper_types::ApiError;
 
-<span class="attr">#[repr(u16)]
+<span class="doccomment">/// Represents errors that may occur within the contract execution.
+///
+/// This enumeration lists various error conditions
+/// that are specific to the contract&#39;s logic or data handling processes. 
+/// Each variant is associated with a unique `u16` code to facilitate easy identification 
+/// and matching within contract logic and external diagnostics.
+</span><span class="attr">#[repr(u16)]
 </span><span class="kw">pub enum </span>ContractError {
-    KeyAlreadyExists = <span class="number">10</span>,
-    KeyMismatch = <span class="number">11</span>,
-    WrongHash = <span class="number">15</span>,
-    IndexRangeExceeded = <span class="number">16</span>,
+    <span class="doccomment">/// Error indicating that an attempt was made 
+    /// to create a key that already exists within the contract&#39;s storage.
+    ///
+    /// This error is returned when a new entry cannot be created because its key is already in use, 
+    /// suggesting a potential duplication or overlap in data management or initialization logic.
+    </span>KeyAlreadyExists = <span class="number">10</span>,
+
+    <span class="doccomment">/// Error indicating a mismatch between expected and actual keys.
+    ///
+    /// This occurs when the key being accessed does not match the expected format or value,
+    /// potentially indicating an error in key generation or retrieval logic.
+    </span>KeyMismatch = <span class="number">11</span>,
+
+    <span class="doccomment">/// Error indicating that a retrieved value does not match the criteria of contract or package hash.
+    </span>WrongHash = <span class="number">15</span>,
+
+    <span class="doccomment">/// Error indicating that an attempt was made to write an index outside the allowable range.
+    </span>IndexRangeExceeded = <span class="number">16</span>,
 }
 
 <span class="kw">impl </span>From&lt;ContractError&gt; <span class="kw">for </span>ApiError {

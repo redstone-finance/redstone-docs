@@ -1,3 +1,0 @@
-(function() {var implementors = {
-"redstone":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html\" title=\"trait core::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"redstone/network/casper/contracts/run_mode/enum.RunMode.html\" title=\"enum redstone::network::casper::contracts::run_mode::RunMode\">RunMode</a>"]]
-};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
