@@ -115,6 +115,64 @@
 <a href="#115" id="115">115</a>
 <a href="#116" id="116">116</a>
 <a href="#117" id="117">117</a>
+<a href="#118" id="118">118</a>
+<a href="#119" id="119">119</a>
+<a href="#120" id="120">120</a>
+<a href="#121" id="121">121</a>
+<a href="#122" id="122">122</a>
+<a href="#123" id="123">123</a>
+<a href="#124" id="124">124</a>
+<a href="#125" id="125">125</a>
+<a href="#126" id="126">126</a>
+<a href="#127" id="127">127</a>
+<a href="#128" id="128">128</a>
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
+<a href="#161" id="161">161</a>
+<a href="#162" id="162">162</a>
+<a href="#163" id="163">163</a>
+<a href="#164" id="164">164</a>
+<a href="#165" id="165">165</a>
+<a href="#166" id="166">166</a>
+<a href="#167" id="167">167</a>
+<a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
+<a href="#170" id="170">170</a>
+<a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
 </pre><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::network::{
     as_str::{AsAsciiStr, AsHexStr},
     specific::U256,
@@ -126,20 +184,78 @@
     <span class="kw">fn </span>message(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; String;
 }
 
-<span class="attr">#[derive(Debug)]
+<span class="doccomment">/// Errors that can be encountered in the deserializing&amp;decrypting the RedStone payload or just contract execution process.
+///
+/// These errors include issues with contract logic, data types,
+/// cryptographic operations, and conditions specific to the requirements.
+</span><span class="attr">#[derive(Debug)]
 </span><span class="kw">pub enum </span>Error {
-    ContractError(Box&lt;<span class="kw">dyn </span>ContractErrorContent&gt;),
-    NumberOverflow(U256),
-    ArrayIsEmpty,
-    CryptographicError(usize),
-    SizeNotSupported(usize),
-    WrongRedStoneMarker(Vec&lt;u8&gt;),
-    NonEmptyPayloadRemainder(Vec&lt;u8&gt;),
-    InsufficientSignerCount(usize, usize, U256),
-    TimestampTooOld(usize, u64),
-    TimestampTooFuture(usize, u64),
-    ClonedContractError(u8, String), <span class="comment">// for cloning ContractErrorContent, which is not supported by default
-</span>}
+    <span class="doccomment">/// Represents errors that arise from the contract itself.
+    ///
+    /// This variant is used for encapsulating errors that are specific to the contract&#39;s logic
+    /// or execution conditions that aren&#39;t covered by more specific error types.
+    </span>ContractError(Box&lt;<span class="kw">dyn </span>ContractErrorContent&gt;),
+
+    <span class="doccomment">/// Indicates an overflow error with `U256` numbers.
+    ///
+    /// Used when operations on `U256` numbers exceed their maximum value, potentially leading
+    /// to incorrect calculations or state.
+    </span>NumberOverflow(U256),
+
+    <span class="doccomment">/// Used when an expected non-empty array or vector is found to be empty.
+    ///
+    /// This could occur in scenarios where the contract logic requires a non-empty collection
+    /// of items for the correct operation, for example, during aggregating the values.
+    </span>ArrayIsEmpty,
+
+    <span class="doccomment">/// Represents errors related to cryptographic operations.
+    ///
+    /// This includes failures in signature verification, hashing, or other cryptographic
+    /// processes, with the usize indicating the position or identifier of the failed operation.
+    </span>CryptographicError(usize),
+
+    <span class="doccomment">/// Signifies that an unsupported size was encountered.
+    ///
+    /// This could be used when a data structure or input does not meet the expected size
+    /// requirements for processing.
+    </span>SizeNotSupported(usize),
+
+    <span class="doccomment">/// Indicates that the marker bytes for RedStone are incorrect.
+    ///
+    /// This error is specific to scenarios where marker or identifier bytes do not match
+    /// expected values, potentially indicating corrupted or tampered data.
+    </span>WrongRedStoneMarker(Vec&lt;u8&gt;),
+
+    <span class="doccomment">/// Used when there is leftover data in a payload that should have been empty.
+    ///
+    /// This could indicate an error in data parsing or that additional, unexpected data
+    /// was included in a message or transaction.
+    </span>NonEmptyPayloadRemainder(Vec&lt;u8&gt;),
+
+    <span class="doccomment">/// Indicates that the number of signers does not meet the required threshold.
+    ///
+    /// This variant includes the current number of signers, the required threshold, and
+    /// potentially a feed_id related to the operation that failed due to insufficient signers.
+    </span>InsufficientSignerCount(usize, usize, U256),
+
+    <span class="doccomment">/// Used when a timestamp is older than allowed by the processor logic.
+    ///
+    /// Includes the position or identifier of the timestamp and the threshold value,
+    /// indicating that the provided timestamp is too far in the past.
+    </span>TimestampTooOld(usize, u64),
+
+    <span class="doccomment">/// Indicates that a timestamp is further in the future than allowed.
+    ///
+    /// Similar to `TimestampTooOld`, but for future timestamps exceeding the contract&#39;s
+    /// acceptance window.
+    </span>TimestampTooFuture(usize, u64),
+
+    <span class="doccomment">/// Represents errors that need to clone `ContractErrorContent`, which is not supported by default.
+    ///
+    /// This variant allows for the manual duplication of contract error information, including
+    /// an error code and a descriptive message.
+    </span>ClonedContractError(u8, String),
+}
 
 <span class="kw">impl </span>Error {
     <span class="kw">pub fn </span>contract_error&lt;T: ContractErrorContent + <span class="lifetime">&#39;static</span>&gt;(value: T) -&gt; Error {
