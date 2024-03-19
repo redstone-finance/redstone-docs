@@ -113,6 +113,20 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | - | 1h | 0x5BA83F63c558cedba271a1892188b58360976acc |
 
   </TabItem>
+  <TabItem value="Mode">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| BTC | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| USDC | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| USDT | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| weETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| ezETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| STONE | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+  *) The feeds on Manta follow the multi-feed interface proposed by LayerBank.Please use the `priceOf(address)` method passing the address of an asset. 
+
+  </TabItem>
 </Tabs>
 
 
