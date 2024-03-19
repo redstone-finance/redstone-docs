@@ -108,3 +108,4 @@ dist
 .docusaurus
 
 build
+.idea/
