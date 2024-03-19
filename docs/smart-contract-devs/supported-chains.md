@@ -55,8 +55,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - [Near](https://github.com/redstone-finance/redstone-near-connectors)
 - [Fuel](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/fuel-connector/README.md)
 - [TON](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/ton-connector/README.md)
-
-[//]: # (- [Casper]&#40;https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/casper-connector/README.md&#41;)
+- [Casper](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/casper-connector/README.md)
 
 :::important Other chains
 Potentially you can use it on any other chain, but it would require some custom development.
