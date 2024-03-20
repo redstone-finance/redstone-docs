@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["contract_install"],"trait":["Contract"]};
+window.SIDEBAR_ITEMS = {"constant":["CONTRACT_VERSION_KEY"],"fn":["contract_install"],"trait":["Contract"]};

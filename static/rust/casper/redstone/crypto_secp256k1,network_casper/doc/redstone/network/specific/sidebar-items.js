@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["print","revert"],"trait":["FromBytesRepr","NetworkSpecific"],"type":["Bytes","U256"]};
+window.SIDEBAR_ITEMS = {"fn":["print","revert"],"trait":["FromBytesRepr","NetworkSpecific"],"type":["Bytes","Network","U256"]};

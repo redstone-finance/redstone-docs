@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["trim_data_package","trim_data_packages"],"struct":["DataPackage"]};

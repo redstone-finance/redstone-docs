@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["contracts"],"struct":["Casper"]};
+window.SIDEBAR_ITEMS = {"mod":["contracts","error","from_bytes_repr"],"struct":["Casper"]};
