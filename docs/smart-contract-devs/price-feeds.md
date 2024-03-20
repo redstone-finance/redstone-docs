@@ -80,6 +80,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | TRX | USD | 0.2% | 10m | [0xa17362dd9ad6d0af646d7c8f8578fddbfc90b916](https://bscscan.com/address/0xa17362dd9ad6d0af646d7c8f8578fddbfc90b916#readProxyContract) | 
+| ezETH | ETH | 1% | 12h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://bscscan.com/address/0x3A236F67Fce401D87D7215695235e201966576E4 ) | 
 
   </TabItem>
   <TabItem value="Kava">
