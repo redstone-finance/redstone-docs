@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["contract_install"],"trait":["Contract"]};
