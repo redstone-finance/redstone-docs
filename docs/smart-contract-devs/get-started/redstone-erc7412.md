@@ -77,8 +77,6 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
     await wallet.sendTransaction(call);
 
     // data is already set in contract and it won't be necessary to update it until TTL passes
-    // read "cached" value from price feed
-    // data is fresh(not stale) until getTTL value
     console.log("BTC price:", await btcPriceFeed.read.latestAnswer());
 ```
 Working toy example could be find [here](TODO: link to public repo)
