@@ -6,12 +6,12 @@ pub enum ContractError {
     IndexRangeExceeded,
 }</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Represents errors that may occur within the contract execution.</p>
 <p>This enumeration lists various error conditions
-that are specific to the contract’s logic or data handling processes. 
-Each variant is associated with a unique <code>u16</code> code to facilitate easy identification 
+that are specific to the contract’s logic or data handling processes.
+Each variant is associated with a unique <code>u16</code> code to facilitate easy identification
 and matching within contract logic and external diagnostics.</p>
-</div></details><h2 id="variants" class="variants small-section-header">Variants<a href="#variants" class="anchor">§</a></h2><div class="variants"><section id="variant.KeyAlreadyExists" class="variant"><a href="#variant.KeyAlreadyExists" class="anchor">§</a><h3 class="code-header">KeyAlreadyExists</h3></section><div class="docblock"><p>Error indicating that an attempt was made 
+</div></details><h2 id="variants" class="variants small-section-header">Variants<a href="#variants" class="anchor">§</a></h2><div class="variants"><section id="variant.KeyAlreadyExists" class="variant"><a href="#variant.KeyAlreadyExists" class="anchor">§</a><h3 class="code-header">KeyAlreadyExists</h3></section><div class="docblock"><p>Error indicating that an attempt was made
 to create a key that already exists within the contract’s storage.</p>
-<p>This error is returned when a new entry cannot be created because its key is already in use, 
+<p>This error is returned when a new entry cannot be created because its key is already in use,
 suggesting a potential duplication or overlap in data management or initialization logic.</p>
 </div><section id="variant.KeyMismatch" class="variant"><a href="#variant.KeyMismatch" class="anchor">§</a><h3 class="code-header">KeyMismatch</h3></section><div class="docblock"><p>Error indicating a mismatch between expected and actual keys.</p>
 <p>This occurs when the key being accessed does not match the expected format or value,

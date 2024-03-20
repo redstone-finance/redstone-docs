@@ -39,15 +39,15 @@
 <span class="doccomment">/// Represents errors that may occur within the contract execution.
 ///
 /// This enumeration lists various error conditions
-/// that are specific to the contract&#39;s logic or data handling processes. 
-/// Each variant is associated with a unique `u16` code to facilitate easy identification 
+/// that are specific to the contract&#39;s logic or data handling processes.
+/// Each variant is associated with a unique `u16` code to facilitate easy identification
 /// and matching within contract logic and external diagnostics.
 </span><span class="attr">#[repr(u16)]
 </span><span class="kw">pub enum </span>ContractError {
-    <span class="doccomment">/// Error indicating that an attempt was made 
+    <span class="doccomment">/// Error indicating that an attempt was made
     /// to create a key that already exists within the contract&#39;s storage.
     ///
-    /// This error is returned when a new entry cannot be created because its key is already in use, 
+    /// This error is returned when a new entry cannot be created because its key is already in use,
     /// suggesting a potential duplication or overlap in data management or initialization logic.
     </span>KeyAlreadyExists = <span class="number">10</span>,
 
