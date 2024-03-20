@@ -262,6 +262,33 @@
 <a href="#262" id="262">262</a>
 <a href="#263" id="263">263</a>
 <a href="#264" id="264">264</a>
+<a href="#265" id="265">265</a>
+<a href="#266" id="266">266</a>
+<a href="#267" id="267">267</a>
+<a href="#268" id="268">268</a>
+<a href="#269" id="269">269</a>
+<a href="#270" id="270">270</a>
+<a href="#271" id="271">271</a>
+<a href="#272" id="272">272</a>
+<a href="#273" id="273">273</a>
+<a href="#274" id="274">274</a>
+<a href="#275" id="275">275</a>
+<a href="#276" id="276">276</a>
+<a href="#277" id="277">277</a>
+<a href="#278" id="278">278</a>
+<a href="#279" id="279">279</a>
+<a href="#280" id="280">280</a>
+<a href="#281" id="281">281</a>
+<a href="#282" id="282">282</a>
+<a href="#283" id="283">283</a>
+<a href="#284" id="284">284</a>
+<a href="#285" id="285">285</a>
+<a href="#286" id="286">286</a>
+<a href="#287" id="287">287</a>
+<a href="#288" id="288">288</a>
+<a href="#289" id="289">289</a>
+<a href="#290" id="290">290</a>
+<a href="#291" id="291">291</a>
 </pre><pre class="rust"><code><span class="kw">use crate</span>::{
     core::{config::Config, validator::Validator},
     network::specific::U256,
@@ -272,7 +299,34 @@
 
 <span class="kw">type </span>Matrix = Vec&lt;Vec&lt;<span class="prelude-ty">Option</span>&lt;U256&gt;&gt;&gt;;
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>aggregate_values(config: Config, data_packages: Vec&lt;DataPackage&gt;) -&gt; Vec&lt;U256&gt; {
+<span class="doccomment">/// Aggregates values from a collection of data packages according to the provided configuration.
+///
+/// This function takes a configuration and a vector of data packages, constructs a matrix of values
+/// and their corresponding signers, and then aggregates these values based on the aggregation logic
+/// defined in the provided configuration. The aggregation strategy could vary, for example, by taking
+/// an average of the values, selecting the median, or applying a custom algorithm defined within the
+/// `aggregate_matrix` function.
+///
+/// The primary purpose of this function is to consolidate data from multiple sources into a coherent
+/// and singular value set that adheres to the criteria specified in the `Config`.
+///
+/// # Arguments
+///
+/// * `config` - A `Config` instance containing settings and parameters used to guide the aggregation process.
+/// * `data_packages` - A vector of `DataPackage` instances, each representing a set of values and associated
+///   metadata collected from various sources or signers.
+///
+/// # Returns
+///
+/// Returns a `Vec&lt;U256&gt;`, which is a vector of aggregated values resulting from applying the aggregation
+/// logic to the input data packages as per the specified configuration. Each `U256` value in the vector
+/// represents an aggregated result derived from the corresponding data packages.
+///
+/// # Note
+///
+/// This function is internal to the crate (`pub(crate)`) and not exposed as part of the public API. It is
+/// designed to be used by other components within the same crate that require value aggregation functionality.
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>aggregate_values(config: Config, data_packages: Vec&lt;DataPackage&gt;) -&gt; Vec&lt;U256&gt; {
     aggregate_matrix(make_value_signer_matrix(<span class="kw-2">&amp;</span>config, data_packages), config)
 }
 
