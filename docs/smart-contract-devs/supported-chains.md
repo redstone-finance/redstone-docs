@@ -47,6 +47,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Velas
 - Caduceus
 - Telos
+- zkLink Nova
 - And many more...
 
 ### We also support few non-EVM-compatible chains
