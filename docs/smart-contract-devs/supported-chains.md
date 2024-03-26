@@ -51,6 +51,12 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Blast
   * Points Operator Address - 0xBf30EB3D420568Ac44ca04B247D674fFd7168cD5
   * Points Operator Contract - 0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590
+- Mode
+- Manta
+- Story Protocol
+- Cyber (by CyberConnect)
+- opBNB
+- BOB
 - And many more...
 
 ### We also support few non-EVM-compatible chains
