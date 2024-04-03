@@ -19,12 +19,13 @@ TLDR; You need to do 2 things:
 
 ### Deploy price feed contract
 
-0. Install dependency `npm install @redstone-finance/erc7412`
-1. You have to extend contract `@redstone-finance/erc7412/contracts/erc7412/RedstonePrimaryProdWithoutRoundsERC7412.sol` the package is available on npm
-  1. Implement `getTTL` method. It should return duration in second after which price in contract becomes stale. Stale means that price feed contract will revert on reads until price will be updated. Price updates will auto happen ths is described in DAPP section.
-  2. Choose `dataFeedId` for which you want to deploy feed. Here is full list of [supported assets](https://app.redstone.finance/#/app/data-services/redstone-primary-prod) (symbol=dataFeedId)
-2. Deploy contract (example contract for BTC)
+1. Install dependency `npm install @redstone-finance/erc7412`
+2. You have to extend contract `@redstone-finance/erc7412/contracts/RedstoneERC7412.sol` the package is available on npm
+  1. Implement `getTTL` method. It should return duration in second after which price in contract becomes stale. Stale means that price feed contract will revert on reads until price will be updated. Price updates will happen this is described in "Modify DAPP" section.
+  2. Choose `dataFeedId` for which you want to deploy feed. Here is full list of [supported assets](https://app.redstone.finance/#/app/data-services/redstone-primary-prod)
+3. Deploy contract
 
+**Example contract for BTC dataFeedId**
 ```sol
 import {RedstonePrimaryProdWithoutRoundsERC7412} from '@redstone-finance/erc7412/contracts/RedstoneERC7412.sol'; 
 
@@ -41,7 +42,7 @@ contract BTCFeed is RedstonePrimaryProdWithoutRoundsERC7412 {
 ### Modify DAPP
 Your dapp has to be aware of erc7412. To allow users update prices when price in feed is stale. 
 
-Note: if it happens that user will have to update price they will need to pay extra money for gas transaction.
+*Note: if it happens that user will have to update price they will need to pay extra money for gas transaction.*
 
 Modification in your dapp requires extra function call `generate7412CompatibleCall` which should be executed just before user executing transaction.
 
@@ -55,7 +56,7 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
     const callData = viem.encodeFunctionData({
       functionName: "your contract function",
       args: [],
-      abi: btcPriceFeed.abi,
+      abi: your_contract_abi,
     });
 
     // this function will simulate transaction if transaction fails because of erc7412.OracleDataRequired,
@@ -77,4 +78,4 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
     // data is already set in contract and it won't be necessary to update it until TTL passes
     console.log("BTC price:", await btcPriceFeed.read.latestAnswer());
 ```
-Working toy example can be find [here](https://github.com/redstone-finance/erc7412-example)
+Working example can be find [here](https://github.com/redstone-finance/erc7412-example)
