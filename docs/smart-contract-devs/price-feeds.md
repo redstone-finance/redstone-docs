@@ -108,11 +108,11 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ATOM | USD | - | 1h | 0xCe8937eF7f3874e71C65C55470253B6b86f7C1AB |
-| CANTO | USD | - | 1h | 0x93063D743Fc0082121aec5d183e40554468E1568 |
-| ETH | USD | - | 1h | 0x6D882e6d7A04691FCBc5c3697E970597C68ADF39 |
-| USDC | USD | - | 1h | 0x1b23243882DC7F419Ba01B5a841554f7bb0b9Da1 |
-| USDT | USD | - | 1h | 0x5BA83F63c558cedba271a1892188b58360976acc |
+| ATOM | USD | 1% | 1h | 0xCe8937eF7f3874e71C65C55470253B6b86f7C1AB |
+| CANTO | USD | 1% | 1h | 0x93063D743Fc0082121aec5d183e40554468E1568 |
+| ETH | USD | 1% | 1h | 0x6D882e6d7A04691FCBc5c3697E970597C68ADF39 |
+| USDC | USD | 1% | 1h | 0x1b23243882DC7F419Ba01B5a841554f7bb0b9Da1 |
+| USDT | USD | 1% | 1h | 0x5BA83F63c558cedba271a1892188b58360976acc |
 
   </TabItem>
   <TabItem value="Mode">
