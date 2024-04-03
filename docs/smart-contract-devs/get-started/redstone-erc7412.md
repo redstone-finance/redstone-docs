@@ -20,7 +20,7 @@ TLDR; You need to do 2 things:
 ### Deploy price feed contract
 
 1. Install dependency `npm install @redstone-finance/erc7412`
-2. You have to extend contract `@redstone-finance/erc7412/contracts/RedstoneERC7412.sol` the package is available on npm
+2. You have to extend contract `RedstonePrimaryProdWithoutRoundsERC7412` imported from `@redstone-finance/erc7412/contracts/RedstoneERC7412.sol`
   1. Implement `getTTL` method. It should return duration in second after which price in contract becomes stale. Stale means that price feed contract will revert on reads until price will be updated. Price updates will happen this is described in "Modify DAPP" section.
   2. Choose `dataFeedId` for which you want to deploy feed. Here is full list of [supported assets](https://app.redstone.finance/#/app/data-services/redstone-primary-prod)
 3. Deploy contract
