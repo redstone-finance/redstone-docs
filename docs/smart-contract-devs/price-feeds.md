@@ -102,6 +102,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | wstETH | ETH | 0.5% | 1h | [0xE8d850331faAbb277a24C09d91aabb68fb808748](https://explorer.mantle.xyz/address/0xE8d850331faAbb277a24C09d91aabb68fb808748/contracts?contract-tab=read-proxy#address-tabs) |
 | USDe | USD | 0.2% | 24h | [0x3DFA26B9A15D37190bB8e50aE093730DcA88973E](https://explorer.mantle.xyz/address/0x3DFA26B9A15D37190bB8e50aE093730DcA88973E/contracts?contract-tab=read-proxy#address-tabs) |
 | sUSDe | USD | 0.2% | 24h | [0xd6a987Ff6323F658D04da16c36CE00960137a115](https://explorer.mantle.xyz/address/0xd6a987Ff6323F658D04da16c36CE00960137a115/contracts?contract-tab=read-proxy#address-tabs) |
+| USDT | USD | 0.25% | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://explorer.mantle.xyz/address/0x3A236F67Fce401D87D7215695235e201966576E4/contracts?contract-tab=read-proxy#address-tabs) |
 
   </TabItem>
   <TabItem value="Canto">
