@@ -11,24 +11,22 @@ This model was introduced in form of [ERC7412](https://eips.ethereum.org/EIPS/ei
 
 :::important Requirements
 TLDR; You need to do 2 things:
-1. Deploy price feed, or use existing one
-2. Modify you client code to use [erc7412](TODO: link to our published package)
+1. Deploy price feed
+2. Modify you client code to use [erc7412](https://www.npmjs.com/package/@redstone-finance/erc7412)
 :::
 
-## Usage
+## Guide
 
 ### Deploy price feed contract
 
+0. Install dependency `npm install @redstone-finance/erc7412`
 1. You have to extend contract `@redstone-finance/erc7412/contracts/erc7412/RedstonePrimaryProdWithoutRoundsERC7412.sol` the package is available on npm
   1. Implement `getTTL` method. It should return duration in second after which price in contract becomes stale. Stale means that price feed contract will revert on reads until price will be updated. Price updates will auto happen ths is described in DAPP section.
   2. Choose `dataFeedId` for which you want to deploy feed. Here is full list of [supported assets](https://app.redstone.finance/#/app/data-services/redstone-primary-prod) (symbol=dataFeedId)
 2. Deploy contract (example contract for BTC)
 
 ```sol
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.12;
-
-import {RedstonePrimaryProdWithoutRoundsERC7412} from '@redstone-finance/erc7412/contracts/erc7412/RedstonePrimaryProdWithoutRoundsERC7412.sol'; 
+import {RedstonePrimaryProdWithoutRoundsERC7412} from '@redstone-finance/erc7412/contracts/RedstoneERC7412.sol'; 
 
 contract BTCFeed is RedstonePrimaryProdWithoutRoundsERC7412 {
   function getTTL() override view internal virtual returns (uint256) {
@@ -79,4 +77,4 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
     // data is already set in contract and it won't be necessary to update it until TTL passes
     console.log("BTC price:", await btcPriceFeed.read.latestAnswer());
 ```
-Working toy example could be find [here](TODO: link to public repo)
+Working toy example can be find [here](https://github.com/redstone-finance/erc7412-example)
