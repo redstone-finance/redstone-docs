@@ -33,6 +33,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | rswETH | ETH | 1% | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://etherscan.io/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) | 
 | USDe | USD | 0.2% | 24h | [0xbC5FBcf58CeAEa19D523aBc76515b9AEFb5cfd58](https://etherscan.io/address/0xbC5FBcf58CeAEa19D523aBc76515b9AEFb5cfd58#readProxyContract) | 
 | sUSDe | USD | 0.2% | 24h | [0xb99D174ED06c83588Af997c8859F93E83dD4733f](https://etherscan.io/address/0xb99D174ED06c83588Af997c8859F93E83dD4733f#readProxyContract) | 
+| pufETH | ETH | 1% | 24h | [0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C](https://etherscan.io/address/0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C#readProxyContract) | 
 
   </TabItem>
   <TabItem value="Arbitrum">
