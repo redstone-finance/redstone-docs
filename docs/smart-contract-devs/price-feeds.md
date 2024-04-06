@@ -44,6 +44,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | PREMIA | USD | 0.5% | 24h | [0x50db815D3c4B869F89925690E936ED85b0b76075](https://arbiscan.io/address/0x50db815D3c4B869F89925690E936ED85b0b76075#readProxyContract) | 
 | weETH | eETH (contract rate) | 0.5% | 12h | [0x119A190b510c9c0D5Ec301b60B2fE70A50356aE9](https://arbiscan.io/address/0x119A190b510c9c0D5Ec301b60B2fE70A50356aE9#readProxyContract) | 
 | weETH | ETH | 0.5% | 24h | [0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B](https://arbiscan.io/address/0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B#readProxyContract) | 
+| sUSDe_RATE_PROVIDER | - | - | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://arbiscan.io/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) | 
 
   </TabItem>
   <TabItem value="Manta">
