@@ -67,6 +67,9 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | BTC | USD | 0.5% | 1h | [0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330](https://blastscan.io/address/0x7262c8C5872A4Aa0096A8817cF61f5fa3c537330#readProxyContract) |
 | ETH | USD | 0.5% | 1h | [0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A](https://blastscan.io/address/0x0af23B08bcd8AD35D1e8e8f2D2B779024Bd8D24A#readProxyContract) |
 | USDB | USD | 0.5% | 6h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://blastscan.io/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) |
+| weETH | ETH | 0.5% | 24h | [0xcD96262Df56127f298b452FA40759632868A472a](https://blastscan.io/address/0xcD96262Df56127f298b452FA40759632868A472a#readProxyContract) |
+| ezETH | ETH | 0.5% | 24h | [0x6bc42F8Ee8cD9BEA7d5CfF0934Ce73eCD2c11e99](https://blastscan.io/address/0x6bc42F8Ee8cD9BEA7d5CfF0934Ce73eCD2c11e99#readProxyContract) |
+| apxETH | ETH | 0.5% | 24h | [0x0c86AAbBEEF451f28C0CE4e9Cfeecc98a7881087](https://blastscan.io/address/0x0c86AAbBEEF451f28C0CE4e9Cfeecc98a7881087#readProxyContract) |
 
   </TabItem>
   <TabItem value="Blast Testnet">
