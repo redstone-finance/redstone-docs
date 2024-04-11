@@ -61,7 +61,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 
 - [TRON](https://github.com/redstone-finance/redstone-tron-integration)
 - [Stacks](https://stacks.org/redstone)
-- [StarkNet (Cairo 1)](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/starknet-connector)
+- [StarkNet](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/starknet-connector)
 - [Near](https://github.com/redstone-finance/redstone-near-connectors)
 - [Fuel](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/fuel-connector/README.md)
 - [TON](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/ton-connector/README.md)
