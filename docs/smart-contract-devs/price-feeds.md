@@ -135,6 +135,17 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   *) The feeds on Mode follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset. 
 
   </TabItem>
+  <TabItem value="Fraxtal">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| BTC | USD | 0.5% | 6h | [0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e](https://fraxscan.com/address/0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e#readProxyContract) |
+| CRV | USD | 0.5% | 6h | [0x6C5090e85a65038ca6AB207CDb9e7a897cb33e4d](https://fraxscan.com/address/0x6C5090e85a65038ca6AB207CDb9e7a897cb33e4d#readProxyContract) |
+| ETH | USD | 0.5% | 6h | [0x89e60b56efD70a1D4FBBaE947bC33cae41e37A72](https://fraxscan.com/address/0x89e60b56efD70a1D4FBBaE947bC33cae41e37A72#readProxyContract) |
+| FRAX | USD | 0.5% | 6h | [0xa41107f9259bB835275eaCaAd8048307B80D7c00](https://fraxscan.com/address/0xa41107f9259bB835275eaCaAd8048307B80D7c00#readProxyContract) |
+| FXS | USD | 0.5% | 6h | [0xbf228a9131AB3BB8ca8C7a4Ad574932253D99Cd1](https://fraxscan.com/address/0xbf228a9131AB3BB8ca8C7a4Ad574932253D99Cd1#readProxyContract) |
+
+  </TabItem>
 </Tabs>
 
 
