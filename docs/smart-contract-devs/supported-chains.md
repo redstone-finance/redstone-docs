@@ -55,6 +55,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Cyber (by CyberConnect)
 - opBNB
 - BOB
+- X Layer
 - And many more...
 
 ### We also support a few non-EVM-compatible chains
