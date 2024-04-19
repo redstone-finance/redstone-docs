@@ -151,6 +151,13 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | FXS | USD | 0.5% | 6h | [0xbf228a9131AB3BB8ca8C7a4Ad574932253D99Cd1](https://fraxscan.com/address/0xbf228a9131AB3BB8ca8C7a4Ad574932253D99Cd1#readProxyContract) |
 
   </TabItem>
+  <TabItem value="Linea">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| weETH | eETH | 0.5% | 6h | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://lineascan.build/address/0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272#readProxyContract) |
+
+  </TabItem>
 </Tabs>
 
 
