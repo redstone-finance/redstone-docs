@@ -160,6 +160,17 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH | eETH | 0.5% | 6h | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://lineascan.build/address/0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272#readProxyContract) |
 
   </TabItem>
+    <TabItem value="B²">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| BTC | USD | 0.5% | 24h | [0xfcd454d19f9B8806F8908e99d85b8eA17b3c7346](https://explorer.bsquared.network/address/0xfcd454d19f9B8806F8908e99d85b8eA17b3c7346) |
+| USDT | USD | 0.2% | 24h | [0xfcd454d19f9B8806F8908e99d85b8eA17b3c7346](https://explorer.bsquared.network/address/0xfcd454d19f9B8806F8908e99d85b8eA17b3c7346) |
+| STONE | USD | 0.5% | 24h | [0xfcd454d19f9B8806F8908e99d85b8eA17b3c7346](https://explorer.bsquared.network/address/0xfcd454d19f9B8806F8908e99d85b8eA17b3c7346) |
+  *) The feeds on B² follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset. 
+  **) BTC rate value is available through `priceOfBTC()` function 
+
+  </TabItem>
 </Tabs>
 
 
