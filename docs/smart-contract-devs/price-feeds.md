@@ -158,6 +158,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | weETH | eETH | 0.5% | 6h | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://lineascan.build/address/0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272#readProxyContract) |
+| ezETH | eETH | 0.5% | 24h | [0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4](https://lineascan.build/address/0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4#readProxyContract) |
 
   </TabItem>
     <TabItem value="B²">
