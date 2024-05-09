@@ -129,17 +129,19 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| BTC | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| USDC | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| USDT | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| weETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| ezETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| STONE | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| rsETH | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-| weETH | eETH | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
-  *) The feeds on Mode follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset. 
+| ETH* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| BTC* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| USDC* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| USDT* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| weETH* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| ezETH* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| STONE* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| rsETH* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| weETH** | eETH | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
+| MODE | USD | 0.5% | 24h | [0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e](https://explorer.mode.network/address/0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e?tab=read_proxy) |
+  *) The feeds on Mode follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset.<br />
   **) weETH/eETH rate value is available through `priceOfWeETHRate()` function 
+
 
   </TabItem>
   <TabItem value="Fraxtal">
