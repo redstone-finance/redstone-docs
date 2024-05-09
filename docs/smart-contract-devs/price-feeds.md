@@ -172,6 +172,20 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   **) BTC rate value is available through `priceOfBTC()` function 
 
   </TabItem>
+      <TabItem value="BOB">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| BTC | USD | 0.5% | 24h | [0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1](https://explorer.gobob.xyz/address/0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1?tab=read_proxy) |
+| ETH | USD | 0.5% | 24h | [0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1](https://explorer.gobob.xyz/address/0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1?tab=read_proxy) |
+| USDC | USD | 0.2% | 24h | [0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1](https://explorer.gobob.xyz/address/0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1?tab=read_proxy) |
+| USDT | USD | 0.2% | 24h | [0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1](https://explorer.gobob.xyz/address/0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1?tab=read_proxy) |
+| STONE | USD | 0.5% | 24h | [0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1](https://explorer.gobob.xyz/address/0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1?tab=read_proxy) 
+| wstETH | USD | 0.5% | 24h | [0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1](https://explorer.gobob.xyz/address/0x2d484E029b8Ae5cA6335DAe11fC726B232bE87D1?tab=read_proxy) |
+  *) The feeds on BOB follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset. 
+  **) ETH rate value is available through `priceOfETH()` function 
+
+  </TabItem>
 </Tabs>
 
 
