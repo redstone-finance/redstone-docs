@@ -52,10 +52,16 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Mode
 - Manta
 - Story Protocol
-- Cyber (by CyberConnect)
+- CyberConnect
 - opBNB
+- Fraxtal
 - BOB
 - X Layer
+- Parallel
+- B2 Network
+- Berachain
+- Etherlink
+- Reya
 - And many more...
 
 ### We also support a few non-EVM-compatible chains
