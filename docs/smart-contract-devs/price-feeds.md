@@ -88,8 +88,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | TRX | USD | 0.2% | 10m | [0xa17362dd9ad6d0af646d7c8f8578fddbfc90b916](https://bscscan.com/address/0xa17362dd9ad6d0af646d7c8f8578fddbfc90b916#readProxyContract) | 
 | ezETH | ETH | 1% | 12h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://bscscan.com/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) | 
-| BNB | USD | 0.1% | 1h | [0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e](https://bscscan.com/address/0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e#readProxyContract) | 
-| BTC | USD | 0.1% | 1h | [0xa51738d1937FFc553d5070f43300B385AA2D9F55](https://bscscan.com/address/0xa51738d1937FFc553d5070f43300B385AA2D9F55#readProxyContract) | 
+| BNB | USD | 0.1% | 1m | [0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e](https://bscscan.com/address/0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e#readProxyContract) | 
+| BTC | USD | 0.1% | 1m | [0xa51738d1937FFc553d5070f43300B385AA2D9F55](https://bscscan.com/address/0xa51738d1937FFc553d5070f43300B385AA2D9F55#readProxyContract) | 
 | weETH | eETH | 0.5% | 6h | [0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab](https://bscscan.com/address/0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab#readProxyContract) | 
 
   </TabItem>
