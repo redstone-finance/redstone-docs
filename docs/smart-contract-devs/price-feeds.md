@@ -165,7 +165,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ezETH | eETH | 0.5% | 24h | [0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4](https://lineascan.build/address/0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4#readProxyContract) |
 
   </TabItem>
-    <TabItem value="B²">
+  <TabItem value="B²">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -176,7 +176,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   **) BTC rate value is available through `priceOfBTC()` function 
 
   </TabItem>
-      <TabItem value="BOB">
+  <TabItem value="BOB">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -190,15 +190,22 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   **) ETH rate value is available through `priceOfETH()` function 
 
   </TabItem>
-        <TabItem value="Merlin">
+  <TabItem value="Merlin">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| BTC | USD | 0.5% | 24h | [https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
-| MERL | USD | 0.5% | 24h | [https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256)|
-| SolvBTC | BTC | 0.5% | 24h | [https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
+| BTC | USD | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
+| MERL | USD | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256)|
+| SolvBTC | BTC | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
   *) The feeds on Merlin follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset for feeds denominated in USD and `priceOfInBTC(address)` for these denominated in BTC. 
   **) BTC rate value is available through `priceOfBTC()` function 
+
+  </TabItem>
+  <TabItem value="Base">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| pufETH | ETH | 0.5% | 24h | [0x4aaf2844c5420bf979d5bc2cf883ef02db07e590](https://basescan.org/address/0x4aaf2844c5420bf979d5bc2cf883ef02db07e590#readProxyContract) |
 
   </TabItem>
 </Tabs>
