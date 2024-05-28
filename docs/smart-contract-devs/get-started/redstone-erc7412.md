@@ -3,7 +3,7 @@ sidebar_position: 4
 sidebar_label: "🌀 ERC7412 (classic + core)"
 ---
 
-# Redstone ERC7412
+# RedStone ERC7412
 
 ## Classic and Core models combined
 
