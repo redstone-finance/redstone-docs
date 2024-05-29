@@ -208,6 +208,15 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | pufETH | ETH | 0.5% | 24h | [0x4aaf2844c5420bf979d5bc2cf883ef02db07e590](https://basescan.org/address/0x4aaf2844c5420bf979d5bc2cf883ef02db07e590#readProxyContract) |
 
   </TabItem>
+  <TabItem value="Etherlink Testnet">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | --- | 10s | [0xb31D94df41ccc22b46fd2Ae4eA2a6D6eB9c23bfb](https://testnet-explorer.etherlink.com/address/0xb31D94df41ccc22b46fd2Ae4eA2a6D6eB9c23bfb?tab=read_proxy)|
+| BTC | USD | --- | 10s | [0xfe66A25096128f57D3876D42cD2B4347a77784c2](https://testnet-explorer.etherlink.com/address/0xfe66A25096128f57D3876D42cD2B4347a77784c2?tab=read_proxy)|
+| XTZ | USD | --- | 10s | [0xE06FE39f066562DBfE390167AE49D8Cb66e1F887](https://testnet-explorer.etherlink.com/address/0xE06FE39f066562DBfE390167AE49D8Cb66e1F887?tab=read_proxy)|
+
+  </TabItem>
 </Tabs>
 
 
