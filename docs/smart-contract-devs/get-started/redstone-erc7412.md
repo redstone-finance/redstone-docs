@@ -52,7 +52,7 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
 ```ts
     import { generate7412CompatibleCall } from "@redstone-finance/erc7412/generate7412CompatibleCall";
 
-    // encode call data call (this could be call to another contract, which call BTCFeed)
+    // encode user contract function call
     const callData = viem.encodeFunctionData({
       functionName: "your contract function",
       args: [],
@@ -60,7 +60,7 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
     });
 
     // this function will simulate transaction if transaction fails because of erc7412.OracleDataRequired,
-    // it will fetch it from redstone oracles gateway
+    // it will fetch oracle payload from redstone oracles gateway
     // and prepare multicall transaction consisting of two transaction {user_tx,update_redstone_price_feed_tx}
     const call = await generate7412CompatibleCall(
       await hardhat.viem.getPublicClient(),
@@ -70,9 +70,9 @@ Modification in your dapp requires extra function call `generate7412CompatibleCa
       multicall.address
     );
 
-    // send transaction to multicall contract
+    // sends transaction
     // it will first update price feed
-    // and then it will execute user transaction
+    // and then it will execute unchanged user transaction
     await wallet.sendTransaction(call);
 
     // data is already set in contract and it won't be necessary to update it until TTL passes
