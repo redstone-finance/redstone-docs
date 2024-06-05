@@ -217,6 +217,17 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | XTZ | USD | --- | 10s | [0xE06FE39f066562DBfE390167AE49D8Cb66e1F887](https://testnet-explorer.etherlink.com/address/0xE06FE39f066562DBfE390167AE49D8Cb66e1F887?tab=read_proxy)|
 
   </TabItem>
+    <TabItem value="Sei">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | 0.5% | 6h | [0xEFc092F9D1Fd756D6788C5E8c1043Ed7a7F423Df](https://seitrace.com/address/0xEFc092F9D1Fd756D6788C5E8c1043Ed7a7F423Df?chain=pacific-1&tab=contract&contract=read_proxy) |
+| BTC | USD | 0.5% | 6h | [0x49973FA847Fd57d879f48E4B8Fd5F968DafD5774](https://seitrace.com/address/0x49973FA847Fd57d879f48E4B8Fd5F968DafD5774?chain=pacific-1&tab=contract&contract=read_proxy)|
+| USDC | USD | 0.2% | 6h | [0x2eE9A7d22482905e7bb5E0aD832Be0DdB4d5582f](https://seitrace.com/address/0x2eE9A7d22482905e7bb5E0aD832Be0DdB4d5582f?chain=pacific-1&tab=contract&contract=read_proxy)|
+| USDT | USD | 0.2% | 6h | [0xfBB68fC1445F73cc3296fb6Cef316EdAC53967b6](https://seitrace.com/address/0xfBB68fC1445F73cc3296fb6Cef316EdAC53967b6?chain=pacific-1&tab=contract&contract=read_proxy)|
+| weETH_FUNDAMENTAL | --- | 0.5% | 6h | [0x46fd38D7C751427acd66F6E6ffb95C79952e33e6](https://seitrace.com/address/0x46fd38D7C751427acd66F6E6ffb95C79952e33e6?chain=pacific-1&tab=contract&contract=read_proxy)|
+
+  </TabItem>
 </Tabs>
 
 
