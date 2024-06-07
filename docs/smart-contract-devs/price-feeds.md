@@ -194,10 +194,10 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| BTC | USD | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
-| MERL | USD | 1.0% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256)|
-| SolvBTC | BTC | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
-  *) The feeds on Merlin follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset for feeds denominated in USD and `priceOfInBTC(address)` for these denominated in BTC. 
+| BTC*) | USD | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
+| SolvBTC*) | BTC | 0.5% | 24h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://scan.merlinchain.io/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256) |
+| MERL | USD | 1.0% | 24h | [0x815178f0781e300cbB49EEda1617DB0b83277379](https://scan.merlinchain.io/address/0x815178f0781e300cbB49EEda1617DB0b83277379)|
+  *) These feeds on Merlin follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset for feeds denominated in USD and `priceOfInBTC(address)` for these denominated in BTC. 
   **) BTC rate value is available through `priceOfBTC()` function 
 
   </TabItem>
