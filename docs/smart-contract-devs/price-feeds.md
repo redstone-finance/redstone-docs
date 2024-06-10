@@ -93,6 +93,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | BNB | USD | 0.1% | 1m | [0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e](https://bscscan.com/address/0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e#readProxyContract) | 
 | BTC | USD | 0.1% | 1m | [0xa51738d1937FFc553d5070f43300B385AA2D9F55](https://bscscan.com/address/0xa51738d1937FFc553d5070f43300B385AA2D9F55#readProxyContract) | 
 | weETH | eETH | 0.5% | 6h | [0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab](https://bscscan.com/address/0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab#readProxyContract) | 
+| STONE | USD | 0.5% | 6h | [0xa41107f9259bB835275eaCaAd8048307B80D7c00](https://bscscan.com/address/0xa41107f9259bB835275eaCaAd8048307B80D7c00#readProxyContract) | 
 
   </TabItem>
   <TabItem value="Kava">
