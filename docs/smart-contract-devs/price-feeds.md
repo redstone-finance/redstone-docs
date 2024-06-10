@@ -142,6 +142,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | rsETH* | USD | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
 | weETH** | eETH | 0.5% | 6h | [0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256](https://explorer.mode.network/address/0x7C1DAAE7BB0688C9bfE3A918A4224041c7177256?tab=read_proxy) |
 | MODE | USD | 0.5% | 24h | [0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e](https://explorer.mode.network/address/0x8dd2D85C7c28F43F965AE4d9545189C7D022ED0e?tab=read_proxy) |
+| USDe | USD | 0.2% | 24h | [0x1bB8f2dF000553E5Af2AEd5c42FEd3a73cd5144b](https://explorer.mode.network/address/0x1bB8f2dF000553E5Af2AEd5c42FEd3a73cd5144b?tab=read_proxy) |
   *) The feeds on Mode follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset.<br />
   **) weETH/eETH rate value is available through `priceOfWeETHRate()` function 
 
