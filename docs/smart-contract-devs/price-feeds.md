@@ -234,7 +234,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ETH | USD | 0.5% | 24h | [0x11B714817cBC92D402383cFd3f1037B122dcf69A](https://bartio.beratrail.io/address/0x11B714817cBC92D402383cFd3f1037B122dcf69A) |
+| ETH | USD | 0.5% | 24h | [0x11B714817cBC92D402383cFd3f1037B122dcf69A](https://bartio.beratrail.io/address/0x11B714817cBC92D402383cFd3f1037B122dcf69A/contract/80084/readProxyContract) |
 
   </TabItem>
 </Tabs>
