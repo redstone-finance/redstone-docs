@@ -230,6 +230,13 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH_FUNDAMENTAL | --- | 0.5% | 6h | [0x46fd38D7C751427acd66F6E6ffb95C79952e33e6](https://seitrace.com/address/0x46fd38D7C751427acd66F6E6ffb95C79952e33e6?chain=pacific-1&tab=contract&contract=read_proxy)|
 
   </TabItem>
+      <TabItem value="Berachain Testnet">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | 0.5% | 24h | [0x11B714817cBC92D402383cFd3f1037B122dcf69A](https://bartio.beratrail.io/address/0x11B714817cBC92D402383cFd3f1037B122dcf69A) |
+
+  </TabItem>
 </Tabs>
 
 
