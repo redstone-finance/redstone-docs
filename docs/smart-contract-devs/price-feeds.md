@@ -208,6 +208,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | pufETH | ETH | 0.5% | 24h | [0x4aaf2844c5420bf979d5bc2cf883ef02db07e590](https://basescan.org/address/0x4aaf2844c5420bf979d5bc2cf883ef02db07e590#readProxyContract) |
+| bsdETH | ETH | 0.5% | 24h | [0xC49F0Dd98F38C525A7ce15E73E60675456F3a161](https://basescan.org/address/0xC49F0Dd98F38C525A7ce15E73E60675456F3a161#readProxyContract) |
 
   </TabItem>
   <TabItem value="Etherlink Testnet">
@@ -230,11 +231,19 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH_FUNDAMENTAL | --- | 0.5% | 6h | [0x46fd38D7C751427acd66F6E6ffb95C79952e33e6](https://seitrace.com/address/0x46fd38D7C751427acd66F6E6ffb95C79952e33e6?chain=pacific-1&tab=contract&contract=read_proxy)|
 
   </TabItem>
-      <TabItem value="Berachain Testnet">
+  <TabItem value="Berachain Testnet">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | ETH | USD | 0.5% | 24h | [0x11B714817cBC92D402383cFd3f1037B122dcf69A](https://bartio.beratrail.io/address/0x11B714817cBC92D402383cFd3f1037B122dcf69A/contract/80084/readProxyContract) |
+
+  </TabItem>
+
+  <TabItem value="Cyber">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | 0.15% | 20min | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://cyberscan.co/address/0x100c8e61ab3bea812a42976199fc3dafbcdd7272#contract) |
 
   </TabItem>
 </Tabs>
