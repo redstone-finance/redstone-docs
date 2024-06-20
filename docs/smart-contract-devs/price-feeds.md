@@ -246,6 +246,14 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ETH | USD | 0.15% | 20min | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://cyberscan.co/address/0x100c8e61ab3bea812a42976199fc3dafbcdd7272#contract) |
 
   </TabItem>
+
+  <TabItem value="zkSync">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ZK | USD | 0.5% | 24h | [0x5efDb74da192584746c96EcCe138681Ec1501218](https://explorer.zksync.io/address/0x5efDb74da192584746c96EcCe138681Ec1501218#contract) |
+
+  </TabItem>
 </Tabs>
 
 
