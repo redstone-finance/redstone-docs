@@ -210,6 +210,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | pufETH | ETH | 0.5% | 24h | [0x4aaf2844c5420bf979d5bc2cf883ef02db07e590](https://basescan.org/address/0x4aaf2844c5420bf979d5bc2cf883ef02db07e590#readProxyContract) |
 | bsdETH | ETH | 0.5% | 24h | [0xC49F0Dd98F38C525A7ce15E73E60675456F3a161](https://basescan.org/address/0xC49F0Dd98F38C525A7ce15E73E60675456F3a161#readProxyContract) |
 | USD+ | USD | 0.2% | 24h | [0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8](https://basescan.org/address/0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8#readProxyContract) |
+| eUSD | USD | 0.5% | 24h | [0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab](https://basescan.org/address/0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab#readProxyContract) |
 
   </TabItem>
   <TabItem value="Etherlink Testnet">
