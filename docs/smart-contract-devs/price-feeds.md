@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Available on chain (Classic Model)
 
-The following feeds are available on-chain and are compatible with the [Chainlink interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol).
+The following feeds are available on-chain and are compatible with the [Chainlink interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol).
 
 <Tabs>
   <TabItem value="Ethereum">
