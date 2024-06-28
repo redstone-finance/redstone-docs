@@ -38,6 +38,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | sfrxETH | ETH | 0.5% | 6h | [0xdd60c54115C19e0c6360AD4762B88BB8076D50a8](https://etherscan.io/address/0xdd60c54115C19e0c6360AD4762B88BB8076D50a8#readProxyContract) | 
 
   </TabItem>
+  
   <TabItem value="Arbitrum">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -50,6 +51,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | XVS | USD | 1 | 24h | [0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8](https://arbiscan.io/address/0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8#readProxyContract) | 
 
   </TabItem>
+
   <TabItem value="Manta">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -62,7 +64,9 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | wstETH | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
 | TIA | USD | 0.5% | 6h | [0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99](https://pacific-explorer.manta.network/address/0x6e3661519025D6cBcAFD3013D5BDB7aB71741B99?tab=read_proxy) |
   *) The feeds on Manta follow the multi-feed interface proposed by LayerBank. Please use the `priceOf(address)` method passing the address of an asset. 
+
   </TabItem>
+
   <TabItem value="Blast">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -75,6 +79,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | apxETH | ETH | 0.5% | 24h | [0x0c86AAbBEEF451f28C0CE4e9Cfeecc98a7881087](https://blastscan.io/address/0x0c86AAbBEEF451f28C0CE4e9Cfeecc98a7881087#readProxyContract) |
 
   </TabItem>
+
   <TabItem value="Blast Testnet">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -84,6 +89,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDB | USD | 0.5% | 1h | [0x2Bc667aDbf3ed021834114599C15388c49C9c773](https://testnet.blastscan.io/address/0x2Bc667aDbf3ed021834114599C15388c49C9c773) | 
 
   </TabItem>
+
   <TabItem value="BSC">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -96,6 +102,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | STONE | USD | 0.5% | 6h | [0xa41107f9259bB835275eaCaAd8048307B80D7c00](https://bscscan.com/address/0xa41107f9259bB835275eaCaAd8048307B80D7c00#readProxyContract) | 
 
   </TabItem>
+
   <TabItem value="Kava">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -105,6 +112,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | 0.2% | 1h | [0xc0c3B20Af1A431b9Ab4bfe1f396b12D97392e50f](https://kavascan.com/address/0xc0c3B20Af1A431b9Ab4bfe1f396b12D97392e50f/read-proxy#address-tabs) |
 
   </TabItem>
+
   <TabItem value="Mantle">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -117,6 +125,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | 0.25% | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://explorer.mantle.xyz/address/0x3A236F67Fce401D87D7215695235e201966576E4/contracts?contract-tab=read-proxy#address-tabs) |
 
   </TabItem>
+
   <TabItem value="Canto">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -128,6 +137,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | 1% | 1h | 0x5BA83F63c558cedba271a1892188b58360976acc |
 
   </TabItem>
+  
   <TabItem value="Mode">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -148,6 +158,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 
   </TabItem>
+
   <TabItem value="Fraxtal">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -159,6 +170,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | FXS | USD | 0.5% | 6h | [0xbf228a9131AB3BB8ca8C7a4Ad574932253D99Cd1](https://fraxscan.com/address/0xbf228a9131AB3BB8ca8C7a4Ad574932253D99Cd1#readProxyContract) |
 
   </TabItem>
+
   <TabItem value="Linea">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -167,6 +179,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ezETH | eETH | 0.5% | 24h | [0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4](https://lineascan.build/address/0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4#readProxyContract) |
 
   </TabItem>
+
   <TabItem value="B²">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -178,6 +191,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   **) BTC rate value is available through `priceOfBTC()` function 
 
   </TabItem>
+
   <TabItem value="BOB">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -192,6 +206,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   **) ETH rate value is available through `priceOfETH()` function 
 
   </TabItem>
+
   <TabItem value="Merlin">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -203,6 +218,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   **) BTC rate value is available through `priceOfBTC()` function 
 
   </TabItem>
+
   <TabItem value="Base">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -213,6 +229,17 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | eUSD | USD | 0.5% | 24h | [0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab](https://basescan.org/address/0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab#readProxyContract) |
 
   </TabItem>
+  
+  <TabItem value="Etherlink">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | - | 10s | [0xF0F22f4b9e49a0d6ade134A9d71D37cc0117951F](https://explorer.etherlink.com/address/0xF0F22f4b9e49a0d6ade134A9d71D37cc0117951F?tab=read_proxy) |
+| BTC | USD | - | 10s | [0x7e5a7D5d603d53d6681BdDBd1B743796956cdF17](https://explorer.etherlink.com/address/0x7e5a7D5d603d53d6681BdDBd1B743796956cdF17?tab=read_proxy) |
+| XTZ | USD | - | 10s | [0xe92c00BC72dD12e26E61212c04E8D93aa09624F2](https://explorer.etherlink.com/address/0xe92c00BC72dD12e26E61212c04E8D93aa09624F2?tab=read_proxy) |
+
+  </TabItem>
+
   <TabItem value="Etherlink Testnet">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
@@ -222,7 +249,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | XTZ | USD | --- | 10s | [0xE06FE39f066562DBfE390167AE49D8Cb66e1F887](https://testnet-explorer.etherlink.com/address/0xE06FE39f066562DBfE390167AE49D8Cb66e1F887?tab=read_proxy)|
 
   </TabItem>
-    <TabItem value="Sei">
+
+  <TabItem value="Sei">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
@@ -233,6 +261,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH_FUNDAMENTAL | --- | 0.5% | 6h | [0x46fd38D7C751427acd66F6E6ffb95C79952e33e6](https://seitrace.com/address/0x46fd38D7C751427acd66F6E6ffb95C79952e33e6?chain=pacific-1&tab=contract&contract=read_proxy)|
 
   </TabItem>
+
   <TabItem value="Berachain Testnet">
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
