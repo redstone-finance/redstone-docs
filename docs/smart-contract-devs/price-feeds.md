@@ -285,6 +285,14 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ZK | USD | 0.5% | 24h | [0x5efDb74da192584746c96EcCe138681Ec1501218](https://explorer.zksync.io/address/0x5efDb74da192584746c96EcCe138681Ec1501218#contract) |
 
   </TabItem>
+
+  <TabItem value="Optimism">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| apxETH | ETH | 0.5% | 24h | [0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590](https://optimistic.etherscan.io/address/0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590#readProxyContract) |
+
+  </TabItem>
 </Tabs>
 
 
