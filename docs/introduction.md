@@ -6,39 +6,32 @@ sidebar_label: "What is RedStone Oracles?"
 ![Banner](/img/redstone-banner.png)
 
 
-## What Is RedStone and Why Was It Created?
+# An Overview of RedStone Oracles
 
 There is a growing necessity to provide data to decentralized applications (dApps) that is frequently updated, reliable, and secure. RedStone Oracles is a leading Oracle provider, directly solving this problem. Trusted by 100+ dApps and securing billions of dollars of value, RedStone provides customizable and cost-efficient data streams for builders empowering the next generation of dApps. RedStone provides data feeds to dApps, blockchains, and layer 2 scaling solutions across the entire blockchain ecosystem that are both EVM and non-EVM compatible. The current model of oracle systems suffers from key inefficiencies, all of which RedStone Oracles was specifically designed to solve from the bottom up. This makes RedStone a unique oracle service.
 
-<br />
-
-## The Problems That RedStone Oracles Solves 
+# The Problems RedStone Was Built To Solve 
 
 ### Problem # 1: Inefficient methods of providing data to applications. 
-
-The standard method of providing data is to ‘push’ the data onto the blockchain regardless of whether it is used by an application. This results in paying more for data and dedicating resources that could be used elsewhere. 
+- The standard method of providing data is to ‘push’ the data onto the blockchain regardless of whether it is used by an application. This results in paying more for data and dedicating resources that could be used elsewhere. 
 
 #### Our Solution
 
-RedStone allows data to be provided on-demand rather than on a fixed schedule. This is achieved by storing data off of the blockchain as cryptography signed packages. Data can be fetched by smart contracts of dApps whenever necessary. To ensure data integrity, Arweave, a decentralized network that offers data storage is leveraged. Redstone provides data to Arweave as a method of accountability because RedStone cannot influence Arweave’s decentralized network. Therefore, Arweave provides an unchangeable ‘source of truth’ about the data provided by RedStone.
+RedStone allows data to be provided on-demand rather than on a fixed schedule. This is achieved by storing data off of the blockchain as cryptography signed packages. Data can be fetched by smart contracts of dApps whenever necessary. To ensure data integrity, Arweave, a decentralized network that offers data storage is leveraged. Redstone provides data to Arweave as a method of accountability because RedStone cannot influence Arweave’s decentralized network. Therefore, Arweave provides an unchangeable ‘source of truth’ about the data provided by RedStone. This approach improves efficiency and reduces costs for dApps to access data feeds. 
 
-This approach improves efficiency and reduces costs for dApps to access data feeds. 
-
-<br />
 
 ### Problem #2: The typical monolithic architecture of Oracles limits scalability.
 
-A consequence of a monolithic architecture makes it challenging for protocols to reduce latency or list new assets.
+- A consequence of a monolithic architecture is that makes it challenging for protocols to reduce latency and list new assets.
 
 #### Our Solution
 
 RedStone was designed with a modular architecture making it easy to incorporate new assets and reduces latency, allowing dApps to scale more efficiently.
 
-<br />
 
 ### Problem #3: dApps are overly dependent on relayers.
 
-Relayers are intermediaries that process data to be used for ‘on-chain’ activity. Completely relying on relayers creates a point of centralization which may result in a stoppage of data delivery posing a risk to the application.
+- Relayers are intermediaries that process data to be used for ‘on-chain’ activity. Completely relying on relayers creates a point of centralization which may result in a stoppage of data delivery posing a risk to the application.
 
 #### Our Solution
 
