@@ -12,7 +12,7 @@ There is a growing necessity to provide data to decentralized applications (dApp
 
 # The Problems RedStone Was Built To Solve 
 
-### Problem # 1: Inefficient methods of providing data to applications. 
+### Problem # 1: The standard approach to provide data to applications is inefficient. 
 - The standard method of providing data is to ‘push’ the data onto the blockchain regardless of whether it is used by an application. This results in paying more for data and dedicating resources that could be used elsewhere. 
 
 #### Our Solution
@@ -20,7 +20,7 @@ There is a growing necessity to provide data to decentralized applications (dApp
 RedStone allows data to be provided on-demand rather than on a fixed schedule. This is achieved by storing data off of the blockchain as cryptography signed packages. Data can be fetched by smart contracts of dApps whenever necessary. To ensure data integrity, Arweave, a decentralized network that offers data storage is leveraged. Redstone provides data to Arweave as a method of accountability because RedStone cannot influence Arweave’s decentralized network. Therefore, Arweave provides an unchangeable ‘source of truth’ about the data provided by RedStone. This approach improves efficiency and reduces costs for dApps to access data feeds. 
 
 
-### Problem #2: The typical monolithic architecture of Oracles limits scalability.
+### Problem #2: The typical monolithic architecture of oracles limits scalability.
 
 - A consequence of a monolithic architecture is that makes it challenging for protocols to reduce latency and list new assets.
 
