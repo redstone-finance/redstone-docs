@@ -7,13 +7,9 @@
 </a>
 
 # Overview
-The price feeds provided to RedStone’s clients come from a diverse range of sources. This includes exchanges like Binance and Coinbase, decentralized exchanges (DEXs) like Uniswap and Sushiswap, and price aggregators like CoinMarketCap and CoinGecko. RedStone has over 150 sources integrated to date. 
+The price feeds provided to RedStone’s clients come from a diverse range of sources. This includes exchanges like Binance and Coinbase, decentralized exchanges (DEXs) like Uniswap and Sushiswap, and price aggregators like CoinMarketCap and CoinGecko. RedStone has over 150 sources integrated to date. The data is aggregated by independent nodes operated by data providers using various methodologies. Some methods include median, TWAP, and LWAP, which are all designed to capture the most accurate price by considering factors like the amount of liquidity available, and the average price during specific timeframes. 
 
-The data is aggregated by independent nodes operated by data providers using various methodologies. Some methods include median, TWAP, and LWAP, which are all designed to capture the most accurate price by considering factors like the amount of liquidity available, and the average price during specific timeframes. 
-
-Additionally, data-quality measures are implemented like detecting unexpected values (outlier detection), to ensure the data is correct. Afterward, the cleaned and processed data is then signed by node operators underwriting its quality.
-The feeds are broadcasted both on the Streamr, a decentralized data network, and directly to open-source gateways which could be easily spun-off when necessary. 
-
+Additionally, data-quality measures are implemented like detecting unexpected values (outlier detection), to ensure the data is correct. Afterward, the cleaned and processed data is then signed by node operators underwriting its quality. The feeds are broadcasted both on the Streamr, a decentralized data network, and directly to open-source gateways which could be easily spun-off when necessary. 
 The data could be pushed onto the blockchain either by a dedicated relayer operating under predefined conditions, like a specific change in price, by a bot (ie. performing liquidations), or even by end users interacting with the protocol. Inside the protocol, the data is unpacked and verified cryptographically confirming both the origin and timestamps.
 
 # Data Formatting & Processing
@@ -25,7 +21,7 @@ Transferring data to a blockchain requires packing an extra payload to a user’
 ### How Data is Encoded Before Being Put on the Blockchain
 
 
-__Note: All of the steps are executed automatically by the ContractWrapper and is transparent to the end-user.__
+_Note: All of the steps are executed automatically by the ContractWrapper and is transparent to the end-user_
 
 
 1. Relevant data must be fetched from the data distribution layer, powered by the Streamr network and the RedStone gateways.
@@ -88,8 +84,8 @@ We support 2 types of data to be received in a contract:
 2. Bytes arrays with dynamic size
 
 
-### Security considerations
-- Overriding getUniqueSignersThreshold may be a significant risk. We only recommend overriding it if you are 100% confident. 
+### Security Considerations
+- Overriding `getUniqueSignersThreshold` may be a significant risk. We only recommend overriding it if you are 100% confident. 
 
 - Pay attention to the timestamp validation logic. For some use-cases (e.g. synthetic DEX), you would need to cache the latest values in your contract storage to avoid arbitrage attacks.
 
@@ -99,9 +95,9 @@ We support 2 types of data to be received in a contract:
 
 ### Recommendations
 - Write smart contracts in a way where you do not need to request many data feeds in the same transaction. 
--Approximately 3 required unique signers is our recommended balance to be secure and minimize gas costs. 
+- Approximately 3 required unique signers is our recommended balance to be secure and minimize gas costs. 
 
 
-## Benchmarks
+# Benchmarks
 
 You can check the benchmarks script and reports [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/benchmarks)
