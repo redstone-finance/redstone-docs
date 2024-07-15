@@ -50,7 +50,7 @@ To increase the security of the RedStone Oracle system, we've created the on-cha
 
 <br>
 
-# Technical Considerations When Implementing RedStone Data Feeds
+# Technical Considerations When Implementing RedStone's Data Feeds
 
 #### These are the following on-chain aggregation parameters in RedStone’s consumer base contract:
 
