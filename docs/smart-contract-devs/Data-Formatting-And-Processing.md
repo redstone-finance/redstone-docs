@@ -1,6 +1,6 @@
 
 
-# How Data Flows from Its Origins to the Blockchain
+# How Data Flows to the Blockchain
 
 <a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture.png">
  <img src="/img/architecture.png" target="_blank"/>
@@ -48,7 +48,7 @@ To increase the security of the RedStone Oracle system, we've created the on-cha
 
 # Technical Considerations When Implementing RedStone's Data Feeds
 
-#### These are the following on-chain aggregation parameters in RedStone’s consumer base contract:
+### On-Chain Aggregation Parameters in RedStone’s Consumer Base Contract:
 
 
 `getUniqueSignersThreshold` function
@@ -73,8 +73,6 @@ Purpose: Aggregates numeric values from multiple data points. It could calculate
 
 
 Purpose: Aggregates values specifically for byte arrays. 
-
-<br>
 
 ### Types of Values Supported
 
