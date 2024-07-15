@@ -31,7 +31,7 @@ RedStone was designed with a modular architecture making it easy to incorporate 
 
 ### Problem #3: dApps are overly dependent on relayers.
 
-- Relayers are intermediaries that process data to be used for ‘on-chain’ activity. Completely relying on relayers creates a point of centralization which may result in a stoppage of data delivery posing a risk to the application.
+- Relayers are intermediaries that process data to be used for ‘on-chain’ activity. Completely relying on relayers creates a point of centralization which may result in a stoppage of data delivery posing a risk to an application.
 
 #### Our Solution
 
