@@ -49,6 +49,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH | ETH | 0.5% | 24h | [0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B](https://arbiscan.io/address/0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B#readProxyContract) | 
 | sUSDe_RATE_PROVIDER | - | - | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://arbiscan.io/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) | 
 | XVS | USD | 1 | 24h | [0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8](https://arbiscan.io/address/0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8#readProxyContract) | 
+| eUSD | USD | 0.5 | 24h | [0xa41107f9259bB835275eaCaAd8048307B80D7c00](https://arbiscan.io/address/0xa41107f9259bB835275eaCaAd8048307B80D7c00#readProxyContract) | 
+| ETH+ | ETH | 0.5 | 24h | [0xCfd39de761508A7aCb8C931b959127a1D9d0B3D4](https://arbiscan.io/address/0xCfd39de761508A7aCb8C931b959127a1D9d0B3D4#readProxyContract) | 
 
   </TabItem>
 
