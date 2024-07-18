@@ -13,7 +13,7 @@ In Redstone’s innovative Core Model, data is dynamically injected into user tr
 
 ## 2. [Redstone Classic Model](https://docs.redstone.finance/docs/smart-contract-devs/get-started/redstone-classic)
 
-Redstone’s Classic model is designed for applications looking for the traditional Oracle model of data being put onto the blockchain with longer intervals providing full control of the data source and the conditions for updates.
+Redstone’s Classic model is designed for applications looking for the traditional oracle model of data being put onto the blockchain with longer intervals providing full control of the data source and the conditions for updates.
 #### Best suited for dApps that require a lower frequency of data updates, fewer price feeds, or would like to be interchangeable with other oracle providers.
 
 
