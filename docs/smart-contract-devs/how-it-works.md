@@ -7,7 +7,7 @@ sidebar_label: "Selecting a RedStone Model"
 
 ## 1. [RedStone Core Model](https://docs.redstone.finance/docs/smart-contract-devs/get-started/redstone-core)
 
-In RedStone’s innovative Core Model, data is dynamically injected into user transactions achieving maximum gas efficiency. This approach is user-friendly as the whole process fits into a single transaction.
+In RedStone’s innovative Core Model, data is dynamically injected into user transactions achieving maximum gas efficiency. This approach is user-friendly as the whole process fits into a single transaction. The Core Model significantly reduces the costs for dApps to access data feeds.
 #### Best suited for dApps that would like access to several price feeds with frequent and cost-effective updates.
 
 
