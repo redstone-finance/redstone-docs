@@ -9,7 +9,7 @@ There is a growing necessity to provide data to decentralized applications (dApp
 
 ## The Problems RedStone Solves ♦️
 
-### Problem # 1: The standard approach to provide data to applications is inefficient. 
+### Problem # 1: The standard approach of providing data to applications is inefficient and expensive. 
 - The standard method of providing data is to ‘push’ the data onto the blockchain regardless of whether it is used by an application. This results in paying more for data and dedicating resources that could be used elsewhere. 
 
 #### Our Solution
