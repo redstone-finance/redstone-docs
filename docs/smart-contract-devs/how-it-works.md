@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_label: "Selecting a RedStone Model"
 ---
 
-# RedStone Provides Three Different Models For Your dApp
+# RedStone Offers Three Solutions
 
 ## 1. [Redstone Core Model](https://docs.redstone.finance/docs/smart-contract-devs/get-started/redstone-core)
 
