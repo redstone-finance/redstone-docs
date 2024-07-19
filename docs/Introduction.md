@@ -14,7 +14,11 @@ There is a growing necessity to provide data to decentralized applications (dApp
 
 #### Our Solution
 
-RedStone allows data to be provided on-demand rather than on a fixed schedule. This is achieved by storing data off of the blockchain as cryptography signed packages and allowing smart contracts of dApps to fetch data whenever necessary. To ensure data integrity, Arweave, a decentralized network that offers data storage is leveraged. Redstone provides data to Arweave as a method of accountability because RedStone cannot influence Arweave’s decentralized network. Therefore, Arweave provides an unchangeable ‘source of truth’ about the data provided by RedStone. Overall, this approach improves efficiency and significantly reduces the costs for dApps to access data feeds. 
+RedStone allows data to be provided on-demand rather than on a fixed schedule, reducing the costs of putting data 'on-chain'. This is achieved by storing data off of the blockchain as cryptography signed packages and allowing smart contracts of dApps to fetch data when necessary. 
+
+To maintain data integrity RedStone also provides data feeds to Arweave, a decentralized network that provides data storage. Arweave's decentralized network makes it tamper-proof, therefore any data provided by RedStone to Arweave acts as a unbiased source of truth about the historical data provided by RedStone. 
+
+Overall, RedStone's approach improves efficiency for dApps and significantly reduces the costs for dApps to access data feeds. 
 
 
 ### Problem #2: The typical monolithic architecture of oracles limits scalability.
