@@ -35,14 +35,9 @@ _Note: All of the steps are executed automatically by the ContractWrapper and is
 3. The package is appended to the original transaction message, signed, and submitted to the network.
 <br /> 
 
-### How Data Is Unpacked and Verified on the Blockchain
-Firstly, the appended data packages are extracted from the call data. Then, security steps are taken including verifying if the signature was created by a trusted provider and validating the timestamp, confirming the information is correct. Afterward, for each requested data feed RedStone calculates the number of received unique signers, extracts the value for each unique signer, and calculates the aggregated value. The middle value of all the values (median), is the default value that is provided. This logic is executed in the on-chain environment and its execution has been optimized using a low-level assembly code to reduce gas consumption to the absolute minimum. 
+### How Data Is Unpacked, Verified and Then Aggregated On-Chain
+Firstly, the appended data packages are extracted from the call data. Then, security steps are taken including verifying if the signature was created by a trusted provider and validating the timestamp, confirming the information is correct. Afterward, for each requested data feed RedStone calculates the number of received unique signers, extracts the value for each unique signer, and calculates the aggregated value. The middle value of all the values (median), is the default value that is provided. This logic is executed in the on-chain environment and its execution has been optimized using a low-level assembly code to reduce gas consumption to the absolute minimum. To increase the security of the RedStone Oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of ensuring a minimum number of distinct data feeds are relied on. The values from different providers are then aggregated before returning to a consumer contract. By default, RedStone uses the median value calculation for aggregation. This way, even if a small subset of providers are corrupt (e.g. 2 of 10), it does not significantly affect the aggregated value.
 
-
-### How Data is Aggregated On-Chain
-
-
-To increase the security of the RedStone Oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of ensuring a minimum number of distinct data feeds are relied on. The values from different providers are then aggregated before returning to a consumer contract. By default, RedStone uses the median value calculation for aggregation. This way, even if a small subset of providers are corrupt (e.g. 2 of 10), it does not significantly affect the aggregated value.
 
 <br />
 
