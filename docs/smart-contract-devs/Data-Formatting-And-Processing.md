@@ -24,7 +24,7 @@ Transferring data to a blockchain requires packing an extra payload to a user’
 _Note: All of the steps are executed automatically by the ContractWrapper and is transparent to the end-user_
 
 
-1. Relevant data must be fetched from the data distribution layer, powered by the Streamr network and the RedStone gateways.
+1. Relevant data must be fetched from the data distribution layer, powered by the Streamr network or the RedStone gateways.
 
 2. Data is packed into a message based on the structure of the ‘Transaction Payload’ diagram below…
 

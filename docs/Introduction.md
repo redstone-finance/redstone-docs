@@ -49,7 +49,7 @@ RedStone relies on a decentralized network supported by token incentives to moti
 - There are [3 different ways](https://docs.redstone.finance/docs/smart-contract-devs/how-it-works#3-ways-to-integrate) to integrate our service tailored to your needs
 - We provide feeds for more than [1000 assets](https://app.redstone.finance/#/app/tokens) integrating [~180 data sources](https://app.redstone.finance/#/app/sources)
 - We are present on [20+ chains](https://showroom.redstone.finance/)
-- Our code was audited by multiple security experts including [ABDK,](https://abdk.consulting/) [Peckshield](https://peckshield.com/), and a co-founder of [L2Beat](https://pl.linkedin.com/company/l2beat#:~:text=Join%20Piotr%20Szlachciak%20Cofounder%20%26%20CEO,insights%20shaping%20the%20%23DeFi%20landscape!).
+- Our code was audited by multiple security experts including [ABDK](https://abdk.consulting/) [Peckshield](https://peckshield.com/), and a co-founder of [L2Beat](https://pl.linkedin.com/company/l2beat#:~:text=Join%20Piotr%20Szlachciak%20Cofounder%20%26%20CEO,insights%20shaping%20the%20%23DeFi%20landscape!).
 - RedStone supports leading projects like [Morpho](https://morpho.org/), [Venus](https://venus.io/), and [Pendle Finance](https://www.pendle.finance/).
 
 
