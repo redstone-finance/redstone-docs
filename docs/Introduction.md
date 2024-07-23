@@ -58,20 +58,4 @@ RedStone relies on a decentralized network supported by token incentives to moti
   <img alt="RedStone Architecure" src="/img/redstone-architecture-simple.png" target="_blank"/>
 </a>
 
-<!-- ## Building blocks
-
-The RedStone ecosystem could be divided into 3 main areas:
-
-- **Data provision** is responsible for fetching the data from external sources, transforming it into a common format, signing it, and broadcasting the collected information.
-  - Implemented as → [RedStone Oracle Node](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node)
-
-- **Data access** is responsible for serving data to end users by various means, such as a web portal, an HTTP API, on-chain feeds, or third-party applications.
-
-  - Web portal → [RedStone App](https://github.com/redstone-finance/redstone-app)
-  - HTTP API → [RedStone Api](https://github.com/redstone-finance/redstone-api)
-  - EVM connector → [RedStone EVM connector](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector)
-
-- **Data integrity** is responsible for enforcing high quality of data by incentivizing providers with tokens for keeping their service and punishing them for outages and misrepresented data.
-  - Concept → [Argue protocol](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/docs/DISPUTE_RESOLUTION.md)
-  - Implementation → [RedStone eth contracts](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/eth-contracts) -->
 
