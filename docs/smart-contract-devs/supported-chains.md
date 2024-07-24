@@ -29,8 +29,6 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Klaytn
 - Cronos
 - Elrond
-- Fuel Network
-- Starknet (Cairo 1.0)
 - Metis
 - Boba network
 - Stacks
@@ -47,18 +45,37 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Velas
 - Caduceus
 - Telos
+- zkLink Nova
+- Blast
+  * Points Operator Address - 0xBf30EB3D420568Ac44ca04B247D674fFd7168cD5
+  * Points Operator Contract - 0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590
+- Mode
+- Manta
+- Story Protocol
+- CyberConnect
+- opBNB
+- Fraxtal
+- BOB
+- X Layer
+- Parallel
+- B2 Network
+- Berachain
+- Etherlink
+- Reya
 - And many more...
 
-### We also support few non-EVM-compatible chains
+### We also support a few non-EVM-compatible chains
 
 - [TRON](https://github.com/redstone-finance/redstone-tron-integration)
 - [Stacks](https://stacks.org/redstone)
 - [StarkNet](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/starknet-connector)
 - [Near](https://github.com/redstone-finance/redstone-near-connectors)
-- [TON](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/ton-connector/README.md)
+- [Fuel](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/fuel-connector/README.md)
+- [TON](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/ton-connector/README.md)
+- [Casper](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/casper-connector/README.md)
 
 :::important Other chains
-Potentially you can use it on any other chain but it would require some custom development.
+Potentially you can use it on any other chain, but it would require some custom development.
 You can write your own implementation for the blockchain of your choice. Feel free to contact us [on discord](https://redstone.finance/discord) for details.
 :::
 

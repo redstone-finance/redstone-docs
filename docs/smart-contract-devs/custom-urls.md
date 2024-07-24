@@ -14,7 +14,6 @@ To configure a custom data feed based on custom URL and JSONPath expression you 
 ### Helpful links
 
 - [Example Smart Contract](https://github.com/redstone-finance/redstone-evm-connector-examples/blob/main/contracts/example-custom-urls.sol)
-- [Custom URL registry app](https://custom-urls-manifest-updater.redstone.finance/)
 - [Historical data for custom URL data feeds](https://app.redstone.finance/#/app/tokens?selected-tab=7)
 
 :::tip
