@@ -27,7 +27,8 @@ Overall, RedStone's approach improves efficiency for dApps and significantly red
 
 #### Our Solution
 
-RedStone was designed with a modular architecture making it easy to incorporate new assets and reduce latency, allowing dApps to scale more efficiently.
+RedStone was designed with a modular architecture making it easy to incorporate new assets and reduce latency, allowing dApps to scale more efficiently. This means constructing the oracle in such a way that its various components—such as data sources, validation mechanisms, and delivery methods—can be easily interchanged, updated, or augmented without disrupting the system’s overall functionality.
+
 
 
 ## Key facts
