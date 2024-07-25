@@ -30,18 +30,6 @@ Overall, RedStone's approach improves efficiency for dApps and significantly red
 RedStone was designed with a modular architecture making it easy to incorporate new assets and reduce latency, allowing dApps to scale more efficiently.
 
 
-### Problem #3: dApps are overly dependent on relayers.
-
-- Relayers are intermediaries that process data to be used for ‘on-chain’ activity. Completely relying on relayers creates a point of centralization which may result in a stoppage of data delivery posing a risk to an application.
-
-#### Our Solution
-
-RedStone relies on a decentralized network supported by token incentives to motivate data providers to maintain data integrity and uninterrupted services. 
-
-![Banner](/img/redstone-banner.png)
-
-
-
 ## Key facts
 
 - RedStone secures [billions of dollars](https://defillama.com/oracles/RedStone?borrowed=true&doublecounted=true) of value in Web 3.0
