@@ -142,6 +142,19 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/docs/get-started/price-feeds',
+            from: '/docs/smart-contract-devs/price-feeds',
+          },
+        ],
+      }
+    ],
+  ],
 };
 
 module.exports = config;
