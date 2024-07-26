@@ -22,7 +22,6 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | ETHx | USD | 1% | 24h | [0xFaBEb1474C2Ab34838081BFdDcE4132f640E7D2d](https://etherscan.io/address/0xFaBEb1474C2Ab34838081BFdDcE4132f640E7D2d#readProxyContract) | 
 | ETHx | ETH | 0.5% | 24h | [0xc799194cAa24E2874Efa89b4Bf5c92a530B047FF](https://etherscan.io/address/0xc799194cAa24E2874Efa89b4Bf5c92a530B047FF#readProxyContract) |
 | osETH | ETH | 0.5% | 24h | [0x66ac817f997Efd114EDFcccdce99F3268557B32C](https://etherscan.io/address/0x66ac817f997Efd114EDFcccdce99F3268557B32C#readProxyContract) | 
-| swETH | USD | 0.5% | 6h | [0x0704eEc81ea7CF98Aa4A400c65DC4ED5933bddf7](https://etherscan.io/address/0x0704eEc81ea7CF98Aa4A400c65DC4ED5933bddf7#readProxyContract) | 
 | swETH | ETH | 0.5% | 6h | [0x061bB36F8b67bB922937C102092498dcF4619F86](https://etherscan.io/address/0x061bB36F8b67bB922937C102092498dcF4619F86#readProxyContract) | 
 | XVS | USD | 1% | 24h | [0xa2a8507DEb233ceE4F5594044C259DD0582339CC](https://etherscan.io/address/0xa2a8507DEb233ceE4F5594044C259DD0582339CC#readProxyContract) | 
 | C3M | USD | - | 12:00 | [0x6E27A25999B3C665E44D903B2139F5a4Be2B6C26](https://etherscan.io/address/0x6E27A25999B3C665E44D903B2139F5a4Be2B6C26#readProxyContract) | 
@@ -49,6 +48,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | weETH | ETH | 0.5% | 24h | [0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B](https://arbiscan.io/address/0xA736eAe8805dDeFFba40cAB8c99bCB309dEaBd9B#readProxyContract) | 
 | sUSDe_RATE_PROVIDER | - | - | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://arbiscan.io/address/0x3A236F67Fce401D87D7215695235e201966576E4#readProxyContract) | 
 | XVS | USD | 1 | 24h | [0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8](https://arbiscan.io/address/0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8#readProxyContract) | 
+| eUSD | USD | 0.5 | 24h | [0xa41107f9259bB835275eaCaAd8048307B80D7c00](https://arbiscan.io/address/0xa41107f9259bB835275eaCaAd8048307B80D7c00#readProxyContract) | 
+| ETH+ | ETH | 0.5 | 24h | [0xCfd39de761508A7aCb8C931b959127a1D9d0B3D4](https://arbiscan.io/address/0xCfd39de761508A7aCb8C931b959127a1D9d0B3D4#readProxyContract) | 
 
   </TabItem>
 
