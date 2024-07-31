@@ -179,7 +179,7 @@ For Foundry
 Generate Mock Data:
 Use Foundry's functions to create mock data packages for testing. Refer to the foundry integration repository for detailed examples.
 
-## Important Notes
+# Important Notes
 - Solidity Version: Ensure your smart contract uses Solidity version 0.8.4 or higher. If using an older version, refer to the manual payload method.
 - Testing Environment: Avoid using Remix for testing RedStone oracles as it doesn't support the required transaction modifications.
 - Upgradability: Implement an upgradability mechanism (e.g., multisig or DAO) for your contracts to quickly replace data providers if needed.
