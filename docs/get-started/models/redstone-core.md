@@ -4,7 +4,7 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 ---
 
 # Setting Up The RedStone Core Model 
-Our documentation is designed for non-technical readers to be able implement RedStone's Core Model. ****This is our recommended model**** which provides data feeds to dApps only upon request reducing the costs of putting data onto the blockchain. 
+Our documentation is designed for non-technical readers to be able implement RedStone's Core Model. ****This is our recommended model**** which provides data feeds to dApps only upon request, reducing the costs of putting data onto the blockchain. 
 
 ## Prerequisites Before You Begin
 
