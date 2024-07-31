@@ -77,9 +77,12 @@ contract YourContractName is MainDemoConsumerBase {
 #### 3. Use Data Feeds
 Inside your contract, you can now access data provided by RedStone. This code fetches the latest price of ETH and BTC.
 
+For a single price: 
 ```js
 uint256 ethPrice = getOracleNumericValueFromTxMsg(bytes32("ETH"));
-
+```
+For multiple prices:
+```js
 bytes32[] memory dataFeedIds = new bytes32[](2);
 dataFeedIds[0] = bytes32("ETH");
 dataFeedIds[1] = bytes32("BTC");
