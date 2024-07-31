@@ -294,7 +294,49 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | apxETH | ETH | 0.5% | 24h | [0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590](https://optimistic.etherscan.io/address/0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590#readProxyContract) |
 
   </TabItem>
+
+  <TabItem value="zkLink">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| BTC | USD | 0.5% | 24h | [0x51d9725882178234c0F3417C36052d7B23A1ecd4](https://explorer.zklink.io/address/0x51d9725882178234c0F3417C36052d7B23A1ecd4#contract) |
+| ETH | USD | 0.5% | 24h | [0xBAdD9ADb835Fb4813cd8D8c87d8FCD2F123fd4B0](https://explorer.zklink.io/address/0xBAdD9ADb835Fb4813cd8D8c87d8FCD2F123fd4B0#contract) |
+| ZKL | USD | 0.5% | 24h | [0x5B88B0fa676fE763110322e766C2DBB5d6d99d6D](https://explorer.zklink.io/address/0x5B88B0fa676fE763110322e766C2DBB5d6d99d6D#contract) |
+| USDC | USD | 0.5% | 24h | [0x3B5d81B77a4EddEfF5ffC77681AAd9bec55d24cf](https://explorer.zklink.io/address/0x3B5d81B77a4EddEfF5ffC77681AAd9bec55d24cf#contract) |
+| USDT | USD | 0.5% | 24h | [0xd2ccd490BB0Ab958FF75d099E1F5174686b39a8c](https://explorer.zklink.io/address/0xd2ccd490BB0Ab958FF75d099E1F5174686b39a8c#contract) |
+| WBTC | USD | 0.5% | 24h | [0x87Dcd2F002D94FEED5b73DA5597874C6b80C1BE5](https://explorer.zklink.io/address/0x87Dcd2F002D94FEED5b73DA5597874C6b80C1BE5#contract) |
+| ARB | USD | 0.5% | 24h | [0xcCAa30c08Dbd4773EE8D2e814170420dAE890c75](https://explorer.zklink.io/address/0xcCAa30c08Dbd4773EE8D2e814170420dAE890c75#contract) |
+| STONE | USD | 0.5% | 24h | [0xeC76D0A6Ac840Cdae2a9AA64F515Ceb936AD61Bf](https://explorer.zklink.io/address/0xeC76D0A6Ac840Cdae2a9AA64F515Ceb936AD61Bf#contract) |
+| MANTA | USD | 0.5% | 24h | [0x0341f7732eb4110657081FfaE39109A7B2C42C8d](https://explorer.zklink.io/address/0x0341f7732eb4110657081FfaE39109A7B2C42C8d#contract) |
+| pufETH | USD | 0.5% | 24h | [0x81b9dC350576CfE64178B1Fe23c3630F6F0Ec2b2](https://explorer.zklink.io/address/0x81b9dC350576CfE64178B1Fe23c3630F6F0Ec2b2#contract) |
+| ezETH | USD | 0.5% | 24h | [0xca4793Eeb7a837E30884279b3D557970E444EBDe](https://explorer.zklink.io/address/0xca4793Eeb7a837E30884279b3D557970E444EBDe#contract) |
+| SolvBTC.M | USD | 0.5% | 24h | [0xe1eBcB160239aEbCC529e448B0045534d3c3F30e](https://explorer.zklink.io/address/0xe1eBcB160239aEbCC529e448B0045534d3c3F30e#contract) |
+
+  </TabItem>
 </Tabs>
+
+
+    "": {
+      "priceFeedAddress": ""
+    },
+    "": {
+      "priceFeedAddress": ""
+    },
+    "": {
+      "priceFeedAddress": ""
+    },
+    "": {
+      "priceFeedAddress": ""
+    },
+    "": {
+      "priceFeedAddress": ""
+    },
+    "": {
+      "priceFeedAddress": ""
+    },
+    "": {
+      "priceFeedAddress": ""
+    }
 
 
 ## Available to pull (Core Model)
