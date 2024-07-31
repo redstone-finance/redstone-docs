@@ -33,24 +33,24 @@ Before you begin, you will need to install some tools that our project will use.
 #### For Foundry
 Foundry is another tool used for developing on the blockchain. It uses a different method to install packages.
 
-1. Open your terminal.
-2. Navigate to your Foundry project directory by typing:
+1. Open your terminal
+2. Navigate to your Foundry project directory by typing...
    ```bash
    cd path/to/your/foundry/project
    ```
 
-3. Install the RedStone EVM connector:
+3. Install the RedStone EVM connector
    
    ```
      forge install redstone-finance/redstone-oracles-monorepo
    ```
 
-4. Install the OpenZeppelin contracts, which the RedStone connector relies on:
+4. Install the OpenZeppelin contracts, which the RedStone connector relies on.
 
    ```
      forge install OpenZeppelin/openzeppelin-contracts@v4.9.5
    ```
-5. Link these new libraries by adding their paths to a file called remappings.txt:
+5. Link these new libraries by adding their paths to a file called remappings.txt.
   ```bash
 echo "@redstone-finance/evm-connector/dist/contracts/=lib/redstone-oracles-monorepo/packages/evm-connector/contracts/
 @openzeppelin/contracts=lib/openzeppelin-contracts/contracts/" >> remappings.txt
@@ -62,13 +62,13 @@ Smart contracts are like the rules and logic that run on the blockchain. They ne
 
 ****Step-by-Step Guide****
 
-#### 1. Import RedStone Base Contract:
+#### 1. Import RedStone Base Contract
 Add this line at the top of your smart contract code. 
 
 ```js
 import "@redstone-finance/evm-connector/contracts/data-services/MainDemoConsumerBase.sol";
 ```
-#### 2. Extend Your Contract:
+#### 2. Extend Your Contract
 Make your contract use the new features by extending from MainDemoConsumerBase. This is similar to saying your contract inherits abilities from another contract:
 
 ```js
@@ -76,8 +76,8 @@ contract YourContractName is MainDemoConsumerBase {
   // Your contract code goes here
 }
 ```
-#### 3. Use Data Feeds:
-Inside your contract, you can now access data provided by RedStone. This code fetches the latest price of ETH and BTC:
+#### 3. Use Data Feeds
+Inside your contract, you can now access data provided by RedStone. This code fetches the latest price of ETH and BTC.
 
 ```js
 uint256 ethPrice = getOracleNumericValueFromTxMsg(bytes32("ETH"));
@@ -92,7 +92,7 @@ uint256 btcPrice = values[1];
 ```
 For all the supported feeds we provide UI with charts and historical data. 
 
-#### 4. About overriding the following functions (only if necessary - at your own risk):
+#### 4. About overriding the following functions (only if necessary - at your own risk)
 
 ```isTimestampValid(uint256 receivedTimestamp)``` returns (bool) - to enable custom logic of timestamp validation. You may specify a shorter delay to accept only the most recent price fees. However, on networks with longer block times you may extend this period to avoid rejecting too many transactions.
 
@@ -102,9 +102,9 @@ For all the supported feeds we provide UI with charts and historical data.
 
 ```getUniqueSignersThreshold()``` returns (uint256) - to modify number of required signers. The higher number means greater reliability but also higher gas costs.
 
-#### 5. About A manual payload (if needed):
+#### 5. About A manual payload (if needed)
 
-This approach is helpful if you need to pass the pricing data from one contract to another in your protocol. It's also a solution for cases where your contracts are written in Solidity in a version lower than 0.8.4, making it problematic to extend from the RedstoneConsumerBase contract. In such cases, we recommend deploying a separate Extractor contract that will contain the verification logic:
+This approach is helpful if you need to pass the pricing data from one contract to another in your protocol. It's also a solution for cases where your contracts are written in Solidity in a version lower than 0.8.4, making it problematic to extend from the RedstoneConsumerBase contract. In such cases, we recommend deploying a separate Extractor contract that will contain the verification logic.
 ```js
 pragma solidity 0.8.4;
 
@@ -140,8 +140,8 @@ Working demo examples of the @redstone-finance/evm-connector usage can be found 
 ****Step-by-Step Guide****
 
 
-#### 1. Import the Wrapper Code:
-Wrapper code helps your app interact with RedStone's data services seamlessly. Add this line to your JavaScript code:
+#### 1. Import the Wrapper Code
+Wrapper code helps your app interact with RedStone's data services seamlessly. Add this line to your JavaScript code
 
 ```js
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
@@ -150,24 +150,24 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 ```
 
 #### 2. Wrap Ethers contract
-We need to wrap our contract so it can use RedStone's data:
+We need to wrap our contract so it can use RedStone's data
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
 
 const wrappedContract = WrapperBuilder.wrap(contract).usingDataService({
-  dataFeeds: ["ETH", "BTC"],
+  dataFeeds ["ETH", "BTC"],
 });
 ```
 
-#### 3. Use the Wrapped Contract:
-Now, you can call methods on your wrapped contract just like before, but now it will include RedStone's data:
+#### 3. Use the Wrapped Contract
+Now, you can call methods on your wrapped contract just like before, but now it will include RedStone's data
 ```js
 wrappedContract.executeYourMethod();
 ```
 ## 4. Testing
 For Hardhat
-Mock Wrapper for Testing:
+Mock Wrapper for Testing.
 Use a mock wrapper to simulate different scenarios without using real data:
 ```js
 const { SimpleNumericMockWrapper } = require("@redstone-finance/evm-connector/dist/src/wrappers/SimpleMockNumericWrapper");
