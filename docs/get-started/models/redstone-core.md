@@ -12,6 +12,13 @@ Our documentation is designed for non-technical readers to be able implement Red
 - **Familiarity with Hardhat or Foundry:** Knowing how to use these development environments for building and testing dApps
 - **OpenZeppelin Contracts:** Understanding and using OpenZeppelin's library.
 
+## Important Notes
+- **Solidity Version:** Ensure your smart contract uses Solidity version 0.8.4 or higher. If using an older version, refer to the manual payload method.
+- **Testing Environment:** Avoid using Remix for testing RedStone oracles as it doesn't support the required transaction modifications.
+- **Upgradability:** Implement an upgradability mechanism (e.g., multisig or DAO) for your contracts to quickly replace data providers if needed.
+- **Examples:** You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
+
+
 # ****Step-by-Step Guide****
 
 ## 1. Install Prerequisites
@@ -181,9 +188,3 @@ await wrappedContract.yourMethod();
 For Foundry
 Generate Mock Data:
 Use Foundry's functions to create mock data packages for testing. Refer to the foundry integration repository for detailed examples.
-
-# Important Notes
-- Solidity Version: Ensure your smart contract uses Solidity version 0.8.4 or higher. If using an older version, refer to the manual payload method.
-- Testing Environment: Avoid using Remix for testing RedStone oracles as it doesn't support the required transaction modifications.
-- Upgradability: Implement an upgradability mechanism (e.g., multisig or DAO) for your contracts to quickly replace data providers if needed.
-- You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
