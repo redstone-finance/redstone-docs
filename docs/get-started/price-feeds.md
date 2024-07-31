@@ -315,30 +315,6 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   </TabItem>
 </Tabs>
 
-
-    "": {
-      "priceFeedAddress": ""
-    },
-    "": {
-      "priceFeedAddress": ""
-    },
-    "": {
-      "priceFeedAddress": ""
-    },
-    "": {
-      "priceFeedAddress": ""
-    },
-    "": {
-      "priceFeedAddress": ""
-    },
-    "": {
-      "priceFeedAddress": ""
-    },
-    "": {
-      "priceFeedAddress": ""
-    }
-
-
 ## Available to pull (Core Model)
 
 Thanks to its unique design, RedStone can provide 1000+ price feeds for various types of data, including:
