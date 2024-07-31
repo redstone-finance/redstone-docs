@@ -188,3 +188,4 @@ await wrappedContract.yourMethod();
 For Foundry
 Generate Mock Data:
 Use Foundry's functions to create mock data packages for testing. Refer to the [foundry integration repository](https://github.com/redstone-finance/minimal-foundry-repo) for detailed examples.
+
