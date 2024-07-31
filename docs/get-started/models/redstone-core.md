@@ -12,7 +12,7 @@ Our documentation is designed for non-technical readers to be able implement Red
 - **Familiarity with Hardhat or Foundry:** Knowing how to use these development environments for building and testing dApps
 - **OpenZeppelin Contracts:** Understanding and using OpenZeppelin's library.
 
-## ****Step-by-Step Guide****
+# ****Step-by-Step Guide****
 
 ## 1. Install Prerequisites
 
@@ -59,8 +59,6 @@ This command tells Foundry where to find the new tools installed.
 
 ## 2. Adjust Your Smart Contracts 
 Smart contracts are like the rules and logic that run on the blockchain. They need to updated to use data from RedStone.
-
-****Step-by-Step Guide****
 
 #### 1. Import RedStone Base Contract
 Add this line at the top of your smart contract code. 
@@ -136,9 +134,6 @@ Working demo examples of the @redstone-finance/evm-connector usage can be found 
 
 
 ## 3. Adjust JavaScript Code of Your dApp
-
-****Step-by-Step Guide****
-
 
 #### 1. Import the Wrapper Code
 Wrapper code helps your app interact with RedStone's data services seamlessly. Add this line to your JavaScript code
