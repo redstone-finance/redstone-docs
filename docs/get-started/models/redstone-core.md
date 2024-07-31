@@ -6,13 +6,13 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 # Setting Up The RedStone Core Model 
 Our documentation is designed for non-technical readers to be able implement RedStone's Core Model. ****This is our recommended model**** which provides data feeds to dApps only upon request, reducing the costs of putting data onto the blockchain. 
 
-## Prerequisites Before You Begin
+### Prerequisites Before You Begin:
 
 - **Basic Knowledge of Smart Contracts:** Understanding how to implement and interact with smart contracts.
 - **Familiarity with Hardhat or Foundry:** Knowing how to use these development environments for building and testing dApps
 - **OpenZeppelin Contracts:** Understanding and using OpenZeppelin's library.
 
-## Important Notes
+### Important Notes:
 - **Solidity Version:** Ensure your smart contract uses Solidity version 0.8.4 or higher. If using an older version, refer to the manual payload method.
 - **Testing Environment:** Avoid using Remix for testing RedStone oracles as it doesn't support the required transaction modifications.
 - **Upgradability:** Implement an upgradability mechanism (e.g., multisig or DAO) for your contracts to quickly replace data providers if needed.
