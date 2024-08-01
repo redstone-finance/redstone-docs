@@ -9,7 +9,7 @@ Our documentation is designed for non-technical readers to be able implement Red
 ### Prerequisites Before You Begin:
 
 - **Basic Knowledge of Smart Contracts:** Understanding how to implement and interact with smart contracts.
-- **Familiarity with Hardhat or Foundry:** Knowing how to use these development environments for building and testing dApps
+- **Familiarity with Hardhat or Foundry:** Knowing how to use these development environments for building and testing dApps.
 - **OpenZeppelin Contracts:** Understanding and using OpenZeppelin's library.
 
 ### Important Notes:
@@ -74,7 +74,7 @@ Add this line at the top of your smart contract code.
 import "@redstone-finance/evm-connector/contracts/data-services/MainDemoConsumerBase.sol";
 ```
 #### 2. Extend Your Contract
-Make your contract use the new features by extending from MainDemoConsumerBase. This is similar to saying your contract inherits abilities from another contract:
+Make your contract use the new features by extending from MainDemoConsumerBase. This is similar to saying your contract inherits abilities from another contract.
 
 ```js
 contract YourContractName is MainDemoConsumerBase {
@@ -110,7 +110,7 @@ For all the supported feeds we provide UI with charts and historical data.
 
 ```getUniqueSignersThreshold()``` returns (uint256) - to modify number of required signers. The higher number means greater reliability but also higher gas costs.
 
-#### 5. About A manual payload (if needed)
+#### 5. About a manual payload (if needed)
 
 This approach is helpful if you need to pass the pricing data from one contract to another in your protocol. It's also a solution for cases where your contracts are written in Solidity in a version lower than 0.8.4, making it problematic to extend from the RedstoneConsumerBase contract. In such cases, we recommend deploying a separate Extractor contract that will contain the verification logic.
 ```js
