@@ -124,6 +124,9 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDe | USD | 0.2% | 24h | [0x3DFA26B9A15D37190bB8e50aE093730DcA88973E](https://explorer.mantle.xyz/address/0x3DFA26B9A15D37190bB8e50aE093730DcA88973E/contracts?contract-tab=read-proxy#address-tabs) |
 | sUSDe | USD | 0.2% | 24h | [0xd6a987Ff6323F658D04da16c36CE00960137a115](https://explorer.mantle.xyz/address/0xd6a987Ff6323F658D04da16c36CE00960137a115/contracts?contract-tab=read-proxy#address-tabs) |
 | USDT | USD | 0.25% | 24h | [0x3A236F67Fce401D87D7215695235e201966576E4](https://explorer.mantle.xyz/address/0x3A236F67Fce401D87D7215695235e201966576E4/contracts?contract-tab=read-proxy#address-tabs) |
+| USDC | USD | 0.5% | 24h | [0x1bB8f2dF000553E5Af2AEd5c42FEd3a73cd5144b](https://explorer.mantle.xyz/address/0x1bB8f2dF000553E5Af2AEd5c42FEd3a73cd5144b/contracts?contract-tab=read-proxy#address-tabs) |
+| WBTC | USD | 0.5% | 24h | [0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C](https://explorer.mantle.xyz/address/0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C/contracts?contract-tab=read-proxy#address-tabs) |
+| mETH | ETH | 0.5% | 24h | [0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab](https://explorer.mantle.xyz/address/0x9b2C948dbA5952A1f5Ab6fA16101c1392b8da1ab/contracts?contract-tab=read-proxy#address-tabs) |
 
   </TabItem>
 
