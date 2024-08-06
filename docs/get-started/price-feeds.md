@@ -263,6 +263,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDC | USD | 0.2% | 6h | [0x2eE9A7d22482905e7bb5E0aD832Be0DdB4d5582f](https://seitrace.com/address/0x2eE9A7d22482905e7bb5E0aD832Be0DdB4d5582f?chain=pacific-1&tab=contract&contract=read_proxy)|
 | USDT | USD | 0.2% | 6h | [0xfBB68fC1445F73cc3296fb6Cef316EdAC53967b6](https://seitrace.com/address/0xfBB68fC1445F73cc3296fb6Cef316EdAC53967b6?chain=pacific-1&tab=contract&contract=read_proxy)|
 | weETH_FUNDAMENTAL | --- | 0.5% | 6h | [0x46fd38D7C751427acd66F6E6ffb95C79952e33e6](https://seitrace.com/address/0x46fd38D7C751427acd66F6E6ffb95C79952e33e6?chain=pacific-1&tab=contract&contract=read_proxy)|
+| SEI | USD | 0.5% | 6h | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://seitrace.com/address/0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272?chain=pacific-1&tab=contract&contract=read_proxy)|
+| ISEI | USD | 0.5% | 6h | [0xC49F0Dd98F38C525A7ce15E73E60675456F3a161](https://seitrace.com/address/0xC49F0Dd98F38C525A7ce15E73E60675456F3a161?chain=pacific-1&tab=contract&contract=read_proxy)|
 
   </TabItem>
 
