@@ -289,6 +289,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
 | ZK | USD | 0.5% | 24h | [0x5efDb74da192584746c96EcCe138681Ec1501218](https://explorer.zksync.io/address/0x5efDb74da192584746c96EcCe138681Ec1501218#contract) |
+| XVS | USD | 1% | 24h | [0xca4793Eeb7a837E30884279b3D557970E444EBDe](https://explorer.zksync.io/address/0xca4793Eeb7a837E30884279b3D557970E444EBDe#contract) |
 
   </TabItem>
 
