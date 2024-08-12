@@ -319,6 +319,23 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | SolvBTC.M | USD | 0.5% | 24h | [0xe1eBcB160239aEbCC529e448B0045534d3c3F30e](https://explorer.zklink.io/address/0xe1eBcB160239aEbCC529e448B0045534d3c3F30e#contract) |
 
   </TabItem>
+
+  <TabItem value="Zircuit">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| BTC | USD | 0.5% | 24h | [0xCfd39de761508A7aCb8C931b959127a1D9d0B3D4](https://explorer.zircuit.com/address/0xCfd39de761508A7aCb8C931b959127a1D9d0B3D4?activeTab=3) |
+| ETH | USD | 0.5% | 24h | [0x72266eFcdd0EC7110b44576e5413EF383950EEc2](https://explorer.zircuit.com/address/0x72266eFcdd0EC7110b44576e5413EF383950EEc2?activeTab=3) |
+| USDC | USD | 0.5% | 24h | [0x9cF19D284862A66378c304ACAcB0E857EBc3F856](https://explorer.zircuit.com/address/0x9cF19D284862A66378c304ACAcB0E857EBc3F856?activeTab=3) |
+| USDT | USD | 0.5% | 24h | [0x6bc42F8Ee8cD9BEA7d5CfF0934Ce73eCD2c11e99](https://explorer.zircuit.com/address/0x6bc42F8Ee8cD9BEA7d5CfF0934Ce73eCD2c11e99?activeTab=3) |
+| ezETH | USD | 0.5% | 24h | [0xeA2511205b959548459A01e358E0A30424dc0B70](https://explorer.zircuit.com/address/0xeA2511205b959548459A01e358E0A30424dc0B70?activeTab=3) |
+| USDe | USD | 0.5% | 24h | [0xf57bA29437C130e155Ca4b65128630777638F05D](https://explorer.zircuit.com/address/0xf57bA29437C130e155Ca4b65128630777638F05D?activeTab=3) |
+| weETH | USD | 0.5% | 24h | [0xF5F641fF3c7E39876A76e77E84041C300DFa4550](https://explorer.zircuit.com/address/0xF5F641fF3c7E39876A76e77E84041C300DFa4550?activeTab=3) |
+| pufETH | USD | 0.5% | 24h | [0xE7e734789954e6CffD8C295CBD0916A0A5747D27](https://explorer.zircuit.com/address/0xE7e734789954e6CffD8C295CBD0916A0A5747D27?activeTab=3) |
+| wstETH | USD | 0.5% | 24h | [0x05C70f0a77c02CDB50a146D95EfE826A6B02F631](https://explorer.zircuit.com/address/0x05C70f0a77c02CDB50a146D95EfE826A6B02F631?activeTab=3) |
+| rsETH | USD | 0.5% | 24h | [0xcD96262Df56127f298b452FA40759632868A472a](https://explorer.zircuit.com/address/0xcD96262Df56127f298b452FA40759632868A472a?activeTab=3) |
+
+  </TabItem>
 </Tabs>
 
 ## Available to pull (Core Model)
