@@ -7,7 +7,7 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 ****This is our recommended model**** which provides data feeds to dApps only upon request, reducing the costs of putting data onto the blockchain. To learn more about how RedStone brings data on-chain, check out the [Data Formatting and Processing](https://docs.redstone.finance/docs/get-started/data-formatting-processing) section.
 ### Prerequisites Before You Begin:
 
-- **Basic Knowledge of Smart Contracts:** Understanding how to implement and interact with smart contracts.
+- **Knowledge of Smart Contracts:** Understanding how to implement and interact with smart contracts.
 - **Familiarity with Hardhat or Foundry:** Knowing how to use these development environments for building and testing dApps.
 - **OpenZeppelin Contracts:** Understanding and using OpenZeppelin's library.
 
