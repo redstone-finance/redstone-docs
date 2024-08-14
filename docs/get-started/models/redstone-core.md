@@ -4,7 +4,7 @@ sidebar_label: "⚙️ Core (on-demand feeds)"
 ---
 
 # Setting Up The RedStone Core Model 
-Our documentation is designed for non-technical readers to be able implement RedStone's Core Model. ****This is our recommended model**** which provides data feeds to dApps only upon request, reducing the costs of putting data onto the blockchain. To learn more about how RedStone brings data on-chain, check out the [Data Formatting and Processing](https://docs.redstone.finance/docs/get-started/data-formatting-processing) section.
+****This is our recommended model**** which provides data feeds to dApps only upon request, reducing the costs of putting data onto the blockchain. To learn more about how RedStone brings data on-chain, check out the [Data Formatting and Processing](https://docs.redstone.finance/docs/get-started/data-formatting-processing) section.
 ### Prerequisites Before You Begin:
 
 - **Basic Knowledge of Smart Contracts:** Understanding how to implement and interact with smart contracts.
@@ -13,7 +13,7 @@ Our documentation is designed for non-technical readers to be able implement Red
 
 ### Important Notes:
 - **Solidity Version:** Ensure your smart contract uses Solidity version 0.8.4 or higher. If using an older version, refer to the manual payload method.
-- **Testing Environment:** Avoid using Remix for testing RedStone oracles as it doesn't support the required transaction modifications.
+- **Testing Environment:** Remix is not supported for testing RedStone Oracles. 
 - **Upgradability:** Implement an upgradability mechanism (e.g., multisig or DAO) for your contracts to quickly replace data providers if needed.
 - **Examples:** You can see examples of the `@redstone-finance/evm-connector` usage in our [dedicated repo with examples](https://github.com/redstone-finance/redstone-evm-examples).
 
@@ -22,25 +22,21 @@ Our documentation is designed for non-technical readers to be able implement Red
 
 ## 1. Install Prerequisites
 
-Before you begin, you will need to install some tools that our project will use. 
-
 #### For Hardhat
-1. Open your terminal (this is where you type commands to your computer).
-2. To add the RedStone EVM connector package, type one of these commands:
-   - If you're using Yarn (a package manager for JavaScript):
+1. To add the RedStone EVM connector package, type one of these commands:
+   - If you're using Yarn:
      ```bash
      yarn add @redstone-finance/evm-connector
      ```
-   - If you're using npm (another package manager for JavaScript):
+   - If you're using npm:
      ```bash
      npm install @redstone-finance/evm-connector
      ```
 
 #### For Foundry
-Foundry is another tool used for developing on the blockchain. It uses a different method to install packages.
 
 1. Open your terminal
-2. Navigate to your Foundry project directory by typing...
+2. Navigate to your Foundry project directory
    ```bash
    cd path/to/your/foundry/project
    ```
@@ -61,10 +57,8 @@ Foundry is another tool used for developing on the blockchain. It uses a differe
 echo "@redstone-finance/evm-connector/dist/contracts/=lib/redstone-oracles-monorepo/packages/evm-connector/contracts/
 @openzeppelin/contracts=lib/openzeppelin-contracts/contracts/" >> remappings.txt
 ```
-This command tells Foundry where to find the new tools installed.
 
 ## 2. Adjust Your Smart Contracts 
-Smart contracts are like the rules and logic that run on the blockchain. They need to updated to use data from RedStone.
 
 #### 1. Import RedStone Base Contract
 Add this line at the top of your smart contract code. 
@@ -73,7 +67,7 @@ Add this line at the top of your smart contract code.
 import "@redstone-finance/evm-connector/contracts/data-services/MainDemoConsumerBase.sol";
 ```
 #### 2. Extend Your Contract
-Make your contract use the new features by extending from MainDemoConsumerBase. This is similar to saying your contract inherits abilities from another contract.
+Make your contract use the new features by extending from MainDemoConsumerBase.
 
 ```js
 contract YourContractName is MainDemoConsumerBase {
@@ -145,7 +139,6 @@ Working demo examples of the @redstone-finance/evm-connector usage can be found 
 ## 3. Adjust JavaScript Code of Your dApp
 
 #### 1. Import the Wrapper Code
-Wrapper code helps your app interact with RedStone's data services seamlessly. Add this line to your JavaScript code
 
 ```js
 const { WrapperBuilder } = require("@redstone-finance/evm-connector");
@@ -154,7 +147,6 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 ```
 
 #### 2. Wrap Ethers contract
-We need to wrap our contract so it can use RedStone's data
 
 ```js
 const yourEthersContract = new ethers.Contract(address, abi, provider);
@@ -165,7 +157,7 @@ const wrappedContract = WrapperBuilder.wrap(contract).usingDataService({
 ```
 
 #### 3. Use the Wrapped Contract
-Now, you can call methods on your wrapped contract just like before, but now it will include RedStone's data
+
 ```js
 wrappedContract.executeYourMethod();
 ```
