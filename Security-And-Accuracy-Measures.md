@@ -1,5 +1,4 @@
-## How RedStone Ensures Secure and Accurate Data Feeds
-
+# How RedStone Ensures Secure and Accurate Data Feeds
 RedStone has secured billions of dollars to date without being hacked or reporting a compromised price feed. This strong track record is a testament to the robust security and accuracy measures in place.
 
 ### Cryptographic Signatures and Auditing
@@ -20,7 +19,11 @@ RedStone incorporates liquidity weighting to automatically detect low liquidity 
 
 RedStone’s decentralized gossiping nodes allow anyone to spin up a node and participate in the data network, enhancing decentralization and resilience. The data delivery system includes master relayers supported by shadow relayers that automatically activate if primary relayers fail. Gelato automation further enhances system reliability. The relayer code is open-source, allowing anyone to push data on-chain without permission.
 
-### Conclusion
-
 RedStone avoids single points of failure by minimizing dependence on third parties and sourcing data directly from liquidity pools and providers like Kaiko. The modular architecture ensures that if one service fails, others automatically take over. Together, these features make RedStone Oracles secure and reliable.
+
+### Accuracy of Data Feeds
+
+RedStone ensures accurate price feeds through several mechanisms. Liquidity weighting accounts for the size of liquidity pools, preventing smaller pools from significantly impacting overall price accuracy. Outlier detection monitors for price deviations, safeguarding against inaccuracies. By sourcing data directly from liquidity pools of a diverse range of DEXs and CEXs, RedStone minimizes the risk of a single point of failure and speeds up data retrieval.
+
+RedStone also calculates the median value from its data sources, reducing the risk of misreporting. Implementing RedStone’s smart contracts allows dApp developers to choose their data sources and immediately stop receiving data from a specific source, ensuring continuous accuracy. These mechanisms have ensured that RedStone has never reported an incorrect price feed that harmed protocol users, demonstrating a strong commitment to client needs.
 
