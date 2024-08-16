@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: "♦️ What is RedStone Oracles?"
+sidebar_label: "Introduction ♦️ "
 ---
 # Introduction
 
