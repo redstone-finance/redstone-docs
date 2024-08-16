@@ -1,6 +1,6 @@
 ---
-sidebar_position: 9
-sidebar_label: "🪙 Tokenomics"
+sidebar_position: 5
+sidebar_label: "Tokenomics"
 ---
 
 # 🪙 Tokenomics
