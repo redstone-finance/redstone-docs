@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-sidebar_label: "⛓ Chains integration"
+sidebar_label: "Chains We Support"
 
 # We've hidden this page, cause we don't want ppl to write their own adapters
 # as they turn out to be buggy and we right now prefer charging for chains
