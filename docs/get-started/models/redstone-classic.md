@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: "🏛 Classic (push model)"
+sidebar_label: "Classic Model"
 ---
 
 # 🏛 Classic Model
