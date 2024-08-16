@@ -17,9 +17,6 @@ The standard approach of providing data to applications involves ‘pushing’ t
 **Our Solution:**  
 RedStone offers an on-demand data provision model instead of a fixed schedule. This approach reduces the costs associated with putting data 'on-chain'. By storing data off-chain as cryptographically signed packages, RedStone allows smart contracts of dApps to fetch data only when necessary.
 
-**Data Integrity:**  
-To ensure data integrity, RedStone also provides data feeds to Arweave, a decentralized network known for its tamper-proof storage. Data provided by RedStone to Arweave acts as an unbiased, immutable source of truth about historical data.
-
 **Outcome:**  
 RedStone’s innovative approach significantly enhances efficiency for dApps and reduces the costs associated with accessing data feeds.
 
