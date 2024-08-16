@@ -341,6 +341,21 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | rsETH | USD | 0.5% | 24h | [0xcD96262Df56127f298b452FA40759632868A472a](https://explorer.zircuit.com/address/0xcD96262Df56127f298b452FA40759632868A472a?activeTab=3) |
 
   </TabItem>
+
+  <TabItem value="Scroll">
+
+| Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| ETH | USD | 0.5% | 24h | [0x1bB8f2dF000553E5Af2AEd5c42FEd3a73cd5144b](https://scrollscan.com/address/0x1bB8f2dF000553E5Af2AEd5c42FEd3a73cd5144b#readProxyContract) |
+| WBTC | USD | 0.5% | 24h | [0x025f4e1B951D14b69e83BA6f6F069D5538C86491](https://scrollscan.com/address/0x025f4e1B951D14b69e83BA6f6F069D5538C86491#readProxyContract) |
+| USDC | USD | 0.5% | 24h | [0xd58c002e26205914cFA28Ade90ccEdAd012B187b](https://scrollscan.com/address/0xd58c002e26205914cFA28Ade90ccEdAd012B187b#readProxyContract) |
+| USDT | USD | 0.5% | 24h | [0x767619674cC4758cf64BF19dE46964DaC8fb7b11](https://scrollscan.com/address/0x767619674cC4758cf64BF19dE46964DaC8fb7b11#readProxyContract) |
+| wstETH | USD | 0.5% | 24h | [0x2dDFA9B00d2989798186321dA38dfDD1C6e33568](https://scrollscan.com/address/0x2dDFA9B00d2989798186321dA38dfDD1C6e33568#readProxyContract) |
+| pufETH | USD | 0.5% | 24h | [0xC49F0Dd98F38C525A7ce15E73E60675456F3a161](https://scrollscan.com/address/0xC49F0Dd98F38C525A7ce15E73E60675456F3a161#readProxyContract) |
+| weETH | USD | 0.5% | 24h | [0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4](https://scrollscan.com/address/0x97c19d3Ae8e4d74e25EF3AFf3a277fB614ed76D4#readProxyContract) |
+| STONE | USD | 0.5% | 24h | [0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8](https://scrollscan.com/address/0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8#readProxyContract) |
+| SolvBTC.b | USD | 0.5% | 24h | [0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C](https://scrollscan.com/address/0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C#readProxyContract) |
+  </TabItem>
 </Tabs>
 
 ## Available to pull (Core Model)
