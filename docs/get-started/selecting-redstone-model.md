@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: "👀 Selecting a RedStone Model"
+sidebar_label: " Models"
 ---
 
 # RedStone Offers Three Models
