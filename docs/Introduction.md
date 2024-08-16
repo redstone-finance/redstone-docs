@@ -9,7 +9,7 @@ There is a growing need for decentralized applications (dApps) to access data fe
 
 RedStone also provides data feeds to blockchains and layer 2 scaling solutions across the entire blockchain ecosystem that are both EVM and non-EVM compatible. The current model of oracle systems suffers from key inefficiencies, all of which RedStone Oracles was specifically designed to solve from the bottom up. This makes RedStone a unique oracle service.
 
-## Key facts
+## Facts 
 
 - RedStone secures [billions of dollars](https://defillama.com/oracles/RedStone?borrowed=true&doublecounted=true) of value in Web 3.0
 - Data Integrity is fundamental to Redstone and is ensured from start to finish (from source to smart contract)
