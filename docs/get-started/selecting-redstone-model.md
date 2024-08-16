@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: " Models"
+sidebar_label: "Select Your Model"
 ---
 
 # RedStone Offers Three Models
