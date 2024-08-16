@@ -3,7 +3,7 @@ sidebar_position: 6
 sidebar_label: "Supported NFT Data Feeds"
 ---
 
-# 🐵 NFT Data Feeds
+# NFT Data Feeds
 
 RedStone delivers floor price data for 20 popular NFT collections from OpenSea. [Check the NFT tab in the redstone web app](https://app.redstone.finance/#/app/tokens?selected-tab=2) to see the historical data and corresponding data feed ids.
 
