@@ -1,6 +1,6 @@
 ---
 sidebar_position: 6
-sidebar_label: "🐵 NFT Data Feeds"
+sidebar_label: "Supported NFT Data Feeds"
 ---
 
 # 🐵 NFT Data Feeds
