@@ -1,9 +1,9 @@
 ---
 sidebar_position: 3
-sidebar_label: "⏱ X (no front-running)"
+sidebar_label: "X Model"
 ---
 
-# RedStone X Model
+# X Model
 
 The RedStone X model is designed to meet the needs of advanced protocols, such as perpetuals, options, and derivatives. By providing price feeds at the very next block after users initiate transactions, this model eliminates front-running risks.
 
