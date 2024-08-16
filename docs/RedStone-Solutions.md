@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: "Why RedStone?"
+sidebar_label: "Why RedStone"
 ---
 
 # Why RedStone?
