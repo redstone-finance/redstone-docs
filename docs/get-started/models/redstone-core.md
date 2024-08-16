@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_label: "Core Model"
 ---
 
-# The RedStone Core Model 
+# Core Model 
 ****This is our recommended model**** which provides data feeds to dApps only upon request, reducing the costs of putting data onto the blockchain. To learn more about how RedStone brings data on-chain, check out the [Data Formatting and Processing](https://docs.redstone.finance/docs/get-started/data-formatting-processing) section.
 ### Prerequisites Before You Begin:
 
