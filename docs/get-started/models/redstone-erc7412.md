@@ -3,7 +3,7 @@ sidebar_position: 4
 sidebar_label: "ERC7412 Model"
 ---
 
-# RedStone ERC7412
+# ERC7412 Model
 
 ## Classic and Core models combined
 
