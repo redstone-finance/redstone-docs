@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: "⚙️ Core (on-demand feeds)"
+sidebar_label: "Core Model"
 ---
 
 # The RedStone Core Model 
