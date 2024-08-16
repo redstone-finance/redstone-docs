@@ -1,99 +1,89 @@
 ---
 sidebar_position: 3
-sidebar_label: "💻 Data Formatting & Processing"
+sidebar_label: "Data Formatting & Processing"
 ---
 
-# How Data Flows to the Blockchain
+# Data Flow to the Blockchain: Process and Architecture
 
-<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture.png">
- <img src="/img/architecture.png" target="_blank"/>
-</a>
+## Overview of Data Integration
 
-# Overview
-The price feeds provided to RedStone’s clients come from a diverse range of sources. This includes exchanges like Binance and Coinbase, decentralized exchanges (DEXs) like Uniswap and Sushiswap, and price aggregators like CoinMarketCap and CoinGecko. RedStone has over 150 sources integrated to date. The data is aggregated by independent nodes operated by data providers using various methodologies. Some methods include median, TWAP, and LWAP, which are all designed to capture the most accurate price by considering factors like the amount of liquidity available, and the average price during specific timeframes. 
+RedStone’s price feeds are sourced from a wide array of platforms, including centralized exchanges like Binance and Coinbase, decentralized exchanges (DEXs) such as Uniswap and Sushiswap, and price aggregators like CoinMarketCap and CoinGecko. With over 150 integrated sources, RedStone ensures that data is aggregated by independent nodes using methodologies like median, Time-Weighted Average Price (TWAP), and Liquidity-Weighted Average Price (LWAP). These methods focus on capturing accurate prices by accounting for factors such as available liquidity and price averages over specific timeframes.
 
-Additionally, data-quality measures are implemented like detecting unexpected values (outlier detection), to ensure the data is correct. Afterward, the cleaned and processed data is then signed by node operators underwriting its quality. The feeds are broadcasted both on the Streamr, a decentralized data network, and directly to open-source gateways which could be easily spun-off when necessary. 
-The data could be pushed onto the blockchain either by a dedicated relayer operating under predefined conditions, like a specific change in price, by a bot (ie. performing liquidations), or even by end users interacting with the protocol. Inside the protocol, the data is unpacked and verified cryptographically confirming both the origin and timestamps.
+To maintain data quality, RedStone employs outlier detection mechanisms to filter unexpected values. The processed data is then signed by node operators to guarantee its integrity. These data feeds are distributed through the Streamr decentralized network and open-source gateways, which can be easily deployed if needed.
 
-# Data Formatting & Processing
+Data can be pushed to the blockchain by a dedicated relayer operating under predefined conditions (e.g., specific price changes), a bot (e.g., performing liquidations), or even by end users interacting with the protocol. Once inside the protocol, the data is unpacked and cryptographically verified, ensuring the authenticity and accuracy of both its origin and timestamp.
 
-### Context
+## Data Encoding and Processing
 
-Transferring data to a blockchain requires packing an extra payload to a user’s transaction and processing the message on the blockchain. Said differently, the data that is put on the blockchain, such as a cryptocurrency’s price, is inserted into part of the data that makes up a user’s transaction. This is accomplishable because blockchains move from state-to-state and contain call data. RedStone is able insert its data into the call data of a user's transaction, thereby putting the data onto the blockchain.
+### Context: Understanding Data Transfer to the Blockchain
 
-### How Data is Encoded Before Being Put on the Blockchain
+When transferring data to a blockchain, an additional payload is added to the user’s transaction, which is then processed on-chain. This means that data, such as a cryptocurrency’s price, is embedded within the transaction data. Because blockchains transition from one state to another and contain call data, RedStone can insert its data into the call data of a user’s transaction, effectively recording the data on the blockchain.
 
+### How Data is Encoded Before Blockchain Submission
 
-_Note: All of the steps are executed automatically by the ContractWrapper and is transparent to the end-user_
+_Note: All steps are automatically handled by the ContractWrapper, making the process transparent to the end user._
 
-
-1. Relevant data must be fetched from the data distribution layer, powered by the Streamr network or the RedStone gateways.
-
-2. Data is packed into a message based on the structure of the ‘Transaction Payload’ diagram below…
-
+1. **Data Retrieval**: Relevant data is fetched from the data distribution layer, powered by the Streamr network or RedStone gateways.
+2. **Data Packaging**: The data is structured according to the ‘Transaction Payload’ diagram.
+   
 <a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-tx-wrapping.png">
  <img src="/img/redstone-tx-wrapping.png" target="_blank"/>
 </a>
 
-3. The package is appended to the original transaction message, signed, and submitted to the network.
-<br /> 
+3. **Data Submission**: The package is appended to the original transaction message, signed, and submitted to the network.
 
-### How Data Is Unpacked, Verified and Then Aggregated On-Chain
-Firstly, the appended data packages are extracted from the call data. Then, security steps are taken including verifying if the signature was created by a trusted provider and validating the timestamp, confirming the information is correct. Afterward, for each requested data feed RedStone calculates the number of received unique signers, extracts the value for each unique signer, and calculates the aggregated value. The middle value of all the values (median), is the default value that is provided. This logic is executed in the on-chain environment and its execution has been optimized using a low-level assembly code to reduce gas consumption to the absolute minimum. To increase the security of the RedStone Oracle system, we've created the on-chain aggregation mechanism. This mechanism adds an additional requirement of ensuring a minimum number of distinct data feeds are relied on. The values from different providers are then aggregated before returning to a consumer contract. By default, RedStone uses the median value calculation for aggregation. This way, even if a small subset of providers are corrupt (e.g. 2 of 10), it does not significantly affect the aggregated value.
+### On-Chain Data Processing: Unpacking, Verification, and Aggregation
 
+1. **Unpacking**: The appended data packages are extracted from the call data.
+2. **Verification**: Security checks are performed, including signature verification from trusted providers and timestamp validation to confirm data accuracy.
+3. **Aggregation**: 
+   - RedStone calculates the number of received unique signers for each requested data feed.
+   - The median value of all the values provided by unique signers is calculated and used as the default value.
+   - This process is optimized using low-level assembly code to minimize gas consumption.
+4. **Security Mechanisms**: 
+   - RedStone’s on-chain aggregation mechanism ensures that a minimum number of distinct data feeds are required.
+   - Values from different providers are aggregated before being returned to the consumer contract.
+   - The default aggregation method is median value calculation, ensuring that even if a small subset of providers is compromised, it does not significantly affect the final value.
 
-<br />
+## Technical Guidelines for Implementing RedStone Data Feeds
 
-# Technical Considerations When Implementing RedStone's Data Feeds
+### Key On-Chain Aggregation Parameters
 
-### On-Chain Aggregation Parameters in RedStone’s Consumer Base Contract:
+- **`getUniqueSignersThreshold` Function**  
+  Purpose: Determines the minimum number of unique signers required to validate a piece of data. This ensures data accuracy and integrity by relying on multiple independent signers.
+  
+- **`getAuthorisedSignerIndex` Function**  
+  Purpose: Returns the index of an authorized signer from a list of signers, verifying whether a given signer is authorized to sign data.
+  
+- **`aggregateValues` Function (for numeric values)**  
+  Purpose: Aggregates numeric values from multiple data points, typically calculating an average or median to mitigate the impact of any single erroneous data point.
+  
+- **`aggregateByteValues` Function (for byte arrays)**  
+  Purpose: Aggregates values specifically for byte arrays.
 
+### Supported Data Types
 
-`getUniqueSignersThreshold` function
+RedStone supports two types of data in a contract:
 
+1. Numeric 256-bit values (default)
+2. Byte arrays with dynamic size
 
-Purpose: Determines the threshold number of unique signers required to validate a piece of data. RedStone relies on multiple independent signers to ensure its accuracy and integrity.
+### Security Best Practices
 
+- **Threshold Modification**: Overriding `getUniqueSignersThreshold` can be risky. Only proceed if you are absolutely confident in your changes.
+- **Timestamp Validation**: Pay close attention to the timestamp validation logic. In certain use cases (e.g., synthetic DEX), you may need to cache the latest values in your contract storage to prevent arbitrage attacks.
+- **Upgradability**: Implement a secure upgradability mechanism for your contract, preferably using multi-sig or DAO governance.
+- **Monitoring**: Continuously monitor the RedStone data services registry and promptly update signer authorization logic in your contracts in case of changes. We will also notify you if you are a paying client.
 
-`getAuthorisedSignerIndex` function
+### Implementation Recommendations
 
+- **Data Feed Requests**: Design your smart contracts to minimize the number of data feeds requested in a single transaction.
+- **Signer Threshold**: We recommend requiring approximately three unique signers to balance security with gas efficiency.
 
-Purpose: Returns the index of an authorized signer from a list of signers. It is used to verify if a given signer is authorized to sign data. 
-
-
-`aggregateValues` function (for numeric values)
-
-
-Purpose: Aggregates numeric values from multiple data points. It could calculate an average like the median. Aggregating values from multiple sources helps in reducing the impact of any single erroneous data point.
-
-
-`aggregateByteValues` function (for bytes arrays)
-
-
-Purpose: Aggregates values specifically for byte arrays. 
-
-### Types of Values Supported
-
-We support 2 types of data to be received in a contract:
-
-1. Numeric 256-bit values (used by default)
-2. Bytes arrays with dynamic size
-
-
-### Security Considerations
-- Overriding `getUniqueSignersThreshold` may be a significant risk. We only recommend overriding it if you are 100% confident. 
-
-- Pay attention to the timestamp validation logic. For some use-cases (e.g. synthetic DEX), you would need to cache the latest values in your contract storage to avoid arbitrage attacks.
-
-- Enable a secure upgradability mechanism for your contract (ideally based on multi-sig or DAO).
-
-- Monitor the RedStone data services registry and quickly modify signer authorization logic in your contracts in case of changes (we will also notify you if you are a paying client).
-
-### Recommendations
-- Write smart contracts in a way where you do not need to request many data feeds in the same transaction. 
-- Approximately 3 required unique signers is our recommended balance to be secure and minimize gas costs. 
-
-
-# Benchmarks
+## Performance Benchmarks
 
 You can check the benchmarks script and reports [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/benchmarks)
+
+<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture.png">
+ <img src="/img/architecture.png" target="_blank"/>
+</a>
