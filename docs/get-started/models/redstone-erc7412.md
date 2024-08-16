@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-sidebar_label: "🌀 ERC7412 (classic + core)"
+sidebar_label: "ERC7412 Model"
 ---
 
 # RedStone ERC7412
