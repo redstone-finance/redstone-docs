@@ -7,7 +7,7 @@ sidebar_label: "Why RedStone"
 
 The current model of oracle systems suffers from significant inefficiencies, which RedStone Oracles was specifically designed to solve from the ground up.
 
-# The Problems RedStone Solves ♦️
+# The Problems RedStone ♦️ Solves 
 
 ### Problem #1: Inefficient and Expensive Data Provision
 
