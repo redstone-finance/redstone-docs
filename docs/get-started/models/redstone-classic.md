@@ -3,7 +3,7 @@ sidebar_position: 2
 sidebar_label: "Classic Model"
 ---
 
-# 🏛 Classic Model
+# Classic Model
 
 The RedStone Classic Model is designed for dApps that would like access to data feeds that is compatable with the traditional design of oracles. To access cost-minimized and reduced latency data feeds check out the [RedStone Core Model](https://docs.redstone.finance/docs/get-started/models/redstone-core).
 
