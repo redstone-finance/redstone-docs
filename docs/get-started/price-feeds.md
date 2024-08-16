@@ -1,6 +1,6 @@
 ---
 sidebar_position: 5
-sidebar_label: "💹 Price Feeds"
+sidebar_label: "Price Feeds We Support"
 ---
 
 import Tabs from '@theme/Tabs';
