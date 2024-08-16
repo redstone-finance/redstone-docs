@@ -7,10 +7,10 @@ sidebar_label: "ERC-7412 Model"
 
 The ERC-7412 model combines RedStone's Classic and Core Models relying on an newly proposed Ethereum standard. This model was introduced in light of the [ERC-7412](https://eips.ethereum.org/EIPS/eip-7412) standard. It is encouraged to familiarize yourself with it before implementating this model. 
 
-:::Important Requirements
+#### Important Requirements
 1. Deploy price feed
-2. Modify you client code to use [ERC7412](https://www.npmjs.com/package/@redstone-finance/erc7412)
-:::
+2. Modify you client code to use [ERC-7412](https://www.npmjs.com/package/@redstone-finance/erc7412)
+
 
 ## Step-By-Step Guide
 
