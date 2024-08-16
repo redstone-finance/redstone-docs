@@ -1,9 +1,9 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 sidebar_label: "Security and Accuracy"
 ---
 
-# Security and Accuracy of Data Feeds Explained
+## Security and Accuracy
 RedStone has secured billions of dollars to date without being hacked or reporting a compromised price feed. This strong track record is a testament to the robust security and accuracy measures in place.
 
 ## Security 
