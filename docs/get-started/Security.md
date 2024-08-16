@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-sidebar_label: "Security and Accuracy"
+sidebar_label: "Security & Accuracy"
 ---
 
 ## Security and Accuracy
