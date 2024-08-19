@@ -48,21 +48,116 @@ The on-chain relayer is based on the [PriceFeedsAdapter contract](https://github
 
 Additionally, if the protocol wants to be 100% compatible with the Chainlink PriceFeed architecture, it's possible to deploy additional [PriceFeed](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/contracts/price-feeds/PriceFeedBase.sol) contracts to mimic this solution.
 
-### Environment variables
+### Example of usage
 
-| Variable                   | Description                                                                                                                                                                                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RELAYER_ITERATION_INTERVAL | Time interval in which the relayer tries to update prices                                                                                                                                                                                   |
-| UPDATE_CONDITIONS          | Array of parameters that describes what decides if prices can be updated, currently acceptable parameters are 'time' and 'value-deviation'                                                                                                 |
-| UPDATE_PRICE_INTERVAL      | Time interval that describes how often prices should be updated if UPDATE_CONDITIONS contains the "time" parameter                                                                                                                             |
-| MIN_DEVIATION_PERCENTAGE   | Minimum deviation of the prices that triggers prices update if UPDATE_CONDITIONS contains "value-deviation"                                                                                                                                |
-| RPC_URL                    | URL of RPC for interaction with blockchain                                                                                                                                                                                                  |
-| CHAIN_NAME                 | Chain name of the blockchain relayer should work on                                                                                                                                                                                         |
-| CHAIN_ID                   | Chain id of the blockchain relayer should work on                                                                                                                                                                                           |
-| PRIVATE_KEY                | Private key of the wallet with funds on a proper network to push prices to the adapter contract                                                                                                                                          |
-| ADAPTER_CONTRACT_ADDRESS   | Address of the adapter contract deployed on a proper network                                                                                                                                                                                |
-| DATA_SERVICE_ID            | RedStone Wrapper parameter that describes what data services should be used to fetch the price     |
-| UNIQUE_SIGNERS_COUNT       | RedStone Wrapper parameter that describes how many unique signers should sign price data            |
-| DATA_FEEDS                 | RedStone Wrapper parameter that describes what tokens will be used                                 |
-| CACHE_SERVICE_URLS         | RedStone Wrapper parameter that describes what cache services URLs will be used to fetch the price |
-| GAS_LIMIT                  | Gas limit used to push data to the price feed contract                                                                                                                                                                                      |
+Price from RedStone can be obtained in multiple way. Here are examples how to read data feeds:
+
+#### Solidity
+
+Read price from Price Feed contract
+
+```
+// SPDX-License-Identifier: BUSL-1.1
+
+pragma solidity ^0.8.4;
+
+import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+
+contract SimplePriceFeedConsumer {
+  AggregatorV3Interface private priceFeed;
+  int256 public latestSavedPrice;
+
+  constructor(AggregatorV3Interface priceFeed_) {
+    priceFeed = priceFeed_;
+  }
+
+  function doSomethingWithPrice() public {
+    (, int256 price, , , ) = priceFeed.latestRoundData();
+
+    // We can do whatever logic with the price
+    // In this example, we just save it in a storage variable
+    latestSavedPrice = price;
+  }
+}
+```
+
+Read price directly from Price Feeds Adapter
+
+```
+// SPDX-License-Identifier: BUSL-1.1
+
+pragma solidity ^0.8.4;
+
+import "@redstone-finance/on-chain-relayer/contracts/core/IRedstoneAdapter.sol";
+
+contract SimplePriceFeedsAdapterConsumer {
+  IRedstoneAdapter private priceFeedsAdapter;
+  uint256 public latestSavedPrice;
+
+  constructor(IRedstoneAdapter priceFeedsAdapter_) {
+    priceFeedsAdapter = priceFeedsAdapter_;
+  }
+
+  function doSomethingWithPrice() public {
+    uint256 price = priceFeedsAdapter.getValueForDataFeed();
+
+    // We can do whatever logic with the price
+    // In this example, we just save it in a storage variable
+    latestSavedPrice = price;
+  }
+}
+```
+
+#### Javascript
+
+Read price from Price Feed contract
+
+```
+import { ethers, getDefaultProvider } from "ethers";
+
+const aggregatorV3InterfaceAbi = [
+  {
+    inputs: [],
+    name: "latestRoundData",
+    outputs: [
+      { internalType: "uint80", name: "roundId", type: "uint80" },
+      { internalType: "int256", name: "answer", type: "int256" },
+      { internalType: "uint256", name: "startedAt", type: "uint256" },
+      { internalType: "uint256", name: "updatedAt", type: "uint256" },
+      { internalType: "uint80", name: "answeredInRound", type: "uint80" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+
+const provider = getDefaultProvider();
+const address = "0x0000000000000000000000000000000000000000";
+const priceFeed = new Contract(address, aggregatorV3InterfaceAbi, provider);
+const lastRoundData = await priceFeed.latestRoundData();
+```
+
+Read price directly from Price Feeds Adapter
+
+```
+import { ethers, getDefaultProvider, utils } from "ethers";
+
+const priceFeedsAdapterAbi = [
+  {
+    inputs: [{ internalType: "bytes32", name: "dataFeedId", type: "bytes32" }],
+    name: "getValueForDataFeed",
+    outputs: [
+      { internalType: "uint256", name: "dataFeedValue", type: "uint256" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  };
+]
+
+const provider = getDefaultProvider();
+const address = "0x0000000000000000000000000000000000000000";
+const priceFeedsAdapter = new Contract(address, priceFeedsAdapterAbi, provider);
+const dataFeedId = "ETH";
+const dataFeedIdAsBytes32 = utils.convertStringToBytes32(dataFeedId);
+const lastRoundData = await priceFeed.getValueForDataFeed(dataFeedIdAsBytes32);
+```
