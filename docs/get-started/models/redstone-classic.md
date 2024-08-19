@@ -48,13 +48,13 @@ The on-chain relayer is based on the [PriceFeedsAdapter contract](https://github
 
 Additionally, if the protocol wants to be 100% compatible with the Chainlink PriceFeed architecture, it's possible to deploy additional [PriceFeed](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/contracts/price-feeds/PriceFeedBase.sol) contracts to mimic this solution.
 
-### Example of usage
+## Implementation Steps 
 
-Price from RedStone can be obtained in multiple way. Here are examples how to read data feeds:
+There are multiple methods to implement RedStone's price feeds. Below are are examples how to read data feeds.
 
-#### Solidity
+### Solidity
 
-Read price from Price Feed contract
+#### Read price from Price Feed contract
 
 ```
 // SPDX-License-Identifier: BUSL-1.1
@@ -81,7 +81,7 @@ contract SimplePriceFeedConsumer {
 }
 ```
 
-Read price directly from Price Feeds Adapter
+#### Reading Price Directly from Redstone Price Feeds Adapter
 
 ```
 // SPDX-License-Identifier: BUSL-1.1
@@ -108,9 +108,9 @@ contract SimplePriceFeedsAdapterConsumer {
 }
 ```
 
-#### Javascript
+## Javascript
 
-Read price from Price Feed contract
+#### Read price from Price Feed contract
 
 ```
 import { ethers, getDefaultProvider } from "ethers";
@@ -137,7 +137,8 @@ const priceFeed = new Contract(address, aggregatorV3InterfaceAbi, provider);
 const lastRoundData = await priceFeed.latestRoundData();
 ```
 
-Read price directly from Price Feeds Adapter
+#### Reading Price Directly from Redstone Price Feeds Adapter 
+
 
 ```
 import { ethers, getDefaultProvider, utils } from "ethers";
