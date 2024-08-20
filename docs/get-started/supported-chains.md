@@ -62,6 +62,7 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Berachain
 - Etherlink
 - Reya
+- Sei
 - And many more...
 
 ### We also support a few non-EVM-compatible chains
