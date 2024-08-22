@@ -285,7 +285,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 
 | Symbol | Denomination | Deviation threshold | Heartbeat | Contract Address |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| ETH | USD | 0.15% | 20min | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://cyberscan.co/address/0x100c8e61ab3bea812a42976199fc3dafbcdd7272#contract) |
+| ETH | USD | 0.5% | 6h | [0x100c8e61aB3BeA812A42976199Fc3daFbcDD7272](https://cyberscan.co/address/0x100c8e61ab3bea812a42976199fc3dafbcdd7272#contract) |
 
   </TabItem>
 
