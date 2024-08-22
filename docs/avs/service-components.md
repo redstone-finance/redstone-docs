@@ -7,9 +7,11 @@ sidebar_label: "🧩 Service Components"
 
 The AVS operates through several key components, each playing a crucial role in the validation and aggregation process.
 
+![RedStone AVS diagram](/img/avs.png)
+
 ## Task Performer
 
-The Task Performer is responsible for fetching data from multiple oracle nodes using a gateway.
+The Task Performer is responsible for fetching data from multiple oracle nodes using a DDL (Data Distribution Layer).
 It then verifies the retrieved data for correctness, consistency, and proper signing.
 Subsequently, it extracts the timestamp and calculates the median price from the data obtained from various nodes.
 Simultaneously, it checks the current price and timestamp returned by the smart contract.

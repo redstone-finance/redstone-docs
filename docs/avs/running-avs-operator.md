@@ -53,14 +53,14 @@ PRIVATE_KEY= # operator's private key
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter               | Description                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------- |
-| `ORACLE_NODE_WHITELIST` | The public keys of trusted oracle nodes from which data will be collected                   |
-| `DATA_FEED_ID`          | The identifier of the token for which the price will be calculated (e.g., ETH for Ethereum) |
-| `L1_RPC` / `L2_RP`C     | The RPC endpoint addresses for the L1 (Holesky) and L2 (Amoy) networks, respectively        |
-| `L1_CHAIN` / `L2_CHAIN` | The chain IDs for the L1 and L2 networks                                                    |
-| `TASK_PERFORMER`        | The public key of the task performer responsible for executing specific operations          |
-| `PRIVATE_KEY`           | The operator's private key, required for authentication and signing transactions            |
+| Parameter               | Description                                                                                                            |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `ORACLE_NODE_WHITELIST` | The public keys of trusted oracle nodes from which data will be collected                                              |
+| `DATA_FEED_ID`          | The identifier of the token for which the price will be calculated (e.g., ETH for Ethereum)                            |
+| `L1_RPC` / `L2_RP`C     | The RPC endpoint addresses for the L1 (Holesky) and L2 (Amoy) networks, respectively                                   |
+| `L1_CHAIN` / `L2_CHAIN` | The chain IDs for the L1 and L2 networks                                                                               |
+| `TASK_PERFORMER`        | The public key of the task performer responsible for executing specific operations                                     |
+| `PRIVATE_KEY`           | The operator's private key provided during registration, which is required for authentication and signing transactions |
 
 :::tip
 The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
