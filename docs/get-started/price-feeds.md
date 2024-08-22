@@ -35,6 +35,10 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | pufETH | ETH | 1% | 24h | [0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C](https://etherscan.io/address/0x76A495b0bFfb53ef3F0E94ef0763e03cE410835C#readProxyContract) | 
 | ETH+ | ETH | 0.5% | 24h | [0x3B9c09bde7776C32C518e2E787412A9bBaA7685F](https://etherscan.io/address/0x3B9c09bde7776C32C518e2E787412A9bBaA7685F#readProxyContract) | 
 | sfrxETH | ETH | 0.5% | 6h | [0xdd60c54115C19e0c6360AD4762B88BB8076D50a8](https://etherscan.io/address/0xdd60c54115C19e0c6360AD4762B88BB8076D50a8#readProxyContract) | 
+| pzETH | ETH (market value) | 0.5% | 24h | [0x0B6c5C37215B27C944497D2d7011cBD366b0870A](https://etherscan.io/address/0x0B6c5C37215B27C944497D2d7011cBD366b0870A#readProxyContract) | 
+| pzETH | ETH (contract ratio) | 0.5% | 24h | [0x0d7697a15bce933cE8671Ba3D60ab062dA216C60](https://etherscan.io/address/0x0d7697a15bce933cE8671Ba3D60ab062dA216C60#readProxyContract) | 
+| USD3 | USD | 0.5% | 24h | [0xB39339B82DdCF89d12d987d1D4Db33aFdd40B6AA](https://etherscan.io/address/0xB39339B82DdCF89d12d987d1D4Db33aFdd40B6AA#readProxyContract) | 
+| deUSD | USD | 0.1% | 6h | [0x89F48f6671Ec1B1C4f6abE964EBdd21F4eb7076f](https://etherscan.io/address/0x89F48f6671Ec1B1C4f6abE964EBdd21F4eb7076f#readProxyContract) | 
 
   </TabItem>
   
@@ -106,6 +110,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | USDT | USD | 0.5% | 6h | [0xf57bA29437C130e155Ca4b65128630777638F05D](https://bscscan.com/address/0xf57bA29437C130e155Ca4b65128630777638F05D#readProxyContract) | 
 | SolvBTC.b | USD | 0.5% | 6h | [0xF5F641fF3c7E39876A76e77E84041C300DFa4550](https://bscscan.com/address/0xF5F641fF3c7E39876A76e77E84041C300DFa4550#readProxyContract) | 
 | wstETH | ETH | 0.5% | 6h | [0xE7e734789954e6CffD8C295CBD0916A0A5747D27](https://bscscan.com/address/0xE7e734789954e6CffD8C295CBD0916A0A5747D27#readProxyContract) | 
+| wstETH | stETH | 0.5% | 6h | [0xF43a01A39Fd28950031a42861faD703147d5C8e7](https://bscscan.com/address/0xF43a01A39Fd28950031a42861faD703147d5C8e7#readProxyContract) | 
+| pufETH | ETH | 0.5% | 6h | [0xCa8b247304767619fCcF5b0829D0a5AAf414BA7D](https://bscscan.com/address/0xCa8b247304767619fCcF5b0829D0a5AAf414BA7D#readProxyContract) | 
 
   </TabItem>
 
