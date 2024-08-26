@@ -1,0 +1,9 @@
+{
+  "label": "🧬 AVS",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Helpful information for AVS operators"
+  },
+  "collapsed": true
+}
