@@ -1,11 +1,11 @@
 ---
 sidebar_position: 4
-sidebar_label: "🌀 ERC7412 (classic + core)"
+sidebar_label: "🌀 ERC7412 (push + pull)"
 ---
 
 # RedStone ERC7412
 
-## Classic and Core models combined
+## Push and Pull models combined
 
 This model was introduced in form of [ERC7412](https://eips.ethereum.org/EIPS/eip-7412) - we encourage you to read it before implementation! The model was popularized by perpetual protocol [Synthetix](https://synthetix.io/).
 

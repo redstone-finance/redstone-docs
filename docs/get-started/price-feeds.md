@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # 💹 Price feeds
 
-## Available on chain (Classic Model)
+## Available on chain (Push Model)
 
 The following feeds are available on-chain and are compatible with the [Chainlink interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol).
 
@@ -364,7 +364,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
   </TabItem>
 </Tabs>
 
-## Available to pull (Core Model)
+## Available to pull (Pull Model)
 
 Thanks to its unique design, RedStone can provide 1000+ price feeds for various types of data, including:
 
