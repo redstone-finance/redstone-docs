@@ -15,10 +15,10 @@ This calculated result is then verified by the AVS operators.
 If the operators confirm the correctness of the result, it is subsequently transmitted to the blockchain.
 This method ensures that the price data reaching the blockchain is both accurate and verified, providing a high level of trust and security in decentralized financial applications.
 
-## Implementation of the Classic Model (Push) with AVS
+## Implementation of the Push Model with AVS
 
-The RedStone AVS solution represents a novel implementation of the [Classic (push)](../get-started/models/redstone-classic) model for delivering data to the blockchain.
-In the Classic model, an off-chain relayer collects data and sends it to the blockchain, where the validation process takes place.
+The RedStone AVS solution represents a novel implementation of the [Push](../get-started/models/redstone-push) model for delivering data to the blockchain.
+In the Push model, an off-chain relayer collects data and sends it to the blockchain, where the validation process takes place.
 This method, while effective, often resulted in higher data usage on-chain due to the need for comprehensive validation processes.
 
 In contrast, the new implementation through AVS moves the validation of data off-chain, significantly reducing on-chain gas consumption.
