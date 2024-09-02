@@ -39,6 +39,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | pzETH | ETH (contract ratio) | 0.5% | 24h | [0x0d7697a15bce933cE8671Ba3D60ab062dA216C60](https://etherscan.io/address/0x0d7697a15bce933cE8671Ba3D60ab062dA216C60#readProxyContract) | 
 | USD3 | USD | 0.5% | 24h | [0xB39339B82DdCF89d12d987d1D4Db33aFdd40B6AA](https://etherscan.io/address/0xB39339B82DdCF89d12d987d1D4Db33aFdd40B6AA#readProxyContract) | 
 | deUSD | USD | 0.1% | 6h | [0x89F48f6671Ec1B1C4f6abE964EBdd21F4eb7076f](https://etherscan.io/address/0x89F48f6671Ec1B1C4f6abE964EBdd21F4eb7076f#readProxyContract) | 
+| eBTC | WBTC (contract rate) | 0.5% | 24h | [0xe5867B1d421f0b52697F16e2ac437e87d66D5fbF](https://etherscan.io/address/0xe5867B1d421f0b52697F16e2ac437e87d66D5fbF#readProxyContract) | 
 
   </TabItem>
   
@@ -328,6 +329,8 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | pufETH | USD | 0.5% | 24h | [0x81b9dC350576CfE64178B1Fe23c3630F6F0Ec2b2](https://explorer.zklink.io/address/0x81b9dC350576CfE64178B1Fe23c3630F6F0Ec2b2#contract) |
 | ezETH | USD | 0.5% | 24h | [0xca4793Eeb7a837E30884279b3D557970E444EBDe](https://explorer.zklink.io/address/0xca4793Eeb7a837E30884279b3D557970E444EBDe#contract) |
 | SolvBTC.M | USD | 0.5% | 24h | [0xe1eBcB160239aEbCC529e448B0045534d3c3F30e](https://explorer.zklink.io/address/0xe1eBcB160239aEbCC529e448B0045534d3c3F30e#contract) |
+| BBUSD | USD | 0.5% | 24h | [0xEDDBdC16ba4492C6d930d9e9B85F203E02f7b293](https://explorer.zklink.io/address/0xEDDBdC16ba4492C6d930d9e9B85F203E02f7b293#contract) |
+| BBTC | USD | 0.5% | 24h | [0xCb183d277a6DAEf1e76534f8AEb1a9355042f6ff](https://explorer.zklink.io/address/0xCb183d277a6DAEf1e76534f8AEb1a9355042f6ff#contract) |
 
   </TabItem>
 
