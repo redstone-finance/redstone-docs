@@ -22,7 +22,7 @@ This registration process is essential for establishing an identity and enabling
 
 To register, the following command should be executed in the terminal:
 
-```sh
+```bash
 docker run -it public.ecr.aws/y7v2w8b2/avs-othentic-client:90fc014d operator register
 ```
 
@@ -36,8 +36,8 @@ After executing the command, the following information will be required:
 The next step involves creating a configuration file that will define the essential parameters needed for the operator to function correctly within the RedStone AVS network.
 This configuration file, named `.env`, should contain the following content:
 
-```
-ORACLE_NODE_WHITELIST=["0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774","0xdEB22f54738d54976C4c0fe5ce6d408E40d88499","0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202","0xDD682daEC5A90d0D295d14DA4b0bec9281017b5bE","0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de"]  
+```bash
+ORACLE_NODE_WHITELIST=["0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774","0xdEB22f54738d54976C4c0fe5ce6d408E40d88499","0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202","0xDD682daEC5A90d0D295d14DA4b0bec9281017b5bE","0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de"]
 
 DATA_FEED_ID=ETH
 

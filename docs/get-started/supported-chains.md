@@ -47,8 +47,8 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 - Telos
 - zkLink Nova
 - Blast
-  * Points Operator Address - 0xBf30EB3D420568Ac44ca04B247D674fFd7168cD5
-  * Points Operator Contract - 0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590
+  - Points Operator Address - 0xBf30EB3D420568Ac44ca04B247D674fFd7168cD5
+  - Points Operator Contract - 0x4aaf2844c5420BF979d5bC2Cf883EF02Db07e590
 - Mode
 - Manta
 - Story Protocol
@@ -79,5 +79,3 @@ You can check the integration with the showroom app [for EVM Chains](https://sho
 Potentially you can use it on any other chain, but it would require some custom development.
 You can write your own implementation for the blockchain of your choice. Feel free to contact us [on discord](https://redstone.finance/discord) for details.
 :::
-
-
