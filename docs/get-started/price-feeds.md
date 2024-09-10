@@ -39,6 +39,7 @@ The following feeds are available on-chain and are compatible with the [Chainlin
 | pzETH | ETH (contract ratio) | 0.5% | 24h | [0x0d7697a15bce933cE8671Ba3D60ab062dA216C60](https://etherscan.io/address/0x0d7697a15bce933cE8671Ba3D60ab062dA216C60#readProxyContract) | 
 | USD3 | USD | 0.5% | 24h | [0xB39339B82DdCF89d12d987d1D4Db33aFdd40B6AA](https://etherscan.io/address/0xB39339B82DdCF89d12d987d1D4Db33aFdd40B6AA#readProxyContract) | 
 | deUSD | USD | 0.1% | 6h | [0x89F48f6671Ec1B1C4f6abE964EBdd21F4eb7076f](https://etherscan.io/address/0x89F48f6671Ec1B1C4f6abE964EBdd21F4eb7076f#readProxyContract) | 
+| CESR | - | - | 16:00 ET | [0x2C787Db499BD7BF1f592D8DDd79ead9a72420763](https://etherscan.io/address/0x2C787Db499BD7BF1f592D8DDd79ead9a72420763#readProxyContract) | 
 
   </TabItem>
   
