@@ -1,51 +1,53 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import { themes } from "prism-react-renderer";
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'RedStone Documentation',
-  tagline: 'Documentation for the RedStone oracles protocol',
-  url: 'https://docs.redstone.finance',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  title: "RedStone Documentation",
+  tagline: "Documentation for the RedStone oracles protocol",
+  url: "https://docs.redstone.finance",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'redstone-finance', // Usually your GitHub org/user name.
-  projectName: 'redstone-docs', // Usually your repo name.
+  organizationName: "redstone-finance", // Usually your GitHub org/user name.
+  projectName: "redstone-docs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/redstone-finance/redstone-docs/tree/main',
-          lastVersion: 'current',
+          sidebarPath: require.resolve("./sidebars.js"),
+          editUrl:
+            "https://github.com/redstone-finance/redstone-docs/tree/main",
+          lastVersion: "current",
           includeCurrentVersion: true,
           versions: {
             current: {
-              label: 'Current',
-              path: '/',
+              label: "Current",
+              path: "/",
             },
           },
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -53,84 +55,85 @@ const config = {
 
   scripts: [
     // ,
-    { src: '/js/custom.js', async: true },
+    { src: "/js/custom.js", async: true },
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Documentation',
+        title: "Documentation",
         logo: {
-          alt: 'RedStone',
-          src: 'img/redstone-logo-full.svg',
+          alt: "RedStone",
+          src: "img/redstone-logo-full.svg",
         },
         items: [
           {
-            href: 'https://github.com/redstone-finance',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/redstone-finance",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       announcementBar: {
-        content: '<strong>⭐️ If you like RedStone, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/redstone-finance/redstone-oracles-monorepo">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/redstone_defi">Twitter</a> ⭐️</strong>',
-        backgroundColor: '#FD627A',
-        textColor: 'white',
+        content:
+          '<strong>⭐️ If you like RedStone, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/redstone-finance/redstone-oracles-monorepo">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/redstone_defi">Twitter</a> ⭐️</strong>',
+        backgroundColor: "#FD627A",
+        textColor: "white",
       },
       algolia: {
-        appId: 'BXXQLGVS3Y',
-        apiKey: '3e7ddfe0b2a2ce34495188bd1e433dd4',
-        indexName: 'redstone',
+        appId: "BXXQLGVS3Y",
+        apiKey: "3e7ddfe0b2a2ce34495188bd1e433dd4",
+        indexName: "redstone",
         contextualSearch: true,
         replaceSearchResultPathname: {
-          from: '/next/',
-          to: '/',
+          from: "/next/",
+          to: "/",
         },
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: '👋 Community',
+            title: "👋 Community",
             items: [
               {
-                label: 'Website',
-                href: 'https://redstone.finance',
+                label: "Website",
+                href: "https://redstone.finance",
               },
               {
-                label: 'Discord',
-                href: 'https://redstone.finance/discord',
+                label: "Discord",
+                href: "https://redstone.finance/discord",
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/redstone_defi',
+                label: "Twitter",
+                href: "https://twitter.com/redstone_defi",
               },
             ],
           },
           {
-            title: '🚀 We are hiring',
+            title: "🚀 We are hiring",
             items: [
               {
-                label: 'Open Positions',
-                href: 'https://angel.co/company/redstonefinance',
+                label: "Open Positions",
+                href: "https://angel.co/company/redstonefinance",
               },
               {
-                label: 'Our Team',
-                href: 'https://redstone.finance/team',
+                label: "Our Team",
+                href: "https://redstone.finance/team",
               },
             ],
           },
           {
-            title: '📚 More',
+            title: "📚 More",
             items: [
               {
-                label: 'Blog',
-                href: 'https://medium.com/@RedStone_Finance',
+                label: "Blog",
+                href: "https://medium.com/@RedStone_Finance",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/redstone-finance',
+                label: "GitHub",
+                href: "https://github.com/redstone-finance",
               },
             ],
           },
@@ -140,19 +143,20 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["bash", "solidity"],
       },
     }),
   plugins: [
     [
-      '@docusaurus/plugin-client-redirects',
+      "@docusaurus/plugin-client-redirects",
       {
         redirects: [
           {
-            to: '/docs/get-started/price-feeds',
-            from: '/docs/smart-contract-devs/price-feeds',
+            to: "/docs/get-started/price-feeds",
+            from: "/docs/smart-contract-devs/price-feeds",
           },
         ],
-      }
+      },
     ],
   ],
 };
