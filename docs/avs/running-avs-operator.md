@@ -68,7 +68,7 @@ The fields marked with comments (#) need to be filled in with the appropriate va
 
 ## Step 3: Running the Operator
 
-To operate within the RedStone AVS network, two Docker images are required: [Attester](./service-components#attester) and [Validation API](./service-components#validation-api).
+To operate within the RedStone AVS network, two Docker images are required: [Attester](/docs/avs/service-components#attester) and [Validation API](/docs/avs/service-components#validation-api).
 These images can be launched using the following Docker Compose configuration:
 
 ```yaml

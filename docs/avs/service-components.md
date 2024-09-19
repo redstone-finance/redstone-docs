@@ -53,4 +53,4 @@ Additionally, the Attesters are credited with an appropriate reward in the contr
 RedStone will kickstart the network by managing the Task Performer and Aggregator.
 However, we encourage external operators to join and contribute to the network's decentralization.
 To participate, operators need to set up an Attester and a corresponding Validation API.
-For detailed instructions on how to configure, register, and run an operator, please refer to our [guide](./running-avs-operator).
+For detailed instructions on how to configure, register, and run an operator, please refer to our [guide](/docs/avs/running-avs-operator).
