@@ -13,18 +13,18 @@ We are not onboarding new Data Providers at the moment, but we will be doing so 
 
 This guide will teach you how to run a RedStone node with Docker. It will fetch data from main public APIs, sign them with your private keys and broadcast to the streamr network and redstone Data Distribution Layer (DDL).
 :::info Running from source
-You can run RedStone oracle node [using source code](./launch-using-source-code), but it's recommended to run it with Docker. We continuously build and deploy the code from our Github repository, so you don’t need a complete development environment to run a node.
+You can run RedStone oracle node [using source code](/docs/data-providers/launch-using-source-code), but it's recommended to run it with Docker. We continuously build and deploy the code from our Github repository, so you don’t need a complete development environment to run a node.
 :::
 
 :::info Data availability
-RedStone consumers will be able to use the data published by your node [on all supported chains.](../get-started/supported-chains) You can learn more about the RedStone Oracles architecture [here.](../get-started/selecting-redstone-model.md)
+RedStone consumers will be able to use the data published by your node [on all supported chains.](/docs/get-started/supported-chains) You can learn more about the RedStone Oracles architecture [here.](../get-started/selecting-redstone-model.md)
 :::
 
 ## 1. Running a node locally
 
 ### Requirements
 
-- Make sure to have enough resources to launch a RedStone oracle node, as explained in the [requirements page.](./system-requirements)
+- Make sure to have enough resources to launch a RedStone oracle node, as explained in the [requirements page.](/docs/data-providers/system-requirements)
 - Install [Docker](https://docs.docker.com/get-docker/). You will run the oracle node in a Docker container.
 
 ### Node configuration
@@ -82,7 +82,7 @@ We will also send you personal private gateways to the RedStone Data Distributio
 ### Deploy your node
 
 :::success Follow best practices
-Before deploying your oracle node to production environment please take a look at the [best practices](./best-practices) for the nodes operation.
+Before deploying your oracle node to production environment please take a look at the [best practices](/docs/data-providers/best-practices) for the nodes operation.
 :::
 
 Once you are added to the data providers registry and received your private gateway URLs, you can deploy the oracle node using Docker to any server or cloud provider you prefer. The deployment configuration should be very similar to the local node run.
