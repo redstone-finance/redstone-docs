@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["VALUE_SIZE"],"fn":["print","revert"],"trait":["NetworkSpecific"],"type":["Bytes","Network","U256"]};

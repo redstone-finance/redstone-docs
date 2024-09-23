@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"macro":["print_and_panic","print_debug"],"mod":["core","network"]};

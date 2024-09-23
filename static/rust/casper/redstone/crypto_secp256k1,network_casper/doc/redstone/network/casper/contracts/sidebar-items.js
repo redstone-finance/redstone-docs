@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["computed_value","constants","contract","contract_error","create_contract","entry_point","hashed","price_adapter_trait","run_mode","runtime","types"]};
