@@ -26,40 +26,70 @@ RedStone consumers will be able to use the data published by your node [on all s
 
 - Make sure to have enough resources to launch a RedStone oracle node, as explained in the [requirements page.](/docs/data-providers/system-requirements)
 - Install [Docker](https://docs.docker.com/get-docker/). You will run the oracle node in a Docker container.
+- Install [Docker Compose](https://docs.docker.com/compose/install/). It will help you manage multiple containers.
 
-### Node configuration
+### Example Docker Compose configuration
+
+Here's a simple example of a `docker-compose.yml` file that you can use to run the RedStone oracle node locally. You can copy this configuration and adjust it to your needs.
+
+```yaml
+services:
+  redstone-oracle-node:
+    image: public.ecr.aws/y7v2w8b2/redstone-oracle-node:957ca2a1
+    restart: always
+    depends_on:
+      - redstone-kms
+    networks:
+      - public_network
+      - private_network
+    volumes:
+    - redstone-oracle-node:/oracle-node-level-db
+    environment:
+      OVERRIDE_DIRECT_CACHE_SERVICE_URLS: '["https://httpbin.org/anything"]'
+      OVERRIDE_MANIFEST_USING_FILE: ./manifests/dev/dev.json
+      LEVEL_DB_LOCATION: /oracle-node-level-db
+      REMOTE_SIGNER_URL: http://redstone-kms:4499
+      ENABLE_REMOTE_SIGNER: true
+
+  redstone-kms:
+    restart: always
+    image: public.ecr.aws/y7v2w8b2/kms@sha256:6d0adc668d5a9a6d85b2232c6d6f4a5d6966d0faf58bd403ed37efed1e8219f5
+    networks:
+      - private_network
+    expose:
+      - "4499"
+    environment:
+      KMS_PRIVATE_KEY: 0x1111111111111111111111111111111111111111111111111111111111111111
+
+volumes:
+  redstone-oracle-node:
+
+networks:
+  public_network:
+    driver: bridge
+  private_network:
+    internal: true  # This ensures the network is private
+```
+
+### Services
+
+#### RedsStone KMS (Key Management Service)
+
+RedStone KMS' sole purpose is to handle all operations on your private key. It signs the data fetched by the oracle node and returns the evm address. This should be the only service that has access to your private key. Use the [RedStone KMS](https://gallery.ecr.aws/y7v2w8b2/kms) Docker image. 
+
+#### RedStone Node configuration
 
 RedStone oracle node should be configured using environment variables. You can configure them in any preferred way, e.g. using a local `.env` file.
 
-:::success Quick start configuration
-We've prepared a simple .env file and a bash script so you can quickly run your first oracle node. You can find them [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node/tools/quick-start)
-:::
-:::info More env variables
-The table below contains the main environment variables required for running a node. To see all the supported environment variables (including optional), please take a look at [this file.](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/src/config.ts)
-:::
 
 | Param                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                  | Example value                                                                                                |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| ECDSA_PRIVATE_KEY                  | Your ECDSA private key                                                                                                                                                                                                                                                                                                                                                                                                       | `ECDSA_PRIVATE_KEY=0x123...`                                                                                 |
+| ENABLE_REMOTE_SIGNER               | Delegate signing to a remote signer. Only this image has access to your ECDSA private key                                                                                                                                                                                                                                                                                                                                                                                                         | `ENABLE_REMOTE_SIGNER=true`
+| REMOTE_SIGNER_URL               | This is where Redstone's signer is listening. We recommend using a colocation e.g. in Kubernetes oracle-node and signer should be run in the same POD. By default `http://localhost:4499`.key                                                                                                                                                                                                                                                                                                                                                                                                       | `REMOTE_SIGNER_URL=http://localhost:4499`                                                                                 |
 | OVERRIDE_DIRECT_CACHE_SERVICE_URLS | Your personal private URLs of gateways to the RedStone Data Distribution Layer (DDL). For running a local node you can simply put `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://httpbin.org/anything"]`. But for production node running you should [request them](https://redstone.finance/discord) from the RedStone team.                                                                                                 | `OVERRIDE_DIRECT_CACHE_SERVICE_URLS=["https://xxx.yyy.secret-url-1.com","https://zzz.aaa.secret-url-2.com"]` |
 | OVERRIDE_MANIFEST_USING_FILE       | Path to your manifest file. Manifest is a public JSON file that defines the provider's obligation regarding the data that they provide. It sets fetching interval, tokens, sources and other public technical details for the provided data. You can check available manifests [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/oracle-node/manifests)                               | `OVERRIDE_MANIFEST_USING_FILE=./manifests/dev/dev.json`                                                      |
 | LEVEL_DB_LOCATION                  | Path to the level DB. Each RedStone oracle node relies on a single-level DB. It is used to store recently fetched values from the last 15 minutes. These values are used for checking value deviations, filtering outliers and preventing price manipulation attacks. <br/><br/> You don't need to create a Level DB instance manually, it will be created automatically at the specified path during the first node launch. | `LEVEL_DB_LOCATION=/oracle-node-level-db`                                                                    |
-
-### Launch using Docker
-
-- [Link to the oracle-node Docker repository](https://gallery.ecr.aws/y7v2w8b2/redstone-oracle-node)
-
-Be sure to put your environment variables in the `.env` file using the instruction above.
-
-Then, you can launch the RedStone oracle node using the following command:
-
-```sh
-docker run --env-file .env -d --restart=always -v redstone-oracle-node:/oracle-node-level-db --name redstone-oracle-node public.ecr.aws/y7v2w8b2/redstone-oracle-node:6c5e4bf
-```
-
-:::tip Docker image tags
-Each docker image has a tag (e.g. `6c5e4bf`), which is a short commit hash from the [redstone monorepo](https://github.com/redstone-finance/redstone-oracles-monorepo). It allows quickly identifying the version of source code for a given docker image.
-:::
+| ENABLE_REMOTE_SIGNER               | Switch on signing with RedStone KMS  | `ENABLE_REMOTE_SIGNER=true`            
 
 :::info Custom local manifest
 If you want to run oracle-node from Docker with your custom manifest you should [mount the manifest file](https://docs.docker.com/storage/bind-mounts/) from your local system to the docker container and update the `OVERRIDE_MANIFEST_USING_FILE` env variable.
