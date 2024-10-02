@@ -53,13 +53,19 @@ services:
 
   redstone-kms:
     restart: always
-    image: public.ecr.aws/y7v2w8b2/kms@sha256:6d0adc668d5a9a6d85b2232c6d6f4a5d6966d0faf58bd403ed37efed1e8219f5
+    image: public.ecr.aws/y7v2w8b2/kms@sha256:d5df0ad389c329e541b26b09b3ad18b453342f1fee3837c1bd05f23c4a4264da
     networks:
       - private_network
     expose:
       - "4499"
     environment:
-      KMS_PRIVATE_KEY: 0x1111111111111111111111111111111111111111111111111111111111111111
+      KMS_PRIVATE_KEY_FILE: /run/secrets/private_key
+    secrets:
+      - private_key
+
+secrets:
+   private_key:
+     file: private_key.txt
 
 volumes:
   redstone-oracle-node:
