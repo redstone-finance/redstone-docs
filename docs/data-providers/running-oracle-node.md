@@ -111,7 +111,7 @@ Currently, we manually check and validate external data providers making sure th
 
 Please send your ethereum address and public key to the RedStone team. Your address and public key will be added to the [data providers registry](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracles-smartweave-contracts/src/contracts/redstone-oracle-registry/initial-state.json). We'll also top up your ethereum wallet on Polygon with the small amount of MATIC tokens required for a one-time streamr streams creation, which will be started after your first node execution with a non-zero MATIC balance.
 
-You can use [this script](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/oracle-node/tools/ethereum/get-details-from-private-key.js) for obtaining your address and public key from your private key, but we strongly recommend using your own trusted infrastructure for interacting with your private keys.
+We strongly recommend using your own trusted infrastructure for interacting with your private keys.
 
 We will also send you personal private gateways to the RedStone Data Distribution Layer (DDL), which should be specified using the `OVERRIDE_DIRECT_CACHE_SERVICE_URLS` environment variable.
 
