@@ -35,8 +35,8 @@ The following algorithm runs on each oracle node independently, every 20 minutes
 
 1. Fetch the list of BTC addresses from the Lombard API
 1. Fetch the list of BTC addresses from the Lombard API
-    1. Verify the ownership of the address using Lombard’s root public key
-    1. Save the address in the oracle-node persistent storage
+   1. Verify the ownership of the address using Lombard’s root public key
+   1. Save the address in the oracle-node persistent storage
 1. Calculate **total_btc_balance**, by summing up Bitcoin balances for all the addresses from the oracle-node persistent storage
 1. Calculate **total_btc_unstakes_pending** using the Lombard API. If the value is negative, 0 is used
 1. Calculate **total_supply_on_evms**, by summing up total supplies of the LBTC token on all supported EVM chains
@@ -46,10 +46,8 @@ The following algorithm runs on each oracle node independently, every 20 minutes
 1. Calculate median of the values saved in the persistent oracle node storage within the last 6 hours. This step is important to increase robustness and security and ignore temporary spikes caused by delays between chains.
 1. Sign the value using private key and broadcast it to the RedStone distributed data layer (DDL)
 
-
 ### Saving LBTC fundamental price on Ethereum (push model)
 
 The value from the pull model is saved on the Ethereum network. It’s available in the following contract: [0xb415eAA355D8440ac7eCB602D3fb67ccC1f0bc81](https://etherscan.io/address/0xb415eAA355D8440ac7eCB602D3fb67ccC1f0bc81) through the standard AggregatorV3Interface interface. It's being updated at least every 24 hours or more often, if the on-chain value deviates from current value by more than 1%.
-
 
 - [Link to the feed details in the RedStone App](https://app.redstone.finance/app/feeds/ethereum-mainnet/lbtc_fundamental/)
