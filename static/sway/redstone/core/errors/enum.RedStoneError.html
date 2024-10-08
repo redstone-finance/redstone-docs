@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="swaydoc"><meta name="description" content="API documentation for the Sway `RedStoneError` enum in `errors`."><meta name="keywords" content="sway, swaylang, sway-lang, RedStoneError"><link rel="icon" href="../../../static.files/sway-logo.svg"><title>RedStoneError in errors - Sway</title><link rel="stylesheet" type="text/css" href="../../../static.files/normalize.css"><link rel="stylesheet" type="text/css" href="../../../static.files/swaydoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../static.files/ayu.css"><link rel="stylesheet" href="../../../static.files/ayu.min.css"></head><body class="swaydoc enum"><nav class="sidebar"><a class="sidebar-logo" href="../../../redstone/index.html"><div class="logo-container"><img class="sway-logo" src="../../../static.files/sway-logo.svg" alt="logo"></div></a><h2 class="location">Enum RedStoneError</h2><div class="sidebar-elems"><section><h3><a href="#variants">Variants</a></h3><ul class="block method"><li><a href="#variant.EmptyAllowedSigners">EmptyAllowedSigners</a></li><li><a href="#variant.EmptyFeedIds">EmptyFeedIds</a></li><li><a href="#variant.SignerCountThresholdToSmall">SignerCountThresholdToSmall</a></li><li><a href="#variant.DuplicatedSigner">DuplicatedSigner</a></li><li><a href="#variant.DuplicatedFeedId">DuplicatedFeedId</a></li><li><a href="#variant.DuplicatedValueForSigner">DuplicatedValueForSigner</a></li><li><a href="#variant.SignerNotRecognized">SignerNotRecognized</a></li><li><a href="#variant.InsufficientSignerCount">InsufficientSignerCount</a></li><li><a href="#variant.TimestampOutOfRange">TimestampOutOfRange</a></li><li><a href="#variant.TimestampDifferentThanOthers">TimestampDifferentThanOthers</a></li></ul></section></div></nav><main><div class="width-limiter"><script src="../../../search.js" type="text/javascript"></script><script>function onSearchFormSubmit(event){event.preventDefault();const searchQuery=document.getElementById("search-input").value;const url=new URL(window.location.href);if(searchQuery){url.searchParams.set('search',searchQuery)}else{url.searchParams.delete('search')}history.pushState({search:searchQuery},"",url);window.dispatchEvent(new HashChangeEvent("hashchange"))}document.addEventListener('DOMContentLoaded',()=>{const searchbar=document.getElementById("search-input");const searchForm=document.getElementById("search-form");searchbar.addEventListener("keyup",function(event){onSearchFormSubmit(event)});searchbar.addEventListener("search",function(event){onSearchFormSubmit(event)});function onQueryParamsChange(){const searchParams=new URLSearchParams(window.location.search);const query=searchParams.get("search");const searchSection=document.getElementById('search');const mainSection=document.getElementById('main-content');const searchInput=document.getElementById('search-input');if(query){searchInput.value=query;const results=Object.values(SEARCH_INDEX).flat().filter(item=>{const lowerQuery=query.toLowerCase();return item.name.toLowerCase().includes(lowerQuery)});const header=`<h1>Results for ${query}</h1>`;if(results.length>0){const resultList=results.map(item=>{const formattedName=`<span class="type ${item.type_name}">${item.name}</span>`;const name=[...item.module_info,formattedName].join("::");const path=["../../..",...item.module_info,item.html_filename].join("/");const left=`<td><span>${name}</span></td>`;const right=`<td><p>${item.preview}</p></td>`;return`<tr onclick="window.location='${path}';">${left}${right}</tr>`}).join('');searchSection.innerHTML=`${header}<table>${resultList}</table>`}else{searchSection.innerHTML=`${header}<p>No results found.</p>`}searchSection.setAttribute("class","search-results");mainSection.setAttribute("class","content hidden")}else{searchSection.setAttribute("class","search-results hidden");mainSection.setAttribute("class","content")}}window.addEventListener('hashchange',onQueryParamsChange);onQueryParamsChange()})</script><nav class="sub"><form id="search-form" class="search-form" onsubmit="onSearchFormSubmit(event)"><div class="search-container"><input id="search-input" class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Search the docs..." type="search"></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Enum <a class="mod" href="../../index.html">redstone</a><span>::</span><a class="mod" href="../index.html">core</a><span>::</span><a class="mod" href="index.html">errors</a><span>::</span><a class="enum" href="#">RedStoneError</a></span></h1></div><div class="docblock item-decl"><pre class="sway enum"><code>pub enum RedStoneError {
+    EmptyAllowedSigners: (),
+    EmptyFeedIds: (),
+    SignerCountThresholdToSmall: (),
+    DuplicatedSigner: (),
+    DuplicatedFeedId: (),
+    DuplicatedValueForSigner: (b256, u256),
+    SignerNotRecognized: (b256, u64),
+    InsufficientSignerCount: (u64, u64),
+    TimestampOutOfRange: (bool, u64, u64),
+    TimestampDifferentThanOthers: (u64, u64, u64),
+}</code></pre></div><details class="swaydoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h1>Enum <code>RedStoneError</code></h1>
+<p>This enum represents various errors that can occur during the execution of a RedStone payload processing.<br />
+Each variant contains relevant information for specific error types.</p>
+<h2>Variants</h2>
+<h3><code>EmptyAllowedSigners</code></h3>
+<pre><code class="language-rust">EmptyAllowedSigners: ()
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when the allowed signers list is empty.</li>
+</ul>
+<h3><code>EmptyFeedIds</code></h3>
+<pre><code class="language-rust">EmptyFeedIds: ()
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when the list of feed IDs is empty.</li>
+</ul>
+<h3><code>SignerCountThresholdToSmall</code></h3>
+<pre><code class="language-rust">SignerCountThresholdToSmall: ()
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when the signer count threshold is smaller than the signer list length.</li>
+</ul>
+<h3><code>DuplicatedSigner</code></h3>
+<pre><code class="language-rust">DuplicatedSigner: ()
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when a duplicated signer is found in the list of allowed signers.</li>
+</ul>
+<h3><code>DuplicatedFeedId</code></h3>
+<pre><code class="language-rust">DuplicatedFeedId: ()
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when a duplicated feed ID is found.</li>
+</ul>
+<h3><code>DuplicatedValueForSigner</code></h3>
+<pre><code class="language-rust">DuplicatedValueForSigner: (b256, u256)
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when the payload contains multiple values for the same signer and feed ID.</li>
+<li><strong>Fields</strong>:
+<ul>
+<li><code>b256</code>: The signer’s address.</li>
+<li><code>u256</code>: The feed ID.</li>
+</ul>
+</li>
+</ul>
+<h3><code>SignerNotRecognized</code></h3>
+<pre><code class="language-rust">SignerNotRecognized: (b256, u64)
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when a recovered signer address is not one of the allowed signers.</li>
+<li><strong>Fields</strong>:
+<ul>
+<li><code>b256</code>: The signer’s address.</li>
+<li><code>u64</code>: The index at which the signer was encountered.</li>
+</ul>
+</li>
+</ul>
+<h3><code>InsufficientSignerCount</code></h3>
+<pre><code class="language-rust">InsufficientSignerCount: (u64, u64)
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when the number of valid signers is less than the threshold.</li>
+<li><strong>Fields</strong>:
+<ul>
+<li><code>u64</code>: The current number of signers.</li>
+<li><code>u64</code>: The index of the feed being processed.</li>
+</ul>
+</li>
+</ul>
+<h3><code>TimestampOutOfRange</code></h3>
+<pre><code class="language-rust">TimestampOutOfRange: (bool, u64, u64)
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when a timestamp is too far in the future or past.</li>
+<li><strong>Fields</strong>:
+<ul>
+<li><code>bool</code>: Whether the timestamp is too far in the future (<code>true</code>) or in the past (<code>false</code>).</li>
+<li><code>u64</code>: The provided block timestamp.</li>
+<li><code>u64</code>: The recovered timestamp.</li>
+</ul>
+</li>
+</ul>
+<h3><code>TimestampDifferentThanOthers</code></h3>
+<pre><code class="language-rust">TimestampDifferentThanOthers: (u64, u64, u64)
+</code></pre>
+<ul>
+<li><strong>Description</strong>: Raised when one timestamp differs from the others provided.</li>
+<li><strong>Fields</strong>:
+<ul>
+<li><code>u64</code>: The reference timestamp.</li>
+<li><code>u64</code>: The differing timestamp.</li>
+<li><code>u64</code>: The index of the data package that’s timestamp differs.</li>
+</ul>
+</li>
+</ul>
+</div></details><h2 id="variants" class="variants small-section-header">Variants<a class="anchor" href="#variants"></a></h2><h3 id="variant.EmptyAllowedSigners" class="variant small-section-header"><a class="anchor field" href="#variant.EmptyAllowedSigners"></a><code>EmptyAllowedSigners: ()</code></h3><h3 id="variant.EmptyFeedIds" class="variant small-section-header"><a class="anchor field" href="#variant.EmptyFeedIds"></a><code>EmptyFeedIds: ()</code></h3><h3 id="variant.SignerCountThresholdToSmall" class="variant small-section-header"><a class="anchor field" href="#variant.SignerCountThresholdToSmall"></a><code>SignerCountThresholdToSmall: ()</code></h3><h3 id="variant.DuplicatedSigner" class="variant small-section-header"><a class="anchor field" href="#variant.DuplicatedSigner"></a><code>DuplicatedSigner: ()</code></h3><h3 id="variant.DuplicatedFeedId" class="variant small-section-header"><a class="anchor field" href="#variant.DuplicatedFeedId"></a><code>DuplicatedFeedId: ()</code></h3><h3 id="variant.DuplicatedValueForSigner" class="variant small-section-header"><a class="anchor field" href="#variant.DuplicatedValueForSigner"></a><code>DuplicatedValueForSigner: (b256u256)</code></h3><h3 id="variant.SignerNotRecognized" class="variant small-section-header"><a class="anchor field" href="#variant.SignerNotRecognized"></a><code>SignerNotRecognized: (b256u64)</code></h3><h3 id="variant.InsufficientSignerCount" class="variant small-section-header"><a class="anchor field" href="#variant.InsufficientSignerCount"></a><code>InsufficientSignerCount: (u64u64)</code></h3><h3 id="variant.TimestampOutOfRange" class="variant small-section-header"><a class="anchor field" href="#variant.TimestampOutOfRange"></a><code>TimestampOutOfRange: (boolu64u64)</code></h3><h3 id="variant.TimestampDifferentThanOthers" class="variant small-section-header"><a class="anchor field" href="#variant.TimestampDifferentThanOthers"></a><code>TimestampDifferentThanOthers: (u64u64u64)</code></h3></section><section id="search" class="search-results"></section></div></main><script src="../../../static.files/highlight.js"></script><script>hljs.highlightAll();</script></body></html>
