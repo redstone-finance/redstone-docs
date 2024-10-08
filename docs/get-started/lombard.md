@@ -34,7 +34,7 @@ Currently, the value has an upper cap of 1, meaning a healthy value is 1, indica
 The following algorithm runs on each oracle node independently, every 20 minutes:
 
 1. Fetch the list of BTC addresses from the Lombard API
-1. Fetch the list of BTC addresses from the Lombard API
+1. For each new (not processed by RedStone previously) address
    1. Verify the ownership of the address using Lombard’s root public key
    1. Save the address in the oracle-node persistent storage
 1. Calculate **total_btc_balance**, by summing up Bitcoin balances for all the addresses from the oracle-node persistent storage
