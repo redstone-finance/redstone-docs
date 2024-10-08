@@ -41,6 +41,6 @@ RedStone was designed with a modular architecture making it easy to incorporate 
 - Our code was audited by multiple security experts including [ABDK](https://abdk.consulting/) [Peckshield](https://peckshield.com/) and a co-founder of [L2Beat](https://pl.linkedin.com/company/l2beat#:~:text=Join%20Piotr%20Szlachciak%20Cofounder%20%26%20CEO,insights%20shaping%20the%20%23DeFi%20landscape!).
 - RedStone supports leading projects like [Morpho](https://morpho.org/), [Venus](https://venus.io/), and [Pendle Finance](https://www.pendle.finance/).
 
-<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-architecture-simple.png">
-  <img alt="RedStone Architecure" src="/img/redstone-architecture-simple.png" target="_blank"/>
+<a target="_blank" href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-architecture-simple.png">
+  <img alt="RedStone Architecure" src="/img/redstone-architecture-simple.png"/>
 </a>

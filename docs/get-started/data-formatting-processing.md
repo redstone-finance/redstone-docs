@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
-sidebar_label: "Data Formatting & Processing"
+sidebar_label: "💾 Data Formatting & Processing"
 ---
 
 # How Data Flows to the Blockchain
 
-<a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture.png">
- <img src="/img/architecture.png" target="_blank" alt="RedStone Architecture"/>
+<a target="_blank" href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/architecture.png">
+ <img src="/img/architecture.png" alt="RedStone Architecture"/>
 </a>
 
 ## Overview
@@ -32,12 +32,16 @@ All of the steps are executed automatically by the ContractWrapper and is transp
 
 2. Data is packed into a message based on the structure of the ‘Transaction Payload’ diagram below…
 
-   <a href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-tx-wrapping.png">
-   <img src="/img/redstone-tx-wrapping.png" target="_blank" alt="Payload Wrapping"/>
+   <a target="_blank" href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/payload.png">
+      <img src="/img/payload.png" alt="RedStone Payload"/>
    </a>
 
 3. The package is appended to the original transaction message, signed, and submitted to the network.
    <br />
+
+   <a target="_blank" href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-tx-wrapping.png">
+      <img src="/img/redstone-tx-wrapping.png" alt="Payload Wrapping"/>
+   </a>
 
 ### How Data Is Unpacked, Verified and Then Aggregated On-Chain
 
