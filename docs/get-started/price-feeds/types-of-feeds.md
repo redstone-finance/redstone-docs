@@ -9,23 +9,23 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 1. **Market Feed**
 
-The regular market price derived from trading activities on centralized and decentralized exchanges, i.e. ETH / USD or
+   The regular market price derived from trading activities on centralized and decentralized exchanges, i.e. ETH / USD or
 
-2. **Contract Rate Feed**
+1. **Contract Rate Feed**
 
-Also known as Exchange Rate or Fundamental feed. A ratio between the underlying asset and its derivative derived from the smart contract of a protocol, i.e. wstETH / stETH rate derived from Lido contract or weETH / eETH derived from Ether.fi contract.
+   Also known as Exchange Rate or Fundamental feed. A ratio between the underlying asset and its derivative derived from the smart contract of a protocol, i.e. wstETH / stETH rate derived from Lido contract or weETH / eETH derived from Ether.fi contract.
 
-3. **Real World Feed**
+1. **Real World Feed**
 
-A feed derived from institutional API or another source providing numerical information, i.e. CESR or SOFR
+   A feed derived from institutional API or another source providing numerical information, i.e. CESR or SOFR
 
-4. **Proof of Reserve Feed**
+1. **Proof of Reserve Feed**
 
-Also known as Net Asset Value (NAV) feed. A data feed based on API or another source that informs about the value of assets backing tokens issued against it i.e. Blackrock BUIDL or Ondo’s. Technically a subsection of Real World Feed.
+   Also known as Net Asset Value (NAV) feed. A data feed based on API or another source that informs about the value of assets backing tokens issued against it i.e. Blackrock BUIDL or Ondo's. Technically a subsection of Real World Feed.
 
-5. **Protocol native Oracle**
+1. **Protocol native Oracle**
 
-The custom implementation of logic supporting a particular orale, i.e. Bitcoin Staking Oracle. Specific implementation is LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard’s system on the Bitcoin chain.
+   The custom implementation of logic supporting a particular orale, i.e. Bitcoin Staking Oracle. Specific implementation is LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain.
 
 ## Lombard Protocol Native Oracle by RedStone
 
