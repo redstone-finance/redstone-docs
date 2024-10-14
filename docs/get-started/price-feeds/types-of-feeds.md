@@ -9,7 +9,7 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 1. **Market Feed**
 
-   The regular market price derived from trading activities on centralized and decentralized exchanges, i.e. ETH / USD or
+   The regular market price derived from trading activities on centralized and decentralized exchanges, i.e. ETH / USD
 
 1. **Contract Rate Feed**
 
