@@ -9,7 +9,7 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 1. **Market Feed**
 
-The regular market price derived from trading activities on centralized and decentralized exchanges, i.e. ETH / USD or 
+The regular market price derived from trading activities on centralized and decentralized exchanges, i.e. ETH / USD or
 
 2. **Contract Rate Feed**
 
@@ -34,11 +34,10 @@ Lombard is a Liquid Bitcoin Staking protocol built on top of Babylon. Upon staki
 RedStone team carefully designed the oracle together with the Lombard team in the following manner.  
 Here
 
-|  | Denomination | Deviation Comes From | Complexity Of Delivery |
-| :---: | :---: | :---: | :---: |
-| **Market Feed** | Mainly USD Can be another currency i.e. ETH / BTC | Market trading | Relatively simple |
-| **Contract Rate Feed** | Underlying asset i.e. ETH for Ethereum LSTs | Specified ratio changes in the smart contract | Requires understanding of edge cases and on-chain source |
-| **Real World Feed** | Custom, i.e. for CESR it’s a % yield from ETH staking | Custom, i.e. CESR API is updated every 24 hours | Depends on the feed, usually medium difficulty |
-| **Proof of Reserve Feed** | Custom, usually USD value | Custom, usually every 24 hours from an API | Depends on the source, usually medium difficulty |
-| **Protocol Native Oracle** | Custom, i.e. BTC in the case of Lombard internal Oracle | Custom, i.e. each X minutes for Lombard | Usually work-intensive |
-
+|                            |                      Denomination                       |              Deviation Comes From               |                  Complexity Of Delivery                  |
+| :------------------------: | :-----------------------------------------------------: | :---------------------------------------------: | :------------------------------------------------------: |
+|      **Market Feed**       |    Mainly USD Can be another currency i.e. ETH / BTC    |                 Market trading                  |                    Relatively simple                     |
+|   **Contract Rate Feed**   |       Underlying asset i.e. ETH for Ethereum LSTs       |  Specified ratio changes in the smart contract  | Requires understanding of edge cases and on-chain source |
+|    **Real World Feed**     |  Custom, i.e. for CESR it’s a % yield from ETH staking  | Custom, i.e. CESR API is updated every 24 hours |      Depends on the feed, usually medium difficulty      |
+| **Proof of Reserve Feed**  |                Custom, usually USD value                |   Custom, usually every 24 hours from an API    |     Depends on the source, usually medium difficulty     |
+| **Protocol Native Oracle** | Custom, i.e. BTC in the case of Lombard internal Oracle |     Custom, i.e. each X minutes for Lombard     |                  Usually work-intensive                  |
