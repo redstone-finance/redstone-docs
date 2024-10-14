@@ -157,8 +157,8 @@ const config = {
             to: "/docs/get-started/price-feeds",
           },
           {
-            from: "/docs/get-started/lombard/",
-            to: "/docs/get-started/price-feeds/lombard/",
+            from: "/docs/get-started/lombard",
+            to: "/docs/get-started/price-feeds/types-of-feeds/lombard",
           },
         ],
       },
