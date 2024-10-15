@@ -153,8 +153,12 @@ const config = {
       {
         redirects: [
           {
-            to: "/docs/get-started/price-feeds",
             from: "/docs/smart-contract-devs/price-feeds",
+            to: "/docs/get-started/price-feeds",
+          },
+          {
+            from: "/docs/get-started/lombard",
+            to: "/docs/get-started/price-feeds/types-of-feeds/lombard",
           },
         ],
       },
