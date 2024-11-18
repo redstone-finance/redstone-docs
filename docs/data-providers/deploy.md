@@ -29,7 +29,7 @@ Here's a simple example of a `docker-compose.yml` file that you can use to run t
 ```yaml
 services:
   redstone-oracle-node:
-    image: public.ecr.aws/y7v2w8b2/redstone-oracle-node:957ca2a1
+    image: public.ecr.aws/y7v2w8b2/redstone-oracle-node@sha256:07eb1cc4aa3a4f0275c2ef5c2f9a95af06150e35211e20f66f9b24ab1c05cef7
     restart: always
     depends_on:
       - redstone-kms
@@ -47,7 +47,7 @@ services:
 
   redstone-kms:
     restart: always
-    image: public.ecr.aws/y7v2w8b2/kms@sha256:d5df0ad389c329e541b26b09b3ad18b453342f1fee3837c1bd05f23c4a4264da
+    image: public.ecr.aws/y7v2w8b2/kms@sha256:d069bc9afcd1b4e6884e2d4e530d90c94db0aaf1a2265d7facb4f4e2d2fefb3d
     networks:
       - private_network
     expose:
