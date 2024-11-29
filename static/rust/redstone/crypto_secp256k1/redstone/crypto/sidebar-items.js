@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["keccak256","recover"]};
+window.SIDEBAR_ITEMS = {"mod":["keccak256","recover"],"type":["EcdsaUncompressedPublicKey","Keccak256Hash","Secp256SigRs"]};

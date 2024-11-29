@@ -1,3 +1,3 @@
 (function() {var implementors = {
-"redstone":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.80.1/core/fmt/trait.Display.html\" title=\"trait core::fmt::Display\">Display</a> for <a class=\"enum\" href=\"redstone/network/error/enum.Error.html\" title=\"enum redstone::network::error::Error\">Error</a>"]]
+"redstone":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.81.0/core/fmt/trait.Display.html\" title=\"trait core::fmt::Display\">Display</a> for <a class=\"enum\" href=\"redstone/network/error/enum.Error.html\" title=\"enum redstone::network::error::Error\">Error</a>"]]
 };if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
