@@ -23,13 +23,13 @@ This registration process is essential for establishing an identity and enabling
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run -it public.ecr.aws/y7v2w8b2/avs-othentic-client:90fc014d operator register
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:f1e34480 operator register
 ```
 
 After executing the command, the following information will be required:
 
-- **Operator's Private Key**: the private key must be provided to authenticate and secure the operator account.
-- **AVS Governance Contract Address**: the following contract address should be entered: [0xfADc5aCf45D7E9ebAB82Dea71E26fe3A9A833337](https://holesky.etherscan.io/address/0xfadc5acf45d7e9ebab82dea71e26fe3a9a833337).
+- **Operator's Private Key**: the private key must be provided to authenticate and secure the operator account. The private key should be provided twice: as a private key and as a signing key.
+- **AVS Governance Contract Address**: the following contract address should be entered: [0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e](https://holesky.etherscan.io/address/0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e).
 
 ## Step 2: Preparing the Configuration File
 
@@ -44,10 +44,12 @@ DATA_FEED_ID=ETH
 L1_RPC= # holesky RPC endpoint
 L1_CHAIN=17000
 
-L2_RPC=# amoy RPC endpoint
+L2_RPC= # amoy RPC endpoint
 L2_CHAIN=80002
 
-TASK_PERFORMER=0x8074Ab463bcDaEE1D87Ec98959084D659d48d4d5
+AVS_GOVERNANCE_ADDRESS=0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e
+ATTESTATION_CENTER_ADDRESS=0xA8779c817C748b15122EF572c195019601715BBe
+TASK_PERFORMER=0x906CD7211CeA5Dc88977c50B015675aB64327728
 PRIVATE_KEY= # operator's private key
 ```
 
@@ -74,7 +76,8 @@ These images can be launched using the following Docker Compose configuration:
 ```yaml
 services:
   operator-attester:
-    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:90fc014d
+    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:f1e34480
+    platform: linux/amd64
     command:
       [
         "node",
@@ -86,7 +89,8 @@ services:
     env_file:
       - .env
   operator-validation-api:
-    image: public.ecr.aws/y7v2w8b2/avs-validation-api:90fc014d
+    image: public.ecr.aws/y7v2w8b2/avs-validation-api:f1e34480
+    platform: linux/amd64
     env_file:
       - .env
 ```
