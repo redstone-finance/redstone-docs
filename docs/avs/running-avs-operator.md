@@ -23,7 +23,7 @@ This registration process is essential for establishing an identity and enabling
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:f1e34480 operator register
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fdf07832 operator register
 ```
 
 After executing the command, the following information will be required:
@@ -37,8 +37,7 @@ The next step involves creating a configuration file that will define the essent
 This configuration file, named `.env`, should contain the following content:
 
 ```bash
-ORACLE_NODE_WHITELIST=["0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774","0xdEB22f54738d54976C4c0fe5ce6d408E40d88499","0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202","0xDD682daEC5A90d0D295d14DA4b0bec9281017b5bE","0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de"]
-
+DATA_SERVICE_ID=redstone-primary-prod
 DATA_FEED_ID=ETH
 
 L1_RPC= # holesky RPC endpoint
@@ -49,7 +48,6 @@ L2_CHAIN=80002
 
 AVS_GOVERNANCE_ADDRESS=0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e
 ATTESTATION_CENTER_ADDRESS=0xA8779c817C748b15122EF572c195019601715BBe
-TASK_PERFORMER=0x906CD7211CeA5Dc88977c50B015675aB64327728
 PRIVATE_KEY= # operator's private key
 ```
 
@@ -57,11 +55,10 @@ Below is an explanation of each field and information on which fields need to be
 
 | Parameter               | Description                                                                                                            |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `ORACLE_NODE_WHITELIST` | The public keys of trusted oracle nodes from which data will be collected                                              |
+| `DATA_SERVICE_ID`       | Service ID, for production environment it is `redstone-primary-prod`                                                   |
 | `DATA_FEED_ID`          | The identifier of the token for which the price will be calculated (e.g., ETH for Ethereum)                            |
 | `L1_RPC` / `L2_RP`C     | The RPC endpoint addresses for the L1 (Holesky) and L2 (Amoy) networks, respectively                                   |
 | `L1_CHAIN` / `L2_CHAIN` | The chain IDs for the L1 and L2 networks                                                                               |
-| `TASK_PERFORMER`        | The public key of the task performer responsible for executing specific operations                                     |
 | `PRIVATE_KEY`           | The operator's private key provided during registration, which is required for authentication and signing transactions |
 
 :::tip
@@ -76,7 +73,7 @@ These images can be launched using the following Docker Compose configuration:
 ```yaml
 services:
   operator-attester:
-    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:f1e34480
+    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:fdf07832
     platform: linux/amd64
     command:
       [
@@ -89,7 +86,7 @@ services:
     env_file:
       - .env
   operator-validation-api:
-    image: public.ecr.aws/y7v2w8b2/avs-validation-api:f1e34480
+    image: public.ecr.aws/y7v2w8b2/avs-validation-api:fdf07832
     platform: linux/amd64
     env_file:
       - .env
