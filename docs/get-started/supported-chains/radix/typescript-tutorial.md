@@ -19,13 +19,11 @@ The **info described there** is mostly **NOT REPEATED below**.
 {
   dependencies: {
      ...
-    "@redstone-finance/radix-connector": "0.7.3",
+    "@redstone-finance/radix-connector": "0.7.2",
      ...
   }
 }
 ```
-
-`@redstone-finance/radix-connector` will be released soon...
 
 ## Using the PriceAdapter package with `@redstone-finance/radix-connector`
 
