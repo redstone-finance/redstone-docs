@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `rust-sdk/src/crypto/recover.rs`."><title>recover.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="redstone" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.1 (3f5fd8dd4 2024-08-06)" data-channel="1.80.1" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/crypto/recover.rs`."><title>recover.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-c5d6553a23f1e5a6.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="redstone" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0 (eeb90cda1 2024-09-04)" data-channel="1.81.0" data-search-js="search-d234aafac6c221dd.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-d2fab2bf619172d3.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -131,14 +131,59 @@
 <a href="#131" id="131">131</a>
 <a href="#132" id="132">132</a>
 <a href="#133" id="133">133</a>
-</pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::crypto::{keccak256, recover::crypto256::recover_public_key};
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
+<a href="#161" id="161">161</a>
+<a href="#162" id="162">162</a>
+<a href="#163" id="163">163</a>
+<a href="#164" id="164">164</a>
+<a href="#165" id="165">165</a>
+<a href="#166" id="166">166</a>
+<a href="#167" id="167">167</a>
+<a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
+<a href="#170" id="170">170</a>
+<a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+</pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::crypto::{
+    keccak256, recover::crypto256::recover_public_key, EcdsaUncompressedPublicKey, Keccak256Hash,
+    Secp256SigRs,
+};
 
 <span class="kw">pub fn </span>recover_address(message: Vec&lt;u8&gt;, signature: Vec&lt;u8&gt;) -&gt; Vec&lt;u8&gt; {
-    <span class="kw">let </span>recovery_byte = signature[<span class="number">64</span>]; <span class="comment">// 65-byte representation
+    <span class="comment">//TODO: check malleability support by the libraries
+    </span><span class="kw">let </span>recovery_byte = signature[<span class="number">64</span>]; <span class="comment">// 65-byte representation
     </span><span class="kw">let </span>msg_hash = keccak256::keccak256(message.as_slice());
     <span class="kw">let </span>key = recover_public_key(
         msg_hash,
-        <span class="kw-2">&amp;</span>signature[..<span class="number">64</span>],
+        signature[..<span class="number">64</span>].try_into().unwrap(),
         recovery_byte - (<span class="kw">if </span>recovery_byte &gt;= <span class="number">27 </span>{ <span class="number">27 </span>} <span class="kw">else </span>{ <span class="number">0 </span>}),
     );
     <span class="kw">let </span>key_hash = keccak256::keccak256(<span class="kw-2">&amp;</span>key[<span class="number">1</span>..]); <span class="comment">// skip first uncompressed-key byte
@@ -148,72 +193,109 @@
 
 <span class="attr">#[cfg(feature = <span class="string">"crypto_secp256k1"</span>)]
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>crypto256 {
+    <span class="kw">use super</span>::{EcdsaUncompressedPublicKey, Keccak256Hash, Secp256SigRs};
     <span class="kw">use </span><span class="kw">crate</span>::network::{assert::Unwrap, error::Error};
     <span class="kw">use </span>secp256k1::{ecdsa::RecoverableSignature, Message, Secp256k1 <span class="kw">as </span>Secp256k1Curve};
 
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>recover_public_key(
-        message_hash: Box&lt;[u8]&gt;,
-        signature_bytes: <span class="kw-2">&amp;</span>[u8],
+        message_hash: Keccak256Hash,
+        signature_bytes: Secp256SigRs,
         recovery_byte: u8,
-    ) -&gt; Box&lt;[u8]&gt; {
-        <span class="kw">let </span>msg = Message::from_digest_slice(message_hash.as_ref())
-            .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(message_hash.len()));
+    ) -&gt; EcdsaUncompressedPublicKey {
+        <span class="kw">let </span>msg = Message::from_digest(message_hash);
 
         <span class="kw">let </span>recovery_id = secp256k1::ecdsa::RecoveryId::from_i32(recovery_byte.into())
             .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(recovery_byte.into()));
 
         <span class="kw">let </span>sig: RecoverableSignature =
-            RecoverableSignature::from_compact(signature_bytes, recovery_id)
+            RecoverableSignature::from_compact(signature_bytes.as_slice(), recovery_id)
                 .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(signature_bytes.len()));
 
         <span class="kw">let </span>public_key = Secp256k1Curve::new().recover_ecdsa(<span class="kw-2">&amp;</span>msg, <span class="kw-2">&amp;</span>sig);
 
-        public_key.unwrap().serialize_uncompressed().into()
+        public_key.unwrap().serialize_uncompressed()
     }
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"crypto_k256"</span>)]
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>crypto256 {
+    <span class="kw">use super</span>::{EcdsaUncompressedPublicKey, Keccak256Hash, Secp256SigRs};
     <span class="kw">use </span><span class="kw">crate</span>::network::{assert::Unwrap, error::Error};
     <span class="kw">use </span>k256::ecdsa::{RecoveryId, Signature, VerifyingKey};
 
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>recover_public_key(
-        message_hash: Box&lt;[u8]&gt;,
-        signature_bytes: <span class="kw-2">&amp;</span>[u8],
+        message_hash: Keccak256Hash,
+        signature_bytes: Secp256SigRs,
         recovery_byte: u8,
-    ) -&gt; Box&lt;[u8]&gt; {
+    ) -&gt; EcdsaUncompressedPublicKey {
         <span class="kw">let </span>recovery_id = RecoveryId::from_byte(recovery_byte)
             .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(recovery_byte.into()));
 
-        <span class="kw">let </span>signature = Signature::try_from(signature_bytes)
+        <span class="kw">let </span>signature = Signature::try_from(signature_bytes.as_slice())
             .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(signature_bytes.len()));
 
         <span class="kw">let </span>recovered_key =
             VerifyingKey::recover_from_prehash(message_hash.as_ref(), <span class="kw-2">&amp;</span>signature, recovery_id)
-                .map(|key| key.to_encoded_point(<span class="bool-val">false</span>).to_bytes());
+                .map(|key| key.to_encoded_point(<span class="bool-val">false</span>).to_bytes())
+                .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(<span class="number">0</span>));
 
-        recovered_key.unwrap()
+        recovered_key.as_ref().try_into().unwrap()
     }
 }
 
-<span class="attr">#[cfg(all(not(feature = <span class="string">"crypto_k256"</span>), not(feature = <span class="string">"crypto_secp256k1"</span>)))]
+<span class="attr">#[cfg(all(feature = <span class="string">"crypto_radix"</span>, target_arch = <span class="string">"wasm32"</span>))]
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>crypto256 {
+    <span class="kw">use super</span>::{EcdsaUncompressedPublicKey, Keccak256Hash, Secp256SigRs};
+    <span class="kw">use </span><span class="kw">crate</span>::network::assert::Unwrap;
+    <span class="kw">use </span><span class="kw">crate</span>::network::error::Error;
+    <span class="kw">use </span>radix_common::crypto::{Hash, IsHash, Secp256k1Signature};
+    <span class="kw">use </span>scrypto::crypto_utils::CryptoUtils;
+
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>recover_public_key(
-        _message_hash: Box&lt;[u8]&gt;,
-        _signature_bytes: <span class="kw-2">&amp;</span>[u8],
+        message_hash: Keccak256Hash,
+        signature_bytes: Secp256SigRs,
+        recovery_byte: u8,
+    ) -&gt; EcdsaUncompressedPublicKey {
+        <span class="kw">let </span>hash = Hash::from_bytes(message_hash);
+
+        <span class="kw">let </span><span class="kw-2">mut </span>sig_vec = Vec::with_capacity(<span class="number">65</span>);
+        sig_vec.push(recovery_byte);
+        sig_vec.extend(signature_bytes);
+        <span class="kw">let </span>signature = Secp256k1Signature::try_from(sig_vec.as_slice())
+            .unwrap_or_revert(|<span class="kw">_</span>| Error::CryptographicError(signature_bytes.len()));
+
+        CryptoUtils::secp256k1_ecdsa_verify_and_key_recover_uncompressed(hash, signature).<span class="number">0
+    </span>}
+}
+
+<span class="attr">#[cfg(all(
+    not(feature = <span class="string">"crypto_k256"</span>),
+    not(feature = <span class="string">"crypto_secp256k1"</span>),
+    not(all(feature = <span class="string">"crypto_radix"</span>, target_arch = <span class="string">"wasm32"</span>))
+))]
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>crypto256 {
+    <span class="kw">use super</span>::{EcdsaUncompressedPublicKey, Keccak256Hash, Secp256SigRs};
+
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>recover_public_key(
+        _message_hash: Keccak256Hash,
+        _signature_bytes: Secp256SigRs,
         _recovery_byte: u8,
-    ) -&gt; Box&lt;[u8]&gt; {
+    ) -&gt; EcdsaUncompressedPublicKey {
         <span class="macro">panic!</span>(<span class="string">"Not implemented!"</span>)
     }
 }
 
-<span class="attr">#[cfg(feature = <span class="string">"helpers"</span>)]
+<span class="attr">#[cfg(not(all(feature = <span class="string">"crypto_radix"</span>, target_arch = <span class="string">"wasm32"</span>)))]
+#[cfg(feature = <span class="string">"helpers"</span>)]
 #[cfg(test)]
 </span><span class="kw">mod </span>tests {
     <span class="kw">use crate</span>::{
         crypto::recover::{crypto256::recover_public_key, recover_address},
         helpers::hex::hex_to_bytes,
     };
+
+    <span class="attr">#[cfg(target_arch = <span class="string">"wasm32"</span>)]
+    </span><span class="kw">use </span>wasm_bindgen_test::wasm_bindgen_test <span class="kw">as </span>test;
 
     <span class="kw">const </span>MESSAGE: <span class="kw-2">&amp;</span>str = <span class="string">"415641580000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d394303d018d79bf0ba000000020000001"</span>;
     <span class="kw">const </span>MESSAGE_HASH: <span class="kw-2">&amp;</span>str = <span class="string">"f0805644755393876d0e917e553f0c206f8bc68b7ebfe73a79d2a9e7f5a4cea6"</span>;
@@ -228,16 +310,16 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>test_recover_public_key_v27() {
-        <span class="kw">let </span>public_key = recover_public_key(u8_box(MESSAGE_HASH), <span class="kw-2">&amp;</span>u8_box(SIG_V27), <span class="number">0</span>);
+        <span class="kw">let </span>public_key = recover_public_key(u8_slice(MESSAGE_HASH), u8_slice(SIG_V27), <span class="number">0</span>);
 
-        <span class="macro">assert_eq!</span>(u8_box(PUBLIC_KEY_V27), public_key);
+        <span class="macro">assert_eq!</span>(u8_slice(PUBLIC_KEY_V27), public_key);
     }
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>test_recover_public_key_v28() {
-        <span class="kw">let </span>public_key = recover_public_key(u8_box(MESSAGE_HASH), <span class="kw-2">&amp;</span>u8_box(SIG_V28), <span class="number">1</span>);
+        <span class="kw">let </span>public_key = recover_public_key(u8_slice(MESSAGE_HASH), u8_slice(SIG_V28), <span class="number">1</span>);
 
-        <span class="macro">assert_eq!</span>(u8_box(PUBLIC_KEY_V28), public_key);
+        <span class="macro">assert_eq!</span>(u8_slice(PUBLIC_KEY_V28), public_key);
     }
 
     <span class="attr">#[test]
@@ -260,8 +342,8 @@
         <span class="macro">assert_eq!</span>(hex_to_bytes(ADDRESS_V28.into()), address);
     }
 
-    <span class="kw">fn </span>u8_box(str: <span class="kw-2">&amp;</span>str) -&gt; Box&lt;[u8]&gt; {
-        hex_to_bytes(str.into()).as_slice().into()
+    <span class="kw">fn </span>u8_slice&lt;<span class="kw">const </span>N: usize&gt;(str: <span class="kw-2">&amp;</span>str) -&gt; [u8; N] {
+        hex_to_bytes(str.into()).as_slice().try_into().unwrap()
     }
 }
 </code></pre></div></section></main></body></html>
