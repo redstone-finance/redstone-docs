@@ -25,7 +25,7 @@ Overall, RedStone's approach improves efficiency for dApps and significantly red
 
 ### Problem #2: The typical monolithic architecture of oracles limits scalability
 
-- A consequence of a monolithic architecture is that makes it challenging for protocols to reduce latency and list new assets.
+- A consequence of a monolithic architecture is that it makes it challenging for protocols to reduce latency and list new assets.
 
 #### Our Solution
 
