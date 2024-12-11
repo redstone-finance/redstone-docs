@@ -42,5 +42,5 @@ RedStone was designed with a modular architecture making it easy to incorporate 
 - RedStone supports leading projects like [Morpho](https://morpho.org/), [Venus](https://venus.io/), and [Pendle Finance](https://www.pendle.finance/).
 
 <a target="_blank" href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-architecture-simple.png">
-  <img alt="RedStone Architecure" src="/img/redstone-architecture-simple.png"/>
+  <img alt="RedStone Architecture" src="/img/redstone-architecture-simple.png"/>
 </a>
