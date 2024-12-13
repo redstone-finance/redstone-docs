@@ -13,7 +13,7 @@ Not only will you be helping to maintain the integrity of this innovative system
 The following instructions apply to setting up an operator in the testnet environment running on Ethereum [Holesky](https://holesky.etherscan.io/) (L1), where the EigenLayer contracts and Othenic contracts responsible for operator rewards are deployed. Additionally, the L2 Polygon [Amoy](https://amoy.polygonscan.com/) network hosts contracts that validate attester signatures and store the current price and its timestamp.
 :::
 
-To become an operator in the RedStone AVS network, you’ll need to follow the three steps outlined below.
+To become an operator in the RedStone AVS network, you’ll need to follow the four steps outlined below.
 
 ## Step 1: Registering as an Operator
 
@@ -31,7 +31,13 @@ After executing the command, the following information will be required:
 - **Operator's Private Key**: the private key must be provided to authenticate and secure the operator account. The private key should be provided twice: as a private key and as a signing key.
 - **AVS Governance Contract Address**: the following contract address should be entered: [0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e](https://holesky.etherscan.io/address/0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e).
 
-## Step 2: Preparing the Configuration File
+## Step 2: Getting Whitelisted as an Operator
+
+To finalize your eligibility as an operator, you must be added to the operator whitelist.
+
+Join the designated Telegram channel for AVS operators: https://t.me/+DlrNvuknRXM3MDgx, and contact the administrators through the channel to submit your request.
+
+## Step 3: Preparing the Configuration File
 
 The next step involves creating a configuration file that will define the essential parameters needed for the operator to function correctly within the RedStone AVS network.
 This configuration file, named `.env`, should contain the following content:
@@ -65,7 +71,7 @@ Below is an explanation of each field and information on which fields need to be
 The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
 :::
 
-## Step 3: Running the Operator
+## Step 4: Running the Operator
 
 To operate within the RedStone AVS network, two Docker images are required: [Attester](/docs/avs/service-components#attester) and [Validation API](/docs/avs/service-components#validation-api).
 These images can be launched using the following Docker Compose configuration:
