@@ -15,27 +15,28 @@ The following instructions apply to setting up an operator in the testnet enviro
 
 To become an operator in the RedStone AVS network, you’ll need to follow the four steps outlined below.
 
-## Step 1: Registering as an Operator
+## Step 1: Getting Whitelisted as an Operator
 
-The first step in becoming an operator involves registering with both the AVS and EigenLayer systems.
+In order to register as an Operator, you must be first added to the operator whitelist.
+
+Join the designated Telegram channel for AVS operators: https://t.me/+DlrNvuknRXM3MDgx, and contact the administrators through the channel to submit your request.
+
+## Step 2: Registering as an Operator
+
+After being whitelisted, the next step in becoming an operator involves registering with both the AVS and EigenLayer systems.
 This registration process is essential for establishing an identity and enabling participation in the RedStone AVS network.
 
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fdf07832 operator register
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:b0ea48ab operator register
 ```
 
 After executing the command, the following information will be required:
 
-- **Operator's Private Key**: the private key must be provided to authenticate and secure the operator account. The private key should be provided twice: as a private key and as a signing key.
+- **Operator's Private Key** (The [Controller](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
+- **Signing Key** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): In Testnet environment it is the same as the Operator's Private Key. This is the key used by the node itself to sign consensus messages.
 - **AVS Governance Contract Address**: the following contract address should be entered: [0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e](https://holesky.etherscan.io/address/0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e).
-
-## Step 2: Getting Whitelisted as an Operator
-
-To finalize your eligibility as an operator, you must be added to the operator whitelist.
-
-Join the designated Telegram channel for AVS operators: https://t.me/+DlrNvuknRXM3MDgx, and contact the administrators through the channel to submit your request.
 
 ## Step 3: Preparing the Configuration File
 
@@ -79,7 +80,7 @@ These images can be launched using the following Docker Compose configuration:
 ```yaml
 services:
   operator-attester:
-    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:fdf07832
+    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:b0ea48ab
     platform: linux/amd64
     command:
       [
@@ -92,7 +93,7 @@ services:
     env_file:
       - .env
   operator-validation-api:
-    image: public.ecr.aws/y7v2w8b2/avs-validation-api:fdf07832
+    image: public.ecr.aws/y7v2w8b2/avs-validation-api:b0ea48ab
     platform: linux/amd64
     env_file:
       - .env
