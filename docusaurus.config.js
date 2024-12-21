@@ -78,7 +78,7 @@ const config = {
       },
       announcementBar: {
         content:
-          '<strong>⭐️ If you like RedStone, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/redstone-finance/redstone-oracles-monorepo">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/redstone_defi">Twitter</a> ⭐️</strong>',
+          '<strong>⭐️ If you like RedStone, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/redstone-finance/redstone-oracles-monorepo">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://x.com/redstone_defi">X</a> ⭐️</strong>',
         backgroundColor: "#FD627A",
         textColor: "white",
       },
@@ -107,8 +107,8 @@ const config = {
                 href: "https://redstone.finance/discord",
               },
               {
-                label: "Twitter",
-                href: "https://twitter.com/redstone_defi",
+                label: "X (ex Twitter)",
+                href: "https://x.com/redstone_defi",
               },
             ],
           },
