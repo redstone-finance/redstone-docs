@@ -19,7 +19,7 @@ To become an operator in the RedStone AVS network, you’ll need to follow the f
 
 In order to register as an Operator, you must be first added to the operator whitelist.
 
-Join the designated Telegram channel for AVS operators: https://t.me/+DlrNvuknRXM3MDgx, and contact the administrators through the channel to submit your request.
+Currently, we are in Phase 1, during which only selected operators are being whitelisted. This process may change in Phase 2, allowing for broader participation.
 
 ## Step 2: Registering as an Operator
 
