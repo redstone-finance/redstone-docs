@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["CryptoError"],"mod":["casper","contract","core","default_ext","helpers","network","radix","solana","utils"],"struct":["Bytes","FeedId","RedStoneConfigImpl","SignerAddress","TimestampMillis","Value"],"trait":["Crypto","RedStoneConfig"]};
+window.SIDEBAR_ITEMS = {"enum":["CryptoError"],"mod":["casper","contract","core","default_ext","helpers","network","radix","solana"],"struct":["Bytes","FeedId","RedStoneConfigImpl","SignerAddress","TimestampMillis","Value"],"trait":["Crypto","RedStoneConfig"]};
