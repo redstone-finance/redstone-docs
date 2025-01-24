@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"redstone":[["impl SborTuple&lt;ScryptoCustomValueKind&gt; for <a class=\"struct\" href=\"redstone/struct.FeedId.html\" title=\"struct redstone::FeedId\">FeedId</a>"],["impl SborTuple&lt;ScryptoCustomValueKind&gt; for <a class=\"struct\" href=\"redstone/struct.SignerAddress.html\" title=\"struct redstone::SignerAddress\">SignerAddress</a>"],["impl SborTuple&lt;ScryptoCustomValueKind&gt; for <a class=\"struct\" href=\"redstone/struct.Value.html\" title=\"struct redstone::Value\">Value</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
