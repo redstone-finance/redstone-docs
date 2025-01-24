@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["check_no_duplicates"]};
+window.SIDEBAR_ITEMS = {};

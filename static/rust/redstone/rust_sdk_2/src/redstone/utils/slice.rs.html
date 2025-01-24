@@ -176,7 +176,7 @@
 ///
 /// Returns a `Result&lt;(), T&gt;` which contains first repeated element found in the slice or if there is no repeated
 /// element then Ok(()) otherwise.
-</span><span class="kw">pub fn </span>check_no_duplicates&lt;T&gt;(slice: <span class="kw-2">&amp;</span>[T]) -&gt; <span class="prelude-ty">Result</span>&lt;(), T&gt;
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>check_no_duplicates&lt;T&gt;(slice: <span class="kw-2">&amp;</span>[T]) -&gt; <span class="prelude-ty">Result</span>&lt;(), T&gt;
 <span class="kw">where
     </span>T: PartialEq + Eq + Copy + Ord,
 {
