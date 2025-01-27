@@ -24,7 +24,7 @@
 
 <span class="kw">use crate</span>::{protocol::data_point::DataPoint, SignerAddress, TimestampMillis};
 <span class="attr">#[derive(Clone, PartialEq, Eq)]
-</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct </span>DataPackage {
+</span><span class="kw">pub struct </span>DataPackage {
     <span class="kw">pub</span>(<span class="kw">crate</span>) signer_address: SignerAddress,
     <span class="kw">pub</span>(<span class="kw">crate</span>) timestamp: TimestampMillis,
     <span class="kw">pub</span>(<span class="kw">crate</span>) data_points: Vec&lt;DataPoint&gt;,

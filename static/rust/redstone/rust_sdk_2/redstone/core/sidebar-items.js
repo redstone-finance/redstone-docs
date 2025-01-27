@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["config","processor","processor_result"]};
+window.SIDEBAR_ITEMS = {"mod":["config","processor","processor_result","validator"]};

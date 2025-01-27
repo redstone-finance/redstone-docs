@@ -228,6 +228,13 @@
 <a href="#228" id="228">228</a>
 <a href="#229" id="229">229</a>
 <a href="#230" id="230">230</a>
+<a href="#231" id="231">231</a>
+<a href="#232" id="232">232</a>
+<a href="#233" id="233">233</a>
+<a href="#234" id="234">234</a>
+<a href="#235" id="235">235</a>
+<a href="#236" id="236">236</a>
+<a href="#237" id="237">237</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>alloc::{string::String, vec::Vec};
 <span class="kw">use </span>core::fmt::{Debug, Display, Formatter};
 
@@ -338,20 +345,24 @@
     /// Includes FeedId that is reocuring.
     </span>ConfigReocuringFeedId(FeedId),
 
-    <span class="doccomment">/// Indicates that the provided timestamp is not greater than a previously written timestamp.
+    <span class="doccomment">/// Indicates that the provided data timestamp is not greater than a previously written package timestamp.
     ///
     /// For the price adapter to accept a new price update, the associated timestamp must be
     /// strictly greater than the timestamp of the last update. This error is raised if a new
     /// timestamp does not meet this criterion, ensuring the chronological integrity of price data.
-    </span>TimestampMustBeGreaterThanBefore,
+    ///
+    /// Includes the value of a current package timestamp and the timestamp of the previous package.
+    </span>DataTimestampMustBeGreaterThanBefore(TimestampMillis, TimestampMillis),
 
-    <span class="doccomment">/// Indicates that the current timestamp is not greater than the timestamp of the last update.
+    <span class="doccomment">/// Indicates that the current update timestamp is not greater than the last update timestamp.
     ///
     /// This error is raised to ensure that the data being written has a timestamp strictly greater
     /// than the most recent timestamp already stored in the system. It guarantees that new data
     /// is not outdated or stale compared to the existing records, thereby maintaining the chronological
     /// integrity and consistency of the updates.
-    </span>CurrentTimestampMustBeGreaterThanLatestUpdateTimestamp,
+    ///
+    /// Includes the value of a current update timestamp and the last update timestamp.
+    </span>CurrentTimestampMustBeGreaterThanLatestUpdateTimestamp(TimestampMillis, TimestampMillis),
 }
 
 <span class="kw">impl </span>From&lt;CryptoError&gt; <span class="kw">for </span>Error {
@@ -381,8 +392,8 @@
             Error::CryptographicError(error) =&gt; <span class="number">700 </span>+ error.code(),
             Error::TimestampTooOld(data_package_index, <span class="kw">_</span>) =&gt; <span class="number">1000 </span>+ <span class="kw-2">*</span>data_package_index <span class="kw">as </span>u16,
             Error::TimestampTooFuture(data_package_index, <span class="kw">_</span>) =&gt; <span class="number">1050 </span>+ <span class="kw-2">*</span>data_package_index <span class="kw">as </span>u16,
-            Error::TimestampMustBeGreaterThanBefore =&gt; <span class="number">1101</span>,
-            Error::CurrentTimestampMustBeGreaterThanLatestUpdateTimestamp =&gt; <span class="number">1102</span>,
+            Error::DataTimestampMustBeGreaterThanBefore(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">1101</span>,
+            Error::CurrentTimestampMustBeGreaterThanLatestUpdateTimestamp(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">1102</span>,
         }
     }
 }
@@ -446,13 +457,16 @@
                     feed_id.as_hex_str()
                 )
             }
-            Error::TimestampMustBeGreaterThanBefore =&gt; {
-                <span class="macro">write!</span>(f, <span class="string">"Timestamp must be greater than before"</span>)
-            }
-            Error::CurrentTimestampMustBeGreaterThanLatestUpdateTimestamp =&gt; {
+            Error::DataTimestampMustBeGreaterThanBefore(current, before) =&gt; {
                 <span class="macro">write!</span>(
                     f,
-                    <span class="string">"Current timestamp must be greater than latest update timestamp"
+                    <span class="string">"Package timestamp: {current:?} must be greater than package timestamp before: {before:?}"
+                </span>)
+            }
+            Error::CurrentTimestampMustBeGreaterThanLatestUpdateTimestamp(current, last) =&gt; {
+                <span class="macro">write!</span>(
+                    f,
+                    <span class="string">"Current update timestamp: {current:?} must be greater than latest update timestamp: {last:?}"
                 </span>)
             }
         }

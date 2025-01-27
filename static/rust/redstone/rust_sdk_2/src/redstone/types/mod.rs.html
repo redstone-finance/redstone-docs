@@ -50,7 +50,7 @@
 
 <span class="doccomment">/// We dont expect value to be larger than u256.
 ///  Adjust this once this no longer hold :)
-</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>VALUE_SIZE: usize = <span class="number">32</span>;
+</span><span class="kw">pub const </span>VALUE_SIZE: usize = <span class="number">32</span>;
 
 <span class="kw">pub trait </span>Sanitized {
     <span class="kw">fn </span>sanitized(<span class="self">self</span>) -&gt; <span class="self">Self</span>;
