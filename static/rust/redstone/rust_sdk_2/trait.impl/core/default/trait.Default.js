@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"redstone":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.81.0/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"redstone/struct.Bytes.html\" title=\"struct redstone::Bytes\">Bytes</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
