@@ -58,7 +58,7 @@ In the function above we:
 
    We do not need to store all the data on-chain. It's sufficient to record a hash of the values mentioned above.
 
-3. Notify the keepers' network about the new request to receive price data by emiting the `NewOracleDataRequest` event.
+3. Notify the keepers' network about the new request to receive price data by emitting the `NewOracleDataRequest` event.
 
 ### Phase 2 - execution
 
