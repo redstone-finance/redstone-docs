@@ -23,7 +23,54 @@ In order to register as an Operator, you must be first added to the operator whi
 
 Currently, we are in Phase 1, during which only selected operators are being whitelisted. This process may change in Phase 2, allowing for broader participation.
 
-## Step 2: Registering as an Operator
+## Step 2: Depositing Stake on a Supported Strategy
+
+Before registering as an operator, you must deposit stake on one of the supported staking strategies.
+This stake ensures that the operator has a financial commitment to the network.
+Below, you'll find the list of currently supported staking strategies, along with the necessary commands to deposit stake into each.
+
+### EIGEN Strategy
+
+**Strategy Address:** [0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf](https://etherscan.io/address/0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf)
+
+**Deposit Command:**
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+  operator deposit \
+  --l1-chain mainnet \
+  --staking-contract EIGENETH
+```
+
+### ether.fi Strategy
+
+**Strategy Address:** [0x83E9115d334D248Ce39a6f36144aEaB5b3456e75](https://etherscan.io/address/0x83E9115d334D248Ce39a6f36144aEaB5b3456e75)
+
+**Deposit Command:**
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+  operator deposit \
+  --l1-chain mainnet \
+  --staking-contract-address 0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf
+```
+
+### RATT (RedStoneAVSTestToken) Strategy
+
+This is a temporary staking strategy. It will be replaced with the final AVS token in the future.
+
+**Strategy Address:** [0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE](https://etherscan.io/address/0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE)
+
+**Deposit Command:**
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+  operator deposit \
+  --l1-chain mainnet \
+  --staking-contract-address 0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE
+```
+
+## Step 3: Registering as an Operator
 
 After being whitelisted, the next step in becoming an operator involves registering with both the AVS and EigenLayer systems.
 This registration process is essential for establishing an identity and enabling participation in the RedStone AVS network.
@@ -31,7 +78,7 @@ This registration process is essential for establishing an identity and enabling
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:b7bbe333 operator register
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 operator register
 ```
 
 After executing the command, the following information will be required:
@@ -40,37 +87,32 @@ After executing the command, the following information will be required:
 - **Signing Key** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used by the node itself to sign consensus messages.
 - **AVS Governance Contract Address**: the following contract address should be entered: [0x6f943318b05AD7c6EE596A220510A6D64B518dd8](https://etherscan.io/address/0x6f943318b05AD7c6EE596A220510A6D64B518dd8).
 
-## Step 3: Preparing the Configuration File
+## Step 4: Preparing the Configuration File
 
 The next step involves creating a configuration file that will define the essential parameters needed for the operator to function correctly within the RedStone AVS network.
 This configuration file, named `.env`, should contain the following content:
 
 ```bash
-DATA_FEED_ID=weETH/ETH_AVS
-
+PRIVATE_KEY= # operator's private key
 L1_RPC= # ethereum mainnet RPC endpoint
-
 L2_RPC= # base RPC endpoint
 
 AVS_GOVERNANCE_ADDRESS=0x6f943318b05AD7c6EE596A220510A6D64B518dd8
 ATTESTATION_CENTER_ADDRESS=0x2B766957ce3dbab9eC4b227f5086855CeE7a1ad6
-PRIVATE_KEY= # operator's private key
 ```
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter               | Description                                                                                                            |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `DATA_FEED_ID`          | The identifier of the token for which the price will be calculated (e.g., ETH for Ethereum)                            |
-| `L1_RPC` / `L2_RPC`     | The RPC endpoint addresses for the L1 (Holesky) and L2 (Amoy) networks, respectively                                   |
-| `L1_CHAIN` / `L2_CHAIN` | The chain IDs for the L1 and L2 networks                                                                               |
-| `PRIVATE_KEY`           | The operator's private key provided during registration, which is required for authentication and signing transactions |
+| Parameter           | Description                                                                                                            |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `PRIVATE_KEY`       | The operator's private key provided during registration, which is required for authentication and signing transactions |
+| `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                  |
 
 :::tip
 The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
 :::
 
-## Step 4: Running the Operator
+## Step 5: Running the Operator
 
 To operate within the RedStone AVS network, two Docker images are required: [Attester](/docs/avs/service-components#attester) and [Validation API](/docs/avs/service-components#validation-api).
 These images can be launched using the following Docker Compose configuration:
@@ -78,7 +120,7 @@ These images can be launched using the following Docker Compose configuration:
 ```yaml
 services:
   operator-attester:
-    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:b7bbe333
+    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951
     platform: linux/amd64
     command:
       [
@@ -97,10 +139,8 @@ services:
     env_file:
       - .env
   operator-validation-api:
-    image: public.ecr.aws/y7v2w8b2/avs-validation-api:b7bbe333
+    image: public.ecr.aws/y7v2w8b2/avs-validation-api:fc63f951
     platform: linux/amd64
-    env_file:
-      - .env
 ```
 
 To start the operator, simply run the following command in the directory containing the `docker-compose.yml` file:
