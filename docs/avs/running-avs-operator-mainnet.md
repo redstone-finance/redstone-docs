@@ -33,6 +33,8 @@ Below, you'll find the list of currently supported staking strategies, along wit
 
 **Strategy Address:** [0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf](https://etherscan.io/address/0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf)
 
+**Restake:** https://app.eigenlayer.xyz/restake/EIGEN
+
 **Deposit Command:**
 
 ```bash
@@ -78,14 +80,18 @@ This registration process is essential for establishing an identity and enabling
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 operator register
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+  operator register \
+  --l1-chain mainnet
 ```
 
 After executing the command, the following information will be required:
 
 - **Operator's Private Key** (The [Controller](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
-- **Signing Key** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used by the node itself to sign consensus messages.
-- **AVS Governance Contract Address**: the following contract address should be entered: [0x6f943318b05AD7c6EE596A220510A6D64B518dd8](https://etherscan.io/address/0x6f943318b05AD7c6EE596A220510A6D64B518dd8).
+- **Use a different private key for Consensus?** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same key.
+- **AVS Governance Contract Address**: the following contract address should be entered: `0x6f943318b05AD7c6EE596A220510A6D64B518dd8`
+- **Rewards Receiver Address** – Optional. If left blank, it defaults to the operator's address.
+- If you are not yet registered with EigenLayer, you will be prompted to provide additional details, such as your operator name, description, website, logo URL, and Twitter profile.
 
 ## Step 4: Preparing the Configuration File
 
