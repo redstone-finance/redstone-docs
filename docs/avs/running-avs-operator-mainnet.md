@@ -23,11 +23,38 @@ In order to register as an Operator, you must be first added to the operator whi
 
 Currently, we are in Phase 1, during which only selected operators are being whitelisted. This process may change in Phase 2, allowing for broader participation.
 
-## Step 2: Depositing Stake on a Supported Strategy
+## Step 2: Registering as an Operator
 
-Before registering as an operator, you must deposit stake on one of the supported staking strategies.
+After being whitelisted, the next step in becoming an operator involves registering with both the AVS and EigenLayer systems.
+This registration process is essential for establishing an identity and enabling participation in the RedStone AVS network.
+
+To register, the following command should be executed in the terminal:
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+  operator register \
+  --l1-chain mainnet
+```
+
+After executing the command, the following information will be required:
+
+- **Operator's Private Key** (The [Controller](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
+- **Use a different private key for Consensus?** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same key.
+- **AVS Governance Contract Address**: the following contract address should be entered: `0x6f943318b05AD7c6EE596A220510A6D64B518dd8`
+- **Rewards Receiver Address** – Optional. If left blank, it defaults to the operator's address.
+- If you are not yet registered with EigenLayer, you will be prompted to provide additional details, such as your operator name, description, website, logo URL, and Twitter profile.
+
+## Step 3: Depositing Stake on a Supported Strategy
+
+After registering as an operator in EigenLayer, you must deposit stake on one of the supported staking strategies.
 This stake ensures that the operator has a financial commitment to the network.
-Below, you'll find the list of currently supported staking strategies, along with the necessary commands to deposit stake into each.
+
+:::important
+Having a non-zero stake is essential to obtain voting power in the RedStone AVS ecosystem. Without it, your operator is inactive and will not be able to participate effectively in consensus and governance.
+:::
+
+Below, you'll find the list of currently supported staking strategies.
+You can either use the deposit command provided for each strategy or perform a restake manually via the EigenLayer application ("Restake" link).
 
 ### EIGEN Strategy
 
@@ -71,27 +98,6 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
   --l1-chain mainnet \
   --staking-contract-address 0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE
 ```
-
-## Step 3: Registering as an Operator
-
-After being whitelisted, the next step in becoming an operator involves registering with both the AVS and EigenLayer systems.
-This registration process is essential for establishing an identity and enabling participation in the RedStone AVS network.
-
-To register, the following command should be executed in the terminal:
-
-```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
-  operator register \
-  --l1-chain mainnet
-```
-
-After executing the command, the following information will be required:
-
-- **Operator's Private Key** (The [Controller](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
-- **Use a different private key for Consensus?** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same key.
-- **AVS Governance Contract Address**: the following contract address should be entered: `0x6f943318b05AD7c6EE596A220510A6D64B518dd8`
-- **Rewards Receiver Address** – Optional. If left blank, it defaults to the operator's address.
-- If you are not yet registered with EigenLayer, you will be prompted to provide additional details, such as your operator name, description, website, logo URL, and Twitter profile.
 
 ## Step 4: Preparing the Configuration File
 
