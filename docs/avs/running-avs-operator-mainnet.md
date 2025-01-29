@@ -38,8 +38,8 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 
 After executing the command, the following information will be required:
 
-- **Operator's Private Key** (The [Controller](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
-- **Use a different private key for Consensus?** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same key.
+- **Operator's Private Key** (The [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key)): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
+- **Use a different private key for Consensus?** (The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key)): Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same key.
 - **AVS Governance Contract Address**: the following contract address should be entered: `0x6f943318b05AD7c6EE596A220510A6D64B518dd8`
 - **Rewards Receiver Address** – Optional. If left blank, it defaults to the operator's address.
 - If you are not yet registered with EigenLayer, you will be prompted to provide additional details, such as your operator name, description, website, logo URL, and Twitter profile.
@@ -105,7 +105,9 @@ The next step involves creating a configuration file that will define the essent
 This configuration file, named `.env`, should contain the following content:
 
 ```bash
-PRIVATE_KEY= # operator's private key
+PRIVATE_KEY = # the Consensus Key of the operator
+OPERATOR_ADDRESS = # the public address of the Controller Key.
+
 L1_RPC= # ethereum mainnet RPC endpoint
 L2_RPC= # base RPC endpoint
 
@@ -115,10 +117,11 @@ ATTESTATION_CENTER_ADDRESS=0x2B766957ce3dbab9eC4b227f5086855CeE7a1ad6
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter           | Description                                                                                                            |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `PRIVATE_KEY`       | The operator's private key provided during registration, which is required for authentication and signing transactions |
-| `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                  |
+| Parameter           | Description                                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PRIVATE_KEY`       | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                         |
+| `OPERATOR_ADDRESS`  | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) |
+| `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                                       |
 
 :::tip
 The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
