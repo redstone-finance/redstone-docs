@@ -138,7 +138,7 @@ services:
       [
         "node",
         "attester",
-        "/dns/aggregator1-p2p.a.redstone.finance/tcp/3000/p2p/12D3KooWSBMPURmCU5B8nuXkUw1Tq26FuvDg5LsEcs4WX8dqAxWJ",
+        "/dns/prod-aggregator1-p2p.a.redstone.finance/tcp/3000/p2p/12D3KooWSBMPURmCU5B8nuXkUw1Tq26FuvDg5LsEcs4WX8dqAxWJ",
         "--avs-webapi",
         "http://operator-validation-api",
         "--avs-webapi-port",
