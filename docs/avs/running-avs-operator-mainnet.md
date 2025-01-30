@@ -79,6 +79,8 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 
 **Strategy Address:** [0x83E9115d334D248Ce39a6f36144aEaB5b3456e75](https://etherscan.io/address/0x83E9115d334D248Ce39a6f36144aEaB5b3456e75)
 
+**Restake:** https://app.eigenlayer.xyz/restake/0xfe0c30065b384f05761f15d0cc899d4f9f9cc0eb
+
 **Deposit Command:**
 
 ```bash
@@ -93,6 +95,8 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 This is a temporary staking strategy. It will be replaced with the RedStone token in the future.
 
 **Strategy Address:** [0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE](https://etherscan.io/address/0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE)
+
+**Restake:** https://app.eigenlayer.xyz/restake/0x43b1dbb4ceeba4a6d310235964791cecf0e27453
 
 **Deposit Command:**
 
