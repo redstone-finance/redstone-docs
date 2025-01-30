@@ -44,12 +44,16 @@ After executing the command, the following information will be required:
 - **Rewards Receiver Address** – Optional. If left blank, it defaults to the operator's address.
 - If you are not yet registered with EigenLayer, you will be prompted to provide additional details, such as your operator name, description, website, logo URL, and Twitter profile.
 
+:::important
+After registering, please inform us so we can add you to the [restricted attesters list](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#set-restricted-operator-set-for-a-task) for the task definition.
+:::
+
 ## Step 3: Depositing Stake on a Supported Strategy
 
 After registering as an operator in EigenLayer, you must deposit stake on one of the supported staking strategies.
 This stake ensures that the operator has a financial commitment to the network.
 
-:::important
+:::info
 Having a non-zero stake is essential to obtain voting power in the RedStone AVS ecosystem. Without it, your operator is inactive and will not be able to participate effectively in consensus and governance.
 :::
 
@@ -117,11 +121,11 @@ ATTESTATION_CENTER_ADDRESS=0x2B766957ce3dbab9eC4b227f5086855CeE7a1ad6
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter           | Description                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PRIVATE_KEY`       | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                         |
-| `OPERATOR_ADDRESS`  | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) |
-| `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                                       |
+| Parameter           | Description                                                                                                                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PRIVATE_KEY`       | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                                                                      |
+| `OPERATOR_ADDRESS`  | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) (optional if both private keys are the same) |
+| `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                                                                                    |
 
 :::tip
 The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
