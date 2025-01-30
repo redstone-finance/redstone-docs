@@ -62,7 +62,7 @@ You can either use the deposit command provided for each strategy or perform a r
 
 ### EIGEN Strategy
 
-**Strategy Address:** [0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf](https://etherscan.io/address/0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf)
+**Strategy Address:** [0xaCB55C530Acdb2849e6d4f36992Cd8c9D50ED8F7](https://etherscan.io/address/0xaCB55C530Acdb2849e6d4f36992Cd8c9D50ED8F7)
 
 **Restake:** https://app.eigenlayer.xyz/restake/EIGEN
 
@@ -77,7 +77,7 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 
 ### ether.fi Strategy
 
-**Strategy Address:** [0x83E9115d334D248Ce39a6f36144aEaB5b3456e75](https://etherscan.io/address/0x83E9115d334D248Ce39a6f36144aEaB5b3456e75)
+**Strategy Address:** [0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf](https://etherscan.io/address/0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf)
 
 **Deposit Command:**
 
