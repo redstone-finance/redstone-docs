@@ -160,6 +160,10 @@ const config = {
             from: "/docs/get-started/lombard",
             to: "/docs/get-started/price-feeds/types-of-feeds/lombard",
           },
+          {
+            from: "/docs/avs/running-avs-operator",
+            to: "/docs/avs/running-avs-operator-testnet",
+          },
         ],
       },
     ],
