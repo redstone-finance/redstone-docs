@@ -50,7 +50,7 @@ After registering, please inform us so we can add you to the [restricted atteste
 
 ## Step 3: Depositing Stake on a Supported Strategy
 
-After registering as an operator in EigenLayer, you must deposit stake on one of the supported staking strategies.
+After registering as an operator in EigenLayer, you must deposit stake on one or more of the supported staking strategies.
 This stake ensures that the operator has a financial commitment to the network.
 
 :::info
@@ -58,7 +58,7 @@ Having a non-zero stake is essential to obtain voting power in the RedStone AVS 
 :::
 
 Below, you'll find the list of currently supported staking strategies.
-You can either use the deposit command provided for each strategy or perform a restake manually via the EigenLayer application ("Restake" link).
+You can either use the deposit command provided for each strategy or perform a restake manually via the EigenLayer application ([Restake](https://app.eigenlayer.xyz/restake)).
 
 ### EIGEN Strategy
 
@@ -90,7 +90,7 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 
 ### RATT (RedStoneAVSTestToken) Strategy
 
-This is a temporary staking strategy. It will be replaced with the final AVS token in the future.
+This is a temporary staking strategy. It will be replaced with the RedStone token in the future.
 
 **Strategy Address:** [0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE](https://etherscan.io/address/0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE)
 
@@ -128,8 +128,10 @@ Below is an explanation of each field and information on which fields need to be
 | `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                                                                                    |
 
 :::tip
-The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
-:::
+
+- The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
+- Instead of using a `.env` file, you can set these values as system-wide environment variables.
+  :::
 
 ## Step 5: Running the Operator
 
@@ -176,3 +178,10 @@ This will initiate both the Attester and the Validation API services as defined 
 The above two Docker images do not necessarily need to be run using Docker Compose.
 Depending on the chosen hosting environment, they can be deployed in a variety of other ways that best suit the operational setup.
 :::
+
+### Hardware Requirements
+
+- CPU: 1 vCPU
+- RAM: 2 GB
+- Storage: 1 GB
+- Internet: Stable and fast connection is recommended
