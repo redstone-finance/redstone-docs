@@ -13,7 +13,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.png",
   trailingSlash: true,
 
   // GitHub pages deployment config.
@@ -67,6 +67,7 @@ const config = {
         logo: {
           alt: "RedStone",
           src: "img/redstone-logo-full.svg",
+          width: "120"
         },
         items: [
           {
@@ -79,7 +80,7 @@ const config = {
       announcementBar: {
         content:
           '<strong>⭐️ If you like RedStone, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/redstone-finance/redstone-oracles-monorepo">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/redstone_defi">Twitter</a> ⭐️</strong>',
-        backgroundColor: "#FD627A",
+        backgroundColor: "#AE0822",
         textColor: "white",
       },
       algolia: {
