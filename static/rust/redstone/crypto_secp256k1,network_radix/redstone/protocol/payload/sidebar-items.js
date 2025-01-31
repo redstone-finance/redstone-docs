@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["trim_metadata","trim_payload"],"struct":["Payload"]};

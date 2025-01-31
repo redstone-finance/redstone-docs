@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["aggregate_matrix","aggregate_values","make_value_signer_matrix"],"type":["Matrix"]};
