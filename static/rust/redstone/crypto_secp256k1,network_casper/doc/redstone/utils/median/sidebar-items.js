@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["maybe_pick_median"],"trait":["Averageable","Avg","Median"]};

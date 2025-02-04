@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["recover_public_key"]};

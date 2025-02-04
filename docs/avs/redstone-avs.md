@@ -32,7 +32,3 @@ This streamlined process greatly enhances the scalability of the solution, as it
 In the traditional implementation, the relayer typically selects a specific subset of prices closest to the median and transmits only that subset to the blockchain.
 However, with the AVS approach, only the final median price and timestamp are directly submitted to the blockchain, meaning the gas consumption does not scale with the number of oracle nodes used to calculate the median.
 This approach not only reduces the cost associated with on-chain operations but also enables the system to handle a larger volume of data inputs without compromising efficiency.
-
-:::info
-In the initial phase, AVS will provide the ETH/USD price feed to the Polygon network.
-:::

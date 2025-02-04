@@ -40,11 +40,11 @@
 /// particularly focusing on time-sensitive data and its associated values, according to the `Config`.
 </span><span class="attr">#[derive(Debug, Eq, PartialEq)]
 </span><span class="kw">pub struct </span>ValidatedPayload {
-    <span class="doccomment">/// The minimum timestamp encountered during processing.
+    <span class="doccomment">/// The timestamp encountered during processing.
     ///
-    /// This field captures the earliest time point (in milliseconds since the Unix epoch)
+    /// This field captures the time point (in milliseconds since the Unix epoch)
     /// among the processed data packages, indicating the starting boundary of the dataset's time range.
-    </span><span class="kw">pub </span>min_timestamp: TimestampMillis,
+    </span><span class="kw">pub </span>timestamp: TimestampMillis,
 
     <span class="doccomment">/// A collection of values processed during the operation.
     ///
@@ -55,7 +55,7 @@
 
 <span class="kw">impl </span>From&lt;ValidatedPayload&gt; <span class="kw">for </span>(TimestampMillis, Vec&lt;Value&gt;) {
     <span class="kw">fn </span>from(validated_payload: ValidatedPayload) -&gt; <span class="self">Self </span>{
-        (validated_payload.min_timestamp, validated_payload.values)
+        (validated_payload.timestamp, validated_payload.values)
     }
 }
 </code></pre></div></section></main></body></html>
