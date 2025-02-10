@@ -1,4 +1,9 @@
-# 🎓 Types of Oracle Feeds at RedStone
+---
+sidebar_position: 2
+sidebar_label: "Types of data"
+---
+
+# Types of data
 
 Oracles deliver data feeds directly to dApps or blockchains for the correct execution of transactions in smart contracts. Throughout the past years, the DeFi market has shown various expectations and needs towards the setup of oracle feeds. RedStone is at the forefront of innovation answering the needs of developers in that sector. Therefore, we identify the following types of data feeds:
 

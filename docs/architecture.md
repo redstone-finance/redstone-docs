@@ -1,6 +1,6 @@
 ---
-sidebar_position: 3
-sidebar_label: "💾 Data Formatting & Processing"
+sidebar_position: 5
+sidebar_label: "Technical architecture"
 ---
 
 # How Data Flows to the Blockchain

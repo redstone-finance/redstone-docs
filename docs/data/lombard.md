@@ -1,9 +1,9 @@
 ---
-sidebar_position: 10
-sidebar_label: "⛓️‍💥 Lombard LBTC feed"
+sidebar_position: 3
+sidebar_label: "BTCFI (Lombard LBTC feed)"
 ---
 
-# ⛓️‍💥 Lombard LBTC feed
+# Lombard LBTC feed
 
 The document below explains how RedStone calculates and delivers the on-chain fundamental value of the LBTC token.
 

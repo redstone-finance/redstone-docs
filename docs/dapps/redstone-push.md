@@ -1,17 +1,14 @@
 ---
-sidebar_position: 2
-sidebar_label: "🏛 Push model"
+sidebar_position: 1
+sidebar_label: "Push model"
 ---
 
-# 🏛 Push Model
+# Push Model
 
-## Pushing feeds on chain
+RedStone's Push Model stores data directly on-chain through periodic updates, following the traditional oracle approach. This model ensures constant data availability and gives applications full control over update conditions and data sources.
 
-Although the pure on-demand fetching model ([RedStone Pull](./redstone-pull.mdx)) is more efficient and scalable we acknowledge that some protocols may prefer to stick to a traditional design when data is pushed on-chain. This setup could be reasonable if:
+#### Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
 
-- There is an existing well-audited codebase and the team prefers not to make even tiny amendments
-- The protocol is deployed on a private network or a chain where the gas costs are minimal
-- The prices don't need to be updated too frequently
 
 :::info
 RedStone Push has a significant advantage over traditional push Oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
