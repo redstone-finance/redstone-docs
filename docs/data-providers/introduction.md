@@ -29,5 +29,6 @@ This stage lasts for as long as it is needed, at least 30 days. RedStone will be
 After EOP runs on Staging and both parties agree that it's ok - we move to Production. RedStone continues to monitor EOP, but now data is available in our production gateways.
 
 :::info Data availability
-RedStone consumers will be able to use the data published by your node [on all supported chains.](/docs/get-started/supported-chains) You can learn more about the RedStone Oracles architecture [here.](../get-started/selecting-redstone-model.md)
+RedStone consumers will be able to use the data published by your node on all supported chains.
+You can learn more about the RedStone Oracles architecture [here.](../architecture.md)
 :::
