@@ -118,7 +118,7 @@ const config = {
             items: [
               {
                 label: "Open Positions",
-                href: "https://angel.co/company/redstonefinance",
+                href: "https://wellfound.com/company/redstonefinance",
               },
               {
                 label: "Our Team",
