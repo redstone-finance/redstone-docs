@@ -16,7 +16,7 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 4. **Proof of Reserve Feed**
 
-   Also known as Net Asset Value (NAV) feed. A data feed based on API or another source that informs about the value of assets backing tokens issued against it, i.e., Blackrock BUIDL. Technically a subsection of Real World Feed.
+   Also known as Net Asset Value (NAV) feed. A data feed based on API or another source that informs about the value of assets backing tokens issued against it, i.e., Blackrock BUILD. Technically a subsection of Real World Feed.
 
 5. **Protocol Native Oracle**
 
