@@ -31,7 +31,7 @@ TLDR; You need to do 2 things:
 
 When a user wants to execute a price-sensitive transaction we need to collect some collateral, record request parameters, and ask keepers to provide price data.
 
-To clarify the steps, let's look at them in the context of a more concrete example. There is a simple protocol that allows swaping a native currency (like ETH) to a stable coin (like USDC). The sample code to record the transaction may look as follows:
+To clarify the steps, let's look at them in the context of a more concrete example. There is a simple protocol that allows swapping a native currency (like ETH) to a stable coin (like USDC). The sample code to record the transaction may look as follows:
 
 ```sol
 function changeEthToUsdc() external payable {
@@ -58,7 +58,7 @@ In the function above we:
 
    We do not need to store all the data on-chain. It's sufficient to record a hash of the values mentioned above.
 
-3. Notify the keepers' network about the new request to receive price data by emiting the `NewOracleDataRequest` event.
+3. Notify the keepers' network about the new request to receive price data by emitting the `NewOracleDataRequest` event.
 
 ### Phase 2 - execution
 
