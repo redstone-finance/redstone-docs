@@ -13,7 +13,7 @@ sidebar_label: "⛓ Chains integration"
 
 ## EVM-compatible chains
 
-RedStone Oracles can be integrated with EVM-compatible chains out of the box thanks to the [evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector). Examples of the chains tested by our team can be found [here](https://showroom.redstone.finance/).
+RedStone can be integrated with EVM-compatible chains out of the box thanks to the [evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector). Examples of the chains tested by our team can be found [here](https://showroom.redstone.finance/).
 
 If you want to test your chain there is an example contract and script [here](https://github.com/redstone-finance/redstone-showroom/tree/main/example). You need to follow two steps:
 
@@ -28,7 +28,7 @@ You should be able to see price data logged to the console.
 
 ## Non EVM-compatible chains
 
-Currently, we support mainly EVM-compatible chains. Our team developed an [evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) that makes RedStone Oracles integrated with them out of the box.
+Currently, we support mainly EVM-compatible chains. Our team developed an [evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) that makes RedStone integrated with them out of the box.
 
 But we also support some non-EVM-compatible chains:
 

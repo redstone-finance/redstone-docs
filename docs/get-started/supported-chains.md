@@ -5,7 +5,7 @@ sidebar_label: "⛓ Supported Chains"
 
 # ⛓ Supported Chains
 
-RedStone Oracles are available on all EVM-compatible L1s & L2s + Starknet + Fuel Network. Potentially you can use it on any other chain but it would require some custom development.
+RedStone are available on all EVM-compatible L1s & L2s + Starknet + Fuel Network. Potentially you can use it on any other chain but it would require some custom development.
 
 You can check the integration with the showroom app [for EVM Chains](https://showroom.redstone.finance/) and [for StarkNet](https://starknet-showroom.redstone.finance/).
 
