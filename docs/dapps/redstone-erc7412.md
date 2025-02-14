@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-sidebar_label: "🌀 ERC7412 (push + pull)"
+sidebar_label: "ERC7412 (push + pull)"
 ---
 
 # RedStone ERC7412

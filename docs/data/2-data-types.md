@@ -1,4 +1,9 @@
-# 🎓 Types of Oracle Feeds at RedStone
+---
+sidebar_position: 2
+sidebar_label: "Types of data"
+---
+
+# Types of data
 
 Oracles deliver data feeds directly to dApps or blockchains for the correct execution of transactions in smart contracts. Throughout the past years, the DeFi market has shown various expectations and needs towards the setup of oracle feeds. RedStone is at the forefront of innovation answering the needs of developers in that sector. Therefore, we identify the following types of data feeds:
 
@@ -20,7 +25,7 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 5. **Protocol Native Oracle**
 
-   The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking Oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./lombard.md).
+   The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking Oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./3-lombard.md).
 
 | Feed Type                  | Denomination                                             | Deviation Comes From                             | Complexity of Delivery                                   |
 | :------------------------- | :------------------------------------------------------- | :----------------------------------------------- | :------------------------------------------------------- |
