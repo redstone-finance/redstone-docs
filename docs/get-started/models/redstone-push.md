@@ -14,7 +14,7 @@ Although the pure on-demand fetching model ([RedStone Pull](./redstone-pull.mdx)
 - The prices don't need to be updated too frequently
 
 :::info
-RedStone Push has a significant advantage over traditional push Oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
+RedStone Push has a significant advantage over traditional push oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other oracles you have to accept dictated parameters).
 :::
 
 ## How RedStone Push works
