@@ -13,7 +13,6 @@ There is a growing need for decentralized applications (dApps) to access data fe
 
 - The standard method of providing data is to ‘push’ the data onto the blockchain regardless of whether it is used by an application. This results in paying more for data and dedicating resources that could be used elsewhere.
 
-
 RedStone allows data to be provided on-demand rather than on a fixed schedule, reducing the costs of putting data 'on-chain'. This is achieved by storing data off of the blockchain as cryptography signed packages and allowing smart contracts of dApps to fetch data when necessary.
 
 _A note on data integrity_: To maintain data integrity RedStone also provides data feeds to Arweave, a decentralized network that provides data storage. Arweave's decentralized network makes it tamper-proof, therefore any data provided by RedStone to Arweave acts as a unbiased source of truth about the historical data provided by RedStone.
@@ -35,5 +34,3 @@ RedStone was designed with a modular architecture making it easy to incorporate 
 - We are present on [50+ chains](https://showroom.redstone.finance/)
 - Our code was audited by multiple security experts including [ABDK](https://abdk.consulting/) [Peckshield](https://peckshield.com/) and a co-founder of [L2Beat](https://pl.linkedin.com/company/l2beat#:~:text=Join%20Piotr%20Szlachciak%20Cofounder%20%26%20CEO,insights%20shaping%20the%20%23DeFi%20landscape!).
 - RedStone supports leading projects like [Morpho](https://morpho.org/), [Venus](https://venus.io/), and [Pendle Finance](https://www.pendle.finance/).
-
-
