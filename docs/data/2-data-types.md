@@ -25,7 +25,7 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 5. **Protocol Native Oracle**
 
-   The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking Oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./lombard.md).
+   The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking Oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./3-lombard.md).
 
 | Feed Type                  | Denomination                                             | Deviation Comes From                             | Complexity of Delivery                                   |
 | :------------------------- | :------------------------------------------------------- | :----------------------------------------------- | :------------------------------------------------------- |
