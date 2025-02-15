@@ -10,7 +10,7 @@ RedStone's Push Model stores data directly on-chain through periodic updates, fo
 #### Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
 
 :::info
-RedStone Push has a significant advantage over traditional push Oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
+RedStone Push has a significant advantage over traditional push oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other oracles you have to accept dictated parameters).
 :::
 
 ## How RedStone Push works

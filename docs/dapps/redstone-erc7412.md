@@ -65,7 +65,7 @@ const callData = viem.encodeFunctionData({
 });
 
 // this function will simulate transaction if transaction fails because of erc7412.OracleDataRequired,
-// it will fetch oracle payload from redstone oracles gateway
+// it will fetch oracle payload from RedStone gateway
 // and prepare multicall transaction consisting of two transaction {user_tx,update_redstone_price_feed_tx}
 const call = await generate7412CompatibleCall(
   await hardhat.viem.getPublicClient(),

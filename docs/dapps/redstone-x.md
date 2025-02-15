@@ -13,7 +13,7 @@ The X model is designed to fulfill the needs of advanced protocols such as perpe
 
 The model implements a `Deferred execution pattern` where transactions are processed in two steps:
 
-1. A user initiates the transaction by recording on-chain an intention to interact with the protocol (ie. open a perpetual position) without knowing the exact context (ie. price) in which the transaction will be executed. This mitigates any attempts to arbitrage the protocols by front-running price delivery from Oracles.
+1. A user initiates the transaction by recording on-chain an intention to interact with the protocol (ie. open a perpetual position) without knowing the exact context (ie. price) in which the transaction will be executed. This mitigates any attempts to arbitrage the protocols by front-running price delivery from oracles.
 
 2. The price is pushed on-chain only in the second step, which usually happens at the very next block. Anyone (including the user himself) could push the price, as its integrity is validated on-chain based on the protocol constraints. Such a price will be used to finally settle the transaction.
 

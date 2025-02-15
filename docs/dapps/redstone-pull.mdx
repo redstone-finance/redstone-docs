@@ -85,7 +85,7 @@ You need to do 2 things:
 
 1. Our contracts require `solidity > 0.8.4`. If your code is written in an older version please use the [Manual Payload](#manual-payload).
 2. If you work with 3rd party aggregators, make sure that they also support passing the additional payload.
-3. Please don't use Remix to test RedStone oracles, as Remix does not support modifying transactions in the way that the evm-connector does
+3. Please don't use Remix to test RedStone, as Remix does not support modifying transactions in the way that the evm-connector does
 4. We strongly recommend having some upgradability mechanism for your contracts (it can be based on multisig or DAO). This way, you can quickly replace data providers in case of any issues.
 
 :::
@@ -216,7 +216,7 @@ You can see more examples of mocking data [here.](https://github.com/redstone-fi
 
 ##### Foundry
 
-To use RedStone Oracles with Foundry in test context, we recommend using foundry `vm.ffi` function to generate mocked dataPackages.
+To use RedStone with Foundry in test context, we recommend using foundry `vm.ffi` function to generate mocked dataPackages.
 We have prepared [repository](https://github.com/redstone-finance/minimal-foundry-repo) showing how we can integrate foundry with redstone.
 
 - [consuming redstone payload in foundry contract](https://github.com/redstone-finance/minimal-foundry-repo/blob/main/test/Counter.t.sol)
