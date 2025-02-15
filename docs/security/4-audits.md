@@ -9,8 +9,8 @@ RedStone maintains a rigorous external security audit program as a cornerstone o
 
 | Component           | Status    | Auditor            | Report                                     |
 | ------------------- | --------- | ------------------ | ------------------------------------------ |
-| EVM connector       | Completed | ABDK               | Audit_ABDK_EVM connector.pdf               |
-| Adapter             | Completed | ABDK               | Audit_ABDK_Adapter.pdf                     |
+| EVM connector       | Completed | ABDK               | [Audit_ABDK_EVM connector.pdf](https://drive.google.com/file/d/14g9fGHmPlxnDhvSazSYwWSV7xO5dospA/view?usp=sharing)               |
+| Adapter             | Completed | ABDK               | [Audit_ABDK_Adapter.pdf](https://drive.google.com/file/d/16nn8CsDJwTgahWeKmWpvaqafoLuFmm5x/view?usp=sharing)                     |
 | Merged adapter      | Completed | ABDK               | Audit_ABDK_Merged adapter.pdf              |
 | Multifeed contracts | Completed | ABDK               | Audit_ABDK_Multifeed contracts.pdf         |
 | Oracles 2.0         | Completed | ABDK               | Audit_ABDK_Oracles v2.pdf                  |
