@@ -1,4 +1,3 @@
-
 ---
 sidebar_position: 1
 sidebar_label: "What is RedStone?"
@@ -18,10 +17,8 @@ RedStone's modular architecture separates data collection from data delivery, cr
 
 ## Unique and tailored data feeds
 
-RedStone's versatile data framework extends beyond standard cryptocurrency price feeds to serve emerging financial products and specialized digital assets. The system's modular architecture enables it to provide reliable data for complex instruments like Liquid Restaking Tokens (LRT), Bitcoin DeFi derivatives (BTCFi), and various Real World Assets (RWA), each with tailored validation parameters and aggregation methods. By combining institutional data provider connections with traditional crypto market data, RedStone processes these specialized feeds through multiple validation layers - from asset-specific anomaly detection to market depth analysis and cross-source variance checks. Each feed undergoes customized price aggregation before being validated through a consensus mechanism requiring agreement from multiple independent, collateralized operators. The scalable 
-
+RedStone's versatile data framework extends beyond standard cryptocurrency price feeds to serve emerging financial products and specialized digital assets. The system's modular architecture enables it to provide reliable data for complex instruments like Liquid Restaking Tokens (LRT), Bitcoin DeFi derivatives (BTCFi), and various Real World Assets (RWA), each with tailored validation parameters and aggregation methods. By combining institutional data provider connections with traditional crypto market data, RedStone processes these specialized feeds through multiple validation layers - from asset-specific anomaly detection to market depth analysis and cross-source variance checks. Each feed undergoes customized price aggregation before being validated through a consensus mechanism requiring agreement from multiple independent, collateralized operators. The scalable
 
 ## High security and data quality standards
 
 RedStone implements a comprehensive security architecture for cryptocurrency price feeds, employing a multi-layered approach to data validation and system reliability. The infrastructure is built on principles borrowed from critical systems engineering, featuring distributed nodes that independently verify data integrity and multiple redundant backup systems that ensure continuous operation even during partial outages. Through rigorous monitoring, anomaly detection, and consensus-based price formation, combined with economic incentives for data providers, the system has maintained an unblemished track record with zero mispricing incidents since its inception. This achievement is supported by a robust development lifecycle that includes regular third-party security audits, continuous automated testing, and a sophisticated alert system that enables rapid response to potential anomalies before they can impact price data quality. The code was [audited](./security/4-audits.md) mutitple times and trusted by [top DeFi](https://www.redstone.finance/clients) protols.
-
