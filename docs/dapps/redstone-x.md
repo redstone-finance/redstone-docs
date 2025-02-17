@@ -1,11 +1,15 @@
 ---
 sidebar_position: 3
-sidebar_label: "⏱ X (no front-running)"
+sidebar_label: "X (no front-running)"
 ---
 
-# ⏱ RedStone X
+# RedStone X
 
 ## An eXtreme protection against front-running
+
+The X model is designed to fulfill the needs of advanced protocols such as perpetuals, options, and derivatives. By providing price feeds at the very next block after users' interactions the X model eliminates any [front-running](https://hacken.io/discover/front-running/) risks.
+
+#### Best suited for perpetuals, options and derivative protocols
 
 The model implements a `Deferred execution pattern` where transactions are processed in two steps:
 
