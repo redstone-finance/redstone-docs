@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["error","from_bytes_repr"],"struct":["Casper"]};

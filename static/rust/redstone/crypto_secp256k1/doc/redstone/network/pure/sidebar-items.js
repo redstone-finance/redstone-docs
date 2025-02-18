@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["from_bytes_repr"],"struct":["Std"]};

@@ -8,7 +8,7 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "RedStone Documentation",
-  tagline: "Documentation for the RedStone oracles protocol",
+  tagline: "Documentation for the RedStone protocol",
   url: "https://docs.redstone.finance",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -140,7 +140,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} RedStone Oracles. <br/> Built with ❤️ and Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} RedStone. <br/> Built with ❤️ and Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -153,14 +153,6 @@ const config = {
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [
-          {
-            from: "/docs/smart-contract-devs/price-feeds",
-            to: "/docs/get-started/price-feeds",
-          },
-          {
-            from: "/docs/get-started/lombard",
-            to: "/docs/get-started/price-feeds/types-of-feeds/lombard",
-          },
           {
             from: "/docs/avs/running-avs-operator",
             to: "/docs/avs/running-avs-operator-testnet",

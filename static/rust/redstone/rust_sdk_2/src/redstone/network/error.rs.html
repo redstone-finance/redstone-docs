@@ -235,6 +235,17 @@
 <a href="#235" id="235">235</a>
 <a href="#236" id="236">236</a>
 <a href="#237" id="237">237</a>
+<a href="#238" id="238">238</a>
+<a href="#239" id="239">239</a>
+<a href="#240" id="240">240</a>
+<a href="#241" id="241">241</a>
+<a href="#242" id="242">242</a>
+<a href="#243" id="243">243</a>
+<a href="#244" id="244">244</a>
+<a href="#245" id="245">245</a>
+<a href="#246" id="246">246</a>
+<a href="#247" id="247">247</a>
+<a href="#248" id="248">248</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>alloc::{string::String, vec::Vec};
 <span class="kw">use </span>core::fmt::{Debug, Display, Formatter};
 
@@ -345,6 +356,11 @@
     /// Includes FeedId that is reocuring.
     </span>ConfigReocuringFeedId(FeedId),
 
+    <span class="doccomment">/// Indicates that payload timestamps are not equal.
+    ///
+    /// Contains the first timestamp and the one that is not equal to the first one.
+    </span>TimestampDifferentThanOthers(TimestampMillis, TimestampMillis),
+
     <span class="doccomment">/// Indicates that the provided data timestamp is not greater than a previously written package timestamp.
     ///
     /// For the price adapter to accept a new price update, the associated timestamp must be
@@ -385,6 +401,7 @@
             Error::ConfigReocuringSigner(<span class="kw">_</span>) =&gt; <span class="number">516</span>,
             Error::ConfigEmptyFeedIds =&gt; <span class="number">517</span>,
             Error::ConfigReocuringFeedId(<span class="kw">_</span>) =&gt; <span class="number">518</span>,
+            Error::TimestampDifferentThanOthers(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">519</span>,
             Error::InsufficientSignerCount(data_package_index, value, <span class="kw">_</span>) =&gt; {
                 (<span class="number">2000 </span>+ data_package_index * <span class="number">10 </span>+ value) <span class="kw">as </span>u16
             }
@@ -457,6 +474,11 @@
                     feed_id.as_hex_str()
                 )
             }
+            Error::TimestampDifferentThanOthers(first, outstandig) =&gt; <span class="macro">write!</span>(
+                f,
+                <span class="string">"Timestamp {:?} is not equal to the first on {:?} in the payload."</span>,
+                outstandig, first
+            ),
             Error::DataTimestampMustBeGreaterThanBefore(current, before) =&gt; {
                 <span class="macro">write!</span>(
                     f,

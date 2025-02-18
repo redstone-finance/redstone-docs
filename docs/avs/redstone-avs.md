@@ -17,7 +17,7 @@ This method ensures that the price data reaching the blockchain is both accurate
 
 ## Implementation of the Push Model with AVS
 
-The RedStone AVS solution represents a novel implementation of the [Push](/docs/get-started/models/redstone-push) model for delivering data to the blockchain.
+The RedStone AVS solution represents a novel implementation of the [Push](/docs/dapps/redstone-push) model for delivering data to the blockchain.
 In the Push model, an off-chain relayer collects data and sends it to the blockchain, where the validation process takes place.
 This method, while effective, often resulted in higher data usage on-chain due to the need for comprehensive validation processes.
 
