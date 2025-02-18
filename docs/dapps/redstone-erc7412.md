@@ -1,13 +1,13 @@
 ---
 sidebar_position: 4
-sidebar_label: "ERC7412 (push + pull)"
+sidebar_label: "Hybrid (push + pull) ERC7412"
 ---
 
-# RedStone ERC7412
+# RedStone Hybrid ERC7412
 
 ## Push and Pull models combined
 
-This model was introduced in form of [ERC7412](https://eips.ethereum.org/EIPS/eip-7412) - we encourage you to read it before implementation! The model was popularized by perpetual protocol [Synthetix](https://synthetix.io/).
+This model was introduced in form of [ERC7412](https://eips.ethereum.org/EIPS/eip-7412) - we encourage you to read it before implementation! The model was popularized by the perpetual protocol [Synthetix](https://synthetix.io/).
 
 :::important Requirements
 TLDR; You need to do 2 things:

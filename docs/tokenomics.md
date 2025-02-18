@@ -3,6 +3,8 @@ sidebar_position: 8
 sidebar_label: "Tokenomics"
 ---
 
+#Tokenomics
+
 ## RED Supply
 
 RedStone's blockchain oracle technology has achieved product-market fit, operating on mainnet since January 2023 and attracting users with its reliable, diverse, and robust services. Now, the RedStone Distributed Data Association introduces RED—designed to further decentralize the system and advance the long-term goals of the RedStone Ecosystem.
