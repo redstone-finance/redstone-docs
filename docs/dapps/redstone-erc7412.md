@@ -1,5 +1,5 @@
 ---
-sidebar_position: w
+sidebar_position: 3
 sidebar_label: "Hybrid (push + pull) - ERC7412"
 ---
 
