@@ -3,7 +3,7 @@ sidebar_position: 8
 sidebar_label: "Tokenomics"
 ---
 
-#Tokenomics
+# Tokenomics
 
 ## RED Supply
 

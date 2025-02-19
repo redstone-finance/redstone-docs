@@ -3,9 +3,7 @@ sidebar_position: 1
 sidebar_label: "Push model"
 ---
 
-# Push Model
-
-_Standardized Access for DeFi Interoperability_
+# Standardized Access for DeFi Interoperability
 
 Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
 
