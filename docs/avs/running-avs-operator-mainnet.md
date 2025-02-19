@@ -10,9 +10,7 @@ As an operator, you will contribute directly to the security and accuracy of dat
 Not only will you be helping to maintain the integrity of this innovative system, but you’ll also have the chance to earn rewards for your participation.
 
 :::info
-The following instructions apply to setting up an operator in the mainnet environment running on Ethereum [Mainnet](https://etherscan.io/) (L1), where the EigenLayer contracts
-and Othenic contracts responsible for operator rewards are deployed. Additionally, the L2 Base [Base](https://basescan.org/) network hosts contracts that validate attester signatures
-and store the current price and its timestamp.
+The following instructions apply to setting up an operator in the mainnet environment running on Ethereum [Mainnet](https://etherscan.io/) (L1), where the EigenLayer contracts and Othentic contracts responsible for operator rewards are deployed. Additionally, the L2 Base [Base](https://basescan.org/) network hosts contracts that validate attester signatures and store the current price and its timestamp.
 :::
 
 To become an operator in the RedStone AVS network, you’ll need to follow the four steps outlined below.
@@ -31,7 +29,7 @@ This registration process is essential for establishing an identity and enabling
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fb59875 \
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
   operator register \
   --l1-chain mainnet
 ```
@@ -69,7 +67,7 @@ You can either use the deposit command provided for each strategy or perform a r
 **Deposit Command:**
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fb59875 \
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
   operator deposit \
   --l1-chain mainnet \
   --staking-contract EIGENETH
@@ -84,7 +82,7 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 **Deposit Command:**
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
   operator deposit \
   --l1-chain mainnet \
   --staking-contract-address 0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf
@@ -101,7 +99,7 @@ This is a temporary staking strategy. It will be replaced with the RedStone toke
 **Deposit Command:**
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:fc63f951 \
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
   operator deposit \
   --l1-chain mainnet \
   --staking-contract-address 0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE
@@ -125,17 +123,32 @@ ATTESTATION_CENTER_ADDRESS=0x2B766957ce3dbab9eC4b227f5086855CeE7a1ad6
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter           | Description                                                                                                                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PRIVATE_KEY`       | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                                                                      |
-| `OPERATOR_ADDRESS`  | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) (optional if both private keys are the same) |
-| `L1_RPC` / `L2_RPC` | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                                                                                    |
+| Parameter             | Description                                                                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PRIVATE_KEY`         | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                                                                      |
+| `OPERATOR_ADDRESS`    | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) (optional if both private keys are the same) |
+| `L1_RPC` / `L2_RPC`   | The RPC endpoint addresses for the L1 (Ethereum) and L2 (Base) networks, respectively                                                                                                    |
+| `ANNOUNCED_ADDRESSES` | see frame below for details                                                                                                                                                              |
 
 :::tip
 
 - The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
 - Instead of using a `.env` file, you can set these values as system-wide environment variables.
   :::
+
+:::tip
+If your docker container has IP address that is publicly available leave `--announced_addresses` and `$ANNOUNCED_ADDRESSES` parameters in `docker-compose.yml` commented out.
+Otherwise, to make sure your node can be connected to from our aggregator node you need to provide your public address in a form of multi-address [details](https://docs.libp2p.io/concepts/fundamentals/addressing/).
+You will need to fill-in `ANNOUNCED_ADDRESSES` variable if `docker-compose.yml`
+If your node is available via IP address use the form starting with `/ip4/`. If, on the other hand, your node is available via domain name use the form starting with `/dns/`.
+Both forms require you to learn your `<peer_id>`. To figure out the value that should replace `<peer_id>` placeholder run node for the first time with `--announced-addresses` commented out
+in `docker-compose.yml` and in the logs search for the `Listening on the following addresses` phrase. Peer id starts with `12D3K`.
+Once you know your peer id, uncomment the correct variable in `.env`, fill-in the `<peer_id>`, `<ip_address>` (or `<domain_name>`) and uncomment `--announced_addresses` and `${ANNOUNCED_ADDRESSES}` params in `docker-compose.yml`.
+
+If your docker container cannot be reached from the internet you still can be an operator but there is a risk that your node will lost connection to the rest of the network from time to time and you will need to restart it.
+
+See also Othentic [docs](https://docs.othentic.xyz/main/avs-framework/othentic-cli/node-operators) on this topic.
+:::
 
 ## Step 5: Running the Operator
 
