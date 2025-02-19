@@ -128,8 +128,11 @@ Below is an explanation of each field and information on which fields need to be
 :::tip
 If your docker container has IP address that is publicly available leave `--announced_addresses` and `$ANNOUNCED_ADDRESSES` parameters in `docker-compose.yml` commented out.
 Otherwise, to make sure your node can be connected to from our aggregator node you need to provide your public address in a form of multi-address [details](https://docs.libp2p.io/concepts/fundamentals/addressing/).
-You will need to fill-in `ANNOUNCED_ADDRESSES` variable in `docker-compose.yml`
-If your node is available via IP address use the form starting with `/ip4/`. If, on the other hand, your node is available via domain name use the form starting with `/dns/`.
+You will need to fill-in `ANNOUNCED_ADDRESSES` variable in `docker-compose.yml`.
+
+- If your node is available via IP address use the form starting with `/ip4/`.
+- If, on the other hand, your node is available via domain name use the form starting with `/dns/`.
+
 Both forms require you to learn your `<peer_id>`. To figure out the value that should replace `<peer_id>` placeholder run node for the first time with `--announced-addresses` commented out
 in `docker-compose.yml` and in the logs search for the `Listening on the following addresses` phrase. Peer id starts with `12D3K`.
 Once you know your peer id, uncomment the correct variable in `.env`, fill-in the `<peer_id>`, `<ip_address>` (or `<domain_name>`) and uncomment `--announced_addresses` and `${ANNOUNCED_ADDRESSES}` params in `docker-compose.yml`.
