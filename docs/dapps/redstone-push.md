@@ -11,7 +11,6 @@ RedStone's Push Model stores data directly on-chain through periodic updates, fo
 
 Here you can find the [**list of all the feeds**](<(https://app.redstone.finance/app/feeds/)>) available with update parameters.
 
-
 :::info
 RedStone Push has a significant advantage over traditional push oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other oracles you have to accept dictated parameters).
 :::

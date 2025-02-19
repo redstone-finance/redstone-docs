@@ -7,7 +7,6 @@ sidebar_label: "Security driven design"
 
 The RedStone architecture implements a distributed system design pattern with modular components interconnected through standardized interfaces, eliminating single points of failure through strategic redundancy and component isolation. This approach mirrors high-reliability engineering practices employed in critical sectors such as medical devices and aviation systems, where redundant subsystems and fault isolation are essential for maintaining operational safety. Just as aircraft employ multiple independent flight control computers and medical devices utilize redundant monitoring systems, RedStone's architecture ensures system integrity through similar principles of component independence and fail-safe design.
 
-
 ## Decoupling data production and consumption
 
 The system employs cryptographically signed data units with verifiable attestation chains, enabling independent validation of data provenance and authenticity. This architectural approach creates logical separation between data production, transmission, and consumption layers, allowing autonomous operation and redundant implementation of each system component by independent entities.
