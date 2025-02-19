@@ -5,7 +5,7 @@ sidebar_label: "Hybrid (push + pull) - ERC7412"
 
 # RedStone Hybrid ERC7412
 
-*Best of two models*
+_Best of two models_
 
 ## Push and Pull models combined
 
