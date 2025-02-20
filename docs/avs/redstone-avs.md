@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: "📊 RedStone AVS"
+sidebar_label: "RedStone AVS"
 ---
 
 # RedStone AVS

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-sidebar_label: "🛠️ Running AVS Operator (Testnet)"
+sidebar_label: "Running AVS Operator (Testnet)"
 ---
 
 # Running AVS Operator
