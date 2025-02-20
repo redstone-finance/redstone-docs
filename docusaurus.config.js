@@ -67,7 +67,7 @@ const config = {
         logo: {
           alt: "RedStone",
           src: "img/redstone-logo-full.svg",
-          width: "120"
+          width: "120",
         },
         items: [
           {
@@ -156,6 +156,10 @@ const config = {
           {
             from: "/docs/avs/running-avs-operator",
             to: "/docs/avs/running-avs-operator-testnet",
+          },
+          {
+            from: "/docs/category/-avs/",
+            to: "/docs/category/restaking-operators-avs/",
           },
         ],
       },
