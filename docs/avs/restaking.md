@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: "🔄 Restaking"
+sidebar_label: "Restaking"
 ---
 
 # Restaking

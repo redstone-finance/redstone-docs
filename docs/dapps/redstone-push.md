@@ -3,11 +3,13 @@ sidebar_position: 1
 sidebar_label: "Push model"
 ---
 
-# Push Model
+# Standardized Access for DeFi Interoperability
+
+Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
 
 RedStone's Push Model stores data directly on-chain through periodic updates, following the traditional oracle approach. This model ensures constant data availability and gives applications full control over update conditions and data sources.
 
-#### Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
+Here you can find the [**list of all the feeds**](https://app.redstone.finance/app/feeds/) available with update parameters.
 
 :::info
 RedStone Push has a significant advantage over traditional push oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other oracles you have to accept dictated parameters).
