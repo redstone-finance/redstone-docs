@@ -1,10 +1,3 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* Import SequelSans font family */
 @font-face {
   font-family: 'SequelSans-Book';
   src: url('/static/fonts/SequelSans-Book.woff') format('woff'),
@@ -32,14 +25,13 @@
   font-display: swap;
 }
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #AE0822;
   --ifm-color-primary-dark: #9D0720;
   --ifm-color-primary-darker: #8C061D;
   --ifm-color-primary-darkest: #7B051A;
   --ifm-color-primary-light: #BF0924;
-  --ifm-color-primary-lighter: #D00A28;
+  --ifm-color-primary-lighter: #10090a;
   --ifm-color-primary-lightest: #E10B2B;
   --ifm-breadcrumb-color-active:var(--ifm-color-primary-darkest);
   --ifm-code-font-size: 95%;
@@ -48,11 +40,13 @@
   --ifm-font-family-base: 'SequelSans-Book', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --font-family-display: 'SequelSans-Display', sans-serif;
   --font-family-semi: 'SequelSans-Semi', sans-serif;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.7);
+  --ifm-container-width-xl: 1600px;
+  --ifm-spacing-horizontal: 20px
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #E10B2B;
+  --ifm-color-primary: #F35067;
   --ifm-color-primary-dark: #D00A28;
   --ifm-color-primary-darker: #BF0924;
   --ifm-color-primary-darkest: #AE0822;
@@ -60,6 +54,8 @@
   --ifm-color-primary-lighter: #F22E48;
   --ifm-color-primary-lightest: #F35067;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: rgba(0, 0, 0, 0.1);
+  --ifm-breadcrumb-color-active:var(--ifm-color-primary-lightest);
 }
 
 body {
@@ -84,6 +80,28 @@ h2 {
   letter-spacing: 1px;
 }
 
+[data-theme='dark'] div[role="banner"]{
+  background-color: #000 !important;
+}
+
+div[role="banner"] button {
+  color: #fff !important;
+  opacity: 1;
+}
+div[role="banner"] svg {
+  padding: 2px;
+}
+
+b.navbar__title{
+  position: relative;
+  top: 4px;
+  letter-spacing: 1px;
+  color: #909090;
+  font-size: 12px;
+  font-weight: 400 !important;
+  font-family: var(--font-family-display);
+}
+
 h3 {
   --ifm-h3-font-size: 1.25rem !important;
   font-family: var(--font-family-display);
@@ -98,17 +116,17 @@ h4, h5, h6 {
   letter-spacing: 1px;
 }
 
-/* Navbar styling with custom font */
 .navbar {
   font-family: var(--font-family-semi);
+  backdrop-filter: blur(5px);
 }
 
-/* Button styling with custom font */
+
 .button {
   font-family: var(--font-family-semi);
 }
 
-/* Sidebar styling */
+
 .menu__link {
   font-family: var(--ifm-font-family-base);
 }

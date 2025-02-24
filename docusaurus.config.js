@@ -64,10 +64,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Documentation",
+        title: "docs",
         logo: {
           alt: "RedStone",
           src: "img/redstone-logo-full.svg",
+          srcDark: "img/redstone-logo-white.svg",
           width: "120",
         },
         items: [

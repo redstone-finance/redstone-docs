@@ -3,10 +3,17 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import styles from './styles.module.css';
+import { useColorMode } from '@docusaurus/theme-common';
+
 
 export default function CustomFooter() {
   // Get footer configuration from Docusaurus config
   const { footer } = useThemeConfig();
+  const { colorMode } = useColorMode();
+
+  const logoImage = colorMode === 'dark' 
+  ? 'img/redstone-logo-white.svg' 
+  : 'img/redstone-logo-full.svg';
   
   if (!footer) {
     return null;
@@ -55,7 +62,7 @@ export default function CustomFooter() {
         {/* Logo and Social Media Section */}
         <div className={styles.leftSection}>
           <img 
-            src={useBaseUrl('img/redstone-logo-full.svg')} 
+            src={useBaseUrl(logoImage)} 
             alt="RedStone Logo" 
             className={styles.logo} 
           />
