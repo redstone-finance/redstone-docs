@@ -1,13 +1,13 @@
 ---
-sidebar_position: 4
-sidebar_label: "🌀 ERC7412 (push + pull)"
+sidebar_position: 3
+sidebar_label: "Hybrid (push + pull) - ERC7412"
 ---
 
-# RedStone ERC7412
+# Best of two models
 
 ## Push and Pull models combined
 
-This model was introduced in form of [ERC7412](https://eips.ethereum.org/EIPS/eip-7412) - we encourage you to read it before implementation! The model was popularized by perpetual protocol [Synthetix](https://synthetix.io/).
+This model was introduced in form of [ERC7412](https://eips.ethereum.org/EIPS/eip-7412) - we encourage you to read it before implementation! The model was popularized by the perpetual protocol [Synthetix](https://synthetix.io/).
 
 :::important Requirements
 TLDR; You need to do 2 things:
@@ -65,7 +65,7 @@ const callData = viem.encodeFunctionData({
 });
 
 // this function will simulate transaction if transaction fails because of erc7412.OracleDataRequired,
-// it will fetch oracle payload from redstone oracles gateway
+// it will fetch oracle payload from RedStone gateway
 // and prepare multicall transaction consisting of two transaction {user_tx,update_redstone_price_feed_tx}
 const call = await generate7412CompatibleCall(
   await hardhat.viem.getPublicClient(),

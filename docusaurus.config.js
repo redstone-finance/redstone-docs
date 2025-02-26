@@ -8,7 +8,7 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "RedStone Documentation",
-  tagline: "Documentation for the RedStone oracles protocol",
+  tagline: "Documentation for the RedStone protocol",
   url: "https://docs.redstone.finance",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -48,14 +48,15 @@ const config = {
           },
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [
+            require.resolve("./src/css/custom.css"),
+          ],
         },
       }),
     ],
   ],
 
   scripts: [
-    // ,
     { src: "/js/custom.js", async: true },
   ],
 
@@ -63,11 +64,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Documentation",
+        title: "docs",
         logo: {
           alt: "RedStone",
           src: "img/redstone-logo-full.svg",
-          width: "120"
+          srcDark: "img/redstone-logo-white.svg",
+          width: "120",
         },
         items: [
           {
@@ -94,27 +96,10 @@ const config = {
         },
       },
       footer: {
-        style: "dark",
+        style: "light",
         links: [
           {
-            title: "👋 Community",
-            items: [
-              {
-                label: "Website",
-                href: "https://redstone.finance",
-              },
-              {
-                label: "Discord",
-                href: "https://redstone.finance/discord",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/redstone_defi",
-              },
-            ],
-          },
-          {
-            title: "🚀 We are hiring",
+            title: "We are hiring",
             items: [
               {
                 label: "Open Positions",
@@ -125,22 +110,10 @@ const config = {
                 href: "https://redstone.finance/team",
               },
             ],
-          },
-          {
-            title: "📚 More",
-            items: [
-              {
-                label: "Blog",
-                href: "https://medium.com/@RedStone_Finance",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/redstone-finance",
-              },
-            ],
-          },
+          }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} RedStone Oracles. <br/> Built with ❤️ and Docusaurus.`,
+        copyright: `${new Date().getFullYear()} All Rights Reserved
+`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -154,16 +127,12 @@ const config = {
       {
         redirects: [
           {
-            from: "/docs/smart-contract-devs/price-feeds",
-            to: "/docs/get-started/price-feeds",
-          },
-          {
-            from: "/docs/get-started/lombard",
-            to: "/docs/get-started/price-feeds/types-of-feeds/lombard",
-          },
-          {
             from: "/docs/avs/running-avs-operator",
             to: "/docs/avs/running-avs-operator-testnet",
+          },
+          {
+            from: "/docs/category/-avs/",
+            to: "/docs/category/restaking-operators-avs/",
           },
         ],
       },
@@ -171,4 +140,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+export default config;

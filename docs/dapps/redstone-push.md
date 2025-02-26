@@ -1,20 +1,18 @@
 ---
-sidebar_position: 2
-sidebar_label: "🏛 Push model"
+sidebar_position: 1
+sidebar_label: "Push model"
 ---
 
-# 🏛 Push Model
+# Standardized Access for DeFi Interoperability
 
-## Pushing feeds on chain
+Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
 
-Although the pure on-demand fetching model ([RedStone Pull](./redstone-pull.mdx)) is more efficient and scalable we acknowledge that some protocols may prefer to stick to a traditional design when data is pushed on-chain. This setup could be reasonable if:
+RedStone's Push Model stores data directly on-chain through periodic updates, following the traditional oracle approach. This model ensures constant data availability and gives applications full control over update conditions and data sources.
 
-- There is an existing well-audited codebase and the team prefers not to make even tiny amendments
-- The protocol is deployed on a private network or a chain where the gas costs are minimal
-- The prices don't need to be updated too frequently
+Here you can find the [**list of all the feeds**](https://app.redstone.finance/app/feeds/) available with update parameters.
 
 :::info
-RedStone Push has a significant advantage over traditional push Oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other Oracles you have to accept dictated parameters).
+RedStone Push has a significant advantage over traditional push oracles. Our modular design gives you a decisive voice on when and how the price is updated (with other oracles you have to accept dictated parameters).
 :::
 
 ## How RedStone Push works

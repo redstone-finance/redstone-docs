@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-sidebar_label: "🛠️ Running AVS Operator (Testnet)"
+sidebar_label: "Running AVS Operator (Testnet)"
 ---
 
 # Running AVS Operator
@@ -10,7 +10,7 @@ As an operator, you will contribute directly to the security and accuracy of dat
 Not only will you be helping to maintain the integrity of this innovative system, but you’ll also have the chance to earn rewards for your participation.
 
 :::info
-The following instructions apply to setting up an operator in the testnet environment running on Ethereum [Holesky](https://holesky.etherscan.io/) (L1), where the EigenLayer contracts and Othenic contracts responsible for operator rewards are deployed. Additionally, the L2 Polygon [Amoy](https://amoy.polygonscan.com/) network hosts contracts that validate attester signatures and store the current price and its timestamp.
+The following instructions apply to setting up an operator in the testnet environment running on Ethereum [Holesky](https://holesky.etherscan.io/) (L1), where the EigenLayer contracts and Othentic contracts responsible for operator rewards are deployed. Additionally, the L2 Base [Sepolia](https://sepolia.basescan.org/) network hosts contracts that validate attester signatures and store the current price and its timestamp.
 :::
 
 To become an operator in the RedStone AVS network, you’ll need to follow the four steps outlined below.
@@ -29,76 +29,123 @@ This registration process is essential for establishing an identity and enabling
 To register, the following command should be executed in the terminal:
 
 ```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:b0ea48ab operator register
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
+  operator register \
+  --l1-chain holesky
 ```
 
 After executing the command, the following information will be required:
 
-- **Operator's Private Key** (The [Controller](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
-- **Signing Key** (The [Consensus](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key) key): In Testnet environment it is the same as the Operator's Private Key. This is the key used by the node itself to sign consensus messages.
-- **AVS Governance Contract Address**: the following contract address should be entered: [0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e](https://holesky.etherscan.io/address/0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e).
+- **Operator's Private Key** (The [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key)): This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers delegate their staked assets.
+- **Use a different private key for Consensus?** (The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key)): Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same key.
+- **AVS Governance Contract Address**: the following contract address should be entered: `0x58ab5f17D13E56F6048890BBC7Ba3E44d00A3ED8`
+- **Rewards Receiver Address** – Optional. If left blank, it defaults to the operator's address.
+- If you are not yet registered with EigenLayer, you will be prompted to provide additional details, such as your operator name, description, website, logo URL, and Twitter profile.
 
-## Step 3: Preparing the Configuration File
+:::important
+After registering, please inform us, so we can add you to the [restricted attesters list](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#set-restricted-operator-set-for-a-task) for the task definition.
+:::
+
+## Step 3: Depositing Stake on a Supported Strategy
+
+After registering as an operator in EigenLayer, you must deposit stake on one or more of the supported staking strategies.
+This stake ensures that the operator has a financial commitment to the network.
+
+:::info
+Having a non-zero stake is essential to obtain voting power in the RedStone AVS ecosystem. Without it, your operator is inactive and will not be able to participate effectively in consensus and governance.
+:::
+
+:::info
+After being whitelisted, you will receive some RedStone Beta Points, which be can used for restaking.
+:::
+
+Below, you'll find the list of currently supported staking strategies.
+You can either use the deposit command provided for each strategy or perform a restake manually via the EigenLayer application ([Restake](https://holesky.eigenlayer.xyz/token)).
+
+### EIGEN Strategy
+
+**Strategy Address:** [0x43252609bff8a13dFe5e057097f2f45A24387a84](https://holesky.etherscan.io/address/0x43252609bff8a13dFe5e057097f2f45A24387a84)
+
+**Restake:** https://holesky.eigenlayer.xyz/restake/EIGEN
+
+**Deposit Command:**
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
+  operator deposit \
+  --l1-chain holesky \
+  --staking-contract EIGENETH
+```
+
+### RBP (RedStone Beta Points) Strategy
+
+This is a temporary staking strategy used only on Testnet.
+
+**Strategy Address:** [0xb489145e027eE17A33c145aE498c920F89DF640A](https://holesky.etherscan.io/address/0xb489145e027eE17A33c145aE498c920F89DF640A)
+
+**Restake:** https://holesky.eigenlayer.xyz/token/0xfe4cdfdbfebf53396bbdebb13e73796cc0c68b8a
+
+**Deposit Command:**
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
+  operator deposit \
+  --l1-chain holesky \
+  --staking-contract-address 0xb489145e027eE17A33c145aE498c920F89DF640A
+```
+
+## Step 4: Preparing the Configuration File
 
 The next step involves creating a configuration file that will define the essential parameters needed for the operator to function correctly within the RedStone AVS network.
 This configuration file, named `.env`, should contain the following content:
 
 ```bash
-DATA_SERVICE_ID=redstone-primary-prod
-DATA_FEED_ID=ETH
+PRIVATE_KEY = # the Consensus Key of the operator
+OPERATOR_ADDRESS = # the public address of the Controller Key.
 
-L1_RPC= # holesky RPC endpoint
-L1_CHAIN=17000
+L1_RPC= # ethereum holesky testnet RPC endpoint
+L2_RPC=https://sepolia.base.org # base sepolia testnet RPC endpoint
 
-L2_RPC= # amoy RPC endpoint
-L2_CHAIN=80002
-
-AVS_GOVERNANCE_ADDRESS=0xBA7A7CaEE3b1ed84a98dBc20Ea20fe21FE7D557e
-ATTESTATION_CENTER_ADDRESS=0xA8779c817C748b15122EF572c195019601715BBe
-PRIVATE_KEY= # operator's private key
+AVS_GOVERNANCE_ADDRESS=0x58ab5f17D13E56F6048890BBC7Ba3E44d00A3ED8
+ATTESTATION_CENTER_ADDRESS=0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187
 ```
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter               | Description                                                                                                            |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `DATA_SERVICE_ID`       | Service ID, for production environment it is `redstone-primary-prod`                                                   |
-| `DATA_FEED_ID`          | The identifier of the token for which the price will be calculated (e.g., ETH for Ethereum)                            |
-| `L1_RPC` / `L2_RP`C     | The RPC endpoint addresses for the L1 (Holesky) and L2 (Amoy) networks, respectively                                   |
-| `L1_CHAIN` / `L2_CHAIN` | The chain IDs for the L1 and L2 networks                                                                               |
-| `PRIVATE_KEY`           | The operator's private key provided during registration, which is required for authentication and signing transactions |
+| Parameter             | Description                                                                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PRIVATE_KEY`         | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                                                                      |
+| `OPERATOR_ADDRESS`    | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) (optional if both private keys are the same) |
+| `L1_RPC` / `L2_RPC`   | The RPC endpoint addresses for the L1 (Ethereum Holesky testnet) and L2 (Base Sepolia testnet) networks, respectively                                                                    |
+| `ANNOUNCED_ADDRESSES` | see frame below for details                                                                                                                                                              |
 
 :::tip
-The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
+
+- The fields marked with comments (#) need to be filled in with the appropriate values specific to the operator’s setup.
+- Instead of using a `.env` file, you can set these values as system-wide environment variables.
+  :::
+
+:::tip
+If your docker container has IP address that is publicly available leave `--announced_addresses` and `$ANNOUNCED_ADDRESSES` parameters in `docker-compose.yml` commented out.
+Otherwise, to make sure your node can be connected to from our aggregator node you need to provide your public address in a form of multi-address [details](https://docs.libp2p.io/concepts/fundamentals/addressing/).
+You will need to fill-in `ANNOUNCED_ADDRESSES` variable in `docker-compose.yml`.
+
+- If your node is available via IP address use the form starting with `/ip4/`.
+- If, on the other hand, your node is available via domain name use the form starting with `/dns/`.
+
+Both forms require you to learn your `<peer_id>`. To figure out the value that should replace `<peer_id>` placeholder run node for the first time with `--announced-addresses` commented out
+in `docker-compose.yml` and in the logs search for the `Listening on the following addresses` phrase. Peer id starts with `12D3K`.
+Once you know your peer id, uncomment the correct variable in `.env`, fill-in the `<peer_id>`, `<ip_address>` (or `<domain_name>`) and uncomment `--announced_addresses` and `${ANNOUNCED_ADDRESSES}` params in `docker-compose.yml`.
+
+If your docker container cannot be reached from the internet you still can be an operator but there is a risk that your node will lost connection to the rest of the network from time to time and you will need to restart it.
+
+See also Othentic [docs](https://docs.othentic.xyz/main/avs-framework/othentic-cli/node-operators) on this topic.
 :::
 
-## Step 4: Running the Operator
+## Step 5: Running the Operator
 
 To operate within the RedStone AVS network, two Docker images are required: [Attester](/docs/avs/service-components#attester) and [Validation API](/docs/avs/service-components#validation-api).
-These images can be launched using the following Docker Compose configuration:
-
-```yaml
-services:
-  operator-attester:
-    image: public.ecr.aws/y7v2w8b2/avs-othentic-client:b0ea48ab
-    platform: linux/amd64
-    command:
-      [
-        "node",
-        "attester",
-        "/ip4/52.48.160.32/tcp/9876/p2p/12D3KooWBNFG1QjuF3UKAKvqhdXcxh9iBmj88cM5eU2EK5Pa91KB",
-        "--avs-webapi",
-        "http://operator-validation-api",
-      ]
-    env_file:
-      - .env
-  operator-validation-api:
-    image: public.ecr.aws/y7v2w8b2/avs-validation-api:b0ea48ab
-    platform: linux/amd64
-    env_file:
-      - .env
-```
-
+These images can be launched using the Docker Compose configuration available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/restaking/testnet/operator).
 To start the operator, simply run the following command in the directory containing the `docker-compose.yml` file:
 
 ```sh
@@ -111,3 +158,10 @@ This will initiate both the Attester and the Validation API services as defined 
 The above two Docker images do not necessarily need to be run using Docker Compose.
 Depending on the chosen hosting environment, they can be deployed in a variety of other ways that best suit the operational setup.
 :::
+
+### Hardware Requirements
+
+- CPU: 1 vCPU
+- RAM: 2 GB
+- Storage: 1 GB
+- Internet: Stable and fast connection is recommended
