@@ -5,10 +5,10 @@ sidebar_label: "Deploy"
 
 # Deploy
 
-In this section you will see how to run a RedStone node using Docker Compose.
+In this section, you will see how to run a RedStone node using Docker Compose.
 
 :::caution
-For production deployments consider using more sofisticated tools, e.g. Kubernetes.
+For production deployments consider using more sophisticated tools, e.g. Kubernetes.
 :::
 
 ### Requirements
