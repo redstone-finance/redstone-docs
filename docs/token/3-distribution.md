@@ -20,7 +20,7 @@ Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosyste
 | Community & Genesis                           | 10.00%   |
 | Protocol development (Partially Locked)       | 10.00%   |
 | Core Contributors (Locked)                    | 20.00%   |
-| Binance Launchpool                            |  4.00%   |
+| Binance Launchpool                            | 4.00%    |
 | Ecosystem & Data providers (Partially Locked) | 24.30%   |
 | Early Backers (Locked)                        | 31.70%   |
 | **Total**                                     | **100%** |
