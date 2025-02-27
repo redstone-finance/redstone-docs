@@ -7,7 +7,7 @@ sidebar_label: "Push model"
 
 Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
 
-RedStone's Push Model stores data directly on-chain through periodic updates, following the traditional oracle approach. This model ensures constant data availability and gives applications full control over update conditions and data sources.
+RedStone's Push Model stores data directly on-chain through periodic updates, following the traditional blockchain oracle approach. This model ensures constant data availability and gives applications full control over update conditions and data sources.
 
 Here you can find the [**list of all the feeds**](https://app.redstone.finance/app/feeds/) available with update parameters.
 
@@ -27,7 +27,7 @@ The model consists of two main parts. The first one is the off-chain [relayer](#
 
 ### Relayer
 
-The relayer is a service that works in a customizable way based on [environment variables](#environment-variables). It periodically checks a defined set of conditions, pushing the prices when they are satisfied. It is possible to pass multiple conditions to the `UPDATE_CONDITIONS`, then the relayer will work in the manner that if any conditions are met prices would be updated. Currently, two conditions are implemented:
+The relayer is a service that works in a customizable way based on [environment variables](#environment-variables). It periodically checks a defined set of conditions, pushing the prices when they are satisfied. It is possible to pass multiple conditions to the `UPDATE_CONDITIONS`, then the relayer will work in the manner that if any conditions are met prices will be updated. Currently, two conditions are implemented:
 
 - a `time` condition described by `UPDATE_PRICE_INTERVAL` variable in milliseconds, which states how often prices should be updated (aka heartbeat), [code](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/on-chain-relayer/src/core/update-conditions/time-condition.ts)
 

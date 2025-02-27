@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
-sidebar_label: "Fetching process"
+sidebar_label: "Data flow"
 ---
 
-# Fetching process
+# Data flow
 
 ## Data Sources
 
@@ -21,7 +21,7 @@ Integration with more than 50 on-chain trading protocol deployments spans multip
 
 #### Aggregator Service Integration
 
-The framework incorporates data from professional market intelligence providers specializing in cross-source data aggregation, including established entities such as Kaiko, CoinMarketCap and trading venues, supplementing direct exchange feeds with consolidated market metrics.
+The framework incorporates data from professional market intelligence providers specializing in cross-source data aggregation, including established entities such as Kaiko, CoinMarketCap, and trading venues, supplementing direct exchange feeds with consolidated market metrics.
 
 #### Institutional Data Provider Network
 
@@ -37,7 +37,7 @@ Each provider node implements robust cryptographic signing protocols for all dat
 
 ### Quality Assurance Protocol
 
-The system employs comprehensive monitoring mechanisms to evaluate node performance across following parameters:
+The system employs comprehensive monitoring mechanisms to evaluate node performance across the following parameters:
 
 - Continuous monitoring of data consistency and operational uptime
 - Real-time validation of data quality and transmission latency
