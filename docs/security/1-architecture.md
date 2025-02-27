@@ -17,7 +17,7 @@ Data production reliability is achieved through source diversification and redun
 
 ## Distributed Node Security
 
-The distributed node network architecture enhances security through operational decentralization, mitigating risks associated with private key compromise or economic coercion attempts. Geographic distribution of nodes provides additional resilience against infrastructure-level failures, including regional network disruptions or data center outages.
+The distributed node network architecture enhances security through operational decentralization, mitigating risks associated with private key compromise or economic coercion attempts. The geographic distribution of nodes provides additional resilience against infrastructure-level failures, including regional network disruptions or data center outages.
 
 The system maintains heterogeneous node implementations with specialized optimizations: high-throughput nodes designed for processing numerous on-chain data sources, and low-latency nodes optimized for centralized exchange data processing. These implementations adhere to standardized data exchange protocols, enabling seamless interoperability while protecting against vulnerabilities specific to any particular technology stack or architectural pattern.
 

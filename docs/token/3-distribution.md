@@ -1,44 +1,13 @@
 ---
-sidebar_position: 8
-sidebar_label: "Tokenomics"
+sidebar_position: 3
+sidebar_label: "Distribution"
 ---
 
-# Tokenomics
-
-## RED Supply
-
-RedStone's blockchain oracle technology has achieved product-market fit, operating on mainnet since January 2023 and attracting users with its reliable, diverse, and robust services. Now, the RedStone Distributed Data Association introduces RED—designed to further decentralize the system and advance the long-term goals of the RedStone Ecosystem.
-
-At the core of RedStone is the mission to support builders with any data they need, on any chain, for any use case. As the RED Token Generation Event (TGE) approaches, we present the utility and token economics of RED below.
-
-| Category                       | Details                                                                                                      |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| Ticker                         | RED                                                                                                          |
-| Max Supply                     | 1,000,000,000 RED                                                                                            |
-| Percentage to Community Growth | 48.3%                                                                                                        |
-| Float at TGE                   | 30%                                                                                                          |
-| Token Standard                 | Ethereum Network: ERC-20                                                                                     |
-| Lock Up                        | 70% of RED are initially locked. These tokens will unlock over 4 years per the Token Release Schedule below. |
+# Token Distribution
 
 :::warning
 RED is not live yet
 :::
-
-## RED Utility: Staking For Economic Security
-
-For oracles to survive and secure DeFi long-term, sustainable tokenomics are essential.
-
-RED is designed as a utility token with an innovative value accrual mechanism, introducing the first truly sustainable oracle economics.
-
-Leveraging RedStone's EigenLayer Actively Validated Service (AVS), RED staking adds a robust layer of economic security to RedStone's oracle stack, utilizing staked RED and potentially tapping into billions of dollars staked in EigenLayer for additional security.
-
-RED can be staked by data providers, who supply data to RedStone's modular oracle network, and by token holders, who enhance network security through direct staking in the RedStone AVS.
-
-RED stakers will earn rewards from RedStone data users across hundreds of blockchains, paid in widely adopted assets like ETH, BTC, SOL, and USDC.
-
-![Staking Accrual Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Staking-Accrual-Flowchart-v2.png)
-
-## Token Distribution
 
 The maximum supply of RED is 1,000,000,000 (one billion) tokens, with an initial float of 30%. RED is implemented as an ERC-20 token on Ethereum Mainnet and will be available on Solana, Base, and other networks after the Token Generation Event via the Wormhole Native Token Transfer standard.
 
@@ -51,7 +20,8 @@ Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosyste
 | Community & Genesis                           | 10.00%   |
 | Protocol development (Partially Locked)       | 10.00%   |
 | Core Contributors (Locked)                    | 20.00%   |
-| Ecosystem & Data providers (Partially Locked) | 28.30%   |
+| Binance Launchpool                            |  4.00%   |
+| Ecosystem & Data providers (Partially Locked) | 24.30%   |
 | Early Backers (Locked)                        | 31.70%   |
 | **Total**                                     | **100%** |
 
@@ -61,11 +31,11 @@ RED is not live yet
 
 ## RED Unlock schedule
 
-![Unlock Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Unlock-Schedule-v2.png)
+![Unlock Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Unlock-Schedule-V3.png)
 
 ## RED Distribution Chart
 
-![Distribution Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Distribution-Pie-Chart-1.png)
+![Distribution Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Distribution-Pie-Chart-V3.png)
 
 ### Community & Genesis (10%)
 
@@ -83,9 +53,13 @@ The RedStone Distributed Data Association strategically deploys these resources 
 
 All tokens in this category are locked and follow a strategic vesting schedule to align contributors' interests with the protocol's sustained growth and success.
 
-### Ecosystem & Data Providers (28.3%)
+### Binance Launchpool (4%)
 
-28.3% of RED tokens are allocated to the Ecosystem & Data Providers category. The Ecosystem portion fuels RedStone's innovation and community growth, empowering builders, innovators, and community leaders through targeted grants and incentives. This fund supports community-driven initiatives, educational programs, and activities that drive market growth and adoption, with a focus on projects that add clear value to RedStone's expansion. It also incentivizes the adoption of new products and services until they reach critical mass.
+4% of RED tokens are allocated to Binance Launchpool, strategically strengthening collaborative relationships between the Binance and RedStone communities.
+
+### Ecosystem & Data Providers (24.3%)
+
+24.3% of RED tokens are allocated to the Ecosystem & Data Providers category. The Ecosystem portion fuels RedStone's innovation and community growth, empowering builders, innovators, and community leaders through targeted grants and incentives. This fund supports community-driven initiatives, educational programs, and activities that drive market growth and adoption, with a focus on projects that add clear value to RedStone's expansion. It also incentivizes the adoption of new products and services until they reach critical mass.
 
 The Data Providers allocation rewards those supplying data to RedStone's oracle infrastructure, ensuring high-quality, timely data delivery. Strategic incentives and grants encourage coverage of emerging market pairs and evolving data demands, with a reward structure that maintains top-tier data standards.
 

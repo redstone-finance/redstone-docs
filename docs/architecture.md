@@ -20,7 +20,7 @@ The data could be pushed onto the blockchain either by a dedicated relayer opera
 
 ### Context
 
-Transferring data to a blockchain requires packing an extra payload to a user’s transaction and processing the message on the blockchain. Said differently, the data that is put on the blockchain, such as a cryptocurrency’s price, is inserted into part of the data that makes up a user’s transaction. This is accomplishable because blockchains move from state-to-state and contain call data. RedStone is able insert its data into the call data of a user's transaction, thereby putting the data onto the blockchain.
+Transferring data to a blockchain requires packing an extra payload to a user’s transaction and processing the message on the blockchain. Said differently, the data that is put on the blockchain, such as a cryptocurrency’s price, is inserted into part of the data that makes up a user’s transaction. This is accomplishable because blockchains move from state-to-state and contain call data. RedStone is able to insert its data into the call data of a user's transaction, thereby putting the data onto the blockchain.
 
 ### How Data is Encoded Before Being Put on the Blockchain
 
