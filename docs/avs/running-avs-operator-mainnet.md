@@ -58,11 +58,26 @@ Having a non-zero stake is essential to obtain voting power in the RedStone AVS 
 Below, you'll find the list of currently supported staking strategies.
 You can either use the deposit command provided for each strategy or perform a restake manually via the EigenLayer application ([Restake](https://app.eigenlayer.xyz/token)).
 
+### RED Strategy
+
+**Strategy Address:** [0x903a1FF023a35EFeD333ee9D6bF30629A098B9ed](https://etherscan.io/address/0x903a1FF023a35EFeD333ee9D6bF30629A098B9ed)
+
+**Restake:** https://app.eigenlayer.xyz/token/0xc43C6bfeDA065fE2c4c11765Bf838789bd0BB5dE
+
+**Deposit Command:**
+
+```bash
+docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
+  operator deposit \
+  --l1-chain mainnet \
+  --staking-contract-address 0x903a1FF023a35EFeD333ee9D6bF30629A098B9ed
+```
+
 ### EIGEN Strategy
 
 **Strategy Address:** [0xaCB55C530Acdb2849e6d4f36992Cd8c9D50ED8F7](https://etherscan.io/address/0xaCB55C530Acdb2849e6d4f36992Cd8c9D50ED8F7)
 
-**Restake:** https://app.eigenlayer.xyz/restake/EIGEN
+**Restake:** https://app.eigenlayer.xyz/token/EIGEN
 
 **Deposit Command:**
 
@@ -86,23 +101,6 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
   operator deposit \
   --l1-chain mainnet \
   --staking-contract-address 0x7079A4277eAF578cbe9682ac7BC3EfFF8635ebBf
-```
-
-### RATT (RedStoneAVSTestToken) Strategy
-
-This is a temporary staking strategy. It will be replaced with the RedStone token in the future.
-
-**Strategy Address:** [0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE](https://etherscan.io/address/0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE)
-
-**Restake:** https://app.eigenlayer.xyz/token/0x43b1dbb4ceeba4a6d310235964791cecf0e27453
-
-**Deposit Command:**
-
-```bash
-docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-client:4fe497a6 \
-  operator deposit \
-  --l1-chain mainnet \
-  --staking-contract-address 0x8a0386043D03EFAd02c992B77F60c0dDc3dBaaaE
 ```
 
 ## Step 4: Preparing the Configuration File
