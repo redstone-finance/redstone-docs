@@ -21,6 +21,15 @@ validate attester signatures and store the current price and its timestamp.
 
 To become an operator in the RedStone AVS network, you’ll need to follow the four steps outlined below.
 
+## Rewards
+
+Active operators are rewarded for performing task validation (i.e. validating the prices that are sent within the task payload).
+The rewards are paid in [$RED](https://etherscan.io/token/UPDATE_TOKEN_ADDRESS) tokens.
+Each task can distribute at max 50 $REDs, proportionally to the Operators' voting power (which is evaluated on the Operators' stake basis).
+Additionally - Eigenlayer provides 25% bonus paid in [Eigen](https://etherscan.io/address/0xec53bf9167f50cdeb3ae105f56099aaab9061f83) tokens.
+
+Rewards are distributed every few days.
+
 ## Step 1: Getting Whitelisted as an Operator
 
 In order to register as an Operator, you must be first added to the operator whitelist.
