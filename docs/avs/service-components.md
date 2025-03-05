@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-sidebar_label: "🧩 Service Components"
+sidebar_label: "Service Components"
 ---
 
 # Service Components

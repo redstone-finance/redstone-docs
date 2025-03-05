@@ -1,25 +1,17 @@
 ---
 sidebar_position: 2
-sidebar_label: "Pull (on-demand feeds)"
+sidebar_label: "Pull model"
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Pull Model
-
-## Fetching prices on-demand
+# Real-time Data from Diverse Sources
 
 RedStone's Pull Model injects data directly into user transactions, maximizing gas efficiency while simplifying dApp data access.
 This streamlined approach handles the entire process in a single transaction, significantly reducing costs.
 
-Best suited for dApps that require low-latency data
-
-:::tip In Prod
-
-Pull model is the most mature way to use RedStone, battle tested in production, protecting >$100M TVL of [DeFi Protocols](https://defillama.com/oracles/RedStone) (not all listed yet) across multiple mainnets. The price feeds have been injected to more than [~215K transactions](https://dune.com/hatskier/redstone).
-
-:::
+Best suited for dApps that require low-latency data.
 
 ## Installation
 
@@ -143,7 +135,7 @@ For all the supported feeds we provide [UI with charts and historical data](http
 
 💡 Note: You can also override the following functions (do it at your own risk):
 
-- `isTimestampValid(uint256 receivedTimestamp) returns (bool)` - to enable custom logic of timestamp validation. You may specify a shorter delay to accept only the most recent price fees. However, on networks with longer block times you may extend this period to avoid rejecting too many transactions.
+- `isTimestampValid(uint256 receivedTimestamp) returns (bool)` - to enable custom logic of timestamp validation. You may specify a shorter delay to accept only the most recent price fees. However, on networks with longer block times, you may extend this period to avoid rejecting too many transactions.
 
 - `aggregateValues(uint256[] memory values) returns (uint256)` - to enable custom logic of aggregating values from different providers (by default this function takes the median value). For example, you may request values from providers to be strictly equal while dealing with discrete numbers.
 
@@ -227,7 +219,7 @@ We have prepared [repository](https://github.com/redstone-finance/minimal-foundr
 This approach is helpful if you need to pass the pricing data from one contract to another in your protocol.
 
 It's also a solution for a case, where your contracts are written in solidity in a version lower than `0.8.4` it could be problematic to extend from the `RedstoneConsumerBase` contract.
-In that case we recomment to deploy a separate `Extractor` contract that will contain the verification logic:
+In that case, we recomment to deploy a separate `Extractor` contract that will contain the verification logic:
 
 ```sol
 pragma solidity 0.8.4;
