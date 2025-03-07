@@ -5,10 +5,6 @@ sidebar_label: "Supply"
 
 # Supply
 
-:::warning
-RED is not live yet
-:::
-
 RedStone's blockchain oracle technology has achieved product-market fit, operating on mainnet since January 2023 and attracting users with its reliable, diverse, and robust services. Now, the RedStone Distributed Data Association introduces RED—designed to further decentralize the system and advance the long-term goals of the RedStone Ecosystem.
 
 At the core of RedStone is the mission to support builders with any data they need, on any chain, for any use case. As the RED Token Generation Event (TGE) approaches, we present the utility and token economics of RED below.
