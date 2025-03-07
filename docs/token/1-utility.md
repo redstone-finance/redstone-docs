@@ -5,9 +5,6 @@ sidebar_label: "Utility"
 
 # Staking For Economic Security
 
-:::warning
-RED is not live yet
-:::
 
 For oracles to survive and secure DeFi long-term, sustainable tokenomics are essential.
 
