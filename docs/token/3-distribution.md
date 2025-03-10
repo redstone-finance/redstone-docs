@@ -5,10 +5,6 @@ sidebar_label: "Distribution"
 
 # Token Distribution
 
-:::warning
-RED is not live yet
-:::
-
 The maximum supply of RED is 1,000,000,000 (one billion) tokens, with an initial float of 30%. RED is implemented as an ERC-20 token on Ethereum Mainnet and will be available on Solana, Base, and other networks after the Token Generation Event via the Wormhole Native Token Transfer standard.
 
 Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosystem & Community across the following categories: Community & Genesis, Ecosystem & Data Providers, and Protocol Development.
@@ -25,13 +21,10 @@ Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosyste
 | Early Backers (Locked)                        | 31.70%   |
 | **Total**                                     | **100%** |
 
-:::warning
-RED is not live yet
-:::
 
 ## RED Unlock schedule
 
-![Unlock Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Unlock-Schedule-V3.png)
+![Unlock Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Unlock-Schedule-V4.png)
 
 ## RED Distribution Chart
 
