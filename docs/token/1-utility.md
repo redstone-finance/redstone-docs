@@ -5,7 +5,6 @@ sidebar_label: "Utility"
 
 # Staking For Economic Security
 
-
 For oracles to survive and secure DeFi long-term, sustainable tokenomics are essential.
 
 RED is designed as a utility token with an innovative value accrual mechanism, introducing the first truly sustainable oracle economics.
