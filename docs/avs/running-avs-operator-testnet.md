@@ -141,20 +141,20 @@ Below is an explanation of each field and information on which fields need to be
 
 :::tip
 If your docker container has IP address that is publicly available leave `--announced_addresses`
-and `$ANNOUNCED_ADDRESSES` parameters in `docker-compose.yml` commented out.
+and `$ANNOUNCED_ADDRESSES` parameters in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml) commented out.
 Otherwise, to make sure your node can be connected to from our aggregator node you need to provide your public address
 in a form of multi-address [details](https://docs.libp2p.io/concepts/fundamentals/addressing/).
-You will need to fill-in `ANNOUNCED_ADDRESSES` variable in `docker-compose.yml`.
+You will need to fill-in `ANNOUNCED_ADDRESSES` variable in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml).
 
 - If your node is available via IP address use the form starting with `/ip4/`.
 - If, on the other hand, your node is available via domain name use the form starting with `/dns/`.
 
 Both forms require you to learn your `<peer_id>`. To figure out the value that should replace `<peer_id>` placeholder
 run node for the first time with `--announced-addresses` commented out
-in `docker-compose.yml` and in the logs search for the `Listening on the following addresses` phrase. Peer id starts
+in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml) and in the logs search for the `Listening on the following addresses` phrase. Peer id starts
 with `12D3K`.
 Once you know your peer id, uncomment the correct variable in `.env`, fill-in the `<peer_id>`, `<ip_address>` (
-or `<domain_name>`) and uncomment `--announced_addresses` and `${ANNOUNCED_ADDRESSES}` params in `docker-compose.yml`.
+or `<domain_name>`) and uncomment `--announced_addresses` and `${ANNOUNCED_ADDRESSES}` params in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml).
 
 If your docker container cannot be reached from the internet you still can be an operator but there is a risk that your
 node will lose connection to the rest of the network from time to time and you will need to restart it.
@@ -169,13 +169,24 @@ required: [Attester](/docs/avs/service-components#attester)
 and [Validation API](/docs/avs/service-components#validation-api).
 These images can be launched using the Docker Compose configuration
 available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/restaking/testnet/operator).
-To start the operator, simply run the following command in the directory containing the `docker-compose.yml` file:
+To start the operator, simply run the following command in the directory containing the [docker-compose.yml](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml) file:
 
 ```sh
 docker compose up
 ```
 
 This will initiate both the Attester and the Validation API services as defined in the Docker Compose file.
+
+:::tip
+The [docker-compose.yml](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml) file includes a volume mount for persistent storage:
+
+```yaml
+volumes:
+  - .othentic:/app/.othentic
+```
+
+This directory is used for storing persistent data, following the [Othentic documentation](https://docs.othentic.xyz/main/avs-framework/othentic-cli/add-ons/persistent-storage). You can adjust the path on the host machine to this volume according to your preferences.
+:::
 
 :::tip
 The above two Docker images do not necessarily need to be run using Docker Compose.
@@ -187,7 +198,7 @@ operational setup.
 
 In order to update the Operator code:
 
-1. Go to directory with the `docker-compose.yml` file (cloned from
+1. Go to directory with the [docker-compose.yml](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml) file (cloned from
    the [Operator](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/restaking/testnet/operator)
    repository)
 2. `git pull`
