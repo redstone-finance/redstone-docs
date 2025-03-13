@@ -21,7 +21,6 @@ Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosyste
 | Early Backers (Locked)                        | 31.70%   |
 | **Total**                                     | **100%** |
 
-
 ## RED Unlock schedule
 
 ![Unlock Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Unlock-Schedule-V4.png)
