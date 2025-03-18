@@ -41,6 +41,8 @@ RED is not live yet
 
 10% of RED tokens will be distributed to the RedStone community through initial claim activities. The Community & Genesis allocation is a cornerstone of RedStone's tokenomics, recognizing the crucial role the community plays in the protocol's long-term success. These tokens will be distributed via carefully designed airdrops to reward early supporters, partners, and active participants involved in RedStone's growth. This strategy ensures fair representation for the ecosystem's earliest adopters and ongoing contributors.
 
+4.5% of those tokens will be distributed via the DRILL (Develop, Reinforce, Innovate, Launch & Learn) campaign through the dedicated multisig: 0xBA544abd1b34C4a337E3F3Cbe2A390e061031FF7.
+
 ### Protocol Development (10%)
 
 10% of RED tokens are allocated to Protocol Development, ensuring RedStone's long-term sustainability and growth. This fund supports critical research and development, developer resources, and operational efficiency.
