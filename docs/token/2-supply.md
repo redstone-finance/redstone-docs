@@ -7,8 +7,8 @@ sidebar_label: "Supply"
 
 | Network  | Address                                                                                                               |
 | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| Ethereum | [0xE7c27723DE3489dFb1638CDBec5b9C4adeec40cC](https://etherscan.io/address/0xE7c27723DE3489dFb1638CDBec5b9C4adeec40cC) |
-| Base     | 10.00%                                                                                                                |
+| Ethereum | [0xc43c6bfeda065fe2c4c11765bf838789bd0bb5de](https://etherscan.io/address/0xc43c6bfeda065fe2c4c11765bf838789bd0bb5de) |
+| Base     | [0x4eB92702bA4cfbF80561BAd64D89C706Ac824960](https://basescan.org/address/0x4eB92702bA4cfbF80561BAd64D89C706Ac824960)                                                                                                                |
 
 RedStone's blockchain oracle technology has achieved product-market fit, operating on mainnet since January 2023 and attracting users with its reliable, diverse, and robust services. Now, the RedStone Distributed Data Association introduces RED—designed to further decentralize the system and advance the long-term goals of the RedStone Ecosystem.
 
