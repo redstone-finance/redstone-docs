@@ -5,9 +5,10 @@ sidebar_label: "Supply"
 
 # Supply
 
-:::warning
-RED is not live yet
-:::
+| Network                            | Address    |
+| ---------------------------------- | ---------- |
+| Ethereum                           | [0xE7c27723DE3489dFb1638CDBec5b9C4adeec40cC](https://etherscan.io/address/0xE7c27723DE3489dFb1638CDBec5b9C4adeec40cC)   |
+| Base                               | 10.00%   |
 
 RedStone's blockchain oracle technology has achieved product-market fit, operating on mainnet since January 2023 and attracting users with its reliable, diverse, and robust services. Now, the RedStone Distributed Data Association introduces RED—designed to further decentralize the system and advance the long-term goals of the RedStone Ecosystem.
 
