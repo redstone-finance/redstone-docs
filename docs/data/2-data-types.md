@@ -21,11 +21,11 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 4. **Proof of Reserve Feed**
 
-   The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking Oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./3-lombard.md).
+   The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./3-lombard.md).
 
 | Feed Type                 | Denomination                                                              | Deviation Comes From                          | Complexity of Delivery                                   |
 | :------------------------ | :------------------------------------------------------------------------ | :-------------------------------------------- | :------------------------------------------------------- |
 | **Market Feed**           | Mainly USD, can also be another currency i.e., ETH / BTC                  | Market trading                                | Relatively simple                                        |
 | **Contract Rate Feed**    | Underlying asset i.e., ETH for Ethereum LSTs                              | Specified ratio changes in the smart contract | Requires understanding of edge cases and on-chain source |
 | **Net Asset Value Feed**  | Custom, i.e., for CESR it's a % yield from ETH staking, usually USD value | Custom, usually every 24 hours from an API    | Depends on the source, usually medium difficulty         |
-| **Proof of Reserve Feed** | Custom, i.e., BTC in the case of Lombard internal Oracle                  | Custom, i.e., each X minutes for Lombard      | Usually work-intensive                                   |
+| **Proof of Reserve Feed** | Custom, i.e., BTC in the case of Lombard internal oracle                  | Custom, i.e., each X minutes for Lombard      | Usually work-intensive                                   |
