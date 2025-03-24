@@ -21,7 +21,6 @@ Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosyste
 | Early Backers (Locked)                        | 31.70%   |
 | **Total**                                     | **100%** |
 
-
 ## RED Unlock schedule
 
 ![Unlock Flowchart](https://blog.redstone.finance/wp-content/uploads/2025/02/Token-Unlock-Schedule-V4.png)
@@ -33,6 +32,8 @@ Nearly half of all RED tokens (48.3%) will be allocated to the RedStone Ecosyste
 ### Community & Genesis (10%)
 
 10% of RED tokens will be distributed to the RedStone community through initial claim activities. The Community & Genesis allocation is a cornerstone of RedStone's tokenomics, recognizing the crucial role the community plays in the protocol's long-term success. These tokens will be distributed via carefully designed airdrops to reward early supporters, partners, and active participants involved in RedStone's growth. This strategy ensures fair representation for the ecosystem's earliest adopters and ongoing contributors.
+
+4.5% of those tokens will be distributed via the DRILL (Develop, Reinforce, Innovate, Launch & Learn) campaign through the dedicated multisig: 0xBA544abd1b34C4a337E3F3Cbe2A390e061031FF7.
 
 ### Protocol Development (10%)
 
