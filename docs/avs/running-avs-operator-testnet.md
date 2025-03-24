@@ -147,7 +147,7 @@ in a form of multi-address [details](https://docs.libp2p.io/concepts/fundamental
 You will need to fill-in `ANNOUNCED_ADDRESSES` variable in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/testnet/operator/docker-compose.yml).
 
 - If your node is available via IP address use the form starting with `/ip4/`.
-- If, on the other hand, your node is available via domain name use the form starting with `/dns/`.
+- If your node is accessible via a domain name, use the form starting with `/dns/`. If you have a static IP, you should also include `/ip4/` entry to ensure compatibility across different discovery mechanisms.
 
 Both forms require you to learn your `<peer_id>`. To figure out the value that should replace `<peer_id>` placeholder
 run node for the first time with `--announced-addresses` commented out
