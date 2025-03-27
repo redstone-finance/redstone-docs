@@ -244,4 +244,8 @@ contract - `0x58ab5f17D13E56F6048890BBC7Ba3E44d00A3ED8`;
 
 ### I am getting the following error on docker container start `Failed to open datastore at .othentic/data/p2p: Error: Database is not open`. What should I do?
 
+This error usually means that the expected data directory either doesn't exist or has incorrect ownership.
+
 Make sure that the folder `.othentic` exists on the host inside the directory where you run `docker compose` and is owned by user 1000:1000. If it is not the case create that directory using the command `mkdir .othentic` and set the owner using `sudo chown 1000:1000 .othentic`.
+
+If you specified a different folder in the `volumes` field of your `docker-compose.yml`, adjust the above commands accordingly.
