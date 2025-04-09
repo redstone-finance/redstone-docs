@@ -130,7 +130,7 @@ Below is an explanation of each field and information on which fields need to be
 | `OPERATOR_ADDRESS`           | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) (optional if both private keys are the same) |
 | `L1_RPC` / `L2_RPC`          | The RPC endpoint addresses for the L1 (Ethereum Holesky testnet) and L2 (Base Sepolia testnet) networks, respectively                                                                    |
 | `AVS_GOVERNANCE_ADDRESS`     | Address of the AVS Governance contract (`0x58ab5f17D13E56F6048890BBC7Ba3E44d00A3ED8`)                                                                                                    |
-| `ATTESTATION_CENTER_ADDRESS` | Address of the Attestatcion Center contract (`0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187`)                                                                                               |
+| `ATTESTATION_CENTER_ADDRESS` | Address of the Attestation Center contract (`0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187`)                                                                                               |
 | `ANNOUNCED_ADDRESSES`        | see frame below for details                                                                                                                                                              |
 
 :::tip

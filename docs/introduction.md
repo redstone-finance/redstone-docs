@@ -7,12 +7,12 @@ sidebar_label: "What is RedStone?"
 
 There is a growing need for decentralized applications (dApps) to access data feeds that are frequently updated, reliable, and secure. RedStone is a leading blockchain data provider directly fulfilling this need. Trusted by 100+ dApps and securing billions of dollars of value, RedStone provides customizable and cost-efficient data streams for builders empowering the next generation of dApps. RedStone also provides data feeds to blockchains and layer 2 scaling solutions across the entire blockchain ecosystem that are both EVM and non-EVM compatible. The current model of blockchain oracle systems suffers from key inefficiencies, all of which RedStone was specifically designed to solve from the bottom up. This makes RedStone a unique oracle service.
 
-## Mult-chain data delivery
+## Multi-chain data delivery
 
 RedStone's modular architecture separates data collection from data delivery, creating a flexible system that scales efficiently across blockchain networks. This design allows the same price feeds to be deployed to any supported chain without modifying the core data provider infrastructure. By eliminating the need to deploy new nodes for each integration, RedStone achieves faster and more cost-effective expansion while maintaining consistent security standards across all networks. This architectural approach has proven highly successful, enabling RedStone to expand its service to more than 70 different blockchain networks while ensuring reliable price data delivery and maintaining the same rigorous security measures across all integrations.
 
 <a target="_blank" href="https://raw.githubusercontent.com/redstone-finance/redstone-docs/main/static/img/redstone-architecture-simple.png">
-  <img alt="RedStone Architecure" src="/img/redstone-architecture-simple.png"/>
+  <img alt="RedStone Architecture" src="/img/redstone-architecture-simple.png"/>
 </a>
 
 ## Unique data feeds
