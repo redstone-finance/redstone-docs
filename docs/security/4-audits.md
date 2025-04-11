@@ -9,6 +9,8 @@ RedStone maintains a rigorous external security audit program as a cornerstone o
 
 | Component           | Status    | Auditor            | Report                                                                                                                           |
 | ------------------- | --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| Oracle Phase II     | Completed | ABDK               | [ABDK_RedStone_OraclePhaseII_v_2_0__1_.pdf](https://drive.google.com/file/d/10iX5IJ374KvhEJ2q6Fd4VLWWL2cCnizs/view?usp=drive_link) |
+| Token And Vesting   | Completed | ABDK               | [ABDK_RedStone_TokenAndVesting_v_3_0.pdf](https://drive.google.com/file/d/1JdQRZqhY-RqtWpqODKz9-M90OMcx2zXU/view?usp=drive_link) |
 | EVM connector       | Completed | ABDK               | [Audit_ABDK_EVM connector.pdf](https://drive.google.com/file/d/14g9fGHmPlxnDhvSazSYwWSV7xO5dospA/view?usp=sharing)               |
 | Adapter             | Completed | ABDK               | [Audit_ABDK_Adapter.pdf](https://drive.google.com/file/d/16nn8CsDJwTgahWeKmWpvaqafoLuFmm5x/view?usp=sharing)                     |
 | Merged adapter      | Completed | ABDK               | [Audit_ABDK_Merged adapter.pdf](https://drive.google.com/file/d/1e4KIgtkwQu757EzP2UHgmdQbks3Av2fu/view?usp=sharing)              |
