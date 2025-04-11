@@ -149,7 +149,7 @@ Below is an explanation of each field and information on which fields need to be
   :::
 
 :::tip
-If your docker container has IP address that is publicly available leave `--announced_addresses`
+If your docker container has IP address that is publicly available leave `--announced-addresses`
 and `$ANNOUNCED_ADDRESSES` parameters in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/mainnet/operator/docker-compose.yml) commented out.
 Otherwise, to make sure your node can be connected to from our aggregator node you need to provide your public address
 in a form of multi-address [details](https://docs.libp2p.io/concepts/fundamentals/addressing/).
@@ -163,7 +163,7 @@ run node for the first time with `--announced-addresses` commented out
 in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/mainnet/operator/docker-compose.yml) and in the logs search for the `Listening on the following addresses` phrase. Peer id starts
 with `12D3K`.
 Once you know your peer id, uncomment the correct variable in `.env`, fill-in the `<peer_id>`, `<ip_address>` (
-or `<domain_name>`) and uncomment `--announced_addresses` and `${ANNOUNCED_ADDRESSES}` params in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/mainnet/operator/docker-compose.yml).
+or `<domain_name>`) and uncomment `--announced-addresses` and `${ANNOUNCED_ADDRESSES}` params in [`docker-compose.yml`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/restaking/mainnet/operator/docker-compose.yml).
 
 If your docker container cannot be reached from the internet you still can be an operator but there is a risk that your
 node will lose connection to the rest of the network from time to time and you will need to restart it.
