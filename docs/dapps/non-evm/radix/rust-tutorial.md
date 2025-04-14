@@ -132,7 +132,7 @@ fn try_process_payload(
 
 #### Config
 
-The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/core/config/struct.Config.html)
+The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/core/config/struct.Config.html).
 
 For safety reasons, the allowed `signers` and `signer_count_threshold` should be embedded in the component as defined above.
 
@@ -161,7 +161,7 @@ pub fn get_current_time() -> u64 {
 
 #### Errors
 
-The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/network/error/enum.Error.html)
+The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/network/error/enum.Error.html).
 
 ## Pull model
 

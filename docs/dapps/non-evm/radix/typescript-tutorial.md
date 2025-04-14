@@ -47,7 +47,7 @@ yarn sample-instantiate
 
 1. The component can be instantiated by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scripts/sample_instantiate_price_adapter.ts).
 2. The deployed `component.stokenet.addr` address can be found in the `scrypto/price_adapter` directory.
-3. The script uses [`PriceAdapterRadixContractDeployer`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/src/contracts/price_adapter/PriceAdapterRadixContractDeployer.ts)
+3. The script uses [`PriceAdapterRadixContractDeployer`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/src/contracts/price_adapter/PriceAdapterRadixContractDeployer.ts).
 
 ### Sample run
 
@@ -56,4 +56,4 @@ yarn sample-run
 ```
 
 1. The sample scenario can be run by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scripts/sample_run.ts).
-2. The script uses [`PriceAdapterRadixContractConnector`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector//src/contracts/price_adapter/PriceAdapterRadixContractConnector.ts)
+2. The script uses [`PriceAdapterRadixContractConnector`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector//src/contracts/price_adapter/PriceAdapterRadixContractConnector.ts).
