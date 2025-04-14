@@ -20,7 +20,7 @@ The **info described there** is mostly **NOT REPEATED below**.
 ```toml
 [dependencies]
 scrypto = { version = "1.3.0" }
-redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "1.2.0", features = ["crypto_radix", "network_radix"] }
+redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "2.0.0", default-features = false, features = ["radix"] }
 ```
 
 ## Instantiating & Storage
@@ -33,35 +33,32 @@ Also, for the [Push model](#push-model), the values and timestamp are stored in 
 mod price_adapter {
     struct PriceAdapter {
         signer_count_threshold: u8,
-        signers: Vec<Bytes>,
-        prices: HashMap<U256Digits, U256Digits>,
+        signers: Vec<Vec<u8>>,
+        prices: HashMap<Vec<u8>, RedStoneValue>,
         timestamp: u64,
     }
 
     impl PriceAdapter {
         pub fn instantiate(
             signer_count_threshold: u8,
-            allowed_signer_addresses: Signers,
+            allowed_signer_addresses: Vec<Vec<u8>>,
         ) -> Global<PriceAdapter> {
-            allowed_signer_addresses.len().assert_or_revert(
-                |&v| v > 0usize,
-                |_| Error::contract_error(PriceAdapterError::SignersMustNotBeEmpty),
-            );
+            let addresses: Vec<SignerAddress> = allowed_signer_addresses
+                .iter()
+                .map(|signer| (signer.clone()).into())
+                .collect();
 
-            signer_count_threshold.assert_or_revert(
-                |&v| (v as usize) <= allowed_signer_addresses.len(),
-                |&v| Error::contract_error(PriceAdapterError::WrongSignerCountThresholdValue(v)),
-            );
+            verify_signers_config(addresses.as_slice(), signer_count_threshold).unwrap_or_else(|err| panic!("{}", err));
 
             Self {
                 signer_count_threshold,
                 signers: allowed_signer_addresses,
                 prices: hashmap!(),
-                timestamp: 0
+                timestamp: 0,
             }
                 .instantiate()
-                .prepare_to_globalize(OwnerRole::None)
-                .globalize()
+                .prepare_to_globalize(OwnerRole::None).
+                globalize()
         }
     }
 }
@@ -78,13 +75,11 @@ To process the payload data, the following command should be used inside the `#[
 
 ```rust
 use redstone::{
-    core::{config::Config, processor::process_payload},
-    network::{
-        as_str::AsAsciiStr,
-        assert::{Assert, Unwrap},
-        error::Error,
-        specific::Bytes,
-    },
+    core::{config::Config, ProcessorResult, },
+    radix::RadixRedStoneConfig,
+    Value as RedStoneValue,
+    contract::verification::*,
+    SignerAddress
 };
 ```
 
@@ -93,28 +88,50 @@ The function processes on-chain the payload passed as an argument and returns an
 ```rust
 fn process_payload(
     &mut self,
-    feed_ids: Vec<U256>,
-    payload: Bytes,
-) -> (u64, Vec<U256Digits>) {
-    let current_time = get_current_time();
-
-    let config = Config {
-        signer_count_threshold: self.signer_count_threshold,
-        signers: self.signers.clone(),
+    feed_ids: Vec<Vec<u8>>,
+    payload: Vec<u8>,
+) -> (u64, Vec<RedStoneValue>) {
+    let result = Self::try_process_payload(
+        Self::get_current_time(),
+        self.signer_count_threshold,
+        self.signers.clone(),
         feed_ids,
-        block_timestamp: current_time * 1000,
-    };
+        payload,
+        None,
+        None,
+    )
+        .unwrap_or_else(|err| panic!("{}", err));
 
-    let result = process_payload(config, payload);
-    let prices = result.values.iter().map(|v| v.to_digits()).collect();
-
-    (result.min_timestamp, prices)
+    (result.timestamp.as_millis(), result.values)
 }
+
+fn try_process_payload(
+    block_timestamp: u64,
+    signer_count_threshold: u8,
+    signers: Vec<Vec<u8>>,
+    feed_ids: Vec<Vec<u8>>,
+    payload: Vec<u8>,
+    max_timestamp_delay_ms: Option<u64>,
+    max_timestamp_ahead_ms: Option<u64>,
+) -> ProcessorResult {
+    let config: RadixRedStoneConfig = Config::try_new(
+        signer_count_threshold,
+        signers.into_iter().map(|id| id.into()).collect(),
+        feed_ids.into_iter().map(|id| id.into()).collect(),
+        block_timestamp.into(),
+        max_timestamp_delay_ms.map(|v| v.into()),
+        max_timestamp_ahead_ms.map(|v| v.into()),
+    )?
+        .into();
+
+    redstone::core::process_payload(&config, payload)
+}
+
 ```
 
 #### Config
 
-The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/crypto_radix,network_radix/redstone/core/config/struct.Config.html)
+The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/core/config/struct.Config.html)
 
 For safety reasons, the allowed `signers` and `signer_count_threshold` should be embedded in the component as defined above.
 
@@ -143,34 +160,7 @@ pub fn get_current_time() -> u64 {
 
 #### Errors
 
-The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/crypto_radix,network_radix/redstone/network/error/enum.Error.html#variant.ContractError)
-
-### Converting the input and output
-
-The following input types are defined regarding the available SBOR representation,
-and it's necessary to have it converted to the types supported by RedStone Rust SDK.
-
-```rust
-use redstone::network::specific::U256;
-
-pub type U256Digits = [u64; 4];
-
-pub mod types {
-    use redstone::network::from_bytes_repr::FromBytesRepr;
-
-    pub type Payload = Vec<u8>;
-    pub type FeedIds = Vec<Vec<u8>>;
-    pub type Signers = Vec<Vec<u8>>;
-
-    #[inline]
-    pub fn convert_feed_ids(input: FeedIds) -> Vec<super::U256> {
-        input
-            .iter()
-            .map(|bytes| super::U256::from_bytes_repr(bytes.clone()))
-            .collect()
-    }
-}
-```
+The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/network/error/enum.Error.html)
 
 ## Pull model
 
@@ -179,10 +169,10 @@ To use the pull model, just invoke the `process_payload` function and return the
 ```rust
 pub fn get_prices(
     &mut self,
-    feed_ids: FeedIds,
-    payload: Payload,
-) -> (u64, Vec<U256Digits>) {
-    self.process_payload(convert_feed_ids(feed_ids), payload)
+    feed_ids: Vec<Vec<u8>>,
+    payload: Vec<u8>,
+) -> (u64, Vec<RedStoneValue>) {
+    self.process_payload(feed_ids, payload)
 }
 ```
 
@@ -193,22 +183,24 @@ For the Push model, invoke the `process_payload` function and save the value ins
 ```rust
 pub fn write_prices(
     &mut self,
-    feed_ids: FeedIds,
-    payload: Payload,
-) -> (u64, Vec<U256Digits>) {
-    let converted_feed_ids = convert_feed_ids(feed_ids);
-    let (payload_timestamp, values) = self.process_payload(converted_feed_ids.clone(), payload);
+    feed_ids: Vec<Vec<u8>>,
+    payload: Vec<u8>,
+) -> (u64, Vec<RedStoneValue>) {
+    let (payload_timestamp, values) = self.process_payload(feed_ids.clone(), payload);
 
-    payload_timestamp.assert_or_revert(
-        |&ts| ts > self.timestamp,
-        |_| Error::contract_error(PriceAdapterError::TimestampMustBeGreaterThanBefore),
-    );
+    UpdateTimestampVerifier::Untrusted.verify_timestamp(
+        Self::get_current_time().into(),
+        None,
+        0.into(),
+        self.timestamp.into(),
+        payload_timestamp.into(),
+    ).unwrap_or_else(|err| panic!("{}", err));
 
     self.timestamp = payload_timestamp;
-    self.prices = converted_feed_ids
+    self.prices = feed_ids
         .iter()
         .zip(values.clone())
-        .map(|(key, value)| (key.to_digits(), value))
+        .map(|(feed_id, value)|  (feed_id.clone(), value))
         .collect();
 
     (payload_timestamp, values)
@@ -218,20 +210,18 @@ pub fn write_prices(
 Then the values can be read by using
 
 ```rust
-pub fn read_prices(&mut self, feed_ids: FeedIds) -> Vec<U256Digits> {
-    convert_feed_ids(feed_ids)
+pub fn read_prices(&mut self, feed_ids: Vec<Vec<u8>>) -> Vec<RedStoneValue> {
+    feed_ids
         .iter()
-        .enumerate()
-        .map(|(index, feed_id)| self.read_price(feed_id.to_digits(), index))
+        .map(|feed_id| self.read_price(feed_id.clone()))
         .collect()
 }
+```
 
-fn read_price(&mut self, feed_id: U256Digits, index: usize) -> U256Digits {
-    *self.prices.get(&feed_id).unwrap_or_revert(|_| {
-        Error::contract_error(PriceAdapterError::MissingDataFeedValue(
-            index,
-            U256::from_digits(feed_id).as_ascii_str(),
-        ))
-    })
+or
+
+```rust
+pub fn read_price(&mut self, feed_id: Vec<u8>) -> RedStoneValue {
+    *self.prices.get(&feed_id).unwrap()
 }
 ```
