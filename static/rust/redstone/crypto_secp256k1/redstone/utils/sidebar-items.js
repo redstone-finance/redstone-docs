@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["filter","median","trim","trim_zeros"]};

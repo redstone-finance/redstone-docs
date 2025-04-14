@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["trim_data_point","trim_data_points"],"struct":["DataPoint"]};

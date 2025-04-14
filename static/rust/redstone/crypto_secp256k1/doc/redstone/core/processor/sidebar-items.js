@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["make_processor_result","process_payload"]};

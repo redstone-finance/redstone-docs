@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-sidebar_label: "🧩 Service Components"
+sidebar_label: "Service Components"
 ---
 
 # Service Components
@@ -17,14 +17,6 @@ Subsequently, it extracts the timestamp and calculates the median price from the
 Simultaneously, it checks the current price and timestamp returned by the smart contract.
 If the price has changed by more than a predefined deviation or if more than a specified time has passed since the last update, the calculated result is sent to the aggregator.
 
-## Aggregator
-
-The Aggregator acts as a hub, receiving results computed by the Task Performer.
-These results are sent to a pool of Attesters, who have previously registered with the AVS network through the Aggregator.
-The Aggregator then monitors for events originating from Attesters, specifically signed votes indicating their approval or disapproval of the verified result.
-These votes are aggregated into a collective BLS signature.
-Finally, the consolidated result from the Task Performer, accompanied by the BLS signature, is transmitted to the corresponding smart contract deployed on the blockchain.
-
 ## Attester
 
 Attesters are responsible for verifying the result calculated by the Performer and casting a vote either in favor or against based on this verification.
@@ -38,6 +30,14 @@ The API verifies the data returned by the oracle nodes.
 For each node, it checks if its public key is included in a predetermined whitelist.
 Additionally, the median and timestamp calculated by the Performer are verified.
 The verification result, a Boolean value, is returned to the Attester.
+
+## Aggregator
+
+The Aggregator acts as a hub, receiving results computed by the Task Performer.
+These results are sent to a pool of Attesters, who have previously registered with the AVS network through the Aggregator.
+The Aggregator then monitors for events originating from Attesters, specifically signed votes indicating their approval or disapproval of the verified result.
+These votes are aggregated into a collective BLS signature.
+Finally, the consolidated result from the Task Performer, accompanied by the BLS signature, is transmitted to the corresponding smart contract deployed on the blockchain.
 
 ## Smart contracts
 
@@ -53,4 +53,4 @@ Additionally, the Attesters are credited with an appropriate reward in the contr
 RedStone will kickstart the network by managing the Task Performer and Aggregator.
 However, we encourage external operators to join and contribute to the network's decentralization.
 To participate, operators need to set up an Attester and a corresponding Validation API.
-For detailed instructions on how to configure, register, and run an operator, please refer to our [guide](/docs/avs/running-avs-operator).
+For detailed instructions on how to configure, register, and run an operator, please refer to our [guide](/docs/avs/running-avs-operator-mainnet).

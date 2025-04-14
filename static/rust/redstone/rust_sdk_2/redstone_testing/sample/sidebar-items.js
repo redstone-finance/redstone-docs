@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["SAMPLE_SYSTEM_TIMESTAMP","SAMPLE_SYSTEM_TIMESTAMP_2","SAMPLE_SYSTEM_TIMESTAMP_OLD","SIGNERS"],"fn":["sample_eth_btc_avax_5sig","sample_eth_btc_avax_5sig_2","sample_eth_btc_avax_5sig_old"],"mod":["sample_test_helpers"],"struct":["Sample"]};

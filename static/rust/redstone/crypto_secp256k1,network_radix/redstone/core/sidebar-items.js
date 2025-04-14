@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["aggregator","config","processor","processor_result","validator"]};
