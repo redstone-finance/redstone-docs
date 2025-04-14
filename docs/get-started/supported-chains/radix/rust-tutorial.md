@@ -7,9 +7,9 @@ sidebar_label: "How to use in Rust/Scrypto"
 
 1. Read firstly the docs from [How to start](../) section
 2. See how to [set up local scrypto environment](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/radix-connector/scrypto/README.md)
-3. Read the [general philosophy of the on-ledger component](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scrypto/price_adapter/README.md)
-4. The full source of the component is available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/radix-connector/scrypto/price_adapter)
-5. See the [docs of the _RedStone Rust SDK_](https://docs.redstone.finance/rust/redstone/crypto_radix,network_radix/redstone/index.html) - the component is built on
+3. Read the [general philosophy of the on-ledger component](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scrypto/contracts/price_adapter/README.md)
+4. The full source of the component is available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/radix-connector/scrypto/contracts/price_adapter)
+5. See the [docs of the _RedStone Rust SDK_](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/index.html)—the component is built on
 
 The **info described there** is mostly **NOT REPEATED below**.
 
