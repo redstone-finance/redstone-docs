@@ -72,4 +72,5 @@ Additionally, if the protocol wants to be 100% compatible with the Chainlink Pri
 
 # We also support a few non-EVM-compatible chains
 
-<DocCardList />
+* [Radix - How to start](./radix/index.mdx)
+
