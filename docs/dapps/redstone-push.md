@@ -69,8 +69,3 @@ Additionally, if the protocol wants to be 100% compatible with the Chainlink Pri
 | DATA_FEEDS                 | RedStone Wrapper parameter that describes what tokens will be used                                                                         |
 | CACHE_SERVICE_URLS         | RedStone Wrapper parameter that describes what cache services URLs will be used to fetch the price                                         |
 | GAS_LIMIT                  | Gas limit used to push data to the price feed contract                                                                                     |
-
-# We also support a few non-EVM-compatible chains
-
-* [Radix - How to start](./radix/index.mdx)
-
