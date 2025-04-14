@@ -19,7 +19,7 @@ The **info described there** is mostly **NOT REPEATED below**.
 {
   dependencies: {
      ...
-    "@redstone-finance/radix-connector": "0.7.2",
+    "@redstone-finance/radix-connector": "0.8.0",
      ...
   }
 }
