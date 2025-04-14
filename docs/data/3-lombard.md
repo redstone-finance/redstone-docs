@@ -25,7 +25,7 @@ To burn LBTC and unstake BTC, a user initiates the burn by sending LBTC back to 
 
 ### Overview
 
-RedStone delivers LBTC/BTC fundamental price using both [pull](/docs/dapps/redstone-pull.mdx) and [push](/docs/dapps/redstone-push.md) models. The price is calculated as a ratio between BTC controlled by the Lombard protocol and the total supply of LBTC tokens across all supported chains. There are also adjustments for **total_unclaimed_lbtc** (LBTC tokens that are not yet minted but already have correlated BTC tokens deposited to the Lombard protocol) and **total_btc_unstakes_pending** (BTC tokens in the 7-day withdrawal period).
+RedStone delivers LBTC/BTC fundamental price using both [pull](/docs/dapps/redstone-pull.mdx) and [push](/docs/dapps/redstone-push.mdx) models. The price is calculated as a ratio between BTC controlled by the Lombard protocol and the total supply of LBTC tokens across all supported chains. There are also adjustments for **total_unclaimed_lbtc** (LBTC tokens that are not yet minted but already have correlated BTC tokens deposited to the Lombard protocol) and **total_btc_unstakes_pending** (BTC tokens in the 7-day withdrawal period).
 
 Currently, the value has an upper cap of 1, meaning a healthy value is 1, indicating the protocol’s stability. A value of 1 also signifies that there are as many or more BTC held by the protocol than there are LBTC tokens in circulation, ensuring full or over-collateralization. For example, if half of the BTC tokens disappear from wallets controlled by Lombard, but the LBTC supply remains the same, the ratio would drop to 0.5.
 
