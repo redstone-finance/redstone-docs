@@ -118,7 +118,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["bash", "solidity"],
+        additionalLanguages: ["bash", "solidity", "rust", "toml"],
       },
     }),
   plugins: [

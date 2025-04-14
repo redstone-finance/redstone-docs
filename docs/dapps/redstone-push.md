@@ -3,6 +3,8 @@ sidebar_position: 1
 sidebar_label: "Push model"
 ---
 
+import DocCardList from "@theme/DocCardList";
+
 # Standardized Access for DeFi Interoperability
 
 Ideal for dApps deeply integrated with existing protocols and traditional data consumption patterns
