@@ -48,7 +48,8 @@ mod price_adapter {
                 .map(|signer| (signer.clone()).into())
                 .collect();
 
-            verify_signers_config(addresses.as_slice(), signer_count_threshold).unwrap_or_else(|err| panic!("{}", err));
+            verify_signers_config(addresses.as_slice(), signer_count_threshold)
+                .unwrap_or_else(|err| panic!("{}", err));
 
             Self {
                 signer_count_threshold,
@@ -57,8 +58,8 @@ mod price_adapter {
                 timestamp: 0,
             }
                 .instantiate()
-                .prepare_to_globalize(OwnerRole::None).
-                globalize()
+                .prepare_to_globalize(OwnerRole::None)
+                .globalize()
         }
     }
 }
