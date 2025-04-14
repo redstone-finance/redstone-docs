@@ -33,7 +33,7 @@ The **info described there** is mostly **NOT REPEATED below**.
 yarn sample-deploy
 ```
 
-1. The package can be deployed by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/test/scripts/sample_deploy.ts).
+1. The package can be deployed by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scripts/sample_deploy.ts).
 2. The deployed `package.stokenet.addr` address can be found in the `scrypto/price_adapter` directory.
 3. The script uses [`RadixPackageDeployer`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scripts/RadixPackageDeployer.ts)
    with the [`@atlantis-l/radix-tool`](https://github.com/atlantis-l/Radix-Desktop-Tool) package under the hood,
@@ -45,7 +45,7 @@ yarn sample-deploy
 yarn sample-instantiate
 ```
 
-1. The component can be instantiated by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/test/scripts/sample_instantiate.ts).
+1. The component can be instantiated by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scripts/sample_instantiate_price_adapter.ts).
 2. The deployed `component.stokenet.addr` address can be found in the `scrypto/price_adapter` directory.
 3. The script uses [`PriceAdapterRadixContractDeployer`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/src/contracts/price_adapter/PriceAdapterRadixContractDeployer.ts)
 
@@ -55,5 +55,5 @@ yarn sample-instantiate
 yarn sample-run
 ```
 
-1. The sample scenario can be run by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/test/scripts/sample_run.ts).
+1. The sample scenario can be run by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scripts/sample_run.ts).
 2. The script uses [`PriceAdapterRadixContractConnector`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector//src/contracts/price_adapter/PriceAdapterRadixContractConnector.ts)
