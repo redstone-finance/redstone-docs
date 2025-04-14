@@ -76,7 +76,7 @@ To process the payload data, the following command should be used inside the `#[
 
 ```rust
 use redstone::{
-    core::{config::Config, ProcessorResult, },
+    core::{config::Config, ProcessorResult},
     radix::RadixRedStoneConfig,
     Value as RedStoneValue,
     contract::verification::*,
