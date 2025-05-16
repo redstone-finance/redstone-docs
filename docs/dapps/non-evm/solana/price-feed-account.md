@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_label: "Price Feed Account"
 ---
 
-# Price Feed Account 
+# RedStone Price Feed Account 
 
 ## Structure
 
