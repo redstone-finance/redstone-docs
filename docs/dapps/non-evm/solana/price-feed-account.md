@@ -67,7 +67,7 @@ fn redstone_value_to_price(raw_be_value: [u8; 32]) -> Result<u64> {
 }
 ```
 
-> ⚠️ Remember, the value is multiplied by 10 \*\* decimals.
+> ⚠️ Remember, the value is multiplied by `10^decimals`.
 
 ### Example usage
 
