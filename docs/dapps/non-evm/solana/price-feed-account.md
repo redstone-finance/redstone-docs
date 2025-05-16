@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_label: "Price Feed Account"
 ---
 
-# RedStone Price Feed Account 
+# RedStone Price Feed Account
 
 ## Structure
 
@@ -46,7 +46,7 @@ pub fn account_deserialize<T: AccountDeserialize + Discriminator>(
         );
     }
     let mut data: &[u8] = &data;
-    
+
     T::try_deserialize(&mut data).unwrap()
 }
 ```
@@ -54,8 +54,7 @@ pub fn account_deserialize<T: AccountDeserialize + Discriminator>(
 ### Reading Price Value
 
 The value of the price is encoded as a BigEndian byte list of length 32.
-Example conversion to `u64` (which can overflow for huge values) is described below. 
-
+Example conversion to `u64` (which can overflow for huge values) is described below.
 
 ```rust
 fn redstone_value_to_price(raw_be_value: [u8; 32]) -> Result<u64> {
@@ -68,7 +67,7 @@ fn redstone_value_to_price(raw_be_value: [u8; 32]) -> Result<u64> {
 }
 ```
 
-> ⚠️ Remember, the value is multiplied by 10 ** decimals.
+> ⚠️ Remember, the value is multiplied by 10 \*\* decimals.
 
 ### Example usage
 
@@ -81,7 +80,7 @@ pub mod test_usage {
 
         let value = redstone_value_to_price(price_data.value);
         msg!("FeedId: {:?}, {:?}", price_data.feed_id, value);
-        
+
         Ok(())
     }
 }
@@ -109,7 +108,7 @@ const PROGRAM_ID: &str = "REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr";
 fn make_price_seed() -> [u8; 32] {
     let mut seed = [0u8; 32];
     seed[0..5].copy_from_slice(b"price");
-    
+
     seed
 }
 
@@ -123,26 +122,20 @@ fn price_feed_account_pubkey(feed_id: &FeedIdBs) -> (Pubkey, u8) {
 ### TypeScript
 
 ```ts
-const PROGRAM_ID = new PublicKey("REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr")
-const FEED_ID = "ETH"
+const PROGRAM_ID = new PublicKey("REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr");
+const FEED_ID = "ETH";
 
 const makeFeedIdBytes = (feedId: string) => {
-    return Buffer.from(feedId.padEnd(32, "\0"));
+  return Buffer.from(feedId.padEnd(32, "\0"));
 };
 
 const makePriceSeed = () => {
-    return Buffer.from("price".padEnd(32, "\0"));
+  return Buffer.from("price".padEnd(32, "\0"));
 };
 
-const seeds = [
-    makePriceSeed(),
-    makeFeedIdBytes(FEED_ID)
-]
+const seeds = [makePriceSeed(), makeFeedIdBytes(FEED_ID)];
 
-const address = PublicKey.findProgramAddressSync(
-    seeds,
-    PROGRAM_ID
-)[0];
+const address = PublicKey.findProgramAddressSync(seeds, PROGRAM_ID)[0];
 ```
 
 ## Price Feed Account List
