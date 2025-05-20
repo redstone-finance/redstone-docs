@@ -48,6 +48,14 @@ This approach significantly saves on gas fees.
 If the new price receives enough votes, it is saved in the contract along with a new timestamp.
 Additionally, the Attesters are credited with an appropriate reward in the contract for their work, which can be claimed later.
 
+:::info
+The address of the `AttestationCenter` contract, where the calculation result is sent:
+
+- Testnet: [0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187](https://sepolia.basescan.org/address/0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187)
+- Mainnet: [0x2B766957ce3dbab9eC4b227f5086855CeE7a1ad6](https://basescan.org/address/0x2B766957ce3dbab9eC4b227f5086855CeE7a1ad6)
+
+:::
+
 ## Network Participation and Roles
 
 RedStone will kickstart the network by managing the Task Performer and Aggregator.
