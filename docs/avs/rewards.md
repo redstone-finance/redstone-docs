@@ -8,6 +8,12 @@ sidebar_label: "Rewards"
 RedStone AVS rewards operators and stakers for participating in the decentralized validation of data.  
 This page explains the mechanisms behind voting power, reward calculation and distribution, as well as the current status of slashing in the system.
 
+:::info
+All stakers in the RedStone AVS will receive **an additional 25% bonus** in EIGEN tokens, significantly boosting their total rewards. This bonus is **on top of the existing RED rewards** they earn and will be distributed periodically.
+
+See the announcement on X: [@redstone_defi](https://x.com/redstone_defi/status/1899779757853782371)
+:::
+
 ## Voting Power
 
 Voting power is a crucial concept within RedStone AVS, representing an operator's influence on the task validation process.
