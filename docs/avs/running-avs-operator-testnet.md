@@ -46,11 +46,11 @@ docker run --platform linux/amd64 -it public.ecr.aws/y7v2w8b2/avs-othentic-clien
 After executing the command, the following information will be required:
 
 - **Operator's Private Key** (
-  The [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key)):
+  The [Controller Key](https://docs.othentic.xyz/main/learn/advanced-concepts/key-management#key-roles)):
   This is the key used to sign up with the Othentic shared security protocol and is the account to which restakers
   delegate their staked assets.
 - **Use a different private key for Consensus?** (
-  The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/operator-registration#controller-key-and-consensus-key)):
+  The [Consensus Key](https://docs.othentic.xyz/main/learn/advanced-concepts/key-management#key-roles)):
   Choose "Yes" if you want to use a separate key for signing consensus messages, otherwise select "No" to use the same
   key.
 - **AVS Governance Contract Address**: the following contract address should be
@@ -61,7 +61,7 @@ After executing the command, the following information will be required:
 
 :::important
 After registering, please inform us, so we can add you to
-the [restricted attesters list](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#set-restricted-operator-set-for-a-task)
+the [restricted attesters list](https://docs.othentic.xyz/main/learn/core-concepts/tasks/task-definitions#restricted-operator-set-for-a-task)
 for the task definition.
 :::
 
@@ -124,14 +124,14 @@ This configuration file, named `.env`, should contain the fields that are define
 
 Below is an explanation of each field and information on which fields need to be filled out:
 
-| Parameter                    | Description                                                                                                                                                                              |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PRIVATE_KEY`                | The [Consensus Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#consensus-key)                                                                      |
-| `OPERATOR_ADDRESS`           | The public address of the [Controller Key](https://docs.othentic.xyz/main/avs-framework/othentic-cli/private-key-management#controller-key) (optional if both private keys are the same) |
-| `L1_RPC` / `L2_RPC`          | The RPC endpoint addresses for the L1 (Ethereum Holesky testnet) and L2 (Base Sepolia testnet) networks, respectively                                                                    |
-| `AVS_GOVERNANCE_ADDRESS`     | Address of the AVS Governance contract (`0x58ab5f17D13E56F6048890BBC7Ba3E44d00A3ED8`)                                                                                                    |
-| `ATTESTATION_CENTER_ADDRESS` | Address of the Attestation Center contract (`0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187`)                                                                                                |
-| `ANNOUNCED_ADDRESSES`        | see frame below for details                                                                                                                                                              |
+| Parameter                    | Description                                                                                                                                                                   |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PRIVATE_KEY`                | The [Consensus Key](https://docs.othentic.xyz/main/learn/advanced-concepts/key-management#consensus-key)                                                                      |
+| `OPERATOR_ADDRESS`           | The public address of the [Controller Key](https://docs.othentic.xyz/main/learn/advanced-concepts/key-management#controller-key) (optional if both private keys are the same) |
+| `L1_RPC` / `L2_RPC`          | The RPC endpoint addresses for the L1 (Ethereum Holesky testnet) and L2 (Base Sepolia testnet) networks, respectively                                                         |
+| `AVS_GOVERNANCE_ADDRESS`     | Address of the AVS Governance contract (`0x58ab5f17D13E56F6048890BBC7Ba3E44d00A3ED8`)                                                                                         |
+| `ATTESTATION_CENTER_ADDRESS` | Address of the Attestation Center contract (`0x6af9B9272fc72CaC55ccDF6c2BC2c5703a65a187`)                                                                                     |
+| `ANNOUNCED_ADDRESSES`        | see frame below for details                                                                                                                                                   |
 
 :::tip
 
@@ -159,7 +159,7 @@ or `<domain_name>`) and uncomment `--announced-addresses` and `${ANNOUNCED_ADDRE
 If your docker container cannot be reached from the internet you still can be an operator but there is a risk that your
 node will lose connection to the rest of the network from time to time and you will need to restart it.
 
-See also Othentic [docs](https://docs.othentic.xyz/main/avs-framework/othentic-cli/node-operators) on this topic.
+See also Othentic [docs](https://docs.othentic.xyz/main/user-guide/operator-management/run-an-attester-node) on this topic.
 :::
 
 ## Step 5: Running the Operator
@@ -185,7 +185,7 @@ volumes:
   - .othentic:/app/.othentic
 ```
 
-This directory is used for storing persistent data, following the [Othentic documentation](https://docs.othentic.xyz/main/avs-framework/othentic-cli/add-ons/persistent-storage). You can adjust the path on the host machine to this volume according to your preferences.
+This directory is used for storing persistent data, following the [Othentic documentation](https://docs.othentic.xyz/main/learn/advanced-concepts/p2p-networking/persistent-storage). You can adjust the path on the host machine to this volume according to your preferences.
 :::
 
 :::tip
@@ -208,14 +208,14 @@ In order to update the Operator code:
 
 In order to enable monitoring and metrics, start the Operator node with `--metrics --metrics.port <port>` params.
 For more details refer to the
-Othentic [docs](https://docs.othentic.xyz/main/avs-framework/othentic-cli/add-ons/metrics-and-monitoring#overview).
+Othentic [docs](https://docs.othentic.xyz/main/learn/advanced-concepts/p2p-networking/metrics-and-monitoring).
 
 ### Validation API
 
 The RedStone AVS network is using Othentic standard Validation API, which is exposed on the `POST /task/validate`
 endpoint.
 Refer to the
-Othentic [docs](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/validation-service#expose-an-api-endpoint)
+Othentic [docs](https://docs.othentic.xyz/main/learn/core-concepts/validation-service#task-validation-endpoint)
 for full specification.
 
 ### Unregistering the Operator
