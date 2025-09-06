@@ -23,7 +23,7 @@ Install [@redstone-finance/evm-connector](https://www.npmjs.com/package/@redston
   <TabItem value="Yarn">
 
 ```bash
-yarn add @redstone-finance/evm-connector
+yarn add @redstone-finance/evm-connector @redstone-finance/sdk
 ```
 
   </TabItem>
@@ -175,7 +175,7 @@ const yourEthersContract = new ethers.Contract(address, abi, provider);
 
 const wrappedContract = WrapperBuilder.wrap(contract).usingDataService({
   dataPackagesIds: ["ETH", "BTC"],
-  authorizedSigners: getSignersForDataServiceId(DATA_SERVICE_ID)
+  authorizedSigners: getSignersForDataServiceId(DATA_SERVICE_ID),
 });
 ```
 
