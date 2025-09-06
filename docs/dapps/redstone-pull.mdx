@@ -15,7 +15,7 @@ Best suited for dApps that require low-latency data.
 
 ## Installation
 
-Install [@redstone-finance/evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) from NPM registry
+Install [@redstone-finance/evm-connector](https://www.npmjs.com/package/@redstone-finance/evm-connector) and [@redstone-finance/sdk](https://www.npmjs.com/package/@redstone-finance/sdk) from NPM registry
 
 ### Hardhat
 
@@ -30,7 +30,7 @@ yarn add @redstone-finance/evm-connector
   <TabItem value="NPM">
 
 ```bash
-npm install @redstone-finance/evm-connector
+npm install @redstone-finance/evm-connector @redstone-finance/sdk
 ```
 
   </TabItem>
@@ -169,10 +169,13 @@ import { WrapperBuilder } from "@redstone-finance/evm-connector";
 Then you can wrap your ethers contract pointing to the selected [RedStone data service id.](https://app.redstone.finance/#/app/data-services) You can (optionally) specify a number of unique signers, data feed identifiers, and URLs for the redstone cache nodes.
 
 ```js
+import { getSignersForDataServiceId } from "@redstone-finance/sdk";
+
 const yourEthersContract = new ethers.Contract(address, abi, provider);
 
 const wrappedContract = WrapperBuilder.wrap(contract).usingDataService({
-  dataFeeds: ["ETH", "BTC"],
+  dataPackagesIds: ["ETH", "BTC"],
+  authorizedSigners: getSignersForDataServiceId(DATA_SERVICE_ID)
 });
 ```
 
