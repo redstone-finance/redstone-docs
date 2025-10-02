@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="A trait defining validation operations for data feeds and signers."><title>Validator in redstone::core::validator - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="redstone" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.0 (4d91de4e4 2025-02-17)" data-channel="1.85.0" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../redstone/index.html">redstone</a><span class="version">3.0.0-pre4</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Validator</a></h2><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.feed_index" title="feed_index">feed_index</a></li><li><a href="#tymethod.signer_index" title="signer_index">signer_index</a></li><li><a href="#tymethod.validate_signer_count_threshold" title="validate_signer_count_threshold">validate_signer_count_threshold</a></li><li><a href="#tymethod.validate_timestamp" title="validate_timestamp">validate_timestamp</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><div id="rustdoc-modnav"><h2><a href="index.html">In redstone::<wbr>core::<wbr>validator</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../../index.html">redstone</a>::<wbr><a href="../index.html">core</a>::<wbr><a href="index.html">validator</a></span><h1>Trait <span class="trait">Validator</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../src/redstone/core/validator.rs.html#13-83">Source</a> </span></div><pre class="rust item-decl"><code>pub trait Validator {
+    // Required methods
+    fn <a href="#tymethod.feed_index" class="fn">feed_index</a>(&amp;self, feed_id: <a class="struct" href="../../struct.FeedId.html" title="struct redstone::FeedId">FeedId</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.signer_index" class="fn">signer_index</a>(&amp;self, signer: &amp;<a class="struct" href="../../struct.SignerAddress.html" title="struct redstone::SignerAddress">SignerAddress</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.validate_signer_count_threshold" class="fn">validate_signer_count_threshold</a>(
+        &amp;self,
+        index: <a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>,
+        values: &amp;[<a class="enum" href="https://doc.rust-lang.org/1.85.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../struct.Value.html" title="struct redstone::Value">Value</a>&gt;],
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.0/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../struct.Value.html" title="struct redstone::Value">Value</a>&gt;, <a class="enum" href="../../network/error/enum.Error.html" title="enum redstone::network::error::Error">Error</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.validate_timestamp" class="fn">validate_timestamp</a>(
+        &amp;self,
+        index: <a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>,
+        timestamp: <a class="struct" href="../../struct.TimestampMillis.html" title="struct redstone::TimestampMillis">TimestampMillis</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../struct.TimestampMillis.html" title="struct redstone::TimestampMillis">TimestampMillis</a>, <a class="enum" href="../../network/error/enum.Error.html" title="enum redstone::network::error::Error">Error</a>&gt;;
+}</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>A trait defining validation operations for data feeds and signers.</p>
+<p>This trait specifies methods for validating aspects of data feeds and signers within a system that
+requires data integrity and authenticity checks. Implementations of this trait are responsible for
+defining the logic behind each validation step, ensuring that data conforms to expected rules and
+conditions.</p>
+</div></details><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="tymethod.feed_index" class="method"><a class="src rightside" href="../../../src/redstone/core/validator.rs.html#27">Source</a><h4 class="code-header">fn <a href="#tymethod.feed_index" class="fn">feed_index</a>(&amp;self, feed_id: <a class="struct" href="../../struct.FeedId.html" title="struct redstone::FeedId">FeedId</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>&gt;</h4></section></summary><div class="docblock"><p>Retrieves the index of a given data feed.</p>
+<p>This method takes a <code>feed_id</code> representing the unique identifier of a data feed and
+returns an <code>Option&lt;usize&gt;</code> indicating the index of the feed within a collection of feeds.
+If the feed does not exist, <code>None</code> is returned.</p>
+<h5 id="arguments"><a class="doc-anchor" href="#arguments">§</a>Arguments</h5>
+<ul>
+<li><code>feed_id</code>: <code>U256</code> - The unique identifier of the data feed.</li>
+</ul>
+<h5 id="returns"><a class="doc-anchor" href="#returns">§</a>Returns</h5>
+<ul>
+<li><code>Option&lt;usize&gt;</code> - The index of the feed if it exists, or <code>None</code> if it does not.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.signer_index" class="method"><a class="src rightside" href="../../../src/redstone/core/validator.rs.html#42">Source</a><h4 class="code-header">fn <a href="#tymethod.signer_index" class="fn">signer_index</a>(&amp;self, signer: &amp;<a class="struct" href="../../struct.SignerAddress.html" title="struct redstone::SignerAddress">SignerAddress</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>&gt;</h4></section></summary><div class="docblock"><p>Retrieves the index of a given signer.</p>
+<p>This method accepts a signer identifier and returns an
+<code>Option&lt;usize&gt;</code> indicating the signer’s index within a collection of signers. If the signer
+is not found, <code>None</code> is returned.</p>
+<h5 id="arguments-1"><a class="doc-anchor" href="#arguments-1">§</a>Arguments</h5>
+<ul>
+<li><code>signer</code>: <code>&amp;SignerAddress</code> - The signer’s identifier.</li>
+</ul>
+<h5 id="returns-1"><a class="doc-anchor" href="#returns-1">§</a>Returns</h5>
+<ul>
+<li><code>Option&lt;usize&gt;</code> - The index of the signer if found, or <code>None</code> if not found.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.validate_signer_count_threshold" class="method"><a class="src rightside" href="../../../src/redstone/core/validator.rs.html#58-62">Source</a><h4 class="code-header">fn <a href="#tymethod.validate_signer_count_threshold" class="fn">validate_signer_count_threshold</a>(
+    &amp;self,
+    index: <a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>,
+    values: &amp;[<a class="enum" href="https://doc.rust-lang.org/1.85.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../struct.Value.html" title="struct redstone::Value">Value</a>&gt;],
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.0/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../struct.Value.html" title="struct redstone::Value">Value</a>&gt;, <a class="enum" href="../../network/error/enum.Error.html" title="enum redstone::network::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Validates the signer count threshold for a given index within a set of values.</p>
+<p>This method is responsible for ensuring that the number of valid signers meets or exceeds
+a specified threshold necessary for a set of data values to be considered valid. It returns
+a vector of <code>Value</code> if the values pass the validation, to be processed in other steps.</p>
+<h5 id="arguments-2"><a class="doc-anchor" href="#arguments-2">§</a>Arguments</h5>
+<ul>
+<li><code>index</code>: <code>usize</code> - The index of the data value being validated.</li>
+<li><code>values</code>: <code>&amp;[Option&lt;Value&gt;]</code> - A slice of optional <code>Value</code> values associated with the data.</li>
+</ul>
+<h5 id="returns-2"><a class="doc-anchor" href="#returns-2">§</a>Returns</h5>
+<ul>
+<li><code>Vec&lt;U256&gt;</code> - A vector of <code>U256</code> values that meet the validation criteria.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.validate_timestamp" class="method"><a class="src rightside" href="../../../src/redstone/core/validator.rs.html#78-82">Source</a><h4 class="code-header">fn <a href="#tymethod.validate_timestamp" class="fn">validate_timestamp</a>(
+    &amp;self,
+    index: <a class="primitive" href="https://doc.rust-lang.org/1.85.0/std/primitive.usize.html">usize</a>,
+    timestamp: <a class="struct" href="../../struct.TimestampMillis.html" title="struct redstone::TimestampMillis">TimestampMillis</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../struct.TimestampMillis.html" title="struct redstone::TimestampMillis">TimestampMillis</a>, <a class="enum" href="../../network/error/enum.Error.html" title="enum redstone::network::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Validates the timestamp for a given index.</p>
+<p>This method checks whether a timestamp associated with a data value at a given index
+meets specific conditions (e.g., being within an acceptable time range). It returns
+the validated timestamp if it’s valid, to be processed in other steps.</p>
+<h5 id="arguments-3"><a class="doc-anchor" href="#arguments-3">§</a>Arguments</h5>
+<ul>
+<li><code>index</code>: <code>usize</code> - The index of the data value whose timestamp is being validated.</li>
+<li><code>timestamp</code>: <code>BlockTimestampMillis</code> - The timestamp to be validated.</li>
+</ul>
+<h5 id="returns-3"><a class="doc-anchor" href="#returns-3">§</a>Returns</h5>
+<ul>
+<li><code>BlockTimestampMillis</code> - The validated timestamp.</li>
+</ul>
+</div></details></div><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-Validator-for-Config" class="impl"><a class="src rightside" href="../../../src/redstone/core/validator.rs.html#85-133">Source</a><a href="#impl-Validator-for-Config" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.Validator.html" title="trait redstone::core::validator::Validator">Validator</a> for <a class="struct" href="../config/struct.Config.html" title="struct redstone::core::config::Config">Config</a></h3></section></div><script src="../../../trait.impl/redstone/core/validator/trait.Validator.js" async></script></section></div></main></body></html>
