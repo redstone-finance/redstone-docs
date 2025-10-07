@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["process_payload"]};
+window.SIDEBAR_ITEMS = {"fn":["decode_payload","process_payload"]};
