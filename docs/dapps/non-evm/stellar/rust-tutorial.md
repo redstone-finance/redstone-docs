@@ -120,7 +120,7 @@ pub fn get_prices(
 
 ## Push model
 
-### Example storage PriceData
+### Example storage data
 
 The following `PriceData` struct can be stored for storage keys representing the feed ids:
 
