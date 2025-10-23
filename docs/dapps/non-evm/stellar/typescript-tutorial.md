@@ -19,7 +19,7 @@ The **info described there** is mostly **NOT REPEATED below**.
 {
   dependencies: {
      ...
-    "@redstone-finance/stellar-connector": "0.8.0",
+    "@redstone-finance/stellar-connector": "0.9.0",
      ...
   }
 }
@@ -27,27 +27,16 @@ The **info described there** is mostly **NOT REPEATED below**.
 
 ## Using the PriceAdapter package with `@redstone-finance/stellar-connector`
 
-### Deploying package
+Use the `.env.example` file to create your `.env` file.
+
+### Deploying contracts
 
 ```shell
 yarn sample-deploy
 ```
 
-1. The package can be deployed by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scripts/sample_deploy.ts).
-2. The deployed `package.stokenet.addr` address can be found in the `scrypto/price_adapter` directory.
-3. The script uses [`StellarPackageDeployer`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scripts/StellarPackageDeployer.ts)
-   with the [`@atlantis-l/stellar-tool`](https://github.com/atlantis-l/Stellar-Desktop-Tool) package under the hood,
-   as the Stellar Desktop Tool uses.
-
-### Instantiating component
-
-```shell
-yarn sample-instantiate
-```
-
-1. The component can be instantiated by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scripts/sample_instantiate_price_adapter.ts).
-2. The deployed `component.stokenet.addr` address can be found in the `scrypto/price_adapter` directory.
-3. The script uses [`PriceAdapterStellarContractDeployer`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/src/contracts/price_adapter/PriceAdapterStellarContractDeployer.ts).
+1. The contract can be deployed by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scripts/sample-deploy.ts).
+2. The deployed `redstone_adapter-id.testnet` and/or `redstone_price_feed-XXX-id.testnet` addresses can be found in the `stellar` directory.
 
 ### Sample run
 
@@ -55,5 +44,5 @@ yarn sample-instantiate
 yarn sample-run
 ```
 
-1. The sample scenario can be run by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scripts/sample_run.ts).
-2. The script uses [`PriceAdapterStellarContractConnector`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector//src/contracts/price_adapter/PriceAdapterStellarContractConnector.ts).
+1. The sample scenario can be run by using the above command, defined [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scripts/sample-run.ts).
+2. The script uses [`PriceAdapterStellarContractConnector`](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/src/adapters/PriceAdapterStellarContractConnector.ts).
