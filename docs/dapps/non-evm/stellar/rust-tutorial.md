@@ -1,15 +1,15 @@
 ---
-sidebar_position: 2
-sidebar_label: "How to use in Rust/Scrypto"
+sidebar_position: 3
+sidebar_label: "How to use in Rust/Soroban"
 ---
 
-# Scrypto component—how it is built
+# Soroban contract—how it is built
 
 1. Read firstly the docs from [How to start](../) section
 2. Read the [general philosophy of the on-chain components](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/stellar-connector/stellar/contracts/README.md)
 3. The full source of the component is available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/stellar-connector)
 4. See the [docs of the _RedStone Rust SDK_](https://docs.redstone.finance/rust/redstone/rust_sdk_3/redstone/index.html)—the component is built on
- 
+
 The **info described there** is mostly **NOT REPEATED below**.
 
 ## Dependencies
