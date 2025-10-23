@@ -6,63 +6,20 @@ sidebar_label: "How to use in Rust/Scrypto"
 # Scrypto component—how it is built
 
 1. Read firstly the docs from [How to start](../) section
-2. See how to [set up local scrypto environment](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/radix-connector/scrypto/README.md)
-3. Read the [general philosophy of the on-ledger component](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scrypto/contracts/price_adapter/README.md)
-4. The full source of the component is available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/radix-connector/scrypto/contracts/price_adapter)
-5. See the [docs of the _RedStone Rust SDK_](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/index.html)—the component is built on
-
+2. Read the [general philosophy of the on-chain components](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/stellar-connector/stellar/contracts/README.md)
+3. The full source of the component is available [here](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/stellar-connector)
+4. See the [docs of the _RedStone Rust SDK_](https://docs.redstone.finance/rust/redstone/rust_sdk_3/redstone/index.html)—the component is built on
+ 
 The **info described there** is mostly **NOT REPEATED below**.
 
 ## Dependencies
 
-1. Use the following dependencies to embed _RedStone Rust SDK_ into Scrypto.
+1. Use the following dependencies to embed _RedStone Rust SDK_ with _soroban_ feature.
 
 ```toml
 [dependencies]
-scrypto = { version = "1.3.0" }
-redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "2.0.0", default-features = false, features = ["radix"] }
-```
-
-## Instantiating & Storage
-
-Some of the values are necessary to be stored inside the component during its instantiating.
-Also, for the [Push model](#push-model), the values and timestamp are stored in the component.
-
-```rust
-#[blueprint]
-mod price_adapter {
-    struct PriceAdapter {
-        signer_count_threshold: u8,
-        signers: Vec<Vec<u8>>,
-        prices: HashMap<Vec<u8>, RedStoneValue>,
-        timestamp: u64,
-    }
-
-    impl PriceAdapter {
-        pub fn instantiate(
-            signer_count_threshold: u8,
-            allowed_signer_addresses: Vec<Vec<u8>>,
-        ) -> Global<PriceAdapter> {
-            let addresses: Vec<SignerAddress> = allowed_signer_addresses
-                .iter()
-                .map(|signer| (signer.clone()).into())
-                .collect();
-
-            verify_signers_config(addresses.as_slice(), signer_count_threshold)
-                .unwrap_or_else(|err| panic!("{}", err));
-
-            Self {
-                signer_count_threshold,
-                signers: allowed_signer_addresses,
-                prices: hashmap!(),
-                timestamp: 0,
-            }
-                .instantiate()
-                .prepare_to_globalize(OwnerRole::None)
-                .globalize()
-        }
-    }
-}
+soroban-sdk = { version = "23.0.2", features = ["alloc"] }
+redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "3.0.0-pre6", default-features = false, features = ["soroban"] }
 ```
 
 ## Using the _RedStone Rust SDK_
@@ -70,98 +27,77 @@ mod price_adapter {
 ### Payload processing
 
 1. The payload bytes should be defined as described [here](https://docs.redstone.finance/img/payload.png).
-2. The payload can be generated as described [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scrypto/README.md#preparing-sample-data).
+2. The payload can be generated as described [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scrypto/README.md#preparing-sample-data).
 
-To process the payload data, the following command should be used inside the `#[blueprint]`.
+To process the payload data, the following command should be used inside the `#[contractimpl]`.
 
 ```rust
 use redstone::{
-    core::{config::Config, ProcessorResult},
-    radix::RadixRedStoneConfig,
-    Value as RedStoneValue,
-    contract::verification::*,
-    SignerAddress
+    contract::verification::UpdateTimestampVerifier, core::process_payload,
+    network::error::Error as RedStoneError, soroban::helpers::ToBytes, TimestampMillis,
 };
 ```
 
 The function processes on-chain the payload passed as an argument and returns an array of aggregated values of each feed passed as an identifier inside feed_ids, and a timestamp related to the payload data packages.
 
 ```rust
-fn process_payload(
-    &mut self,
-    feed_ids: Vec<Vec<u8>>,
-    payload: Vec<u8>,
-) -> (u64, Vec<RedStoneValue>) {
-    let result = Self::try_process_payload(
-        Self::get_current_time(),
-        self.signer_count_threshold,
-        self.signers.clone(),
-        feed_ids,
-        payload,
-        None,
-        None,
-    )
-        .unwrap_or_else(|err| panic!("{}", err));
+fn get_prices_from_payload(
+    env: &Env,
+    feed_ids: &Vec<String>,
+    payload: &Bytes,
+) -> Result<(u64, Vec<U256>), RedStoneError> {
+    let feed_ids: StdVec<_> = feed_ids
+        .into_iter()
+        .map(|id| ToBytes::to_bytes(&id).into())
+        .collect();
+    let block_timestamp = now(env);
 
-    (result.timestamp.as_millis(), result.values)
+    let feed_ids_length = feed_ids.len();
+    let mut config = STELLAR_CONFIG.redstone_config(env, feed_ids, block_timestamp)?;
+    let result = process_payload(&mut config, payload.to_alloc_vec())?;
+
+    assert!(result.values.len() == feed_ids_length);
+
+    let prices = Vec::from_iter(
+        env,
+        result.values.iter().map(|feed_value| {
+            U256::from_be_bytes(env, &Bytes::from_array(env, &feed_value.value.0))
+        }),
+    );
+
+    Ok((result.timestamp.as_millis(), prices))
 }
-
-fn try_process_payload(
-    block_timestamp: u64,
-    signer_count_threshold: u8,
-    signers: Vec<Vec<u8>>,
-    feed_ids: Vec<Vec<u8>>,
-    payload: Vec<u8>,
-    max_timestamp_delay_ms: Option<u64>,
-    max_timestamp_ahead_ms: Option<u64>,
-) -> ProcessorResult {
-    let config: RadixRedStoneConfig = Config::try_new(
-        signer_count_threshold,
-        signers.into_iter().map(|id| id.into()).collect(),
-        feed_ids.into_iter().map(|id| id.into()).collect(),
-        block_timestamp.into(),
-        max_timestamp_delay_ms.map(|v| v.into()),
-        max_timestamp_ahead_ms.map(|v| v.into()),
-    )?
-        .into();
-
-    redstone::core::process_payload(&config, payload)
-}
-
 ```
 
 #### Config
 
-The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/core/config/struct.Config.html).
-
-For safety reasons, the allowed `signers` and `signer_count_threshold` should be embedded in the component as defined above.
+The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/rust_sdk_3/redstone/core/config/struct.Config.html).
+For safety reasons, the allowed `signers` and `signer_count_threshold` are embedded in the `STELLAR_CONFIG` as constants.
+Example configs can be found here: https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/stellar/contracts/redstone-adapter/src/config/mod.rs
 
 #### Current timestamp
 
 Also, the current timestamp in milliseconds is necessary to be passed as the `block timestamp` parameter:
 
 ```rust
-use scrypto::prelude::*;
+use redstone::TimestampMillis;
+use soroban_sdk::Env;
 
-pub fn get_current_time() -> u64 {
-    let rtn = ScryptoVmV1Api::object_call(
-        CONSENSUS_MANAGER.as_node_id(),
-        CONSENSUS_MANAGER_GET_CURRENT_TIME_IDENT,
-        scrypto_encode(&ConsensusManagerGetCurrentTimeInputV2 {
-            precision: TimePrecisionV2::Second,
-        })
-        .unwrap(),
-    );
-
-    let instant: Instant = scrypto_decode(&rtn).unwrap();
-
-    instant.seconds_since_unix_epoch as u64
+fn now(env: &Env) -> TimestampMillis {
+    TimestampMillis::from_millis(env.ledger().timestamp() * 1000)
 }
 ```
 
 #### Errors
 
-The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/rust_sdk_2/redstone/network/error/enum.Error.html).
+The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/rust_sdk_3/redstone/network/error/enum.Error.html).
+By default, the _RedStoneError_ doesn't implement `Into<soroban_sdk::Error>`, so the following function is implemented:
+
+```rust
+fn error_from_redstone_error(error: RedStoneError) -> Error {
+    Error::from_contract_error(error.code().into())
+}
+```
 
 ## Pull model
 
@@ -169,60 +105,125 @@ To use the pull model, just invoke the `process_payload` function and return the
 
 ```rust
 pub fn get_prices(
-    &mut self,
-    feed_ids: Vec<Vec<u8>>,
-    payload: Vec<u8>,
-) -> (u64, Vec<RedStoneValue>) {
-    self.process_payload(feed_ids, payload)
+    env: &Env,
+    feed_ids: Vec<String>,
+    payload: Bytes,
+) -> Result<(u64, Vec<U256>), Error> {
+    let (timestamp, prices) =
+        get_prices_from_payload(env, &feed_ids, &payload).map_err(error_from_redstone_error)?;
+
+    Ok((timestamp, prices))
 }
 ```
 
 ## Push model
 
+### Example storage PriceData
+
+The following _PriceData_ can be stored for storage-keys representing the feed ids:
+
+```rust
+#[derive(Debug, Clone)]
+#[contracttype]
+pub struct PriceData {
+    pub price: U256,
+    pub package_timestamp: u64,
+    pub write_timestamp: u64,
+}
+```
+
 For the Push model, invoke the `process_payload` function and save the value inside storage.
 
 ```rust
-pub fn write_prices(
-    &mut self,
-    feed_ids: Vec<Vec<u8>>,
-    payload: Vec<u8>,
-) -> (u64, Vec<RedStoneValue>) {
-    let (payload_timestamp, values) = self.process_payload(feed_ids.clone(), payload);
+    pub fn write_prices(
+    env: &Env,
+    updater: Address,
+    feed_ids: Vec<String>,
+    payload: Bytes,
+) -> Result<(), Error> {
+    updater.require_auth();
 
-    UpdateTimestampVerifier::Untrusted.verify_timestamp(
-        Self::get_current_time().into(),
-        None,
-        0.into(),
-        self.timestamp.into(),
-        payload_timestamp.into(),
-    ).unwrap_or_else(|err| panic!("{}", err));
+    // Extend ttl if needed
+    // env.storage().instance().extend_ttl(
+    //     CONTRACT_TTL_THRESHOLD_LEDGERS,
+    //     CONTRACT_TTL_EXTEND_TO_LEDGERS,
+    // );
 
-    self.timestamp = payload_timestamp;
-    self.prices = feed_ids
-        .iter()
-        .zip(values.clone())
-        .map(|(feed_id, value)|  (feed_id.clone(), value))
-        .collect();
+    let verifier =
+        UpdateTimestampVerifier::verifier(&updater, &STELLAR_CONFIG.trusted_updaters(env));
 
-    (payload_timestamp, values)
+    let (package_timestamp, prices) =
+        get_prices_from_payload(env, &feed_ids, &payload).map_err(error_from_redstone_error)?;
+    let write_timestamp = now(env);
+
+    let db = env.storage().persistent();
+
+    let mut updated_feeds = Vec::new(env);
+
+    for (feed_id, price) in feed_ids.iter().zip(prices.iter()) {
+        let price_data = PriceData {
+            price,
+            package_timestamp,
+            write_timestamp: write_timestamp.as_millis(),
+        };
+
+        if update_feed(&db, &verifier, &feed_id, &price_data) {
+            updated_feeds.push_back(price_data.clone());
+        }
+    }
+
+    Ok(())
 }
 ```
 
-Then the values can be read by using
+We recommend the value verification to be done before updating, by a prepared Verifier:
 
 ```rust
-pub fn read_prices(&mut self, feed_ids: Vec<Vec<u8>>) -> Vec<RedStoneValue> {
-    feed_ids
-        .iter()
-        .map(|feed_id| self.read_price(feed_id.clone()))
-        .collect()
+fn update_feed(
+    db: &Persistent,
+    verifier: &UpdateTimestampVerifier,
+    feed_id: &String,
+    price_data: &PriceData,
+) -> bool {
+    let old_price_data: Option<PriceData> = db.get(feed_id);
+
+    if verifier
+        .verify_timestamp(
+            price_data.write_timestamp.into(),
+            old_price_data.as_ref().map(|pd| pd.write_timestamp.into()),
+            STELLAR_CONFIG.min_interval_between_updates_ms.into(),
+            old_price_data
+                .as_ref()
+                .map(|pd| pd.package_timestamp.into()),
+            price_data.package_timestamp.into(),
+        )
+        .is_err()
+    {
+        return false;
+    }
+
+    db.set(feed_id, price_data);
+
+    // Extend ttl if needed
+    // db.extend_ttl(feed_id, FEED_TTL_THRESHOLD, FEED_TTL_EXTEND_TO);
+
+    true
 }
 ```
 
-or
+Then the values can be read by using:
 
 ```rust
-pub fn read_price(&mut self, feed_id: Vec<u8>) -> RedStoneValue {
-    *self.prices.get(&feed_id).unwrap()
+pub fn read_prices(env: &Env, feed_ids: Vec<String>) -> Result<Vec<U256>, Error> {
+    let mut prices = Vec::new(env);
+
+    let db = env.storage().persistent();
+    for feed_id in feed_ids {
+        let feed_data: PriceData = db.get(&feed_id).unwrap();
+
+        prices.push_back(feed_data.price);
+    }
+
+    Ok(prices)
 }
 ```
