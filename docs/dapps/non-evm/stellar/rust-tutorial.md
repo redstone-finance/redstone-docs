@@ -27,7 +27,7 @@ redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "3.0.0-
 ### Payload processing
 
 1. The payload bytes should be defined as described [here](https://docs.redstone.finance/img/payload.png).
-2. The payload can be generated as described [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/scrypto/README.md#preparing-sample-data).
+2. The payload can be generated as described [here](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/radix-connector/scrypto/README.md#preparing-sample-data).
 
 To process the payload data, the following command should be used inside the `#[contractimpl]`.
 
@@ -38,7 +38,7 @@ use redstone::{
 };
 ```
 
-The function processes on-chain the payload passed as an argument and returns an array of aggregated values of each feed passed as an identifier inside feed_ids, and a timestamp related to the payload data packages.
+The function processes on-chain the `payload` passed as an argument and returns an array of aggregated values of each feed passed as an identifier inside `feed_ids`, and a `timestamp` related to the payload data packages.
 
 ```rust
 fn get_prices_from_payload(
@@ -73,6 +73,7 @@ fn get_prices_from_payload(
 
 The `Config` structure is described [here](https://docs.redstone.finance/rust/redstone/rust_sdk_3/redstone/core/config/struct.Config.html).
 For safety reasons, the allowed `signers` and `signer_count_threshold` are embedded in the `STELLAR_CONFIG` as constants.
+
 Example configs can be found here: https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/stellar-connector/stellar/contracts/redstone-adapter/src/config/mod.rs
 
 #### Current timestamp
@@ -91,7 +92,8 @@ fn now(env: &Env) -> TimestampMillis {
 #### Errors
 
 The possible errors thrown during the payload processing can be found [here](https://docs.redstone.finance/rust/redstone/rust_sdk_3/redstone/network/error/enum.Error.html).
-By default, the _RedStoneError_ doesn't implement `Into<soroban_sdk::Error>`, so the following function is implemented:
+
+By default, the `RedStoneError` doesn't implement `Into<soroban_sdk::Error>`, so the following function is implemented:
 
 ```rust
 fn error_from_redstone_error(error: RedStoneError) -> Error {
@@ -101,7 +103,7 @@ fn error_from_redstone_error(error: RedStoneError) -> Error {
 
 ## Pull model
 
-To use the pull model, just invoke the `process_payload` function and return the value.
+To use the Pull model, just invoke the `process_payload` function and return the value.
 
 ```rust
 pub fn get_prices(
@@ -120,7 +122,7 @@ pub fn get_prices(
 
 ### Example storage PriceData
 
-The following _PriceData_ can be stored for storage-keys representing the feed ids:
+The following `PriceData` struct can be stored for storage keys representing the feed ids:
 
 ```rust
 #[derive(Debug, Clone)]
@@ -135,7 +137,7 @@ pub struct PriceData {
 For the Push model, invoke the `process_payload` function and save the value inside storage.
 
 ```rust
-    pub fn write_prices(
+pub fn write_prices(
     env: &Env,
     updater: Address,
     feed_ids: Vec<String>,
@@ -172,11 +174,13 @@ For the Push model, invoke the `process_payload` function and save the value ins
         }
     }
 
+   // Process or return updated_feeds, for example by emitting an event
+
     Ok(())
 }
 ```
 
-We recommend the value verification to be done before updating, by a prepared Verifier:
+We recommend the value verification to be done before updating, by a provided `UpdateTimestampVerifier`:
 
 ```rust
 fn update_feed(
