@@ -84,7 +84,7 @@ use redstone::{
 };
 ```
 
-The function processes on-chain the payload passed as an argument and returns an array of aggregated values of each feed passed as an identifier inside feed_ids, and a timestamp related to the payload data packages.
+The function processes on-chain the `payload` passed as an argument and returns an array of aggregated values of each feed passed as an identifier inside `feed_ids`, and a `timestamp` related to the payload data packages.
 
 ```rust
 fn process_payload(
@@ -165,7 +165,7 @@ The possible errors thrown during the payload processing can be found [here](htt
 
 ## Pull model
 
-To use the pull model, just invoke the `process_payload` function and return the value.
+To use the Pull model, just invoke the `process_payload` function and return the value.
 
 ```rust
 pub fn get_prices(
