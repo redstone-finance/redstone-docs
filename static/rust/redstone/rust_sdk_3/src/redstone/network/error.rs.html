@@ -219,7 +219,30 @@
 <a href="#218" id="218">218</a>
 <a href="#219" id="219">219</a>
 <a href="#220" id="220">220</a>
-<a href="#221" id="221">221</a></pre></div><pre class="rust"><code><span class="kw">use </span>alloc::{string::String, vec::Vec};
+<a href="#221" id="221">221</a>
+<a href="#222" id="222">222</a>
+<a href="#223" id="223">223</a>
+<a href="#224" id="224">224</a>
+<a href="#225" id="225">225</a>
+<a href="#226" id="226">226</a>
+<a href="#227" id="227">227</a>
+<a href="#228" id="228">228</a>
+<a href="#229" id="229">229</a>
+<a href="#230" id="230">230</a>
+<a href="#231" id="231">231</a>
+<a href="#232" id="232">232</a>
+<a href="#233" id="233">233</a>
+<a href="#234" id="234">234</a>
+<a href="#235" id="235">235</a>
+<a href="#236" id="236">236</a>
+<a href="#237" id="237">237</a>
+<a href="#238" id="238">238</a>
+<a href="#239" id="239">239</a>
+<a href="#240" id="240">240</a>
+<a href="#241" id="241">241</a>
+<a href="#242" id="242">242</a>
+<a href="#243" id="243">243</a>
+<a href="#244" id="244">244</a></pre></div><pre class="rust"><code><span class="kw">use </span>alloc::{string::String, vec::Vec};
 <span class="kw">use </span>core::num::TryFromIntError;
 
 <span class="kw">use </span>thiserror::Error;
@@ -337,6 +360,13 @@
     </span><span class="attr">#[error(<span class="string">"Wrong configuration signer count, got {0} signers, allowed maximum is {1}"</span>)]
     </span>ConfigExceededSignerCount(usize, usize),
 
+    <span class="doccomment">/// ConfigInvalidSignerAddress occurs
+    /// when there is at least one invalid signer present in configuration.
+    ///
+    /// Includes SignerAddress that is invalid.
+    </span><span class="attr">#[error(<span class="string">"Wrong configuration, invalid signer {}"</span>, .<span class="number">0</span>.as_hex_str())]
+    </span>ConfigInvalidSignerAddress(SignerAddress),
+
     <span class="doccomment">/// Indicates that a SignerAddress is reoccurring on the config signer list.
     ///
     /// Includes SignerAddress that is reoccurring.
@@ -346,6 +376,14 @@
     <span class="doccomment">/// Indicates that the list doesn't contain FeedIds.
     </span><span class="attr">#[error(<span class="string">"Empty configuration feed ids list"</span>)]
     </span>ConfigEmptyFeedIds,
+
+    <span class="doccomment">/// Indicates that the list contains too many FeedIds.
+    </span><span class="attr">#[error(<span class="string">"Wrong configuration, got {0} feedIds, allowed maximum is {1}"</span>)]
+    </span>ConfigExceededFeedIdsLength(usize, usize),
+
+    <span class="doccomment">/// Indicates that the list contains invalid FeedId.
+    </span><span class="attr">#[error(<span class="string">"Wrong configuration, contains invalid feed id {}"</span>, .<span class="number">0</span>.as_hex_str())]
+    </span>ConfigInvalidFeedId(FeedId),
 
     <span class="doccomment">/// Indicates that a FeedId is reoccurring on the config feed_ids list.
     ///
@@ -395,6 +433,10 @@
         staleness_threshold: TimestampMillis,
         time_now: TimestampMillis,
     },
+
+    <span class="doccomment">/// Indicates error of overflowing buffer.
+    </span><span class="attr">#[error(<span class="string">"buffer overflow"</span>)]
+    </span>BufferOverflow,
 }
 
 <span class="kw">impl </span>From&lt;CryptoError&gt; <span class="kw">for </span>Error {
@@ -420,8 +462,11 @@
             Error::ReoccurringFeedId(<span class="kw">_</span>) =&gt; <span class="number">513</span>,
             Error::ConfigInsufficientSignerCount(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">514</span>,
             Error::ConfigExceededSignerCount(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">515</span>,
+            Error::ConfigInvalidSignerAddress(<span class="kw">_</span>) =&gt; <span class="number">521</span>,
             Error::ConfigReoccurringSigner(<span class="kw">_</span>) =&gt; <span class="number">516</span>,
             Error::ConfigEmptyFeedIds =&gt; <span class="number">517</span>,
+            Error::ConfigExceededFeedIdsLength(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">522</span>,
+            Error::ConfigInvalidFeedId(<span class="kw">_</span>) =&gt; <span class="number">523</span>,
             Error::ConfigReoccurringFeedId(<span class="kw">_</span>) =&gt; <span class="number">518</span>,
             Error::TimestampDifferentThanOthers(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">519</span>,
             Error::SignerNotRecognized(<span class="kw">_</span>) =&gt; <span class="number">520</span>,
@@ -437,6 +482,7 @@
             Error::NumberConversionFail =&gt; <span class="number">1200</span>,
             Error::UsizeOverflow =&gt; <span class="number">1300</span>,
             Error::DataStaleness { .. } =&gt; <span class="number">1400</span>,
+            Error::BufferOverflow =&gt; <span class="number">1500</span>,
         }
     }
 }

@@ -518,9 +518,7 @@
 <a href="#517" id="517">517</a>
 <a href="#518" id="518">518</a>
 <a href="#519" id="519">519</a>
-<a href="#520" id="520">520</a>
-<a href="#521" id="521">521</a>
-<a href="#522" id="522">522</a></pre></div><pre class="rust"><code><span class="kw">use </span>alloc::vec::Vec;
+<a href="#520" id="520">520</a></pre></div><pre class="rust"><code><span class="kw">use </span>alloc::vec::Vec;
 <span class="kw">use </span>core::convert::TryInto;
 
 <span class="kw">use crate</span>::{
@@ -537,7 +535,7 @@
         marker::trim_redstone_marker,
         payload::Payload,
     },
-    utils::trim::{Trim, TryTrim},
+    utils::trim::TryTrim,
     TimestampMillis,
 };
 
@@ -569,14 +567,12 @@
     }
 
     <span class="kw">fn </span>trim_metadata(<span class="kw-2">&amp;</span><span class="self">self</span>, payload: <span class="kw-2">&amp;mut </span>Vec&lt;u8&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt; {
-        <span class="kw">let </span>unsigned_metadata_size = payload
-            .try_trim_end(UNSIGNED_METADATA_BYTE_SIZE_BS)<span class="question-mark">?
-            </span>.try_into()<span class="question-mark">?</span>;
-        <span class="kw">let _</span>: Vec&lt;u8&gt; = payload.trim_end(unsigned_metadata_size);
+        <span class="kw">let </span>unsigned_metadata_size: u64 = payload.try_trim_end(UNSIGNED_METADATA_BYTE_SIZE_BS)<span class="question-mark">?</span>;
+        <span class="kw">let _</span>: Vec&lt;u8&gt; = payload.try_trim_end(unsigned_metadata_size.try_into()<span class="question-mark">?</span>)<span class="question-mark">?</span>;
 
-        <span class="kw">let </span>data_package_count = payload.try_trim_end(DATA_PACKAGES_COUNT_BS)<span class="question-mark">?</span>.try_into()<span class="question-mark">?</span>;
+        <span class="kw">let </span>data_package_count: u64 = payload.try_trim_end(DATA_PACKAGES_COUNT_BS)<span class="question-mark">?</span>;
 
-        <span class="prelude-val">Ok</span>(data_package_count)
+        <span class="prelude-val">Ok</span>(data_package_count.try_into()<span class="question-mark">?</span>)
     }
 
     <span class="kw">fn </span>trim_data_packages(
@@ -595,12 +591,12 @@
     }
 
     <span class="kw">fn </span>trim_data_package(<span class="kw-2">&amp;mut </span><span class="self">self</span>, payload: <span class="kw-2">&amp;mut </span>Vec&lt;u8&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;DataPackage, Error&gt; {
-        <span class="kw">let </span>signature: Vec&lt;u8&gt; = payload.trim_end(SIGNATURE_BS);
+        <span class="kw">let </span>signature: Vec&lt;u8&gt; = payload.try_trim_end(SIGNATURE_BS)<span class="question-mark">?</span>;
         <span class="kw">let </span><span class="kw-2">mut </span>tmp = payload.clone();
 
-        <span class="kw">let </span>data_point_count = payload.try_trim_end(DATA_POINTS_COUNT_BS)<span class="question-mark">?</span>;
-        <span class="kw">let </span>value_size = payload.try_trim_end(DATA_POINT_VALUE_BYTE_SIZE_BS)<span class="question-mark">?</span>;
-        <span class="kw">let </span>timestamp = payload.try_trim_end(TIMESTAMP_BS)<span class="question-mark">?</span>;
+        <span class="kw">let </span>data_point_count: u64 = payload.try_trim_end(DATA_POINTS_COUNT_BS)<span class="question-mark">?</span>;
+        <span class="kw">let </span>value_size: u64 = payload.try_trim_end(DATA_POINT_VALUE_BYTE_SIZE_BS)<span class="question-mark">?</span>;
+        <span class="kw">let </span>timestamp: u64 = payload.try_trim_end(TIMESTAMP_BS)<span class="question-mark">?</span>;
 
         <span class="kw">let </span>size: u64 = data_point_count
             * (value_size + TryInto::&lt;u64&gt;::try_into(DATA_FEED_ID_BS)<span class="question-mark">?</span>)
@@ -608,7 +604,7 @@
             </span>+ TryInto::&lt;u64&gt;::try_into(TIMESTAMP_BS)<span class="question-mark">?
             </span>+ TryInto::&lt;u64&gt;::try_into(DATA_POINTS_COUNT_BS)<span class="question-mark">?</span>;
 
-        <span class="kw">let </span>signable_bytes: Vec&lt;<span class="kw">_</span>&gt; = tmp.trim_end(size.try_into()<span class="question-mark">?</span>);
+        <span class="kw">let </span>signable_bytes: Vec&lt;<span class="kw">_</span>&gt; = tmp.try_trim_end(size.try_into()<span class="question-mark">?</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let </span>signer_address = <span class="self">self</span>.crypto.recover_address(signable_bytes, signature).ok();
 
@@ -635,21 +631,21 @@
         <span class="kw">let </span><span class="kw-2">mut </span>data_points = Vec::with_capacity(count);
 
         <span class="kw">for _ in </span><span class="number">0</span>..count {
-            <span class="kw">let </span>data_point = <span class="self">Self</span>::trim_data_point(payload, value_size);
+            <span class="kw">let </span>data_point = <span class="self">Self</span>::trim_data_point(payload, value_size)<span class="question-mark">?</span>;
             data_points.push(data_point);
         }
 
         <span class="prelude-val">Ok</span>(data_points)
     }
 
-    <span class="kw">fn </span>trim_data_point(payload: <span class="kw-2">&amp;mut </span>Vec&lt;u8&gt;, value_size: usize) -&gt; DataPoint {
-        <span class="kw">let </span>value: Vec&lt;<span class="kw">_</span>&gt; = payload.trim_end(value_size);
-        <span class="kw">let </span>feed_id = payload.trim_end(DATA_FEED_ID_BS);
+    <span class="kw">fn </span>trim_data_point(payload: <span class="kw-2">&amp;mut </span>Vec&lt;u8&gt;, value_size: usize) -&gt; <span class="prelude-ty">Result</span>&lt;DataPoint, Error&gt; {
+        <span class="kw">let </span>value: Vec&lt;<span class="kw">_</span>&gt; = payload.try_trim_end(value_size)<span class="question-mark">?</span>;
+        <span class="kw">let </span>feed_id = payload.try_trim_end(DATA_FEED_ID_BS)<span class="question-mark">?</span>;
 
-        DataPoint {
+        <span class="prelude-val">Ok</span>(DataPoint {
             value: value.into(),
             feed_id,
-        }
+        })
     }
 
     <span class="attr">#[inline(always)]
@@ -817,7 +813,7 @@
         }
     }
 
-    <span class="attr">#[should_panic(expected = <span class="string">"SizeNotSupported(0)"</span>)]
+    <span class="attr">#[should_panic(expected = <span class="string">"BufferOverflow"</span>)]
     #[test]
     </span><span class="kw">fn </span>test_trim_data_packages_bigger_number() {
         test_trim_data_packages_of(<span class="number">3</span>, <span class="string">""</span>);
