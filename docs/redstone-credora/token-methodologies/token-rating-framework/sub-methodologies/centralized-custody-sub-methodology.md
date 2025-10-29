@@ -87,4 +87,4 @@ For custodians operating in the digital asset sector, the existence of insurance
 
 The Final PD and implied rating are determined by sequentially applying each modifier to the Anchor PD. The cumulative effect of these adjustments reflects the custodian's overall risk profile.
 
-The outputs of this sub-methodology are utilized as inputs in the Anchor PD of the Derivative Tokens Methodology or Stablecoins methodology, which are [Calibration Layer](../calibration-layer/) methodologies.
+The outputs of this sub-methodology are utilized as inputs in the Anchor PD of the Derivative Tokens Methodology or Stablecoins methodology, which are [Calibration Layer](../../calibration-layer/) methodologies.

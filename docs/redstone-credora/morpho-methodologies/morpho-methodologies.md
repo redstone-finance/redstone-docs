@@ -8,7 +8,7 @@ The Morpho Vault methodology outlines the process of aggregating multiple market
 
 #### Morpho Vault Rating Scale
 
-For ratings on Morpho Vaults, Credora publishes a user-friendly rating scale, from A to D. The calculated Probability of Significant Loss (PSL) drives the rating output. See the [Market Methodology](morpho-methodologies/market-methodology.md) for additional details.&#x20;
+For ratings on Morpho Vaults, Credora publishes a user-friendly rating scale, from A to D. The calculated Probability of Significant Loss (PSL) drives the rating output. See the [Market Methodology](market-methodology.md) for additional details.&#x20;
 
 | Vault Rating | Min PSL | Max PSL |
 | ------------ | ------- | ------- |
