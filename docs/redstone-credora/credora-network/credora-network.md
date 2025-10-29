@@ -17,11 +17,11 @@ Looking for Asset Reports? You can access them from the top left menu or below l
 
 ### **Derivative Tokens**
 
-**Wrapped**
+#### Wrapped
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="https://app.gitbook.com/s/iGrQMQqj8xrFiOhdhXBf/">cbBTC Report</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/cbBTC.png">cbBTC.png</a></td></tr><tr><td><a href="https://app.gitbook.com/s/DprZDHwlY0NJ1I5yfqAf/">WBTC Report</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/WBTC.png">WBTC.png</a></td></tr></tbody></table>
 
-**Liquid Staking**
+#### Liquid Staking
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="https://app.gitbook.com/s/CfkzhFbzfj8JkxoqFECl/">ETH+ Scorecard</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/ETH+.png">ETH+.png</a></td></tr><tr><td><a href="https://app.gitbook.com/s/O6679xPz4ESHi9gUMcmR/">RETH Scorecard</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/RETH.png">RETH.png</a></td></tr><tr><td><a href="https://app.gitbook.com/s/Y28bJwyg9ZC4HZZKN4T8/">stETH Report</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/stETH (1).png">stETH (1).png</a></td></tr></tbody></table>
 
@@ -29,11 +29,11 @@ Looking for Asset Reports? You can access them from the top left menu or below l
 
 ### **Stablecoins**
 
-**Fiat Backed**
+#### Fiat Backed
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="https://app.gitbook.com/s/LxSY2HDd7gPTpe48lAyG/">USDC Report</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/USDC.png">USDC.png</a></td></tr><tr><td><a href="https://app.gitbook.com/s/meGum8UBRapJphufynnr/">Usual Scorecard</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/Usual.png">Usual.png</a></td></tr><tr><td><a href="https://app.gitbook.com/s/tiGlDuXdoruQsNsl7dvY/">USDT Scorecard</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/USDT.png">USDT.png</a></td></tr></tbody></table>
 
-**Active Strategy**
+#### Active Strategy
 
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="https://app.gitbook.com/s/pZhdSDAGFSvQYIqekmfq/">USDe Scorecard</a></td><td><em>Published 2/25/25</em></td><td><a href="./assets/USDE.png">USDE.png</a></td></tr></tbody></table>
 

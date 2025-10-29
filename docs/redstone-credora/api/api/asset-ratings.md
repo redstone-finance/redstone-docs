@@ -34,69 +34,69 @@ The getAssetRatings endpoint supports pagination through the optional query para
 
 If not specified, the endpoint will return the first 10 records (page=0, limit=10).
 
-```
+```graphql
 query {
-   getAssetRatings(page:0, limit: 10) {
-       totalCount
-       items {
-           id
-           address
-           symbol
-           chainId
-           consensusMetrics {
-               consensusRating
-               consensusPd
-               consensusScore
-           }
-           credoraMetrics {
-               rating
-               pd
-               score
-               status
-               publishDate
-               validUntil
-               underReview
-               methodology
-               report
-               lgd {
-                min
-                max
-              }
-           }
-       }
-   }
+  getAssetRatings(page: 0, limit: 10) {
+    totalCount
+    items {
+      id
+      address
+      symbol
+      chainId
+      consensusMetrics {
+        consensusRating
+        consensusPd
+        consensusScore
+      }
+      credoraMetrics {
+        rating
+        pd
+        score
+        status
+        publishDate
+        validUntil
+        underReview
+        methodology
+        report
+        lgd {
+          min
+          max
+        }
+      }
+    }
+  }
 }
 ```
 
 _**Query: Get Asset Rating by ID V2**_
 
-```
+```graphql
 query {
-   getAssetRatings(id: "008f7587-6b62-4691-8378-c38b199cdcab") {
-       id
-       address
-       symbol
-       chainId
-       consensusMetrics {
-           consensusRating
-           consensusPd
-           consensusScore
-       }
-       credoraMetrics {
-           rating
-           pd
-           score
-           status
-           publishDate
-           validUntil
-           underReview
-           methodology
-           report
-           lgd {
-                min
-                max
-          }
-       }
-   }
+  getAssetRatings(id: "008f7587-6b62-4691-8378-c38b199cdcab") {
+    id
+    address
+    symbol
+    chainId
+    consensusMetrics {
+      consensusRating
+      consensusPd
+      consensusScore
+    }
+    credoraMetrics {
+      rating
+      pd
+      score
+      status
+      publishDate
+      validUntil
+      underReview
+      methodology
+      report
+      lgd {
+        min
+        max
+      }
+    }
+  }
 }
 ```

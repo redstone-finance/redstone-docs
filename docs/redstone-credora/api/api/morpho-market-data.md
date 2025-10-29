@@ -34,70 +34,70 @@
 
 _**Query: Get All Market Data**_
 
-```
+```graphql
 query GetMarketData {
-   getMarketData {
-       totalCount
-       items {
-           uniqueKey
-           volatility30d
-           marketShare
-           oracleType
-           loanAsset {
-               name
-               symbol
-               address
-           }
-           collateralAsset {
-               name
-               symbol
-               address
-           }
-           defiDepth {
-               depth50Bp
-               depth100Bp
-               depth150Bp
-               depth200Bp
-           }
-           liquidations30d {
-               count
-               ratioPercentage
-           }
-           ltv {
-               lltv
-               waltv30dPercentage
-               waltvCurrentPercentage
-           }
-           borrow {
-               avg30d
-               current
-           }
-           atRisk {
-              priceShock {
-                percentage90
-                percentage95
-                percentage99
-                  }
-              car {
-                percentage90
-                percentage95
-                percentage99
-                  }
-              lar {
-                percentage90
-                percentage95
-                percentage99
-                  }
-                }
-         oracleType
-         }
+  getMarketData {
+    totalCount
+    items {
+      uniqueKey
+      volatility30d
+      marketShare
+      oracleType
+      loanAsset {
+        name
+        symbol
+        address
+      }
+      collateralAsset {
+        name
+        symbol
+        address
+      }
+      defiDepth {
+        depth50Bp
+        depth100Bp
+        depth150Bp
+        depth200Bp
+      }
+      liquidations30d {
+        count
+        ratioPercentage
+      }
+      ltv {
+        lltv
+        waltv30dPercentage
+        waltvCurrentPercentage
+      }
+      borrow {
+        avg30d
+        current
+      }
+      atRisk {
+        priceShock {
+          percentage90
+          percentage95
+          percentage99
         }
-       }
+        car {
+          percentage90
+          percentage95
+          percentage99
+        }
+        lar {
+          percentage90
+          percentage95
+          percentage99
+        }
+      }
+      oracleType
+    }
+  }
+}
 ```
 
 _**Query: Get Morpho Market Data by Unique Key**_
 
-```
+```graphql
 query getMarketData {
   getMarketDataByUniqueKey(uniqueKey: "uniqueKey") {
        uniqueKey

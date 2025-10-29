@@ -2,7 +2,7 @@
 
 Policies cover the processes related to applying the Credora Token Rating Framework. These policies are relevant for token issuers or stakeholders, and consumers of Credora Network outputs.
 
-**Types of Token Ratings**
+## Types of Token Ratings
 
 Credora provides two types of Token Ratings: **Firm** and **Indicative**, based on the degree of connectivity to the issuer and information availability. Token Ratings may change from Indicative to Firm after Onboarding Requirements are met.
 

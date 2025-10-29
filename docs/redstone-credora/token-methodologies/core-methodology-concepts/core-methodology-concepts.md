@@ -6,7 +6,7 @@ All Credora methodologies rely on the **Credora PD Curve**, a uniform underlying
 
 In the application of any Credora methodology, the probability of default quantification results from selecting a starting point on the Credora PD Curve via calculating an **Anchor PD**, and subsequently applying shifts along the curve via **Modifiers**. The Anchor PD and Modifier mechanics are further explained in the Credora Token Rating Framework documentation.
 
-Traditional rating agency ratings scales are widely ingrained in the financial system and recognized by institutions and individual market participants. The Credora PD Curve is derived from analysis of the historic realized defaults across debt issuances rated by major US ratings agencies, including S\&P, Moody’s, and Fitch.
+Traditional rating agency ratings scales are widely ingrained in the financial system and recognized by institutions and individual market participants. The Credora PD Curve is derived from analysis of the historic realized defaults across debt issuances rated by major US ratings agencies, including S\&P, Moody's, and Fitch.
 
 #### Calculation <a href="#id-35pnusvmti4r" id="id-35pnusvmti4r"></a>
 
@@ -14,9 +14,9 @@ Credora starts by comparing the one-year global historical default rates by the 
 
 Average default rates across major agency rated issuers and issuances are calculated for each rating tier, and a curve is interpolated. The image below shows the Credora PD Curve and the three rating agencies' historic realized default rates.
 
-![Chart](<../assets/0 (1).png>)
+![Credora PD Curve and rating agencies' historic realized default rates](<../assets/0 (1).png>)
 
-![Chart](../assets/1.png)
+![PD Curve chart](../assets/1.png)
 
 Credora uses exponential interpolation to define a function for the curve equation. The objective is to fit the data to an exponential model of the form , where **y** is the value at observation **x**, **a** is a scaling factor, and **b** represents the growth rate, fitted to the data points. Because agencies combine the realized C, CC and CCC default rates in aggregate, an intermediate exponential interpolation is used to obtain the points for CCC+, CCC-, CC and C.
 
@@ -57,13 +57,13 @@ By enabling the comparison of risk across the digital asset economy and traditio
 
 Traditional ratings scales may be difficult for the average user to interpret. As a result, Credora has adopted a numerical score, which is derived from the PD Mid column in the above table. The numerical score is calculated using a power transformation.
 
-This approach converts the PD Mid values to a 0-10 rating scale. The purpose is to ensure that lower PD values receive higher ratings in a manner that allows sufficient differentiation across the entire rating spectrum, from “AAA” to “D.”
+This approach converts the PD Mid values to a 0-10 rating scale. The purpose is to ensure that lower PD values receive higher ratings in a manner that allows sufficient differentiation across the entire rating spectrum, from "AAA" to "D."
 
 In the application of the power transformation, lower PDs are mapped to higher scores. The approach first raises the PD to a power exponent (α) to ensure clustering at the low or high ends by stretching out higher PDs more than a simple logarithmic transformation. Following the power transform, the model applies an inverted min–max normalization to map the PDs into a 0-10 scale with sufficient granularity to differentiate across the spectrum.
 
 From a practical point of view, scores near 10 signal minimal default risk, those around 7.5 suggest moderate risk, and values below 6.5 indicate high risk equivalent to speculative ratings assigned in traditional finance. As with any generally accepted and widely used rating scales, these figures aim to demonstrate relative risk rather than absolute default risk, which is more adequately captured by a PD.
 
-In producing a Score, Credora utilizes the PD Mid for the respective rating output. This reduces granular differentiation, effectively resulting in the rating driving the score output. This approach is consistent across ratings for underlying assets, markets and vaults. The table below demonstrates the Score mapping.\
+In producing a Score, Credora utilizes the PD Mid for the respective rating output. This reduces granular differentiation, effectively resulting in the rating driving the score output. This approach is consistent across ratings for underlying assets, markets and vaults. The table below demonstrates the Score mapping.
 
 | **Rating** | **PD Mid** | **Score (0-10)** |
 | ---------- | ---------- | ---------------- |
@@ -96,7 +96,7 @@ All Credora methodologies have common core components, including the determinati
 
 Modifiers are applied in the form of notch adjustments along the Credora PD Curve. They assess various types of risk which are not encapsulated by the Anchor PD. A single notch corresponds to a step in the rating, and is either a positive notch adjustment (lower PD) or a negative notch adjustment (higher PD). The application of the Modifiers results in a **Final PD**, which corresponds to an implied rating.
 
-![Defines the starting point on the Credora PD Curve.](../assets/2.png)
+![Defines the starting point on the Credora PD Curve](../assets/2.png)
 
 ![Left shift on the x axis, corresponding to a decrease in PD](../assets/3.png)
 
@@ -123,26 +123,26 @@ Modifiers selection, organization, and analysis follow the below process:
 2. Modifiers are organized thematically, allowing for an understanding of the collective impact of modifiers that evaluate a specific aspect of risk.
 3. Modifier multicollinearity is assessed to identify and address explanatory overlap.
 
-**Notch Adjustments**
+##### Notch Adjustments
 
 The magnitude of a notch adjustment for a specific modifier is calculated through one of two methods: (i) a quantitative input is analyzed on a scoring curve, which translates the input to a notch adjustment or (ii) a table selection is made, and corresponds to a specific notch adjustment.
 
 Credora analyzes the magnitude of modifiers and their impact on differentiating comparable tokens. The respective curves and tables evolve as incremental information enables an increasingly accurate parameterization of the methodology.
 
-**Scoring Curves**
+##### Scoring Curves
 
 Scoring curves are applied where the methodology aims to capture the impact a marginal change in a variable has on risk. The input is compared with a benchmark curve that sets the minimum and maximum value and their corresponding notch adjustment.
 
-Scoring curves are typically utilized to analyze a risk factor relative to a peer group. The selection of a relevant peer group informs the minimum, maximum, and shape of a Modifier’s scoring curve.
+Scoring curves are typically utilized to analyze a risk factor relative to a peer group. The selection of a relevant peer group informs the minimum, maximum, and shape of a Modifier's scoring curve.
 
-![](../assets/5.png)
+![Scoring curve visualization](../assets/5.png)
 
 See the below examples across different methodologies:
 
 - For fiat-backed stablecoins, a modifier evaluates the market capitalization relative to the median market capitalization of all eligible stablecoins. The stablecoin market capitalization divided by median stablecoin market capitalization is evaluated on a scoring curve.
 - For general corporate issuers, a modifier evaluates the current ratio of a specific company. The relevant minimum and maximum are set according to peer analysis, and the current ratio is evaluated on a scoring curve.
 
-**Scoring Tables**
+##### Scoring Tables
 
 Scoring tables are utilized when a variable's impact on creditworthiness is best represented through categorical assignment. Each scoring factor includes predefined ranges or characteristics that correspond to specific notch adjustments.
 

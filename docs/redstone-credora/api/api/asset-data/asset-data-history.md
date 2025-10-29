@@ -12,20 +12,19 @@ Queries return all available daily Asset Data History. Each field response conta
 
 _**Query: Get All Asset Data History**_
 
-```
+```graphql
 query GetAssetDataHistory {
-    getAssetDataHistory(symbol: "LBTC") {
-        symbol
-        stressIndicatorData {
-            stressIndicator30dPct
-            stressIndicator90dPct
-            timestamp
-        }
-        depegData {
-            deviationPct
-            timestamp
-        }
+  getAssetDataHistory(symbol: "LBTC") {
+    symbol
+    stressIndicatorData {
+      stressIndicator30dPct
+      stressIndicator90dPct
+      timestamp
     }
+    depegData {
+      deviationPct
+      timestamp
+    }
+  }
 }
-
 ```

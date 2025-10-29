@@ -8,7 +8,7 @@ Queries return all available daily Vault Data History. Each field response conta
   - **APY:** Excludes rewards and performance fee deductions.
   - **Net APY:** Includes rewards and performance fee deductions.
 - **Withdrawal Liquidity Data:** Provides metrics on Vault withdrawal liquidity.&#x20;
-  - **Withdrawal Liquidity Usd:** The sum of unallocated Vault supply and the share of withdrawable liquidity from allocated Markets. The latter is calculated by taking the share of a vault’s total supply per market, multiplying it by the available liquidity in the market, and summing across all vault eligible markets.&#x20;
+  - **Withdrawal Liquidity Usd:** The sum of unallocated Vault supply and the share of withdrawable liquidity from allocated Markets. The latter is calculated by taking the share of a vault's total supply per market, multiplying it by the available liquidity in the market, and summing across all vault eligible markets.&#x20;
   - **Withdrawal Liquidity Pct:** Withdrawal Liquidity USD divided by the Vault supply.
 
 ---
@@ -30,8 +30,4 @@ query GetVaultDataHistory {
     }
   }
 }
-```
-
-```
-
 ```

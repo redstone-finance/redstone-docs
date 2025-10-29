@@ -10,47 +10,47 @@
 
 _**Query: Get All Asset Data**_
 
-```
+```graphql
 query {
-   getAssetData {
-       totalCount
-       items {
-           symbol
-           stressIndicator {
-               indicator30dPct
-               indicator90dPct
-           }
-           depegEvents30d {
-               depeg25Bp
-               depeg100Bp
-           }
-           depegEvents90d {
-               depeg25Bp
-               depeg100Bp
-           }
-       }
-   }
+  getAssetData {
+    totalCount
+    items {
+      symbol
+      stressIndicator {
+        indicator30dPct
+        indicator90dPct
+      }
+      depegEvents30d {
+        depeg25Bp
+        depeg100Bp
+      }
+      depegEvents90d {
+        depeg25Bp
+        depeg100Bp
+      }
+    }
+  }
 }
 ```
 
 _**Query: Get Asset Data by Symbol**_
 
-```
+```graphql
 query GetAssetDataBySymbol {
   getAssetDataBySymbol(symbol: "USDC") {
-       symbol
-       stressIndicator {
-           indicator30dPct
-           indicator90dPct
-       }
-       depegEvents30d {
-           depeg25Bp
-           depeg100Bp
-           }
-       depegEvents90d {
-           depeg25Bp
-           depeg100Bp
-       }
-   }
+    symbol
+    stressIndicator {
+      indicator30dPct
+      indicator90dPct
+    }
+    depegEvents30d {
+      depeg25Bp
+      depeg100Bp
+    }
+    depegEvents90d {
+      depeg25Bp
+      depeg100Bp
+    }
+  }
 }
 ```

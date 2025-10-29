@@ -14,25 +14,25 @@ Monte Carlo simulations are used to model the behavior of complex systems by gen
 
 Morpho Market configuration parameters, specifically the LLTV and LIF, are utilized as direct inputs in the simulation. Additionally, the distribution of loans in a specific Morpho market is segmented into bins or tranches for the purposes of the Market Simulation and Liquidation Simulation.
 
-**LLTV**
+#### LLTV
 
 The Liquidation Loan-To-Value (LLTV) is a threshold used in Morpho to determine when an account becomes unhealthy and is subject to liquidation. It represents the maximum allowable ratio of borrowed assets to collateral value. If a borrower's Loan-To-Value (LTV) exceeds the LLTV, their position can be liquidated.
 
-**LIF**
+#### LIF
 
 The Liquidation Incentive Factor (LIF) in Morpho is a mechanism that rewards liquidators for repaying a borrower's debt when their Loan-To-Value (LTV) exceeds the Liquidation Loan-To-Value (LLTV). The LIF is calculated using the available in [Morpho Documentation](https://docs.morpho.org/morpho/concepts/liquidation/).
 
-![](<./assets/0 (6).png>)
+![LIF Calculation Chart](<./assets/0 (6).png>)
 
 A higher LLTV results in a lower incentive factor for liquidations. Naturally higher LLTV market parameters are more frequently utilized where the market volatility of the pair is lower.
 
-**Loan LTV Tranches**
+#### Loan LTV Tranches
 
 The distribution of loans in a specific Morpho Market is also a significant input into the simulation. The model relies on LTV tranches, which effectively segment all outstanding loans into bins according to their distance from the LLTV trigger. The outstanding loan amount per tranche is an input into the Liquidation Simulation.
 
 For markets where the allocation is below a certain threshold, the total borrowed amount is not sufficient to quantify the risk in a meaningful manner. The threshold for low allocation is established by calculating the 30th percentile across all markets. Any market whose allocation is below this cutoff (approximately $300,000 for the current morpho market size) is deemed Low Allocation.
 
-When analyzing low allocation markets, Credora relies on an expected allocation and distribution to ensure the rating remains meaningful. In such scenarios, the distribution of loans is pulled from a set of peer markets with similar characteristics, ensuring that low allocation markets have representative volumes that are sufficient to quantify the respective risk adequately. Peer markets share the same Loan-to-Value (LLTV) and loan/collateral pair category classification (for instance, “stable-stable” or “stable-volatile”). The average tranche distribution of these peer markets is then incorporated into the market simulation. This triggers the peer-based override of loan tranches, ensuring more robust simulation outcomes despite the smaller initial allocations.
+When analyzing low allocation markets, Credora relies on an expected allocation and distribution to ensure the rating remains meaningful. In such scenarios, the distribution of loans is pulled from a set of peer markets with similar characteristics, ensuring that low allocation markets have representative volumes that are sufficient to quantify the respective risk adequately. Peer markets share the same Loan-to-Value (LLTV) and loan/collateral pair category classification (for instance, "stable-stable" or "stable-volatile"). The average tranche distribution of these peer markets is then incorporated into the market simulation. This triggers the peer-based override of loan tranches, ensuring more robust simulation outcomes despite the smaller initial allocations.
 
 #### Market Oracle Characterization <a href="#id-6sz3e0uopmka" id="id-6sz3e0uopmka"></a>
 
@@ -46,7 +46,7 @@ Morpho markets utilize fundamentally different types of oracles, where oracle ty
 
 The market simulation model relies on a **Daily Return Profile** per market asset pair. In determining the daily return profile, extreme returns are separated from non-extreme returns and distinct modeling approaches are applied to each segment. This strategy allows for a focused and simplified approach to modeling the non-extreme returns, while the extreme events are handled using methods better suited for tail risk modeling.
 
-**Historic Volatility**
+#### Historic Volatility
 
 A Normal Distribution is utilized for modeling non-extreme returns. This choice was driven by the central tendency and symmetry of non-extreme returns across asset pairs, which align well with the characteristics of a normal distribution.&#x20;
 
@@ -56,7 +56,7 @@ The image below presents an example of the generated daily returns distribution 
 
 _As an input parameter into the simulation, the 30-day historic volatility of the asset pair is used to model the non-extreme returns. In future iterations, the simulation is expected to rely on a function of historic and implied volatility, where there are multiple potential approaches for estimating on tokens relevant for Morpho Markets._
 
-**Tail Events - Generalized Pareto Distribution (GPD)**
+#### Tail Events - Generalized Pareto Distribution (GPD)
 
 Credora's approach separately models extreme values exceeding a percentile threshold per asset pair. The threshold determination is based on the deviation of empirical distribution tails from a fitted normal distribution. For each pair price, Credora identifies the point where the historic data significantly deviates (or transitions) from the shape expected if it were normally distributed. This cutoff, which is applied for left and right tails, is identified based on an analysis of the past 5 years of price data. The figure below shows the application for the right tail of daily price returns.
 
@@ -66,11 +66,11 @@ The excess above the threshold is modeled using a Generalized Pareto Distributio
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd9ldYZLGLh9jBvPChTp418EUwwIj9YSoA92c1axjJe032n8RZawYrXpa7Sft6GU15cnn8UYP20H3vpw-FNIaOKByZIQaWFOh7pimIqkLTSCvWYsXC_W12r-0LZsG3OOJqWKZMh?key=yygOb4dnbNvSVi9SiGiQfUvk" alt="" /><figcaption></figcaption></figure>
 
-**Collateral Default Events**
+#### Collateral Default Events
 
 In the event of a collateral asset default, the relevant asset pair can experience a significant price impact, affecting the LTV of active loans. Credora methodologies calculate the annualized probability of this event, represented by the PD of the collateral asset.
 
-The expected impact on the asset price is determined by a Loss Given Default (“LGD”). Credora converts a base LGD into a beta-PERT Distribution, a common distribution for modeling losses from default events. The below table demonstrates the LGD input as a function of the implied rating.
+The expected impact on the asset price is determined by a Loss Given Default ("LGD"). Credora converts a base LGD into a beta-PERT Distribution, a common distribution for modeling losses from default events. The below table demonstrates the LGD input as a function of the implied rating.
 
 | **Rating** | **LGD Lower Bound** | **LGD Upper Bound** | **Most Likely** |
 | ---------- | ------------------- | ------------------- | --------------- |
@@ -99,13 +99,13 @@ The expected impact on the asset price is determined by a Loss Given Default (�
 
 The following image shows the generated beta-PERT Distributions for LGD values per rating:
 
-![](<./assets/4 (1).png>)
+![Beta-PERT Distributions for LGD values by rating](<./assets/4 (1).png>)
 
 For a specific market, the modeled tail determined by an analysis of historic price behavior is supplemented by generated tail events which consider the PD and LGD calculated for the collateral asset. Historically, although there are multiple instances of solvency concerns driving price volatility in stablecoins and other frequently utilized collateral assets, there are limited realized historic default events. This approach captures the potential impact of solvency concerns, represented by historic market tail events, and the potential impact of default events, calculated by the relevant Credora token methodology.
 
 #### Rebalancing Parameters <a href="#id-53b0san2kmh" id="id-53b0san2kmh"></a>
 
-The **Rebalance Model** considers borrower behavior, recognizing that borrowers are incentivized to rebalance their positions (e.g. deposit additional collateral) as the risk of liquidation increases. The probability of market rebalance on a given day is modeled using a logistic regression model. The model predicts the likelihood of additional collateral deposit by a borrower on a given day. The logistic model takes the following as inputs:\
+The **Rebalance Model** considers borrower behavior, recognizing that borrowers are incentivized to rebalance their positions (e.g. deposit additional collateral) as the risk of liquidation increases. The probability of market rebalance on a given day is modeled using a logistic regression model. The model predicts the likelihood of additional collateral deposit by a borrower on a given day. The logistic model takes the following as inputs:
 
 1. The **Health Factor** based on the close prices of the previous day. Health Factor is defined as the USD value of collateral multiplied by the LLTV, divided by the USD value of the loan. This variable captures the liquidation risk of the position.
 2. A binary variable encoding the type of market. This is used to distinguish markets where the underlying borrow and loan assets are highly correlated (e.g. WETH/wstETH) from markets where the assets are less correlated (e.g. WETH/USDe). This variable reflects the intuition that borrowers are more likely to proactively rebalance where their expectation of volatility is higher.
@@ -138,7 +138,7 @@ While **Market Simulations** generate daily price changes, liquidations occur on
 
 The time and LLTV where a liquidation was triggered determines the starting point for the Step Function. For a specific daily price move, subsequent steps result in uniform increase in price over a set period of time. The number of steps is a fixed input, where **x** steps indicates that over the course of a day, the model performs **x** liquidations. Successful liquidations reduce the outstanding loan amount, and therefore have an impact on the LTV. As a result, although the Step Function segments into linearly spaced price moves, the impact on LTV is non-linear.
 
-As an example, consider a market where the LLTV is 86%. The Market Simulation results in multiple Market Triggers for the 81 - 86% LTV tranche. From the base Market Simulation, the price move driving the Market Trigger results in an LTV of 90%. The model applies a Step Function of 8, and the price move driving the increase from 86% to 90% LTV is segmented accordingly. In each segment of price increase, the model simulates a liquidation, considering the notional amount to be liquidated and the available liquidity. This allows for a recalculation of the LTV, before the subsequent liquidation is applied. After the step function completes, there is a new LTV which is &lt;90% (assuming successful liquidations). The process repeats applying the subsequent day’s simulated price moves, until the loan tranche is fully liquidated or the path results in bad debt exceeding the threshold.
+As an example, consider a market where the LLTV is 86%. The Market Simulation results in multiple Market Triggers for the 81 - 86% LTV tranche. From the base Market Simulation, the price move driving the Market Trigger results in an LTV of 90%. The model applies a Step Function of 8, and the price move driving the increase from 86% to 90% LTV is segmented accordingly. In each segment of price increase, the model simulates a liquidation, considering the notional amount to be liquidated and the available liquidity. This allows for a recalculation of the LTV, before the subsequent liquidation is applied. After the step function completes, there is a new LTV which is &lt;90% (assuming successful liquidations). The process repeats applying the subsequent day's simulated price moves, until the loan tranche is fully liquidated or the path results in bad debt exceeding the threshold.
 
 Credora aggregates across step PSL outputs (e.g. 3, 6, 9, 12, etc.) to determine the final PSL for a market. PSL outputs are assigned a rating rank, which is determined using a linear interpolation of the corresponding rating PD range. The average rating rank is calculated across multiple step outputs and subsequently mapped to the final PSL. A rating rank is used because of the exponential nature of the underlying PD curve, as simple averages of the PSL outputs more heavily weight the impact of lower step results. This approach ensures that the output considers a range of possibilities across intraday price move volatility, and drives stability in the outputs.
 
@@ -146,9 +146,9 @@ _The number of steps is undergoing optimization, alongside other simulation para
 
 #### Liquidity Parameters <a href="#nnzz0ey862jw" id="nnzz0ey862jw"></a>
 
-Liquidity parameters are calculated independently for each Morpho market. Credora’s process defines a **Base Liquidity** that is subsequently modified considering the characteristics of the market and conditions driving the Trigger Event.
+Liquidity parameters are calculated independently for each Morpho market. Credora's process defines a **Base Liquidity** that is subsequently modified considering the characteristics of the market and conditions driving the Trigger Event.
 
-**Base Liquidity**
+#### Base Liquidity
 
 Credora repeatedly queries DeFi pricing data for relevant asset pairs from 1Inch and 0x. This enables the building of a liquidity curve, where the USD amount of available liquidity is considered versus the slippage from the market mid-price. The market mid-price is currently queried from Coingecko, and also independently calculated for 1Inch and 0x. For 1Inch and 0x, the price of executing the sale of 1 unit of collateral is used as the mid-price. In querying the data sources to build curves, Credora dynamically adjusts the notional amount based on the prior results, aiming to ensure adequate data points are captured across 0-2% slippage for all pairs.
 
@@ -160,7 +160,7 @@ In the Liquidation Simulation, Credora allows a maximum of 0.5% slippage. Analys
 
 _In the initial implementation, the above maximum slippage diminishes the importance of considering the economics of a liquidation. Practically, the LIF drives incentives for liquidators, and it is dependent on the LLTV set per market. Additionally, in advance of executing a liquidation, liquidators rationally consider the cost of executing a trade (e.g. DEX transaction costs, network costs) versus the incentive for performing the liquidation, typically targeting a profit margin for their services. Credora is further exploring these variables, and evaluating their impact on the accuracy of the outputs._
 
-**Volatility Adjustment**
+#### Volatility Adjustment
 
 Credora adjusts liquidity metrics to account for the relationship between the historical volatility of asset pairs during extreme or stressed market conditions and the 30-day volatility input utilized in the Market Simulation framework. This adjustment is derived from an independent analysis that evaluates the impact of volatility on liquidity dynamics across various asset pairs.
 
@@ -168,7 +168,7 @@ The process uses the last three years of historical price data to isolate the 95
 
 This liquidity adjustment aims to capture the reality that liquidity is dependent on market conditions. Recent liquidity levels are shaped by prevailing recent market volatility, with the disparity between recent volatility and that observed during extreme market events serving as a key indicator in the model. This gap informs the additional discount necessary to adjust liquidity, ensuring it accurately reflects expected values under stressed market conditions.
 
-**Market Tier Adjustment**
+#### Market Tier Adjustment
 
 Liquidity is further adjusted depending on the utilization of the collateral asset across similar Morpho Markets and external markets. The Market Tier Adjustment aims to capture the risk of liquidations occurring simultaneously across multiple Morpho Markets and multiple external markets, therefore reducing the available liquidity for liquidations or more drastically impacting price.
 
@@ -223,7 +223,7 @@ For each dimension, a notch adjustment is applied based on the severity of ident
 
 This methodology ensures that market-specific oracle risks are systematically identified, quantified, and incorporated into the PD analysis, strengthening the overall risk assessment process for Morpho markets.
 
-**Hardcoded or Misaligned Price Risk**
+#### Hardcoded or Misaligned Price Risk
 
 This risk emerges from either static (hardcoded) price feeds or misaligned oracle configurations. Both scenarios fail to adequately reflect the dynamic relationship between collateral and loan assets, particularly under volatile market conditions. For assets rated BBB+ or higher, robust redeemability is a key expectation, reflecting their strong creditworthiness and structural reliability. Accordingly, in markets exposed to such assets that rely on pricing derived directly from the underlying collateral (e.g., WBTC utilizing a BTC price feed or USDC referencing a USD price feed), the oracle configuration is not deemed misaligned and the market is not adjusted downward based on the oracle risk.
 
@@ -232,7 +232,7 @@ This risk emerges from either static (hardcoded) price feeds or misaligned oracl
 | Tier 1   | Oracle directly tracks the relationship between collateral and loan assets or there is no reliance on hardcoded oracles. | 0                    |
 | Tier 2   | Oracle indirectly tracks the relationship or there is reliance on hardcoded oracles.                                     | –0.6                 |
 
-**Unknown Vendor Risk**
+#### Unknown Vendor Risk
 
 This risk arises when the oracle provider or vendor is unknown, unverified, or operates with insufficient transparency. The lack of visibility into the vendor's operations, infrastructure, and governance can lead to significant vulnerabilities for the protocol relying on its price feeds.
 
@@ -241,13 +241,13 @@ This risk arises when the oracle provider or vendor is unknown, unverified, or o
 | Tier 1   | The vendor is established, well-known, and transparent.                                   | 0                    |
 | Tier 2   | Vendor is unknown or lacks sufficient documentation or transparency about its operations. | -0.6                 |
 
-**Final Notch Adjustment**\
+#### Final Notch Adjustment
 
 To determine the final notch adjustment, the framework calculates the average of the scores across the two risk categories. This approach ensures a streamlined and proportional adjustment, effectively capturing the cumulative impact of oracle-related risks on the market. The resulting final adjustment provides a balanced and comprehensive measure of the overall oracle risk profile, facilitating a clear and consistent integration into the market's PSL assessment.
 
-**Example Scenario**
+#### Example Scenario
 
-The below represents a WETH/WBTC market, where WBTC is the collateral asset.\
+The below represents a WETH/WBTC market, where WBTC is the collateral asset.
 
 | **Oracle** | **Status**             |
 | ---------- | ---------------------- |
@@ -255,7 +255,7 @@ The below represents a WETH/WBTC market, where WBTC is the collateral asset.\
 | Quote Feed | None (hardcoded price) |
 | Vendor     | Chainlink              |
 
-The modifier is applied as follows:\
+The modifier is applied as follows:
 
 | **Factor**                 | **Description (Notch Adjustment)**                                                           |
 | -------------------------- | -------------------------------------------------------------------------------------------- |

@@ -20,13 +20,13 @@ The Anchor PD is calculated by combining the Counterparty and Asset Quality Risk
 
 The PD and implied rating outputs from the Calibration Layer are used as inputs in the Primary Layer. The application of the General Token Modifiers results in a final PD and implied rating. For more details on the structure and interconnections of the various token methodologies, refer to the [Token Rating Framework](../).
 
-![](<../../assets/0 (7).png>)
+![Stablecoin Methodology framework diagram](<../../assets/0 (7).png>)
 
 ## Custody Risk <a href="#lp3ze5tmvm86" id="lp3ze5tmvm86"></a>
 
 The Custody Risk section evaluates the custody of reserve assets. Stablecoins typically secure their reserves through one of two methods: centralized custodians or smart contract custody.
 
-The following sections outline Credora’s methodology for evaluating counterparty risk across the respective methods.
+The following sections outline Credora's methodology for evaluating counterparty risk across the respective methods.
 
 ### Centralized Custody Sub-Methodology <a href="#x8d0rdrb6oxl" id="x8d0rdrb6oxl"></a>
 
@@ -80,7 +80,7 @@ The Reserves Management Options Modifier assesses the track record of the asset 
 
 ### Regulatory Cover, Bankruptcy Remoteness, and User Rights
 
-This set of modifiers assesses the regulatory and legal safeguards underpinning a stablecoin’s reserve structure, focusing on the strength of investor protections in normal operations and insolvency scenarios. It considers the issuer’s licensure achievements, bankruptcy remoteness of the reserve assets, and user rights as per the terms. By evaluating these dimensions, the set of modifiers distinguishes stablecoins having strong regulatory and legal foundations from those having limited or unclear recourse mechanisms for token holders.
+This set of modifiers assesses the regulatory and legal safeguards underpinning a stablecoin's reserve structure, focusing on the strength of investor protections in normal operations and insolvency scenarios. It considers the issuer's licensure achievements, bankruptcy remoteness of the reserve assets, and user rights as per the terms. By evaluating these dimensions, the set of modifiers distinguishes stablecoins having strong regulatory and legal foundations from those having limited or unclear recourse mechanisms for token holders.
 
 #### Regulatory Cover and Bankruptcy Remoteness
 
@@ -106,7 +106,7 @@ This modifier evaluates the breadth and credibility of regulatory licenses and j
 | 0             | -0.15            |
 | 1+            | 0.0              |
 
-- Jurisdiction Strength: The tiering of legal jurisdictions from Tier 1 (strongest) to Tier 4 (weakest), where the input utilized is the strongest regulatory jurisdiction as per Credora’s Regulatory Jurisdiction Index Ranking.
+- Jurisdiction Strength: The tiering of legal jurisdictions from Tier 1 (strongest) to Tier 4 (weakest), where the input utilized is the strongest regulatory jurisdiction as per Credora's Regulatory Jurisdiction Index Ranking.
 
 | Jurisdiction Tier               | Notch Adjustment |
 | ------------------------------- | ---------------- |
@@ -117,9 +117,9 @@ This modifier evaluates the breadth and credibility of regulatory licenses and j
 
 #### **Bankruptcy Remoteness**
 
-This modifier evaluates bankruptcy remoteness, from the stablecoin issuer and the relevant custody solution. In cases where the state of bankruptcy remoteness is unclear, an ‘Unknown’ selection is made. This has the same negative impact as a ‘Not Bankruptcy Remote’ selection. Additionally, for smart contract custody stablecoins, where reserve assets are held solely in the native protocol smart contracts, a ‘Not Applicable’ selection is made. From a notch adjustment perspective, this effectively treats comprehensive smart contract infrastructure as bankruptcy remote. The User Rights section does differentiate between this form of effective bankruptcy remoteness and the explicit legal bankruptcy remoteness offered by select issuers. &#x20;
+This modifier evaluates bankruptcy remoteness, from the stablecoin issuer and the relevant custody solution. In cases where the state of bankruptcy remoteness is unclear, an 'Unknown' selection is made. This has the same negative impact as a 'Not Bankruptcy Remote' selection. Additionally, for smart contract custody stablecoins, where reserve assets are held solely in the native protocol smart contracts, a 'Not Applicable' selection is made. From a notch adjustment perspective, this effectively treats comprehensive smart contract infrastructure as bankruptcy remote. The User Rights section does differentiate between this form of effective bankruptcy remoteness and the explicit legal bankruptcy remoteness offered by select issuers. &#x20;
 
-- **Bankruptcy Remoteness (Issuer):** This assesses whether the issuer’s legal and operational structure ensures that reserve assets are segregated from the issuer’s own assets and protected in the event of insolvency. Specifically, it evaluates whether the reserves are held in legally distinct accounts, separated from the issuer’s balance sheet, and whether such segregation is enforceable under applicable bankruptcy laws.
+- **Bankruptcy Remoteness (Issuer):** This assesses whether the issuer's legal and operational structure ensures that reserve assets are segregated from the issuer's own assets and protected in the event of insolvency. Specifically, it evaluates whether the reserves are held in legally distinct accounts, separated from the issuer's balance sheet, and whether such segregation is enforceable under applicable bankruptcy laws.
 
 | Bankruptcy Remoteness | Notch Adjustment |
 | --------------------- | ---------------- |
@@ -128,7 +128,7 @@ This modifier evaluates bankruptcy remoteness, from the stablecoin issuer and th
 | Unknown               | -0.5             |
 | Not Bankruptcy Remote | -0.5             |
 
-- **Bankruptcy Remoteness (Custodian):** This factor evaluates the custody arrangement of the reserve assets, specifically whether the assets are held in legally segregated accounts that are separate from the custodian’s assets. It assesses the extent to which the custody structure ensures that tokenholder reserves would be protected and recoverable in the event of the custodian’s bankruptcy. A strong custody framework involves holding assets in client-designated, off-balance-sheet accounts under a trust or fiduciary structure, thereby minimizing the risk of commingling and enhancing legal clarity around ownership and claims in a liquidation scenario.
+- **Bankruptcy Remoteness (Custodian):** This factor evaluates the custody arrangement of the reserve assets, specifically whether the assets are held in legally segregated accounts that are separate from the custodian's assets. It assesses the extent to which the custody structure ensures that tokenholder reserves would be protected and recoverable in the event of the custodian's bankruptcy. A strong custody framework involves holding assets in client-designated, off-balance-sheet accounts under a trust or fiduciary structure, thereby minimizing the risk of commingling and enhancing legal clarity around ownership and claims in a liquidation scenario.
 
 | Bankruptcy Remoteness (Custodian) | Notch Adjustment |
 | --------------------------------- | ---------------- |
@@ -141,7 +141,7 @@ The average of the above five factors, across Regulatory Cover and Bankruptcy Re
 
 #### User Rights
 
-This adjustment evaluates the legal clarity and enforceability of tokenholder rights as explicitly outlined in the stablecoin issuer’s Terms of Service. It focuses on whether the documentation provides unambiguous protections that support tokenholder claims to the underlying reserve assets in both normal and distressed conditions. The assessment includes three key dimensions: (i) whether the Terms grant tokenholders a contractual right to redeem their tokens; (ii) whether the reserves are stated to be held in segregated accounts, distinct from the issuer’s proprietary assets; and (iii) whether the reserves are explicitly held for the benefit of tokenholders. These provisions are critical to determining whether legal recourse exists in the event of issuer default, custodial failure, or operational disruption.
+This adjustment evaluates the legal clarity and enforceability of tokenholder rights as explicitly outlined in the stablecoin issuer's Terms of Service. It focuses on whether the documentation provides unambiguous protections that support tokenholder claims to the underlying reserve assets in both normal and distressed conditions. The assessment includes three key dimensions: (i) whether the Terms grant tokenholders a contractual right to redeem their tokens; (ii) whether the reserves are stated to be held in segregated accounts, distinct from the issuer's proprietary assets; and (iii) whether the reserves are explicitly held for the benefit of tokenholders. These provisions are critical to determining whether legal recourse exists in the event of issuer default, custodial failure, or operational disruption.
 
 - **Redemption Clarity:** Does the Terms of Service grant tokenholders the right to redeem their tokens for the underlying reserve assets (or an equivalent)?
 
@@ -150,7 +150,7 @@ This adjustment evaluates the legal clarity and enforceability of tokenholder ri
 | Yes                | 0.00             |
 | No Clarity         | -0.50            |
 
-- **Asset Segregation:** Does the Terms of Service state that the reserve assets are held in segregated accounts, separate from the issuer’s proprietary assets?
+- **Asset Segregation:** Does the Terms of Service state that the reserve assets are held in segregated accounts, separate from the issuer's proprietary assets?
 
 | Asset Segregation | Notch Adjustment |
 | ----------------- | ---------------- |
@@ -164,11 +164,11 @@ This adjustment evaluates the legal clarity and enforceability of tokenholder ri
 | Yes                  | 0.00             |
 | No Clarity           | -0.50            |
 
-The final User Rights modifier is calculated as the average of the three individual notch adjustments within this section: Redemption Clarity, Asset Segregation, and Beneficial Ownership. Each factor represents a critical legal protection for tokenholders as stated in the issuer’s Terms of Service. By averaging these components, the methodology ensures a balanced and proportional reflection of the overall strength or weakness in contractual enforceability. This approach prevents any single deficiency from disproportionately impacting the overall modifier while still capturing material gaps in legal clarity.
+The final User Rights modifier is calculated as the average of the three individual notch adjustments within this section: Redemption Clarity, Asset Segregation, and Beneficial Ownership. Each factor represents a critical legal protection for tokenholders as stated in the issuer's Terms of Service. By averaging these components, the methodology ensures a balanced and proportional reflection of the overall strength or weakness in contractual enforceability. This approach prevents any single deficiency from disproportionately impacting the overall modifier while still capturing material gaps in legal clarity.
 
 #### Total Regulatory Cover, Bankruptcy Remoteness, and User Rights
 
-The final adjustment is calculated as the sum of the total notch adjustments derived from the average of Regulatory Cover and Bankruptcy Remoteness, and from the User Rights evaluations. Each component independently captures a distinct dimension of legal and regulatory protection. Together, these adjustments reflect the extent to which a stablecoin’s legal and regulatory architecture mitigates risk. The combined output is applied as a downward notch adjustment to the anchor probability of default (PD), where robust structures result in smaller or no deductions.
+The final adjustment is calculated as the sum of the total notch adjustments derived from the average of Regulatory Cover and Bankruptcy Remoteness, and from the User Rights evaluations. Each component independently captures a distinct dimension of legal and regulatory protection. Together, these adjustments reflect the extent to which a stablecoin's legal and regulatory architecture mitigates risk. The combined output is applied as a downward notch adjustment to the anchor probability of default (PD), where robust structures result in smaller or no deductions.
 
 ### Primary Layer Integration <a href="#id-4m4ex6glp8z1" id="id-4m4ex6glp8z1"></a>
 
