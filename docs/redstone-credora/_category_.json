@@ -2,8 +2,8 @@
   "label": "What is Credora?",
   "position": 9,
   "link": {
-    "type": "doc",
-    "id": "overview"
+    "type": "generated-index",
+    "description": "RedStone Credora"
   },
   "collapsed": true
 }
