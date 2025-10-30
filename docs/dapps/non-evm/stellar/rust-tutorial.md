@@ -103,7 +103,7 @@ fn error_from_redstone_error(error: RedStoneError) -> Error {
 
 ## Pull model
 
-To use the Pull model, just invoke the `process_payload` function and return the value.
+To use the Pull model, just invoke the `process_payload` function and return values.
 
 ```rust
 pub fn get_prices(
