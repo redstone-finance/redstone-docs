@@ -18,8 +18,8 @@ The **info described there** is mostly **NOT REPEATED below**.
 
 ```toml
 [dependencies]
-soroban-sdk = { version = "23.0.2", features = ["alloc"] }
-redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "3.0.0-pre6", default-features = false, features = ["soroban"] }
+soroban-sdk = { version = "23.0.3", features = ["alloc"] }
+redstone = { git = "https://github.com/redstone-finance/rust-sdk", tag = "3.0.0", default-features = false, features = ["soroban"] }
 ```
 
 ## Using the _RedStone Rust SDK_
