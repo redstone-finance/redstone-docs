@@ -6,7 +6,7 @@ sidebar_label: FAQ
 # FAQ
 
 ## 1. Are there any live Credora ratings being used atm?
-- Ratings will be live on Morpho and Spark by the end of this week.
+- Ratings will be live on Morpho and Spark soon.
 
 ## 2. How can I gain access to the Credora API?
 - We are relaunching the API during Devconnect, limited to the vault ratings endpoint.  

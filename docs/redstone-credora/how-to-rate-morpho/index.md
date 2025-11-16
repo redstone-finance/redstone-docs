@@ -3,13 +3,13 @@ title: How to Rate Morpho
 sidebar_label: How to Rate Morpho
 ---
 
-# Morpho Explained
+# Morpho Implementation
 
 Morpho is a permissionless and non-custodial lending protocol. Morpho Vaults are designed to provide a passive lending experience by allowing users access to curated risk profiles and management. Vaults carry exposures across multiple underlying markets, creating a portfolio of risks tied to the performance of those markets.
 
 In the Morpho Protocol, curators play a critical role in managing and mitigating risks associated with vaults and underlying exposures. They are responsible for selecting and configuring risk profiles by allocating assets across multiple markets, aiming for an optimal balance between risk and return. Beyond market selection, curators actively monitor market dynamics and adapt allocations to changing conditions, safeguarding the vault’s overall performance. Their expertise, track record, and operational effectiveness are central to the vault’s robustness, as well-managed vaults demonstrate stronger risk mitigation practices and greater resilience during periods of market volatility. In addition, the vault owners have the ability to introduce certain protective mechanisms such as guardians or timelocks that protect vault investors against adverse changes in a vault’s risk profile. Ultimately, curators and the protective mechanisms in place serve as key risk stewards, shaping the vault’s stability and risk profile.
 
-# Rating Framework Structure
+## Rating Framework Structure
 
 Credora vault rating system employs a bottom-up assessment approach that combines static and dynamic analysis across three hierarchical levels:
 
@@ -21,7 +21,7 @@ To generate a vault rating, we must first complete the foundational work: rating
 
 This modular approach means that vault ratings become a computationally efficient aggregation exercise that can be updated up to daily.
 
-# Collateral Asset Ratings
+## Collateral Asset Ratings
 
 The assessment of collateral asset ratings is done through Credora Token Methodology [LINK]. Asset Ratings are published and maintained to ensure the most up-to-date information. In the event that Credora does not directly rate an asset, a proxy rating can be defined to serve as input to this section. Proxy ratings can come from:
 
@@ -31,7 +31,7 @@ The assessment of collateral asset ratings is done through Credora Token Methodo
 
 Collateral asset ratings are used as an input in the Morpho market analysis.
 
-# Morpho Markets
+## Morpho Markets
 
 In order to deliver a holistic assessment of risk throughout the Morpho protocol, Credora utilizes the collateral asset PD and implied rating as core inputs into **Market Simulations**, which quantify the risk of liquidation in a market. Subsequently, **Liquidation Simulations** are utilized for quantifying the risk of loss in a market. The core measurement for this is a **Probability of Significant Loss (PSL)**, which quantifies the probability of a specific market experiencing **Bad Debt** in excess of 1% of principal. Bad Debt occurs when a liquidation leaves a borrower or account with some remaining debt, and no collateral to cover it. Detailed information about the Loan Pairs Methodology can be found here [LINK].
 
@@ -51,3 +51,12 @@ The price and liquidation simulations are executed and establish the Anchor PSL 
 **The Morpho Protocol Risk Adjustment** evaluates the smart contract exploit risk inherent in the Morpho protocol. Morpho markets are either listed on Ethereum or Base. A PD on each market exposure is derived from Credora **Smart Contract Sub-Methodology**. See the Smart Contract Sub-Methodology for further details. The calculated Morpho Protocol PDs for Ethereum and Base is 0.13%.
 
 The final Market PSL is calculated after accounting for the two additional risks: oracle risk via the Oracle Modifier, and general Morpho smart contract risk via the Protocol Risk Adjustment. After the Oracle Modifier is applied to the respective market PSL, the Protocol
+
+## Morpho Vault Ratings
+Vaults represent the highest level of the risk framework, treating them as aggregated exposure to underlying markets and assets, and ratings are obtained by applying the Vaults Methodology [LINK]. The vault rating aggregation process weights each underlying market exposure based on the vault's allocation to that market. Markets with higher allocations have a proportionally greater impact on the overall vault rating. This determines the Anchor Vault PSL by calculating a weighted average PSL of the markets utilized in the vault. The final PSL is derived from applying modifiers that consider the Curator, Governance, Guardian and Timelock.
+
+### Ratings Scale
+
+Vault ratings are expressed on a scale that reflects the aggregate probability of significant loss across all underlying exposures. A higher rating indicates lower risk, with ratings adjusted to reflect both the weighted average risk of individual markets and concentration risk factors. More details on the rating scale can be found here [LINK].
+
+At launch, Vault Ratings are refreshed on a weekly basis and will be updated to refresh daily.

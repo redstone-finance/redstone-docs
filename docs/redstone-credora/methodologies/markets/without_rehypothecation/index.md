@@ -89,6 +89,8 @@ The core outputs include the following:
 
 - **Post-Trigger Returns:** The price path of a specific Trigger Event following the Trigger Event.  
 
+![Simulation paths](/img/simulation_paths.png)
+
 # Liquidation Simulations  
 Liquidation Simulations isolate the **Trigger Events** for further analysis. These simulations rely on multiple inputs, including the LIF, Loan LTV tranches, and multiple liquidity parameters. The Liquidation Simulation quantifies a PSL by analyzing the quantity of incidents where Bad Debt exceeds the 1% threshold. LTV tranches inform the amount of collateral eligible for liquidation in a specific Trigger Event.
 
@@ -98,6 +100,8 @@ While **Market Simulations** generate daily price changes, liquidations occur on
 The time and LLTV where a liquidation was triggered determines the starting point for the Step Function. For a specific daily price move, subsequent steps result in uniform increase in price over a set period of time. The number of steps is a fixed input, where x steps indicates that over the course of a day, the model performs x liquidations. Successful liquidations reduce the outstanding loan amount, and therefore have an impact on the LTV. As a result, although the Step Function segments into linearly spaced price moves, the impact on LTV is non-linear.  
 
 As an example, consider a market where the LLTV is 86%. The Market Simulation results in multiple Market Triggers for the 81 - 86% LTV tranche. From the base Market Simulation, the price move driving the Market Trigger results in an LTV of 90%. The model applies a Step Function of 8, and the price move driving the increase from 86% to 90% LTV is segmented accordingly. In each segment of price increase, the model simulates a liquidation, considering the notional amount to be liquidated and the available liquidity. This allows for a recalculation of the LTV, before the subsequent liquidation is applied. After the step function completes, there is a new LTV which is \<90% (assuming successful liquidations). The process repeats applying the subsequent day’s simulated price moves, until the loan tranche is fully liquidated or the path results in bad debt exceeding the threshold.  
+
+[IMAGE NEEDED]
 
 Credora aggregates across step PSL outputs (e.g. 3, 6, 9, 12, etc.) to determine the final PSL for a market. PSL outputs are assigned a rating rank, which is determined using a linear interpolation of the corresponding rating PD range. The average rating rank is calculated across multiple step outputs and subsequently mapped to the final PSL. A rating rank is used because of the exponential nature of the underlying PD curve, as simple averages of the PSL outputs more heavily weight the impact of lower step results. This approach ensures that the output considers a range of possibilities across intraday price move volatility, and drives stability in the outputs.  
 

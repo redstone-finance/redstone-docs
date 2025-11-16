@@ -2,18 +2,19 @@
 
 All Credora ratings are displayed in the Credora Rating Scale. A single, quantitative standard for comparing exposure across protocols, assets, markets and vaults:
 
-| Rating | Min PD   | Max PD   | TradFi                 | Equivalent Rated Companies          |
-|--------|----------|----------|-------------------------|--------------------------------------|
-| A+     | 0.00%    | 0.05%    | AA+, AA, AA-, A+, A, A- | Microsoft, USA T-Bills, Apple        |
-| A      | 0.05%    | 0.20%    | BBB+, BBB               | Ford Motor, Vodafone Group           |
-| A-     | 0.20%    | 0.50%    | BBB-, BB+               | Boeing, Delta Airlines               |
-| B+     | 0.50%    | 1.00%    | BB                      | Carnival                             |
-| B      | 1.00%    | 2.00%    | BB-, B+                 | AMC Entertainment                    |
-| B-     | 2.00%    | 4.00%    | B                       | Brazil Long Term Credit              |
-| C+     | 4.00%    | 10.00%   | B-                      | Strategy Inc, American Airlines      |
-| C      | 10.00%   | 25.00%   | CCC+, CCC               | Aston Martin                         |
-| C-     | 25.00%   | 99.99%   | CCC-, CC, C             |                                      |
-| D      | 100.00%  | 100.00%  | D                       |                                      |
+| Rating | Min PSL | Max PSL | TradFi                        |
+|--------|---------|---------|-------------------------------|
+| A+     | 0.0%    | 0.1%    | AA+, AA, AA-, A+, A, A-, BBB+ |
+| A      | 0.1%    | 0.4%    | BBB, BBB-                     |
+| A-     | 0.4%    | 0.8%    | BB+, BB                       |
+| B+     | 0.8%    | 1.5%    | BB-                           |
+| B      | 1.5%    | 3.0%    | B+                            |
+| B-     | 3.0%    | 6.0%    | B                             |
+| C+     | 6.0%    | 12.0%   | B-                            |
+| C      | 12.0%   | 32.0%   | CCC+, CCC                     |
+| C-     | 32.0%   | 99.9%   | CCC-, CC, C                   |
+| D      | 99.9%   | 100.0%  | D                             |
+
 
 
 ## Deriving the DeFi Rating Scale

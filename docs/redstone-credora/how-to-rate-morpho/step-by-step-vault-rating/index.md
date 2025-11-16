@@ -3,7 +3,7 @@ title: Morpho Vault Ratings Step-by-Step
 sidebar_label: Step-by-Step Vault Rating
 ---
 
-# Morpho Vault Ratings: Step-by-Step Process
+# Morpho Vault Ratings: Step-by-Step Example
 
 In this section, we walk through how Credora rates Morpho vaults using Spark’s curated vaults as examples, an analysis with data from June 2025. These Spark vaults are part of the [Spark Liquidity Layer](https://docs.spark.fi/user-guides/spark-liquidity-layer), which automates the deployment of USDS, sUSDS, and USDC liquidity across DeFi protocols.
 
@@ -22,13 +22,13 @@ Morpho markets fall into three oracle categories:
 
 - **Dynamic:** Prices update frequently based on real-time trading.
 - **Exchange:** Prices are derived from protocol-level exchange or redemption rates.
-- **Fixed:** Prices have material core assumptions, typically considering the collateral asset as equivalent in price to another asset (e.g. USDe = USDC).
+- **Hardcoded/Fixed:** Prices have material core assumptions, typically considering the collateral asset as equivalent in price to another asset (e.g. USDe = USDC).
 
 Oracle classification is based on a review of the asset pair and the underlying Morpho oracle contracts.
 
 ### Spark DAI
 
-| Collateral Asset                | Consensus PD | Oracle   | LLTV   | WA LTV |
+| Collateral Asset                | PD | Oracle   | LLTV   | WA LTV |
 |---------------------------------|-------------|----------|--------|--------|
 | PT-USDS<br/>14AUG2025           | 0.76%       | Exchange | 96.5%  | 90%    |
 | PT-sUSDE<br/>31JUL2025          | 1.08%       | Fixed    | 91.5%  | 79%    |
