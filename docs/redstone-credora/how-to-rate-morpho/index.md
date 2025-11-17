@@ -9,7 +9,7 @@ In the Morpho Protocol, curators play a critical role in managing and mitigating
 Credora vault rating system employs a bottom-up assessment approach that combines static and dynamic analysis across three hierarchical levels:
 
 1. **Collateral Assets** – evaluated using the **Tokens Methodology**
-2. **Markets** – evaluated using **Markets without Rehypothecation Methodology**
+2. **Markets** – evaluated using **Loan Pairs with Isolated Collateral Methodology**
 3. **Vaults** – aggregated exposure to underlying markets, evaluated with the **Vaults Methodology**
 
 ![Assets markets vaults](/img/assets-markets-vaults.svg)
@@ -30,7 +30,7 @@ Collateral asset ratings are used as an input in the Morpho market analysis.
 
 ## Morpho Markets
 
-In order to deliver a holistic assessment of risk throughout the Morpho protocol, Credora utilizes the collateral asset PD and implied rating as core inputs into **Market Simulations**, which quantify the risk of liquidation in a market. Subsequently, **Liquidation Simulations** are utilized for quantifying the risk of loss in a market. The core measurement for this is a **Probability of Significant Loss (PSL)**, which quantifies the probability of a specific market experiencing **Bad Debt** in excess of 1% of principal. Bad Debt occurs when a liquidation leaves a borrower or account with some remaining debt, and no collateral to cover it. Detailed information about the Loan Pairs Methodology can be found here [Loan Pairs](/docs/redstone-credora/methodologies/markets/without_rehypothecation/).
+In order to deliver a holistic assessment of risk throughout the Morpho protocol, Credora utilizes the collateral asset PD and implied rating as core inputs into **Loan Pair Simulations**, which quantify the risk of liquidation in a market. Subsequently, **Liquidation Simulations** are utilized for quantifying the risk of loss in a market. The core measurement for this is a **Probability of Significant Loss (PSL)**, which quantifies the probability of a specific market experiencing **Bad Debt** in excess of 1% of principal. Bad Debt occurs when a liquidation leaves a borrower or account with some remaining debt, and no collateral to cover it. Detailed information about the Loan Pairs Methodology can be found here [Loan Pairs](/docs/redstone-credora/methodologies/markets/without_rehypothecation/).
 
 The fundamental parameters that define each market and are used for market simulations detailed in the Loan Pairs Methodology are:
 

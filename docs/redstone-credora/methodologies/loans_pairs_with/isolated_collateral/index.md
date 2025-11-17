@@ -1,14 +1,14 @@
-# Markets with Isolated Collateral
+# Loan Pairs with Isolated Collateral
 
 _Encompasses Morpho Markets. The key characteristic is the one-to-one relationship between a collateral asset and loan asset, where the collateral itself is not used elsewhere._
 
-Monte Carlo simulations are used to model the behavior of complex systems by generating numerous random scenarios, resembling real-world complexity. The Market Simulations model generates random daily returns directly on the pair price, defined as the loan asset price divided by the collateral asset price. These daily returns factor in dynamics including pair volatility, historic tail events, and collateral default scenarios. The approach generates pair price projections over a 30-day simulation horizon. These are applied to initial Loan-To-Value (LTV) tranches to forecast LTV changes over time.
+Monte Carlo simulations are used to model the behavior of complex systems by generating numerous random scenarios, resembling real-world complexity. The Loan Pair Simulations model generates random daily returns directly on the pair price, defined as the loan asset price divided by the collateral asset price. These daily returns factor in dynamics including pair volatility, historic tail events, and collateral default scenarios. The approach generates pair price projections over a 30-day simulation horizon. These are applied to initial Loan-To-Value (LTV) tranches to forecast LTV changes over time.
 
 ![step by step](/img/markets_stepbystep.svg)
 
-## Market Parameters
+## Parameters
 
-Market configuration parameters, specifically the LLTV and LIF, are utilized as direct inputs in the simulation. Additionally, the distribution of loans in a specific market is segmented into bins or tranches for the purposes of the Market Simulation and Liquidation Simulation.
+Market configuration parameters, specifically the LLTV and LIF, are utilized as direct inputs in the simulation. Additionally, the distribution of loans in a specific pair is segmented into bins or tranches for the purposes of the Loan Pair Simulation and Liquidation Simulation.
 
 ### LLTV
 
@@ -22,17 +22,17 @@ A higher LLTV results in a lower incentive factor for liquidations. Naturally hi
 
 ### Loan LTV Tranches
 
-The distribution of loans in a specific Market is also a significant input into the simulation. The model relies on LTV tranches, which effectively segment all outstanding loans into bins according to their distance from the LLTV trigger. The outstanding loan amount per tranche is an input into the Liquidation Simulation.
+The distribution of loans in a specific Pair is also a significant input into the simulation. The model relies on LTV tranches, which effectively segment all outstanding loans into bins according to their distance from the LLTV trigger. The outstanding loan amount per tranche is an input into the Liquidation Simulation.
 
-For markets where the allocation is below a certain threshold, the total borrowed amount is not sufficient to quantify the risk in a meaningful manner. The threshold for low allocation is established by calculating the 30th percentile across all markets. Any market whose allocation is below this cutoff (approximately $300,000 for the current morpho market size) is deemed Low Allocation.
+For pairs where the allocation is below a certain threshold, the total borrowed amount is not sufficient to quantify the risk in a meaningful manner. The threshold for low allocation is established by calculating the 30th percentile across all pairs. Any pair whose allocation is below this cutoff (approximately $300,000 for the current morpho market size) is deemed Low Allocation.
 
-When analyzing low allocation markets, Credora relies on an expected allocation and distribution to ensure the rating remains meaningful. In such scenarios, the distribution of loans is pulled from a set of peer markets with similar characteristics, ensuring that low allocation markets have representative volumes that are sufficient to quantify the respective risk adequately. Peer markets share the same Loan-to-Value (LLTV) and loan/collateral pair category classification (for instance, “stable-stable” or “stable-volatile”). The average tranche distribution of these peer markets is then incorporated into the market simulation. This triggers the peer-based override of loan tranches, ensuring more robust simulation outcomes despite the smaller initial allocations.
+When analyzing low allocation pairs, Credora relies on an expected allocation and distribution to ensure the rating remains meaningful. In such scenarios, the distribution of loans is pulled from a set of peer markets with similar characteristics, ensuring that low allocation markets have representative volumes that are sufficient to quantify the respective risk adequately. Peer markets share the same Loan-to-Value (LLTV) and loan/collateral pair category classification (for instance, “stable-stable” or “stable-volatile”). The average tranche distribution of these peer markets is then incorporated into the market simulation. This triggers the peer-based override of loan tranches, ensuring more robust simulation outcomes despite the smaller initial allocations.
 
 ## Market Oracle Characterization
 
-Morpho markets utilize fundamentally different types of oracles, where oracle type influences the simulation framework. According to Credora nomenclature, these types are:
+Markets utilize fundamentally different types of oracles, where oracle type influences the simulation framework. According to Credora nomenclature, these types are:
 
-- **Dynamic Oracles:** Capture the market price of the collateral asset versus the loan asset. In these markets, liquidations and significant losses can result from temporary or sustained moves in the market price of the underlying collateral asset, whether driven by market dynamics or collateral asset default events. The historical volatility of the asset pair is a main driver in simulations, alongside collateral asset default events and market tail events.
+- **Dynamic Oracles:** Capture the market price of the collateral asset versus the loan asset. In these pairs, liquidations and significant losses can result from temporary or sustained moves in the market price of the underlying collateral asset, whether driven by market dynamics or collateral asset default events. The historical volatility of the asset pair is a main driver in simulations, alongside collateral asset default events and market tail events.
 
 - **Fundamental (or Exchange Rate) Oracles:** Deliver prices which reflect the exchange rate between an asset pair, using redemption values and protocol-defined calculations. For example, a stETH to ETH exchange rate oracle would return the rate at which stETH can be redeemed for ETH. As a result, simulations reduce the base volatility input of the pair to 0%, recognizing that market volatility will not drive liquidations. Liquidations and losses can result from changes in the exchange rate, which may arise through collateral default events.
 
@@ -40,7 +40,7 @@ Morpho markets utilize fundamentally different types of oracles, where oracle ty
 
 ## Daily Return Profile
 
-The market simulation model relies on a Daily Return Profile per market asset pair. In determining the daily return profile, extreme returns are separated from non-extreme returns and distinct modeling approaches are applied to each segment. This strategy allows for a focused and simplified approach to modeling the non-extreme returns, while the extreme events are handled using methods better suited for tail risk modeling.
+The pair simulation model relies on a Daily Return Profile per asset pair. In determining the daily return profile, extreme returns are separated from non-extreme returns and distinct modeling approaches are applied to each segment. This strategy allows for a focused and simplified approach to modeling the non-extreme returns, while the extreme events are handled using methods better suited for tail risk modeling.
 
 ### Historic Volatility
 
@@ -79,7 +79,7 @@ The **Rebalance Model** considers borrower behavior, recognizing that borrowers 
 
 - The **Health Factor** based on the close prices of the previous day. Health Factor is defined as the USD value of collateral multiplied by the LLTV, divided by the USD value of the loan. This variable captures the liquidation risk of the position.
 
-- A binary variable encoding the type of market. This is used to distinguish markets where the underlying borrow and loan assets are highly correlated (e.g. WETH/wstETH) from markets where the assets are less correlated (e.g. WETH/USDe). This variable reflects the intuition that borrowers are more likely to proactively rebalance where their expectation of volatility is higher.
+- A binary variable encoding the type of loan pair. This is used to distinguish pairs where the underlying borrow and loan assets are highly correlated (e.g. WETH/wstETH) from pairs where the assets are less correlated (e.g. WETH/USDe). This variable reflects the intuition that borrowers are more likely to proactively rebalance where their expectation of volatility is higher.
 
 When a simulated collateral deposit occurs, the magnitude of impact is a fixed parameter expressed as a percentage reduction of LTV. The magnitude is informed by historical averages of borrower behavior.
 
@@ -87,9 +87,9 @@ When a simulated collateral deposit occurs, the magnitude of impact is a fixed p
 
 The Daily Return Profile drives price simulations, which are utilized to calculate the evolution of loan-to-value (LTV) ratios over a specified number of days and simulation runs, under varying market conditions. The Rebalance Model is applied on the LTV Simulations, more accurately capturing user behavior. The primary objective is modeling how frequently loans are expected to breach the LLTV.
 
-## Market Simulation Outputs
+## Loan Pair Simulation Outputs
 
-The **Market Simulation Model** returns aggregated information on **Trigger Events**, or incidents when the LTV surpasses the LLTV. The outputs are used as inputs for the **Liquidation Simulations**, which analyze the probability of trigger events leading to bad debt.
+The **Simulation Model** returns aggregated information on **Trigger Events**, or incidents when the LTV surpasses the LLTV. The outputs are used as inputs for the **Liquidation Simulations**, which analyze the probability of trigger events leading to bad debt.
 
 The core outputs include the following:
 
@@ -107,25 +107,25 @@ Liquidation Simulations isolate the **Trigger Events** for further analysis. The
 
 ### Step Function
 
-While **Market Simulations** generate daily price changes, liquidations occur on more granular time frames. Liquidation Simulations utilize a **Step Function**, which segments a daily price move into multiple linearly spaced intraday price moves. This allows for the simulation of multiple liquidation events in a single day, more accurately modeling market behavior.
+While **Loan Pair Simulations** generate daily price changes, liquidations occur on more granular time frames. Liquidation Simulations utilize a **Step Function**, which segments a daily price move into multiple linearly spaced intraday price moves. This allows for the simulation of multiple liquidation events in a single day, more accurately modeling market behavior.
 
 The time and LLTV where a liquidation was triggered determines the starting point for the Step Function. For a specific daily price move, subsequent steps result in uniform increase in price over a set period of time. The number of steps is a fixed input, where x steps indicates that over the course of a day, the model performs x liquidations. Successful liquidations reduce the outstanding loan amount, and therefore have an impact on the LTV. As a result, although the Step Function segments into linearly spaced price moves, the impact on LTV is non-linear.
 
-As an example, consider a market where the LLTV is 86%. The Market Simulation results in multiple Market Triggers for the 81 - 86% LTV tranche. From the base Market Simulation, the price move driving the Market Trigger results in an LTV of 90%. The model applies a Step Function of 8, and the price move driving the increase from 86% to 90% LTV is segmented accordingly. In each segment of price increase, the model simulates a liquidation, considering the notional amount to be liquidated and the available liquidity. This allows for a recalculation of the LTV, before the subsequent liquidation is applied. After the step function completes, there is a new LTV which is \<90% (assuming successful liquidations). The process repeats applying the subsequent day’s simulated price moves, until the loan tranche is fully liquidated or the path results in bad debt exceeding the threshold.
+As an example, consider a market where the LLTV is 86%. The Loan Pair Simulation results in multiple Triggers for the 81 - 86% LTV tranche. From the base Loan Pair Simulation, the price move driving the Market Trigger results in an LTV of 90%. The model applies a Step Function of 8, and the price move driving the increase from 86% to 90% LTV is segmented accordingly. In each segment of price increase, the model simulates a liquidation, considering the notional amount to be liquidated and the available liquidity. This allows for a recalculation of the LTV, before the subsequent liquidation is applied. After the step function completes, there is a new LTV which is \<90% (assuming successful liquidations). The process repeats applying the subsequent day’s simulated price moves, until the loan tranche is fully liquidated or the path results in bad debt exceeding the threshold.
 
 ![step by step](/img/step-by-step.svg)
 
-Credora aggregates across step PSL outputs (e.g. 3, 6, 9, 12, etc.) to determine the final PSL for a market. PSL outputs are assigned a rating rank, which is determined using a linear interpolation of the corresponding rating PD range. The average rating rank is calculated across multiple step outputs and subsequently mapped to the final PSL. A rating rank is used because of the exponential nature of the underlying PD curve, as simple averages of the PSL outputs more heavily weight the impact of lower step results. This approach ensures that the output considers a range of possibilities across intraday price move volatility, and drives stability in the outputs.
+Credora aggregates across step PSL outputs (e.g. 3, 6, 9, 12, etc.) to determine the final PSL for a loan pair. PSL outputs are assigned a rating rank, which is determined using a linear interpolation of the corresponding rating PD range. The average rating rank is calculated across multiple step outputs and subsequently mapped to the final PSL. A rating rank is used because of the exponential nature of the underlying PD curve, as simple averages of the PSL outputs more heavily weight the impact of lower step results. This approach ensures that the output considers a range of possibilities across intraday price move volatility, and drives stability in the outputs.
 
 The number of steps is undergoing optimization, alongside other simulation parameters. Currently, Credora is evaluating outputs for 3 - 21 steps. Indicative results consider outputs across this range.
 
 ### Liquidity Parameters
 
-Liquidity parameters are calculated independently for each market. Credora’s process defines a **Base Liquidity** that is subsequently modified considering the characteristics of the market and conditions driving the Trigger Event.
+Liquidity parameters are calculated independently for each loan pair. Credora’s process defines a **Base Liquidity** that is subsequently modified considering the characteristics of the pair and conditions driving the Trigger Event.
 
 #### Base Liquidity
 
-Credora repeatedly queries DeFi pricing data for relevant asset pairs from 1Inch and 0x. This enables the building of a liquidity curve, where the USD amount of available liquidity is considered versus the slippage from the market mid-price. The market mid-price is currently queried from Coingecko, and also independently calculated for 1Inch and 0x. For 1Inch and 0x, the price of executing the sale of 1 unit of collateral is used as the mid-price. In querying the data sources to build curves, Credora dynamically adjusts the notional amount based on the prior results, aiming to ensure adequate data points are captured across 0-2% slippage for all pairs.
+Credora repeatedly queries DeFi pricing data for relevant asset pairs from 1Inch and 0x. This enables the building of a liquidity curve, where the USD amount of available liquidity is considered versus the slippage from the loan pair mid-price. The loan pair mid-price is currently queried from Coingecko, and also independently calculated for 1Inch and 0x. For 1Inch and 0x, the price of executing the sale of 1 unit of collateral is used as the mid-price. In querying the data sources to build curves, Credora dynamically adjusts the notional amount based on the prior results, aiming to ensure adequate data points are captured across 0-2% slippage for all pairs.
 
 The Liquidation Simulation utilizes averages of liquidity observations over the prior 30-days across 1Inch and 0x, combining short and long-term moving averages. Versus only relying on the latest liquidity metrics, this approach smooths the impact of short-term liquidity changes, and is generally aligned to the time frame for volatility inputs.
 
@@ -137,7 +137,7 @@ In the initial implementation, the above maximum slippage diminishes the importa
 
 #### Volatility Adjustment
 
-Credora adjusts liquidity metrics to account for the relationship between the historical volatility of asset pairs during extreme or stressed market conditions and the 30-day volatility input utilized in the Market Simulation framework. This adjustment is derived from an independent analysis that evaluates the impact of volatility on liquidity dynamics across various asset pairs.
+Credora adjusts liquidity metrics to account for the relationship between the historical volatility of asset pairs during extreme or stressed market conditions and the 30-day volatility input utilized in the Loan Pair Simulation framework. This adjustment is derived from an independent analysis that evaluates the impact of volatility on liquidity dynamics across various asset pairs.
 
 The process uses the last three years of historical price data to isolate the 95th percentile of daily price movements and calculate the volatility during extreme market conditions. Subsequently, the ratio between this extreme volatility and the historical volatility over the past 30 days is calculated. Finally, this ratio is applied to a curve that determines the appropriate liquidity discount. For typically volatile market pairs, the discount in liquidity is on average between 20% to 50%.
 
@@ -145,9 +145,9 @@ This liquidity adjustment aims to capture the reality that liquidity is dependen
 
 #### Market Tier Adjustment
 
-Liquidity is further adjusted depending on the utilization of the collateral asset across similar markets from the most relevant lending protocols. The Market Tier Adjustment aims to capture the risk of liquidations occurring simultaneously across multiple markets, therefore reducing the available liquidity for liquidations or more drastically impacting price.
+Liquidity is further adjusted depending on the utilization of the collateral asset across similar loan pairs from the most relevant lending protocols. The Market Tier Adjustment aims to capture the risk of liquidations occurring simultaneously across multiple markets, therefore reducing the available liquidity for liquidations or more drastically impacting price.
 
-First, a discount is applied considering similar markets within the protocol. This only includes markets where the loan asset and collateral asset mirror the market in consideration. Additionally, assets are tiered based on the utilization of collateral across major DeFi protocols, including AAVE and Spark. The usage of the collateral determines a tier, which is mapped to a percentage liquidity discount.
+First, a discount is applied considering similar loan pairs within the protocol. Additionally, assets are tiered based on the utilization of collateral across major DeFi protocols, including AAVE and Spark. The usage of the collateral determines a tier, which is mapped to a percentage liquidity discount.
 
 In future iterations, the Market Tier Adjustment will be enhanced and calculate values at risk of liquidation across multiple protocols, considering a specific asset or pair price move. This enhancement is targeting a more accurate measurement of the liquidity available for a specific liquidation, or the higher potential for more aggressive price moves.
 
@@ -161,19 +161,19 @@ The following are the core outputs of the Liquidation Simulation.
 
 The Monthly PSL is annualized for the purposes of comparison versus Credora PD outputs. The formula for this is as follows: .
 
-The approach for quantifying a PSL and implied rating considers multiple factors, including the parameters of the relevant market, the recent state of active loans, the volatility of the asset pair, historic extreme price events, default events calculated utilizing Credora methodologies, rebalancing behavior, liquidity, and liquidity adjustments. In aggregate, this represents a comprehensive which considers a variety of market and tangent risks.
+The approach for quantifying a PSL and implied rating considers multiple factors, including the parameters of the relevant loan pair, the recent state of active loans, the volatility of the asset pair, historic extreme price events, default events calculated utilizing Credora methodologies, rebalancing behavior, liquidity, and liquidity adjustments. In aggregate, this represents a comprehensive which considers a variety of market and tangent risks.
 
-## No Liquidation Markets
+## No Liquidation Pairs
 
-Markets that rely on a fixed price oracle are designated as No Liquidation Markets. These configurations typically accompany stable-stable markets, for example USD0/USDC, where price moves are typically mean-reverting and the use of a dynamic price oracle exposes borrowers to a higher frequency of liquidations.
+Loan Pairs that rely on a fixed price oracle are designated as No Liquidation pairs. These configurations typically accompany stable-stable pairs, for example USD0/USDC, where price moves are typically mean-reverting and the use of a dynamic price oracle exposes borrowers to a higher frequency of liquidations.
 
-In markets relying on dynamic oracle pricing, liquidations and significant losses can result from temporary and sustained moves in the market price of the underlying collateral asset, whether driven by market dynamics or collateral asset default events.
+In pairs relying on dynamic oracle pricing, liquidations and significant losses can result from temporary and sustained moves in the market price of the underlying collateral asset, whether driven by market dynamics or collateral asset default events.
 
-In no liquidation markets, however, risk primarily stems from collateral asset default events that are expected to be the driver of sustained changes in the price of the collateral asset. Fixed price oracles are often utilized in markets where the collateral asset and the loan asset are redeemable against the same reserve asset (e.g. WBTC/cbBTC). Temporary deviations in the asset pair price does not lead to liquidations or significant losses as the oracle price is fixed. Historically, prices of such pairs are typically mean reverting and deviations are impermanent. As a result, sustained losses are expected to be primarily driven by collateral default events. As such, Credora employs a nuanced approach to measuring the risk of No Liquidation markets. This approach emphasizes the importance of collateral default events as the primary source of significant loss risk whereas the impact of market moves stemming from the materialization of market tail events is diminished to capture the historically mean-reverting behavior.
+In no liquidation pairs, however, risk primarily stems from collateral asset default events that are expected to be the driver of sustained changes in the price of the collateral asset. Fixed price oracles are often utilized in pairs where the collateral asset and the loan asset are redeemable against the same reserve asset (e.g. WBTC/cbBTC). Temporary deviations in the asset pair price does not lead to liquidations or significant losses as the oracle price is fixed. Historically, prices of such pairs are typically mean reverting and deviations are impermanent. As a result, sustained losses are expected to be primarily driven by collateral default events. As such, Credora employs a nuanced approach to measuring the risk of No Liquidation Pairs. This approach emphasizes the importance of collateral default events as the primary source of significant loss risk whereas the impact of market moves stemming from the materialization of market tail events is diminished to capture the historically mean-reverting behavior.
 
-Credora quantifies the PSL for No Liquidation markets via the following approach:
+Credora quantifies the PSL for No Liquidation pairs via the following approach:
 
-- Define the necessary price move that can lead to significant losses as 100% - LLTV, a conservative assumption considering LTV levels are typically lower than the LLTV in isolated markets.
+- Define the necessary price move that can lead to significant losses as 100% - LLTV, a conservative assumption considering LTV levels are typically lower than the LLTV in markets.
 
 - Isolate the risk of collateral asset default events as the primary source of significant loss. The probability that the loss given default (LGD) will exceed the necessary price move is measured. This is achieved by calculating how many LGD observations lie above the necessary price move, expressing it as a percentage of all observations, and then multiplying by the probability of a collateral default. The result of this calculation measures the probability of significant loss due to a collateral default event.
 
