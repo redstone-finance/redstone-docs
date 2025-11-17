@@ -14,7 +14,7 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 1. **Fundamental feed**
 
    The fundamental price represents an estimate of the fair market value of an asset, based on its exchange rate to other assets or its underlying reserves.
-   
+
    :::warning
 
    The fundamental feed provides a less volatile price but often introduces additional trust assumptions related to the structure and liquidity of the underlying reserves.

@@ -205,8 +205,8 @@ This methodology ensures that market-specific oracle risks are systematically id
 
 This risk emerges from either static (hardcoded) price feeds or misaligned oracle configurations. Both scenarios fail to adequately reflect the dynamic relationship between collateral and loan assets, particularly under volatile market conditions. For investment grade rated assets, robust redeemability is a key expectation, reflecting their strong creditworthiness and structural reliability. Accordingly, in markets exposed to such assets that rely on pricing derived directly from the underlying collateral (e.g., WBTC utilizing a BTC price feed or USDC referencing a USD price feed), the oracle configuration is not deemed misaligned and the market is not adjusted downward based on the oracle risk.
 
-| Tier   | Description                                                                                                              | Notch Adjustment |
-| ------ | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
+| Tier        | Description                                                                                                              | Notch Adjustment |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | Tier&nbsp;1 | Oracle directly tracks the relationship between collateral and loan assets or there is no reliance on hardcoded oracles. | 0                |
 | Tier&nbsp;2 | Oracle indirectly tracks the relationship or there is reliance on hardcoded oracles.                                     | –0.6             |
 
@@ -214,8 +214,8 @@ This risk emerges from either static (hardcoded) price feeds or misaligned oracl
 
 This risk arises when the oracle provider or vendor is unknown, unverified, or operates with insufficient transparency. The lack of visibility into the vendor's operations, infrastructure, and governance can lead to significant vulnerabilities for the protocol relying on its price feeds.
 
-| Tier   | Description                                                                               | Notch Adjustment |
-| ------ | ----------------------------------------------------------------------------------------- | ---------------- |
+| Tier        | Description                                                                               | Notch Adjustment |
+| ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
 | Tier&nbsp;1 | The vendor is established, well-known, and transparent.                                   | 0                |
 | Tier&nbsp;2 | Vendor is unknown or lacks sufficient documentation or transparency about its operations. | –0.6             |
 
