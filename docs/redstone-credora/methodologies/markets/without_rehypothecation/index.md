@@ -1,4 +1,4 @@
-# Markets without Rehypothecation
+# Markets with Isolated Collateral
 
 _Encompasses Morpho Markets. The key characteristic is the one-to-one relationship between a collateral asset and loan asset, where the collateral itself is not used elsewhere._
 

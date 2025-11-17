@@ -1,4 +1,4 @@
-# Rehypothecated Markets
+# Markets with Rehypothecated Collateral
 
 _Markets with rehypothecated collateral include Loan-Collateral Pairs from SparkLend Liquidity Markets, AAVE Markets, and Euler vault clusters, among others. These markets feature rehypothecated collateral assets, where collateral deposited in one market can be reused elsewhere within the system._
 
