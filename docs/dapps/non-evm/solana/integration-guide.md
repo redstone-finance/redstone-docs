@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: "Integration Guide" 
+sidebar_label: "Integration Guide"
 ---
 
 # How to use RedStone on Solana
@@ -16,9 +16,11 @@ The **info described there** is mostly **NOT REPEATED below**.
 RedStone on Solana supports two integration patterns:
 
 ### 1. Price Adapter Pattern (Recommended)
+
 Use pre-deployed price feed accounts that are automatically updated by RedStone relayers.
 
-### 2. Pull Model Pattern  
+### 2. Pull Model Pattern
+
 Fetch and verify price data off-chain, then pass it to your on-chain program.
 
 ---
@@ -54,20 +56,20 @@ declare_id!("YourProgramIdHere");
 #[program]
 pub mod my_program {
     use super::*;
-    
+
     pub fn use_price(ctx: Context<UsePrice>) -> Result<()> {
         // Read price data from RedStone price feed account
         let price_data = read_redstone_price(&ctx.accounts.price_feed)?;
-        
-        // Verify price is fresh (within 5 minutes)  
+
+        // Verify price is fresh (within 5 minutes)
         require!(
             is_price_fresh(&price_data, 300)?,
             ErrorCode::StalePrice
         );
-        
+
         let price = extract_price_value(price_data.value)?;
         msg!("Current price: {}", price);
-        
+
         Ok(())
     }
 }
@@ -134,61 +136,59 @@ import { Connection, PublicKey } from "@solana/web3.js";
 
 // Program addresses from price-adapter.md
 const REDSTONE_PROGRAM_IDS = {
-    mainnet: "REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr",
-    devnet: "REDuYsnEucMweattdv4xQCYdU1i8Q2W92kdayrpY9rA",
-    testnet: "rds8J7VKqLQgzDr7vS59dkQga3B1BotgFy8F7LSLC74"
+  mainnet: "REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr",
+  devnet: "REDuYsnEucMweattdv4xQCYdU1i8Q2W92kdayrpY9rA",
+  testnet: "rds8J7VKqLQgzDr7vS59dkQga3B1BotgFy8F7LSLC74",
 };
 
 class RedStonePriceReader {
-    constructor(
-        private connection: Connection,
-        private cluster: 'mainnet' | 'devnet' | 'testnet' = 'mainnet'
-    ) {}
-    
-    // Derive address using method from price-feed-account.md
-    getPriceFeedAddress(feedId: string): PublicKey {
-        // Use the Rust address derivation method
-        // Implementation details in price-feed-account.md
-        const programId = new PublicKey(REDSTONE_PROGRAM_IDS[this.cluster]);
-        // TODO: Implement using seeds as documented
-        throw new Error("Implement using price-feed-account.md method");
+  constructor(
+    private connection: Connection,
+    private cluster: "mainnet" | "devnet" | "testnet" = "mainnet",
+  ) {}
+
+  // Derive address using method from price-feed-account.md
+  getPriceFeedAddress(feedId: string): PublicKey {
+    // Implementation details in price-feed-account.md
+    const programId = new PublicKey(REDSTONE_PROGRAM_IDS[this.cluster]);
+    throw new Error("Implement using price-feed-account.md method");
+  }
+
+  async readPrice(feedId: string): Promise<number> {
+    const address = this.getPriceFeedAddress(feedId);
+    const accountInfo = await this.connection.getAccountInfo(address);
+
+    if (!accountInfo) {
+      throw new Error(`No price feed found for ${feedId}`);
     }
-    
-    async readPrice(feedId: string): Promise<number> {
-        const address = this.getPriceFeedAddress(feedId);
-        const accountInfo = await this.connection.getAccountInfo(address);
-        
-        if (!accountInfo) {
-            throw new Error(`No price feed found for ${feedId}`);
-        }
-        
-        // Deserialize using method from price-feed-account.md
-        const priceData = this.deserializePriceData(accountInfo.data);
-        return this.convertPrice(priceData.value);
-    }
-    
-    private deserializePriceData(data: Buffer) {
-        // Use the deserialization method from price-feed-account.md
-        throw new Error("Implement using price-feed-account.md method");
-    }
-    
-    private convertPrice(rawValue: number[]): number {
-        // Use redstone_value_to_price conversion from price-feed-account.md
-        throw new Error("Implement using price-feed-account.md method");
-    }
+
+    // Deserialize using method from price-feed-account.md
+    const priceData = this.deserializePriceData(accountInfo.data);
+    return this.convertPrice(priceData.value);
+  }
+
+  private deserializePriceData(data: Buffer) {
+    // Use the deserialization method from price-feed-account.md
+    throw new Error("Implement using price-feed-account.md method");
+  }
+
+  private convertPrice(rawValue: number[]): number {
+    // Use redstone_value_to_price conversion from price-feed-account.md
+    throw new Error("Implement using price-feed-account.md method");
+  }
 }
 
 // Usage
 async function example() {
-    const connection = new Connection("https://api.mainnet-beta.solana.com");
-    const reader = new RedStonePriceReader(connection, 'mainnet');
-    
-    try {
-        const ethPrice = await reader.readPrice("ETH");
-        console.log(`ETH price: $${ethPrice}`);
-    } catch (error) {
-        console.error("Failed to read price:", error);
-    }
+  const connection = new Connection("https://api.mainnet-beta.solana.com");
+  const reader = new RedStonePriceReader(connection, "mainnet");
+
+  try {
+    const ethPrice = await reader.readPrice("ETH");
+    console.log(`ETH price: $${ethPrice}`);
+  } catch (error) {
+    console.error("Failed to read price:", error);
+  }
 }
 ```
 
@@ -201,30 +201,23 @@ For applications that need the freshest data or custom verification.
 ### TypeScript (Off-chain)
 
 ```typescript
-// Note: Check the redstone-oracles-monorepo for actual SDK packages
-import { RedstoneSDK } from "@redstone-finance/protocol"; // or whatever the real package is
+import { RedstoneSDK } from "@redstone-finance/protocol";
 
 class RedStonePullModel {
-    async getVerifiedPrice(symbol: string) {
-        // Implementation depends on actual RedStone SDK
-        // See: https://github.com/redstone-finance/redstone-oracles-monorepo
-        throw new Error("Check GitHub repo for actual implementation");
-    }
+  async getVerifiedPrice(symbol: string) {
+    throw new Error("Check GitHub repo for actual implementation");
+  }
 }
 ```
 
 ### Rust (On-chain)
 
 ```rust
-// This would require RedStone Rust SDK integration
-// Check the monorepo for actual implementation details
 
 pub fn process_redstone_payload(
     ctx: Context<ProcessPayload>,
     payload: Vec<u8>
 ) -> Result<()> {
-    // Implementation depends on RedStone Rust SDK
-    // See: https://github.com/redstone-finance/redstone-oracles-monorepo
     todo!("Check GitHub repo for payload processing")
 }
 ```
@@ -240,7 +233,7 @@ pub fn process_redstone_payload(
 yarn sample-deploy
 ```
 
-### Sample Run  
+### Sample Run
 
 ```bash
 yarn sample-run
@@ -252,13 +245,14 @@ The sample scripts are available in the [redstone-oracles-monorepo](https://gith
 
 ## Network Configuration
 
-| Network | Program ID |
-|---------|------------|
+| Network | Program ID                                    |
+| ------- | --------------------------------------------- |
 | Mainnet | `REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr` |
-| Devnet  | `REDuYsnEucMweattdv4xQCYdU1i8Q2W92kdayrpY9rA` |  
+| Devnet  | `REDuYsnEucMweattdv4xQCYdU1i8Q2W92kdayrpY9rA` |
 | Testnet | `rds8J7VKqLQgzDr7vS59dkQga3B1BotgFy8F7LSLC74` |
 
 For detailed account structure and address derivation, see:
+
 - [Price Feed Account](./price-feed-account.md)
 - [Price Adapter](./price-adapter.md)
 
