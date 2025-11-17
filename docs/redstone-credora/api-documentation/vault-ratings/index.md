@@ -1,24 +1,21 @@
----
-title: Vault Ratings
-sidebar_label: Vault Ratings
----
-
 # Vault Ratings
 
 ## Overview
+
 The Vault Ratings API provides comprehensive rating information for DeFi vaults, derived from Credora's proprietary risk assessment methodology. Each vault rating includes quantitative risk metrics, qualitative assessments, and curator information.
 
 ## Vault Ratings Definitions
-- **ID**: Unique identifier for the vault  
-- **Address**: On-chain address of the vault  
-- **Chain ID**: Standard chain identifier (e.g., `1` for Ethereum, `8453` for Base)  
-- **Curator**: Name of the Vault curator.  
-- **Name**: Human-readable name of the vault  
-- **Protocol**: Protocol name (e.g., *Morpho*)  
-- **Metrics**: Rating metrics and risk assessment data  
-  - **Rating**: Rating output on the DeFi scale, designed to be more intuitive for all users  
-  - **Publish Date**: The date on which the Vault Rating was last updated (format: `YYYY-MM-DD`)  
-  - **PSL**: Probability of Significant Loss — annualized probability of a 1% loss on market supply  
+
+- **ID**: Unique identifier for the vault
+- **Address**: On-chain address of the vault
+- **Chain ID**: Standard chain identifier (e.g., `1` for Ethereum, `8453` for Base)
+- **Curator**: Name of the Vault curator.
+- **Name**: Human-readable name of the vault
+- **Protocol**: Protocol name (e.g., _Morpho_)
+- **Metrics**: Rating metrics and risk assessment data
+  - **Rating**: Rating output on the DeFi scale, designed to be more intuitive for all users
+  - **Publish Date**: The date on which the Vault Rating was last updated (format: `YYYY-MM-DD`)
+  - **PSL**: Probability of Significant Loss — annualized probability of a 1% loss on market supply
 
 ---
 
@@ -27,9 +24,11 @@ The Vault Ratings API provides comprehensive rating information for DeFi vaults,
 ---
 
 ### Get Single Vault Rating
+
 Retrieve detailed rating information for a specific vault by its ID or address.
 
 #### Query
+
 ```graphql
 query GetVaultRating {
   getVaultRating(id: "id") {
@@ -49,7 +48,7 @@ query GetVaultRating {
 }
 ```
 
-*Example response*
+##### Example response
 
 ```json
 {
@@ -77,7 +76,7 @@ query GetVaultRating {
 
 Retrieve a paginated list of all available vault ratings.
 
-**Pagination**
+#### Pagination
 
 The getVaultRatings endpoint supports pagination via optional parameters:
 
@@ -85,7 +84,7 @@ The getVaultRatings endpoint supports pagination via optional parameters:
 
 - limit: Number of results per page. The default is 10.
 
-#### Query
+##### Query
 
 ```graphql
 query {
@@ -108,10 +107,9 @@ query {
     }
   }
 }
-
 ```
 
-**Example response**
+##### Example response\*\*
 
 ```json
 {

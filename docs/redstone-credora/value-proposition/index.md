@@ -1,7 +1,4 @@
----
-title: Ratings and Risk Metrics Drive Informed Decisions
-sidebar_label: Value Proposition
----
+# Ratings and Risk Metrics Drive Informed Decisions
 
 Below are example use cases of how Ratings are used by different market participants:
 

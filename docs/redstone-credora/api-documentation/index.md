@@ -1,8 +1,3 @@
----
-title: Credora GraphQL API Documentation
-sidebar_label: API Documentation
----
-
 # Credora GraphQL API Documentation
 
 Credora GraphQL APIs expose ratings information alongside unique data points, powering risk management across protocols, asset managers, and active onchain participants.
@@ -11,9 +6,9 @@ Credora GraphQL APIs expose ratings information alongside unique data points, po
 
 APIs are structured to provide responses across three primary categories:
 
-- **Vaults** (Available now)  
-- **Assets** *(soon!)*  
-- **Markets** *(soon!)*  
+- **Vaults** (Available now)
+- **Assets** _(soon!)_
+- **Markets** _(soon!)_
 
 Each category exposes active Credora Ratings, providing risk metrics and analytics.
 
@@ -51,7 +46,6 @@ All GraphQL requests must include the following HTTP header:
 
 `ClientSecret: your-api-key`
 
-
 ### Authentication Errors
 
 Requests without a valid API key will return:
@@ -68,3 +62,4 @@ Requests without a valid API key will return:
     }
   ]
 }
+```

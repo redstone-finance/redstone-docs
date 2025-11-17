@@ -1,7 +1,4 @@
----
-title: Methodologies
-sidebar_label: Methodologies
----
+# Methodologies
 
 By publicizing and openly developing methodologies, Credora aims to foster industry collaboration and elevate market standards.
 

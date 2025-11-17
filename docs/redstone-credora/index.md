@@ -7,18 +7,18 @@ RedStone's recent acquisition of Credora marks a significant milestone in its mi
 
 ## Benefits
 
-- Risk transparency and enhanced ecosystem trust  
-- Informed risk-reward decision making  
-- Elevated DeFi market standards  
-- Early warnings on changing risk profiles  
-- Risk/Reward adjusted strategies  
+- Risk transparency and enhanced ecosystem trust
+- Informed risk-reward decision making
+- Elevated DeFi market standards
+- Early warnings on changing risk profiles
+- Risk/Reward adjusted strategies
 
 ## Use Cases
 
-- [Higher growth potential](https://x.com/CredoraNetwork/status/1929887651684839822) as rated vaults and strategies grow faster than unrated ones  
-- DeFi risk ratings which are the crypto-native version of TradFi risk ratings (Moody’s, S&P), enabling more capital and institutions to enter DeFi  
-- Dynamic risk management, portfolio construction, and active optimization for yield strategies  
-- Data-driven decision making to earn the highest risk-adjusted yields  
+- [Higher growth potential](https://x.com/CredoraNetwork/status/1929887651684839822) as rated vaults and strategies grow faster than unrated ones
+- DeFi risk ratings which are the crypto-native version of TradFi risk ratings (Moody’s, S&P), enabling more capital and institutions to enter DeFi
+- Dynamic risk management, portfolio construction, and active optimization for yield strategies
+- Data-driven decision making to earn the highest risk-adjusted yields
 
 Credora's risk ratings will initially launch on [Morpho and Spark](https://x.com/CredoraNetwork/status/1986449614892130541). Over time, coverage will expand to new assets, protocols, additional vaults, and yield aggregators.
 

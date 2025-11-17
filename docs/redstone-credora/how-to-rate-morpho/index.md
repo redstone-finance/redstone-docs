@@ -1,8 +1,3 @@
----
-title: How to Rate Morpho
-sidebar_label: How to Rate Morpho
----
-
 # Morpho Implementation
 
 Morpho is a permissionless and non-custodial lending protocol. Morpho Vaults are designed to provide a passive lending experience by allowing users access to curated risk profiles and management. Vaults carry exposures across multiple underlying markets, creating a portfolio of risks tied to the performance of those markets.
@@ -16,6 +11,8 @@ Credora vault rating system employs a bottom-up assessment approach that combine
 1. **Collateral Assets** – evaluated using the **Tokens Methodology**
 2. **Markets** – evaluated using **Markets without Rehypothecation Methodology**
 3. **Vaults** – aggregated exposure to underlying markets, evaluated with the **Vaults Methodology**
+
+![Assets markets vaults](/img/assets-markets-vaults.svg)
 
 To generate a vault rating, we must first complete the foundational work: rating individual collateral assets (stablecoins, RWAs, staking tokens) from the markets where the vault is exposed to in order to determine their probability of default and loss characteristics. Then, assessing markets Probability of Significant Loss (PSL) which combine these assets into lending pairs with specific parameters and liquidation mechanisms. Finally, we aggregate them into a comprehensive vault rating.
 
@@ -37,12 +34,7 @@ In order to deliver a holistic assessment of risk throughout the Morpho protocol
 
 The fundamental parameters that define each market and are used for market simulations detailed in the Loan Pairs Methodology are:
 
-- Market Characteristics  
-- Collateral Asset Rating  
-- Allocations Distribution  
-- Returns Distribution  
-- Rebalance Profile  
-- Pair Liquidity Data  
+![Markets methodology](/img/markets-methodology.svg)
 
 The price and liquidation simulations are executed and establish the Anchor PSL for a specific market, after which a set of modifiers are applied to calculate a Final PSL and implied rating per market. These outputs are utilized in subsequent methodologies that assess the risk of Morpho Vaults. The list of modifiers includes:
 
@@ -53,6 +45,7 @@ The price and liquidation simulations are executed and establish the Anchor PSL 
 The final Market PSL is calculated after accounting for the two additional risks: oracle risk via the Oracle Modifier, and general Morpho smart contract risk via the Protocol Risk Adjustment. After the Oracle Modifier is applied to the respective market PSL, the Protocol
 
 ## Morpho Vault Ratings
+
 Vaults represent the highest level of the risk framework, treating them as aggregated exposure to underlying markets and assets, and ratings are obtained by applying the Vaults Methodology [LINK]. The vault rating aggregation process weights each underlying market exposure based on the vault's allocation to that market. Markets with higher allocations have a proportionally greater impact on the overall vault rating. This determines the Anchor Vault PSL by calculating a weighted average PSL of the markets utilized in the vault. The final PSL is derived from applying modifiers that consider the Curator, Governance, Guardian and Timelock.
 
 ### Ratings Scale

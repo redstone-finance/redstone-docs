@@ -6,7 +6,7 @@ A market is either explicitly structured by protocol design, where a single coll
 
 ## Decomposing Pooled and Multi-Collateral Systems
 
-Protocols like **Morpho** implement an isolated architecture, where each market operates as a self-contained pair with distinct collateral relationships and independent risk boundaries. 
+Protocols like **Morpho** implement an isolated architecture, where each market operates as a self-contained pair with distinct collateral relationships and independent risk boundaries.
 In contrast, **Aave** and its forks (including **SparkLend**) operate as pooled lending systems. In these systems, all deposits, withdrawals, borrows, and repayments for each asset occur within a single global pool. Unlike isolated markets, these actions are interconnected—occurring in the same pool as other users' activities—which enables efficient matching between lenders and borrowers. Similarly, **Euler** constructs interconnected Vault Networks that create comparable interdependencies.
 
 Within these pooled systems, multiple loan-collateral relationships can exist. For analytical consistency, each position can be decomposed and grouped into virtual portfolios of loan-collateral exposures, creating a list of markets according to Credora's definition.
@@ -15,7 +15,6 @@ To analyze these interconnected systems, the methodology constructs "virtual mar
 Furthermore, certain protocols support multi-collateral borrowing, where active loans can be attributed to multiple collateral assets. In these cases, positions can be decomposed into combinations of loan pairs.
 
 _Across all implementations, markets share common structural functions: they define collateralization requirements, govern interest rate mechanisms, set liquidation thresholds, and ultimately determine the credit and liquidity risk parameters of the lending portfolios they compose._
-
 
 ## Simulation Framework
 

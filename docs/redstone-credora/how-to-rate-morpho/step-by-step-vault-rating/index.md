@@ -1,18 +1,13 @@
----
-title: Morpho Vault Ratings Step-by-Step
-sidebar_label: Step-by-Step Vault Rating
----
-
 # Morpho Vault Ratings: Step-by-Step Example
 
 In this section, we walk through how Credora rates Morpho vaults using Spark’s curated vaults as examples, an analysis with data from June 2025. These Spark vaults are part of the [Spark Liquidity Layer](https://docs.spark.fi/user-guides/spark-liquidity-layer), which automates the deployment of USDS, sUSDS, and USDC liquidity across DeFi protocols.
 
 Here’s a snapshot of the current rating outcomes for two Spark vaults, where PSL refers to the annualized Probability of Significant Loss (defined as a 1% loss):
 
-| Vault            | Network  | Loan Asset | Rating | PSL    |
-|------------------|----------|-----------|--------|--------|
-| Spark DAI Vault  | Ethereum | DAI       | A-     | 0.50%  |
-| Spark USDC Vault | Base     | USDC      | A      | 0.18%  |
+| Vault            | Network  | Loan Asset | Rating | PSL   |
+| ---------------- | -------- | ---------- | ------ | ----- |
+| Spark DAI Vault  | Ethereum | DAI        | A-     | 0.50% |
+| Spark USDC Vault | Base     | USDC       | A      | 0.18% |
 
 ## Step 1: Classifying Markets
 
@@ -28,17 +23,17 @@ Oracle classification is based on a review of the asset pair and the underlying 
 
 ### Spark DAI
 
-| Collateral Asset                | PD | Oracle   | LLTV   | WA LTV |
-|---------------------------------|-------------|----------|--------|--------|
-| PT-USDS<br/>14AUG2025           | 0.76%       | Exchange | 96.5%  | 90%    |
-| PT-sUSDE<br/>31JUL2025          | 1.08%       | Fixed    | 91.5%  | 79%    |
-| PT-eUSDE<br/>29MAY2025          | 1.08%       | Fixed    | 91.5%  | 76.5%  |
-| PT-USDe<br/>31JUL2025           | 1.08%       | Fixed    | 91.5%  | 62%    |
-| sUSDe                           | 0.94%       | Fixed    | 86%    | 50%    |
-| USDe                            | 0.94%       | Fixed    | 86%    | 75.5%  |
-| PT-sUSDE<br/>29MAY2025          | 1.08%       | Fixed    | 91.5%  | 83%    |
-| PT-sUSDE<br/>27MAR2025          | 1.08%       | Fixed    | 91.5%  | 76.5%  |
-| Unallocated                     |             |          |        |        |
+| Collateral Asset       | PD    | Oracle   | LLTV  | WA LTV |
+| ---------------------- | ----- | -------- | ----- | ------ |
+| PT-USDS<br/>14AUG2025  | 0.76% | Exchange | 96.5% | 90%    |
+| PT-sUSDE<br/>31JUL2025 | 1.08% | Fixed    | 91.5% | 79%    |
+| PT-eUSDE<br/>29MAY2025 | 1.08% | Fixed    | 91.5% | 76.5%  |
+| PT-USDe<br/>31JUL2025  | 1.08% | Fixed    | 91.5% | 62%    |
+| sUSDe                  | 0.94% | Fixed    | 86%   | 50%    |
+| USDe                   | 0.94% | Fixed    | 86%   | 75.5%  |
+| PT-sUSDE<br/>29MAY2025 | 1.08% | Fixed    | 91.5% | 83%    |
+| PT-sUSDE<br/>27MAR2025 | 1.08% | Fixed    | 91.5% | 76.5%  |
+| Unallocated            |       |          |       |        |
 
 In the case of PT-USDE-31JUL, the oracle configuration only utilizes a base feed, which is a PT linear discount adapter. Although linear adapters typically underprice PT fair values, the configuration assumes USDE = 1, and thus the fixed classification applies. We can inspect historical pricing per oracle configuration.
 
@@ -47,11 +42,11 @@ In the case of PT-USDE-31JUL, the oracle configuration only utilizes a base feed
 ### Spark USDC
 
 | Collateral Asset | Consensus PD | Oracle  | LLTV | WA LTV |
-|------------------|-------------|---------|------|--------|
-| cbBTC            | 0.02%       | Dynamic | 86%  | 48%    |
+| ---------------- | ------------ | ------- | ---- | ------ |
+| cbBTC            | 0.02%        | Dynamic | 86%  | 48%    |
 
-- Consensus PD of the collateral asset considers Credora methodology outputs and expert reviewer input.  
-- LLTV is the liquidation loan-to-value.  
+- Consensus PD of the collateral asset considers Credora methodology outputs and expert reviewer input.
+- LLTV is the liquidation loan-to-value.
 - WA LTV is the weighted average LTV across all active positions.
 
 ## Step 2: Quantifying Market Risk
@@ -118,9 +113,7 @@ Here’s a base liquidity curve for a USDC vs. cbBTC on base, which considers in
 
 Liquidations happen as a **step function** — multiple tranches can be triggered at once and compete for the same liquidity. Effectively, if there is a large daily price move, a larger quantity of liquidations will chase the same available liquidity.
 
-From the liquidation simulations, we capture events where bad debt occurs and exceeds our defined threshold (1% of principal). The final PSL for the market is calculated as:
-
-_PSL = Bad Debt Price Paths / Total Price Paths_
+From the liquidation simulations, we capture events where bad debt occurs and exceeds our defined threshold (1% of principal). The final PSL for the market is calculated as: _PSL = Bad Debt Price Paths / Total Price Paths_
 
 ## Step 5: Protocol & Oracle Adjustments
 
@@ -143,23 +136,23 @@ The below tables display Market PSL outputs for the Spark vaults.
 
 ### Spark DAI
 
-| Collateral Asset                | Allocation % | Market PSL |
-|---------------------------------|-------------|------------|
-| PT-USDS<br/>14AUG2025           | 72.7%       | 0.13%      |
-| PT-sUSDE<br/>31JUL2025          | 13.2%       | 0.77%      |
-| PT-eUSDE<br/>29MAY2025          | 2.1%        | 0.81%      |
-| PT-USDe<br/>31JUL2025           | 1.7%        | 0.77%      |
-| sUSDe                           | 1.7%        | 0.41%      |
-| USDe                            | 0.9%        | 0.28%      |
-| PT-sUSDE<br/>29MAY2025          | 0.3%        | 0.77%      |
-| PT-sUSDE<br/>27MAR2025          | 0.1%        | 0.13%      |
-| Unallocated                     | 7.1%        | 0.13%      |
+| Collateral Asset       | Allocation % | Market PSL |
+| ---------------------- | ------------ | ---------- |
+| PT-USDS<br/>14AUG2025  | 72.7%        | 0.13%      |
+| PT-sUSDE<br/>31JUL2025 | 13.2%        | 0.77%      |
+| PT-eUSDE<br/>29MAY2025 | 2.1%         | 0.81%      |
+| PT-USDe<br/>31JUL2025  | 1.7%         | 0.77%      |
+| sUSDe                  | 1.7%         | 0.41%      |
+| USDe                   | 0.9%         | 0.28%      |
+| PT-sUSDE<br/>29MAY2025 | 0.3%         | 0.77%      |
+| PT-sUSDE<br/>27MAR2025 | 0.1%         | 0.13%      |
+| Unallocated            | 7.1%         | 0.13%      |
 
 ### Spark USDC
 
 | Collateral Asset | Allocation % | Market PSL |
-|------------------|-------------|------------|
-| cbBTC            | 100%        | 0.13%      |
+| ---------------- | ------------ | ---------- |
+| cbBTC            | 100%         | 0.13%      |
 
 ## Step 6: Composing Vault Ratings
 
@@ -171,7 +164,7 @@ Once all market risks are modeled, we aggregate them at the vault level. This in
 
 Curator Behavior and User Protections are applied as adjustments on the weighted average PSL across vault allocations, resulting in the final ratings outputs.
 
-| Vault            | Network  | Loan Asset | Rating | PSL    |
-|------------------|----------|-----------|--------|--------|
-| Spark DAI Vault  | Ethereum | DAI       | A-     | 0.50%  |
-| Spark USDC Vault | Base     | USDC      | A      | 0.18%  |
+| Vault            | Network  | Loan Asset | Rating | PSL   |
+| ---------------- | -------- | ---------- | ------ | ----- |
+| Spark DAI Vault  | Ethereum | DAI        | A-     | 0.50% |
+| Spark USDC Vault | Base     | USDC       | A      | 0.18% |
