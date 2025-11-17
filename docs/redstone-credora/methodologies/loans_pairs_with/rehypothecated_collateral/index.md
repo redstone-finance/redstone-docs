@@ -14,7 +14,7 @@ When evaluating risk in rehypothecated markets, we must consider both the direct
 
 The first simulation step calculates the Probability of Significant Loss (PSL) for each virtual loan pair under the assumption that collateral assets are “static”—temporarily disregarding their potential use as borrowed assets elsewhere. Monte Carlo simulations model price movements across all assets, determining when positions would be liquidated based on health factors.
 
-For each virtual loan pair (such as USDC borrowed against ETH), the methodology quantifies both the probability and magnitude of losses from liquidation failures. This establishes a baseline risk assessment for each collateral–borrow pair in isolation and follows the same methodology described in [Loan Pairs without Rehypothecation](/docs/redstone-credora/methodologies/markets/without_rehypothecation/).
+For each virtual loan pair (such as USDC borrowed against ETH), the methodology quantifies both the probability and magnitude of losses from liquidation failures. This establishes a baseline risk assessment for each collateral–borrow pair in isolation and follows the same methodology described in [Loan Pairs without Rehypothecation](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/).
 
 ### Step 2: Recursive Risk Integration
 
