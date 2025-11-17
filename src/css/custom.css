@@ -133,3 +133,12 @@ h4, h5, h6 {
 .menu__link--active {
   font-family: var(--font-family-semi);
 }
+
+li.sidebar-credora-section {
+  margin-top: 48px !important;
+}
+
+li.sidebar-credora-section > div > a.menu__link, li.sidebar-redstone-section > a.menu__link {
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600;
+}

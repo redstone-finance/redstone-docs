@@ -1,5 +1,6 @@
 {
   "label": "What is Credora?",
-  "position": 9,
-  "collapsed": true
+  "position": 10,
+  "collapsed": true,
+  "className": "sidebar-credora-section"
 }

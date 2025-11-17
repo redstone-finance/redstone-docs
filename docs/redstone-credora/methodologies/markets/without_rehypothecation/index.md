@@ -4,6 +4,8 @@ _Encompasses Morpho Markets. The key characteristic is the one-to-one relationsh
 
 Monte Carlo simulations are used to model the behavior of complex systems by generating numerous random scenarios, resembling real-world complexity. The Market Simulations model generates random daily returns directly on the pair price, defined as the loan asset price divided by the collateral asset price. These daily returns factor in dynamics including pair volatility, historic tail events, and collateral default scenarios. The approach generates pair price projections over a 30-day simulation horizon. These are applied to initial Loan-To-Value (LTV) tranches to forecast LTV changes over time.
 
+![step by step](/img/markets_stepbystep.svg)
+
 ## Market Parameters
 
 Market configuration parameters, specifically the LLTV and LIF, are utilized as direct inputs in the simulation. Additionally, the distribution of loans in a specific market is segmented into bins or tranches for the purposes of the Market Simulation and Liquidation Simulation.
