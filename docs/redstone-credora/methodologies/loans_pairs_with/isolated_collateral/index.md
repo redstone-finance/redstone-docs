@@ -4,7 +4,7 @@ _Encompasses Morpho Markets. The key characteristic is the one-to-one relationsh
 
 Monte Carlo simulations are used to model the behavior of complex systems by generating numerous random scenarios, resembling real-world complexity. The Loan Pair Simulations model generates random daily returns directly on the pair price, defined as the loan asset price divided by the collateral asset price. These daily returns factor in dynamics including pair volatility, historic tail events, and collateral default scenarios. The approach generates pair price projections over a 30-day simulation horizon. These are applied to initial Loan-To-Value (LTV) tranches to forecast LTV changes over time.
 
-![step by step](/img/markets_stepbystep.svg)
+![step by step](/img/markets-methodology-steps.svg)
 
 ## Parameters
 
