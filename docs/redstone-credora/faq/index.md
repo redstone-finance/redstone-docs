@@ -28,7 +28,7 @@
 - xii. TVL
 - xiii. Governance
 
-### b. At a Market Level
+### b. At a Loan Pair Level
 
 - **i. Liquidation Probability:**
 
@@ -79,7 +79,7 @@
 - Update cadence varies by component:
   - 1. Asset ratings: 3 months
   - 1. Market ratings: 2 weeks
-  - 1. Vault ratings: Daily
+  - 1. Vault ratings: weekly
 
 ## 7. What does the rating process look like?
 

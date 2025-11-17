@@ -1,4 +1,4 @@
-# Markets with Rehypothecated Collateral
+# Loan Pairs with Rehypothecated Collateral
 
 _Markets with rehypothecated collateral include Loan-Collateral Pairs from SparkLend Liquidity Markets, AAVE Markets, and Euler vault clusters, among others. These markets feature rehypothecated collateral assets, where collateral deposited in one market can be reused elsewhere within the system._
 
@@ -12,13 +12,13 @@ When evaluating risk in rehypothecated markets, we must consider both the direct
 
 ### Step 1: Calculate Outstanding Loans Risk
 
-The first simulation step calculates the Probability of Significant Loss (PSL) for each virtual market under the assumption that collateral assets are “static”—temporarily disregarding their potential use as borrowed assets elsewhere. Monte Carlo simulations model price movements across all assets, determining when positions would be liquidated based on health factors.
+The first simulation step calculates the Probability of Significant Loss (PSL) for each virtual loan pair under the assumption that collateral assets are “static”—temporarily disregarding their potential use as borrowed assets elsewhere. Monte Carlo simulations model price movements across all assets, determining when positions would be liquidated based on health factors.
 
-For each virtual market (such as USDC borrowed against ETH), the methodology quantifies both the probability and magnitude of losses from liquidation failures. This establishes a baseline risk assessment for each collateral–borrow pair in isolation and follows the same methodology described in [Markets without Rehypothecation](/docs/redstone-credora/methodologies/markets/without_rehypothecation/).
+For each virtual loan pair (such as USDC borrowed against ETH), the methodology quantifies both the probability and magnitude of losses from liquidation failures. This establishes a baseline risk assessment for each collateral–borrow pair in isolation and follows the same methodology described in [Loan Pairs without Rehypothecation](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/).
 
 ### Step 2: Recursive Risk Integration
 
-The second step captures rehypothecation effects by incorporating the PSLs calculated in Step 1 as enhanced **Probability of Default (PD)** inputs for collateral assets, then re-running market simulations with these augmented collateral PDs.
+The second step captures rehypothecation effects by incorporating the PSLs calculated in Step 1 as enhanced **Probability of Default (PD)** inputs for collateral assets, then re-running loan pair simulations with these augmented collateral PDs.
 
 #### Collateral Risk = Collateral Default Risk + Outstanding Loans Risk
 
@@ -40,8 +40,8 @@ The methodology incorporates a series of notch modifiers to adjust final asset r
 - **Curator Adjustment:** Represents oversight and governance contribution from protocol DAOs or risk managers
 - **Guardian and Governance Adjustment:** Accounts for protocol-level risk management and decision-making quality
 
-## Final Market PSL
+## Final PSL
 
-The final ratings for each borrowable asset emerge from aggregating risk across all virtual markets where that asset is borrowed. For USDC lenders, the rating reflects the weighted risk across all collateral types backing USDC borrows, adjusted for rehypothecation effects discovered in Step 2.
+The final ratings for each borrowable asset emerge from aggregating risk across all virtual loan pairs where that asset is borrowed. For USDC lenders, the rating reflects the weighted risk across all collateral types backing USDC borrows, adjusted for rehypothecation effects discovered in Step 2.
 
 This approach ensures that while protocols may operate as unified pools or interconnected vaults, the methodology can still provide asset-specific risk ratings that accurately reflect both direct exposure and systemic interconnection risks.
