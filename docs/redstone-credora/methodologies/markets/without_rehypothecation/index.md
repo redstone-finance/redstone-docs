@@ -207,8 +207,8 @@ This risk emerges from either static (hardcoded) price feeds or misaligned oracl
 
 | Tier   | Description                                                                                                              | Notch Adjustment |
 | ------ | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| Tier 1 | Oracle directly tracks the relationship between collateral and loan assets or there is no reliance on hardcoded oracles. | 0                |
-| Tier 2 | Oracle indirectly tracks the relationship or there is reliance on hardcoded oracles.                                     | –0.6             |
+| Tier&nbsp;1 | Oracle directly tracks the relationship between collateral and loan assets or there is no reliance on hardcoded oracles. | 0                |
+| Tier&nbsp;2 | Oracle indirectly tracks the relationship or there is reliance on hardcoded oracles.                                     | –0.6             |
 
 #### Unknown Vendor Risk
 
@@ -216,8 +216,8 @@ This risk arises when the oracle provider or vendor is unknown, unverified, or o
 
 | Tier   | Description                                                                               | Notch Adjustment |
 | ------ | ----------------------------------------------------------------------------------------- | ---------------- |
-| Tier 1 | The vendor is established, well-known, and transparent.                                   | 0                |
-| Tier 2 | Vendor is unknown or lacks sufficient documentation or transparency about its operations. | –0.6             |
+| Tier&nbsp;1 | The vendor is established, well-known, and transparent.                                   | 0                |
+| Tier&nbsp;2 | Vendor is unknown or lacks sufficient documentation or transparency about its operations. | –0.6             |
 
 #### Final Notch Adjustment
 
