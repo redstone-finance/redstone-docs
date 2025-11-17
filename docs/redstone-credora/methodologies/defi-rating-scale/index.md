@@ -16,7 +16,7 @@ All Credora ratings are displayed in the Credora Rating Scale. A single, quantit
 | D      | 99.9%   | 100.0%  | D                             |
 
 :::info
-The rating scale is designed to maximize differentiation across DeFi products while remaining easy to read and interpret. As benchmarks, tokenized treasuries such as BUIDL are assigned an A+ rating, while Morpho vaults and markets begin at an A rating.
+The rating scale is designed to maximize differentiation across DeFi products while remaining easy to read and interpret. As benchmarks, tokenized treasuries such as BUIDL are assigned an A+ rating, while as of the date of the document Morpho vaults and markets begin at an A rating.
 :::
 
 ## Deriving the DeFi Rating Scale
