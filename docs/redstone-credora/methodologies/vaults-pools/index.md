@@ -4,6 +4,8 @@ _These constructs can be described as portfolios representing collections of loa
 
 Vaults are automated smart contract systems that aggregate user deposits and deploy capital across multiple lending markets or yield-generating strategies according to predefined allocation rules. These systems enable users to access diversified exposure to DeFi yields while benefiting from professional risk management and automated rebalancing. Vaults can vary significantly in their structure and governance mechanisms across different protocols. It is important to note that certain modifiers in this methodology may not be applicable to all protocols, as some governance constructs or operational features are protocol-specific. In cases where a particular modifier is not relevant to a vault's architecture (for example, protocols that do not implement guardian systems or timelock mechanisms), the corresponding adjustment is set to neutral (0) to ensure it does not impact the final rating calculation.
 
+![Final rating calculation](/img/markets-methodology-2.svg)
+
 ## Vault Rating Methodology
 
 The Vault Rating Methodology determines the Anchor Vault PSL by calculating a weighted average PSL of the markets utilized in the vault. This approach reflects proportional risk contributions of each market based on the vault’s asset allocations. By weighing the PSL of individual markets according to their relative share in the vault’s portfolio, the methodology provides a comprehensive view of the vault’s overall risk profile. This calculation accounts for active allocations and unallocated markets, ensuring potential shifts in exposure are incorporated into the risk assessment.
