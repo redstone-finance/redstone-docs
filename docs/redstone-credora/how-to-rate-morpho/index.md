@@ -20,7 +20,7 @@ This modular approach means that vault ratings become a computationally efficien
 
 ## Collateral Asset Ratings
 
-The assessment of collateral asset ratings is done through Credora Token Methodology [LINK]. Asset Ratings are published and maintained to ensure the most up-to-date information. In the event that Credora does not directly rate an asset, a proxy rating can be defined to serve as input to this section. Proxy ratings can come from:
+The assessment of collateral asset ratings is done through [Credora Token Methodology](/docs/redstone-credora/methodologies/tokens/). Asset Ratings are published and maintained to ensure the most up-to-date information. In the event that Credora does not directly rate an asset, a proxy rating can be defined to serve as input to this section. Proxy ratings can come from:
 
 1. Direct proxy of a rated asset (e.g., wrsETH is a proxy of rsETH). In these cases, the rating used is directly the rating from the proxy asset.
 2. Adjusted proxy of a rated asset. In these cases, the rating is the rating of the proxy asset, plus a notch adjustment. This is usually done for tokens that are closely related to published tokens.
@@ -30,7 +30,7 @@ Collateral asset ratings are used as an input in the Morpho market analysis.
 
 ## Morpho Markets
 
-In order to deliver a holistic assessment of risk throughout the Morpho protocol, Credora utilizes the collateral asset PD and implied rating as core inputs into **Market Simulations**, which quantify the risk of liquidation in a market. Subsequently, **Liquidation Simulations** are utilized for quantifying the risk of loss in a market. The core measurement for this is a **Probability of Significant Loss (PSL)**, which quantifies the probability of a specific market experiencing **Bad Debt** in excess of 1% of principal. Bad Debt occurs when a liquidation leaves a borrower or account with some remaining debt, and no collateral to cover it. Detailed information about the Loan Pairs Methodology can be found here [LINK].
+In order to deliver a holistic assessment of risk throughout the Morpho protocol, Credora utilizes the collateral asset PD and implied rating as core inputs into **Market Simulations**, which quantify the risk of liquidation in a market. Subsequently, **Liquidation Simulations** are utilized for quantifying the risk of loss in a market. The core measurement for this is a **Probability of Significant Loss (PSL)**, which quantifies the probability of a specific market experiencing **Bad Debt** in excess of 1% of principal. Bad Debt occurs when a liquidation leaves a borrower or account with some remaining debt, and no collateral to cover it. Detailed information about the Loan Pairs Methodology can be found here [Loan Pairs](/docs/redstone-credora/methodologies/markets/without_rehypothecation/).
 
 The fundamental parameters that define each market and are used for market simulations detailed in the Loan Pairs Methodology are:
 
@@ -46,10 +46,10 @@ The final Market PSL is calculated after accounting for the two additional risks
 
 ## Morpho Vault Ratings
 
-Vaults represent the highest level of the risk framework, treating them as aggregated exposure to underlying markets and assets, and ratings are obtained by applying the Vaults Methodology [LINK]. The vault rating aggregation process weights each underlying market exposure based on the vault's allocation to that market. Markets with higher allocations have a proportionally greater impact on the overall vault rating. This determines the Anchor Vault PSL by calculating a weighted average PSL of the markets utilized in the vault. The final PSL is derived from applying modifiers that consider the Curator, Governance, Guardian and Timelock.
+Vaults represent the highest level of the risk framework, treating them as aggregated exposure to underlying markets and assets, and ratings are obtained by applying the [Vaults Methodology](/docs/redstone-credora/methodologies/vaults-pools/). The vault rating aggregation process weights each underlying market exposure based on the vault's allocation to that market. Markets with higher allocations have a proportionally greater impact on the overall vault rating. This determines the Anchor Vault PSL by calculating a weighted average PSL of the markets utilized in the vault. The final PSL is derived from applying modifiers that consider the Curator, Governance, Guardian and Timelock.
 
 ### Ratings Scale
 
-Vault ratings are expressed on a scale that reflects the aggregate probability of significant loss across all underlying exposures. A higher rating indicates lower risk, with ratings adjusted to reflect both the weighted average risk of individual markets and concentration risk factors. More details on the rating scale can be found here [LINK].
+Vault ratings are expressed on a scale that reflects the aggregate probability of significant loss across all underlying exposures. A higher rating indicates lower risk, with ratings adjusted to reflect both the weighted average risk of individual markets and concentration risk factors. More details on the rating scale can be found here [DeFi Rating Scale](/docs/redstone-credora/methodologies/defi-rating-scale/).
 
 At launch, Vault Ratings are refreshed on a weekly basis and will be updated to refresh daily.
