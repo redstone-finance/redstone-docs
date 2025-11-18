@@ -9,17 +9,27 @@ Oracles deliver data feeds directly to dApps or blockchains for the correct exec
 
 1. **Market Feed**
 
-   The regular market price derived from centralized and decentralized exchanges, i.e., ETH / USD.
+   The regular market price derived from centralized and decentralized exchanges based on the current supply and demand for a given asset, i.e., ETH / USD spot price.
 
-2. **Contract Rate Feed**
+1. **Fundamental feed**
+
+   The fundamental price represents an estimate of the fair market value of an asset, based on its exchange rate to other assets or its underlying reserves.
+
+   :::warning
+
+   The fundamental feed provides a less volatile price but often introduces additional trust assumptions related to the structure and liquidity of the underlying reserves.
+
+   :::
+
+   a) **Contract Rate Feed**
 
    Also known as Exchange Rate or Fundamental Feed. A ratio between the underlying asset and its derivative derived from the smart contract of a protocol, i.e., wstETH / stETH rate derived from Lido contract or weETH / eETH derived from Ether.fi contract.
 
-3. **Net Asset Value (NAV) Feed**
+   b) **Net Asset Value (NAV) Feed**
 
    A data feed based on institutional API (i.e., CESR or SOFR) or another source that informs about the value of assets backing tokens issued against it, i.e., Blackrock BUIDL.
 
-4. **Proof of Reserve Feed**
+   c) **Proof of Reserve Feed**
 
    The custom implementation of logic supporting a particular oracle, i.e., Bitcoin Staking oracle. For example: LBTC / BTC price feed, derived based on the number of LBTC minted and the total amount of BTC deposited into Lombard's system on the Bitcoin chain. Detailed description [here](./3-lombard.md).
 

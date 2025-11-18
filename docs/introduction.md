@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: "What is RedStone?"
+sidebar_class_name: sidebar-redstone-section
 ---
 
 # Introduction

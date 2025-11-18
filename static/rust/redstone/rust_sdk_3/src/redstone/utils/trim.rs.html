@@ -164,19 +164,11 @@
 <a href="#163" id="163">163</a>
 <a href="#164" id="164">164</a>
 <a href="#165" id="165">165</a>
-<a href="#166" id="166">166</a>
-<a href="#167" id="167">167</a>
-<a href="#168" id="168">168</a>
-<a href="#169" id="169">169</a></pre></div><pre class="rust"><code><span class="kw">use </span>alloc::vec::Vec;
+<a href="#166" id="166">166</a></pre></div><pre class="rust"><code><span class="kw">use </span>core::cmp::Ordering;
+
+<span class="kw">use </span>alloc::vec::Vec;
 
 <span class="kw">use crate</span>::{network::error::Error, FeedId};
-
-<span class="kw">pub trait </span>Trim&lt;T&gt;
-<span class="kw">where
-    </span><span class="self">Self</span>: Sized,
-{
-    <span class="kw">fn </span>trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; T;
-}
 
 <span class="kw">pub trait </span>TryTrim&lt;T&gt;
 <span class="kw">where
@@ -185,27 +177,27 @@
     <span class="kw">fn </span>try_trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; <span class="prelude-ty">Result</span>&lt;T, Error&gt;;
 }
 
-<span class="kw">impl </span>Trim&lt;Vec&lt;u8&gt;&gt; <span class="kw">for </span>Vec&lt;u8&gt; {
-    <span class="kw">fn </span>trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; <span class="self">Self </span>{
-        <span class="kw">if </span>len &gt;= <span class="self">self</span>.len() {
-            core::mem::take(<span class="self">self</span>)
-        } <span class="kw">else </span>{
-            <span class="self">self</span>.split_off(<span class="self">self</span>.len() - len)
-        }
+<span class="kw">impl </span>TryTrim&lt;Vec&lt;u8&gt;&gt; <span class="kw">for </span>Vec&lt;u8&gt; {
+    <span class="kw">fn </span>try_trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, Error&gt; {
+        <span class="prelude-val">Ok</span>(<span class="kw">match </span>len.cmp(<span class="kw-2">&amp;</span><span class="self">self</span>.len()) {
+            Ordering::Less =&gt; <span class="self">self</span>.split_off(<span class="self">self</span>.len() - len),
+            Ordering::Equal =&gt; core::mem::take(<span class="self">self</span>),
+            Ordering::Greater =&gt; <span class="kw">return </span><span class="prelude-val">Err</span>(Error::BufferOverflow),
+        })
     }
 }
 
-<span class="kw">impl </span>Trim&lt;FeedId&gt; <span class="kw">for </span>Vec&lt;u8&gt; {
-    <span class="kw">fn </span>trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; FeedId {
-        <span class="kw">let </span>v: Vec&lt;<span class="kw">_</span>&gt; = <span class="self">self</span>.trim_end(len);
+<span class="kw">impl </span>TryTrim&lt;FeedId&gt; <span class="kw">for </span>Vec&lt;u8&gt; {
+    <span class="kw">fn </span>try_trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; <span class="prelude-ty">Result</span>&lt;FeedId, Error&gt; {
+        <span class="kw">let </span>v: Vec&lt;<span class="kw">_</span>&gt; = <span class="self">self</span>.try_trim_end(len)<span class="question-mark">?</span>;
 
-        v.into()
+        <span class="prelude-val">Ok</span>(v.into())
     }
 }
 
 <span class="kw">impl </span>TryTrim&lt;u64&gt; <span class="kw">for </span>Vec&lt;u8&gt; {
     <span class="kw">fn </span>try_trim_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>, len: usize) -&gt; <span class="prelude-ty">Result</span>&lt;u64, Error&gt; {
-        <span class="kw">let </span>y: Vec&lt;u8&gt; = <span class="self">self</span>.trim_end(len);
+        <span class="kw">let </span>y: Vec&lt;u8&gt; = <span class="self">self</span>.try_trim_end(len)<span class="question-mark">?</span>;
         <span class="kw">let </span>y: Vec&lt;u8&gt; = y.into_iter().skip_while(|<span class="kw-2">&amp;</span>b| b == <span class="number">0</span>).collect();
 
         <span class="kw">if </span>y.len() &gt; <span class="number">8 </span>{
@@ -228,7 +220,7 @@
     <span class="kw">use crate</span>::{
         network::error::Error,
         protocol::constants::{REDSTONE_MARKER, REDSTONE_MARKER_BS},
-        utils::trim::{Trim, TryTrim},
+        utils::trim::TryTrim,
         FeedId,
     };
 
@@ -240,8 +232,8 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>test_trim_end_number() {
-        <span class="kw">let </span>(rest, result): (<span class="kw">_</span>, FeedId) = test_trim_end(<span class="number">3</span>);
-        <span class="macro">assert_eq!</span>(result, REDSTONE_MARKER[<span class="number">6</span>..].to_vec().into());
+        <span class="kw">let </span>(rest, result): (<span class="kw">_</span>, <span class="prelude-ty">Result</span>&lt;FeedId, <span class="kw">_</span>&gt;) = test_try_trim_end(<span class="number">3</span>);
+        <span class="macro">assert_eq!</span>(result, <span class="prelude-val">Ok</span>(REDSTONE_MARKER[<span class="number">6</span>..].to_vec().into()));
         <span class="macro">assert_eq!</span>(rest.as_slice(), <span class="kw-2">&amp;</span>REDSTONE_MARKER[..<span class="number">6</span>]);
 
         <span class="kw">let </span>(<span class="kw">_</span>, result) = test_try_trim_end(<span class="number">3</span>);
@@ -250,8 +242,8 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>test_trim_end_number_null() {
-        <span class="kw">let </span>(rest, result): (<span class="kw">_</span>, FeedId) = test_trim_end(<span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(result, <span class="macro">vec!</span>[<span class="number">0</span>].into());
+        <span class="kw">let </span>(rest, result): (<span class="kw">_</span>, <span class="prelude-ty">Result</span>&lt;FeedId, <span class="kw">_</span>&gt;) = test_try_trim_end(<span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(result, <span class="prelude-val">Ok</span>(<span class="macro">vec!</span>[<span class="number">0</span>].into()));
         <span class="macro">assert_eq!</span>(rest.as_slice(), <span class="kw-2">&amp;</span>REDSTONE_MARKER);
 
         <span class="kw">let </span>(<span class="kw">_</span>, result) = test_try_trim_end(<span class="number">0</span>);
@@ -260,8 +252,8 @@
         <span class="kw">let </span>(<span class="kw">_</span>, result) = test_try_trim_end(<span class="number">0</span>);
         <span class="macro">assert_eq!</span>(result, <span class="prelude-val">Ok</span>(<span class="number">0</span>));
 
-        <span class="kw">let </span>(<span class="kw">_</span>, result): (<span class="kw">_</span>, Vec&lt;u8&gt;) = test_trim_end(<span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(result, Vec::&lt;u8&gt;::new());
+        <span class="kw">let </span>(<span class="kw">_</span>, result): (<span class="kw">_</span>, <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, <span class="kw">_</span>&gt;) = test_try_trim_end(<span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(result, <span class="prelude-val">Ok</span>(Vec::&lt;u8&gt;::new()));
     }
 
     <span class="attr">#[test]
@@ -269,12 +261,11 @@
         test_trim_end_whole_size(REDSTONE_MARKER_BS);
         test_trim_end_whole_size(REDSTONE_MARKER_BS - <span class="number">1</span>);
         test_trim_end_whole_size(REDSTONE_MARKER_BS - <span class="number">2</span>);
-        test_trim_end_whole_size(REDSTONE_MARKER_BS + <span class="number">1</span>);
     }
 
     <span class="kw">fn </span>test_trim_end_whole_size(size: usize) {
-        <span class="kw">let </span>(rest, result): (<span class="kw">_</span>, FeedId) = test_trim_end(size);
-        <span class="macro">assert_eq!</span>(result, REDSTONE_MARKER.to_vec().into());
+        <span class="kw">let </span>(rest, result): (<span class="kw">_</span>, <span class="prelude-ty">Result</span>&lt;FeedId, <span class="kw">_</span>&gt;) = test_try_trim_end(size);
+        <span class="macro">assert_eq!</span>(result.unwrap(), REDSTONE_MARKER.to_vec().into());
         <span class="macro">assert_eq!</span>(
             rest.as_slice().len(),
             REDSTONE_MARKER_BS - size.min(REDSTONE_MARKER_BS)
@@ -289,8 +280,20 @@
             <span class="macro">assert_eq!</span>(result, <span class="prelude-val">Ok</span>(<span class="number">823907890102272</span>));
         }
 
-        <span class="kw">let </span>(_rest, result): (<span class="kw">_</span>, Vec&lt;u8&gt;) = test_trim_end(size);
-        <span class="macro">assert_eq!</span>(result.as_slice().len(), size.min(REDSTONE_MARKER_BS));
+        <span class="kw">let </span>(_rest, result): (<span class="kw">_</span>, <span class="prelude-ty">Result</span>&lt;Vec&lt;u8&gt;, <span class="kw">_</span>&gt;) = test_try_trim_end(size);
+        <span class="macro">assert_eq!</span>(
+            result.unwrap().as_slice().len(),
+            size.min(REDSTONE_MARKER_BS)
+        );
+    }
+
+    <span class="attr">#[test]
+    </span><span class="kw">fn </span>test_trim_buffer_overflow() {
+        <span class="kw">let </span><span class="kw-2">mut </span>buffer = <span class="macro">vec!</span>[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];
+
+        <span class="kw">let </span>res: <span class="prelude-ty">Result</span>&lt;Vec&lt;<span class="kw">_</span>&gt;, <span class="kw">_</span>&gt; = buffer.try_trim_end(buffer.len() + <span class="number">1</span>);
+
+        <span class="macro">assert_eq!</span>(res, <span class="prelude-val">Err</span>(Error::BufferOverflow));
     }
 
     <span class="attr">#[test]
@@ -316,15 +319,6 @@
                 <span class="macro">vec!</span>[<span class="number">1u8</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>].into()
             ))
         );
-    }
-
-    <span class="kw">fn </span>test_trim_end&lt;T&gt;(size: usize) -&gt; (Vec&lt;u8&gt;, T)
-    <span class="kw">where
-        </span>Vec&lt;u8&gt;: Trim&lt;T&gt;,
-    {
-        <span class="kw">let </span><span class="kw-2">mut </span>bytes = redstone_marker_bytes();
-        <span class="kw">let </span>rest = bytes.trim_end(size);
-        (bytes, rest)
     }
 
     <span class="kw">fn </span>test_try_trim_end&lt;T&gt;(size: usize) -&gt; (Vec&lt;u8&gt;, <span class="prelude-ty">Result</span>&lt;T, Error&gt;)
