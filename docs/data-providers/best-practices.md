@@ -7,7 +7,7 @@ sidebar_label: "Best practices"
 
 ## Failover Capabilities
 
-We recommend having at least two RedStone nodes running at the same time, one of which may have disabled streamr publishing (no streamr gateway URL in OVERRIDE_DIRECT_CACHE_SERVICE_URLS)
+We recommend having at least two RedStone nodes running at the same time.
 
 ## Active monitoring
 

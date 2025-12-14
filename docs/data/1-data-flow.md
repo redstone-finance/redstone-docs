@@ -91,7 +91,7 @@ RedStone implements a sophisticated broadcasting infrastructure with redundant d
 
 ### Distribution Channels
 
-The system employs a hybrid distribution model combining enterprise-grade, geographically distributed gateway infrastructure with advanced caching capabilities and a decentralized node network utilizing gossip protocols. This infrastructure is further enhanced through integration with Streamr, a third-party publish-subscribe protocol, ensuring resilient data propagation.
+The system employs a hybrid distribution model combining enterprise-grade, geographically distributed gateway infrastructure with advanced caching capabilities and a decentralized node network utilizing gossip protocols.
 
 ### Relay Infrastructure
 

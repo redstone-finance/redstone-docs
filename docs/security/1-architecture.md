@@ -23,7 +23,7 @@ The system maintains heterogeneous node implementations with specialized optimiz
 
 ## Data availability
 
-Data transmission reliability is achieved through a four-redundant distribution infrastructure comprising enterprise-grade web gateways, lightweight open-sourced p2p nodes, MQTT message brokers, and integration with the Streamr network. This architecture ensures continuous data availability through protocol-level failover mechanisms.
+Data transmission reliability is achieved through a four-redundant distribution infrastructure comprising enterprise-grade web gateways, lightweight open-sourced p2p nodes, MQTT message brokers. This architecture ensures continuous data availability through protocol-level failover mechanisms.
 
 ## Failover System Architecture
 
