@@ -85,7 +85,7 @@ RedStone KMS' sole purpose is to handle all operations on your private key. It s
 
 #### RedStone Node
 
-RedStone oracle node will fetch data from main public APIs, sign them with your private keys and broadcast to the streamr network and redstone Data Distribution Layer (DDL).
+RedStone oracle node will fetch data from main public APIs, sign them with your private keys and broadcast to the RedStone Data Distribution Layer (DDL).
 It should be configured using environment variables.
 
 | Param                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                          | Example value                                                                                                |
