@@ -8,9 +8,9 @@ In the Morpho Protocol, curators play a critical role in managing and mitigating
 
 Credora vault rating system employs a bottom-up assessment approach that combines static and dynamic analysis across three hierarchical levels:
 
-1. **Collateral Assets** – evaluated using the **Tokens Methodology**
-2. **Markets** – evaluated using **Loan Pairs with Isolated Collateral Methodology**
-3. **Vaults** – aggregated exposure to underlying markets, evaluated with the **Vaults Methodology**
+1. **Collateral Assets** – evaluated using the [Tokens Methodology](/docs/redstone-credora/methodologies/tokens/)
+2. **Markets** – evaluated using [Loan Pairs with Isolated Collateral Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/)
+3. **Vaults** – aggregated exposure to underlying markets, evaluated with the [Vaults Methodology](/docs/redstone-credora/methodologies/vaults-pools/)
 
 ![Assets markets vaults](/img/assets-markets-vaults.svg)
 

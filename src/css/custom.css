@@ -142,3 +142,10 @@ li.sidebar-credora-section > div > a.menu__link, li.sidebar-redstone-section > a
   color: var(--ifm-color-primary) !important;
   font-weight: 600;
 }
+
+.red-divider {
+  height: 2px;
+  background: var(--ifm-color-primary);
+  margin: 2.5rem 0;
+  border: none;
+}

@@ -87,3 +87,7 @@
 - Rating coverage analysis to determine what assets/markets are exposed to and how prices are determined.
 - Quantify various factors of risk with methodologies, simulations, and models.
 - Compose the final ratings.
+
+## 7. How does the old Credora methodology compare to the new methodology?
+
+The methodology itself remains unchanged; we’re following the same steps as before. The only modification is an update to the rating cut-off tables. We made the change because we will publish assets on the same scale, and it brought some positive differentiation in that capacity.

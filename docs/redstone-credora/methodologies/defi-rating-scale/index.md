@@ -2,18 +2,7 @@
 
 All Credora ratings are displayed in the Credora Rating Scale. A single, quantitative standard for comparing exposure across protocols, assets, markets and vaults:
 
-| Rating | Min PSL | Max PSL | TradFi                        |
-| ------ | ------- | ------- | ----------------------------- |
-| A+     | 0.0%    | 0.1%    | AA+, AA, AA-, A+, A, A-, BBB+ |
-| A      | 0.1%    | 0.4%    | BBB, BBB-                     |
-| A-     | 0.4%    | 0.8%    | BB+, BB                       |
-| B+     | 0.8%    | 1.5%    | BB-                           |
-| B      | 1.5%    | 3.0%    | B+                            |
-| B-     | 3.0%    | 6.0%    | B                             |
-| C+     | 6.0%    | 12.0%   | B-                            |
-| C      | 12.0%   | 32.0%   | CCC+, CCC                     |
-| C-     | 32.0%   | 99.9%   | CCC-, CC, C                   |
-| D      | 99.9%   | 100.0%  | D                             |
+![DeFi Ratins Scale](/img/defiRatingScale.png)
 
 :::info
 The rating scale is designed to maximize differentiation across DeFi products while remaining easy to read and interpret. As benchmarks, tokenized treasuries such as BUIDL are assigned an A+ rating, while as of the date of the document Morpho vaults and markets begin at an A rating.
