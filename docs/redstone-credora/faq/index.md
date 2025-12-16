@@ -2,7 +2,7 @@
 
 ## 1. Are there any live Credora ratings being used atm?
 
-- Ratings will be live on Morpho and Spark soon.
+Ratings are now live in [Morpho](https://x.com/CredoraNetwork/status/1998754751060840535). Spark ratings are currently being worked on and will be live soon.
 
 ## 2. How can I gain access to the Credora API?
 
@@ -32,19 +32,19 @@
 
 - **i. Liquidation Probability:**
 
-  - 1. Pair Price Volatility
-  - 1. Market Extreme Tail events
-  - 1. Collateral Default
-  - 1. Allocated Positions
-  - 1. User Rebalance Profile
-  - 1. Market Characteristics (LTV, LIF)
+  - Pair Price Volatility
+  - Market Extreme Tail events
+  - Collateral Default
+  - Allocated Positions
+  - User Rebalance Profile
+  - Market Characteristics (LTV, LIF)
 
 - **ii. Bad debt given Liquidation Probability:**
 
-  - 1. Base Liquidity
-  - 1. Pair Usage across Lending Protocols
-  - 1. Pair Usage in the Rated Protocol
-  - 1. Volatility of the price pair
+  - Base Liquidity
+  - Pair Usage across Lending Protocols
+  - Pair Usage in the Rated Protocol
+  - Volatility of the price pair
 
 - iii. Oracle
 - iv. Protocol
@@ -76,10 +76,7 @@
 
 ## 6. How often are our risk ratings updated?
 
-- Update cadence varies by component:
-  - 1. Asset ratings: 3 months
-  - 1. Market ratings: 2 weeks
-  - 1. Vault ratings: weekly
+All vault, market, and asset ratings are refreshed daily.
 
 ## 7. What does the rating process look like?
 
@@ -88,6 +85,21 @@
 - Quantify various factors of risk with methodologies, simulations, and models.
 - Compose the final ratings.
 
-## 7. How does the old Credora methodology compare to the new methodology?
+## 8. What are the main drivers of a rating?
+
+- Allocation distribution
+- Pair type (stable to stable) or (stable to volatile)
+- Oracle Type
+- Returns Volatility
+- Tail Returns Distribution
+- LIF, LLTV
+- Collateral PD, LGD
+- Liquidity:
+  - Base Liquidity across DEXs at X% slippage
+  - Pair usage across other Lending Protocols
+  - Ratio between recent daily volatility and the volatility under extreme market events
+- Total Borrowed Amount in the Market
+
+## 9. How does the old Credora methodology compare to the new methodology?
 
 The methodology itself remains unchanged; we’re following the same steps as before. The only modification is an update to the rating cut-off tables. We made the change because we will publish assets on the same scale, and it brought some positive differentiation in that capacity.
