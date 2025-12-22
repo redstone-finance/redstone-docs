@@ -82,7 +82,7 @@ The getVaultRatings endpoint supports pagination via optional parameters:
 
 - page: Zero-indexed page number. The default is 0.
 
-- limit: Number of results per page. The default is 10.
+- limit: Number of results per page. The default is 10. Must be between 1 and 1000.
 
 ##### Query
 
