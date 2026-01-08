@@ -143,6 +143,10 @@ li.sidebar-credora-section > div > a.menu__link, li.sidebar-redstone-section > a
   font-weight: 600;
 }
 
+li.sidebar-terminal-section {
+    display: none !important;
+}
+
 .red-divider {
   height: 2px;
   background: var(--ifm-color-primary);
