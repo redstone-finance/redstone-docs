@@ -18,7 +18,7 @@ https://terminal.redstone.finance/
 ## Command-Line Interface
 
 For faster and broader access to multiple files, please use the CLI:
-https://github.com/redstone-finance/terminal-cli 
+https://github.com/redstone-finance/terminal-cli
 
 ## File description
 
