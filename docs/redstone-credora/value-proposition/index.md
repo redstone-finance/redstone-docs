@@ -15,6 +15,8 @@ Lending markets can leverage Credora’s DeFi Risk Ratings to assess the underly
 - **Increased Stability:** Build trust with lenders and borrowers by incorporating transparent risk metrics.
 - **Risk Parameter Advisory:** Credora can advise on structuring your lending market parameters.
 
+<div className="red-divider"></div>
+
 ## Vault Curators
 
 Vault curators, who manage DeFi vaults that aggregate various assets or strategies, can use Credora’s risk ratings to optimize their vault's performance by selecting strategies with better risk-adjusted returns. These ratings offer critical insight into the underlying risks of each asset, helping vault curators create optimized returns with the highest yield and lowest risk. By providing an independent assessment of risk that brings transparency and confidence to users, vault curators can attract more capital and TVL.
@@ -25,6 +27,8 @@ Vault curators, who manage DeFi vaults that aggregate various assets or strategi
 - **Better Risk-Reward Balance:** Select assets with optimal risk-adjusted returns for vault strategies.
 - **Dynamic Strategy Adjustment:** Use real-time data to adapt vault strategies and asset allocations as market conditions change.
 - **Comprehensive Risk Insights:** Access detailed risk ratings of various protocols and assets.
+
+<div className="red-divider"></div>
 
 ## Yield Aggregators
 
@@ -37,6 +41,8 @@ Yield aggregators can utilize Credora’s risk ratings to better understand and 
 - **Differentiation in the Market:** Provide a competitive edge with informed, risk-conscious yield offerings.
 - **Enhanced User Trust:** Build credibility by offering secure and transparent investment options.
 
+<div className="red-divider"></div>
+
 ## Asset Issuers
 
 Asset issuers looking to launch tokens or other financial instruments in the DeFi space can benefit from Credora’s Risk Ratings to assess the stability and risk of their own or partnered DeFi strategies. By aligning their products with risk ratings, asset issuers can attract investors who seek transparency and security, reducing the uncertainty around potential losses. These insights also allow issuers to tweak their tokenomics and protocols to better align with risk appetite, improving market confidence.
@@ -47,6 +53,8 @@ Asset issuers looking to launch tokens or other financial instruments in the DeF
 - **Attract Investors:** Appeal to risk-conscious investors seeking safer DeFi options.
 - **Optimized Tokenomics:** Adjust token structure and protocol strategies based on risk insights.
 - **Reduced Investor Uncertainty:** Provide investors with clearer expectations around potential risks.
+
+<div className="red-divider"></div>
 
 ## Centralized Exchanges (CEX) & Wallets
 

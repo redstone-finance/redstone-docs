@@ -146,3 +146,10 @@ li.sidebar-credora-section > div > a.menu__link, li.sidebar-redstone-section > a
 li.sidebar-terminal-section {
     display: none !important;
 }
+
+.red-divider {
+  height: 2px;
+  background: var(--ifm-color-primary);
+  margin: 2.5rem 0;
+  border: none;
+}
