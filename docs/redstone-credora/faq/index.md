@@ -31,7 +31,6 @@ Ratings are now live in [Morpho](https://x.com/CredoraNetwork/status/19987547510
 ### b. At a Loan Pair Level
 
 - **i. Liquidation Probability:**
-
   - Pair Price Volatility
   - Market Extreme Tail events
   - Collateral Default
@@ -40,7 +39,6 @@ Ratings are now live in [Morpho](https://x.com/CredoraNetwork/status/19987547510
   - Market Characteristics (LTV, LIF)
 
 - **ii. Bad debt given Liquidation Probability:**
-
   - Base Liquidity
   - Pair Usage across Lending Protocols
   - Pair Usage in the Rated Protocol
