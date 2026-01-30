@@ -76,7 +76,7 @@ Ratings are now live in [Morpho](https://x.com/CredoraNetwork/status/19987547510
 
 ## 6. How often are our risk ratings updated?
 
-All vault, market, and asset ratings are refreshed daily.
+Updates are done within 24h to 48h of material changes in the risk profile
 
 ## 7. What does the rating process look like?
 
