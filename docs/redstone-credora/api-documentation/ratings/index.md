@@ -11,7 +11,7 @@ The Ratings API provides comprehensive rating information for DeFi vaults, deriv
 - **Chain ID**: Standard chain identifier (e.g., `1` for Ethereum, `8453` for Base)
 - **Curator**: Name of the Vault curator (if applicable)
 - **Name**: Human-readable name of the rated product
-- **Rating Type**: Type of rated entity (e.g., "Vault")
+- **Rating Type**: Internal Type of Rating (“indicative” or “commissioned”)
 - **Product**: Product category within the protocol (e.g., "Vaults")
 - **Protocol**: Protocol name (e.g., "Morpho", "Spark")
 - **Metrics**: Rating metrics and risk assessment data
@@ -181,6 +181,10 @@ Returns: (protocol = "Morpho" OR protocol = "Spark") AND product = "Vaults"
 
 ### Get Single Morpho Vault Rating
 
+:::caution Legacy Endpoint
+This endpoint is deprecated. Use the unified `ratings` query with address filter instead.
+:::
+
 Retrieve detailed rating information for a specific vault by its ID or address.
 
 #### Query
@@ -230,7 +234,11 @@ query GetVaultRating {
 
 ---
 
-### Get All Vault Ratings
+### Get All Morpho Vault Ratings
+
+:::caution Legacy Endpoint
+This endpoint is deprecated. Use the unified `ratings` query instead.
+:::
 
 Retrieve a paginated list of all available vault ratings.
 
