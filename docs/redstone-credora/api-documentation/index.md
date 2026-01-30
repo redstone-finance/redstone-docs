@@ -2,18 +2,6 @@
 
 Credora GraphQL APIs expose ratings information alongside unique data points, powering risk management across protocols, asset managers, and active onchain participants.
 
-## Overview
-
-APIs are structured to provide responses across three primary categories:
-
-- **Vaults** (Available now)
-- **Assets** _(soon!)_
-- **Markets** _(soon!)_
-
-Each category exposes active Credora Ratings, providing risk metrics and analytics.
-
----
-
 ## Endpoint
 
 **https://api.credora.io/graphql**
