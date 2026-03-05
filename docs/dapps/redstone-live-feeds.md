@@ -1,8 +1,8 @@
 ---
-sidebar_label: "Streams"
+sidebar_label: "Live Feeds"
 ---
 
-# Redstone Streams
+# Redstone Live Feeds
 
 Best suited for dApps that require low-latency data.
 
@@ -47,7 +47,7 @@ Multiple items can be batched in a single message.
 
 ### `price`
 
-Delivers one lightweight aggregated tick.
+Delivers one lightweight aggregated tick which is median from quorum of signers.
 
 ```jsonc
 {
@@ -73,7 +73,7 @@ Delivers one lightweight aggregated tick.
 
 ### `redstonePackages`
 
-Delivers the raw signed oracle packages from all merged signers.
+Delivers the raw signed oracle packages from quorum of signers.
 
 - Payloads in a single batch are guaranteed to contain packages from **3 unique Redstone nodes** with the same timestamp.
 - Whitelisted signer addresses: [initial-state.json](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/sdk/src/registry/initial-state.json#L1)
@@ -81,7 +81,7 @@ Delivers the raw signed oracle packages from all merged signers.
 
 **Recommended algorithm for safe consumption:**
 
-1. Filter out packages with non-whitelisted signers or invalid signatures.
+1. Filter out packages with non-whitelisted signers or invalid signatures. You can use this function [SignedDataPackage.fromObj()](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L203C17-L203C24) from [package](https://www.npmjs.com/package/@redstone-finance/protocol) to recover signer address.
 2. Check that the minimum signer count threshold is met.
 3. Calculate the median across the verified packages.
 
