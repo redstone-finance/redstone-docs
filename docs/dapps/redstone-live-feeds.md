@@ -77,11 +77,12 @@ Delivers the raw signed oracle packages from quorum of signers.
 
 - Payloads in a single batch are guaranteed to contain packages from **3 unique Redstone nodes** with the same timestamp.
 - Whitelisted signer addresses: [initial-state.json](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/sdk/src/registry/initial-state.json#L1)
+- You can use this function [SignedDataPackage.fromObj()](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L203C17-L203C24) from [package](https://www.npmjs.com/package/@redstone-finance/protocol) to recover signer address.
 - Most feeds have exactly **1 element** in `dataPoints`. Only feeds prefixed with `__` can contain multiple data points.
 
 **Recommended algorithm for safe consumption:**
 
-1. Filter out packages with non-whitelisted signers or invalid signatures. You can use this function [SignedDataPackage.fromObj()](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L203C17-L203C24) from [package](https://www.npmjs.com/package/@redstone-finance/protocol) to recover signer address.
+1. Filter out packages with non-whitelisted signers or invalid signatures.
 2. Check that the minimum signer count threshold is met.
 3. Calculate the median across the verified packages.
 
