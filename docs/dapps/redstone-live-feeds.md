@@ -10,7 +10,7 @@ Best suited for dApps that require low-latency data.
 
 Open a WebSocket connection and include your API key in the HTTP upgrade request header:
 
-```
+```bash
 x-api-key: <your-api-key>
 ```
 
