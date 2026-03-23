@@ -6,17 +6,17 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4
-        - name: Enable corepack
-          run: |
-            mkdir -p $HOME/bin
-            export PATH=$HOME/bin:$PATH
-            echo "$HOME/bin" >> $GITHUB_PATH
-            corepack enable --install-directory $HOME/bin
-        - uses: actions/setup-node@v4
-          with:
-            node-version: 20
-        - name: Install dependencies
-          run: yarn install --immutable
-        - name: prettier
-          run: yarn lint
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Enable corepack
+        run: |
+          mkdir -p $HOME/bin
+          export PATH=$HOME/bin:$PATH
+          echo "$HOME/bin" >> $GITHUB_PATH
+          corepack enable --install-directory $HOME/bin
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: 24
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: prettier
+        run: yarn lint
