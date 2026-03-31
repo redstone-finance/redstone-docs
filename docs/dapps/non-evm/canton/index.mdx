@@ -27,6 +27,18 @@ making RedStone oracle updates fully compatible with Canton’s privacy-by-desig
 6. Because the oracle data exists only inside this transaction, it creates no persistent contract state change
    and is visible only to the parties involved, fully matching Canton’s selective-disclosure privacy model.
 
+### Featured & Disclosed contracts flow (permissionless Oracle) - [details](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/canton-connector/daml/featured/README.md)
+
+RedStone provides a disclosed Core Contract, invoking the `FeaturedAppRight` inside.
+The disclosed contract allows any party to fetch and execute oracle price feeds
+without being a stakeholder on the Core contract.
+The caller submits the transaction with the Core contract and FeaturedAppRight as disclosed contracts,
+gaining visibility to both.
+Since the Core contract has the beneficiary (`FeaturedAppRight` provider) as a signatory,
+it has authorization to create `FeaturedAppActivityMarkers`, enabling RedStone to earn app rewards for each oracle usage.
+
+![CantonRedStoneOracle.png](CantonRedStoneOracle.png)
+
 ## RedStone SDK module — [details](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/main/packages/canton-connector/daml/sdk/README.md)
 
 Provides the primitives for processing RedStone messages and validating them on Canton, including signature checks,
