@@ -186,7 +186,7 @@ Ensure the final `operationData` output is passed as a standard hex string (e.g.
    );
    ```
 
-   The wallet singing the transaction must be the one that has the deposit on the Executor contract.
+   The wallet signing the transaction must be the one that has the deposit on the Executor contract.
 
 ## 5. The `operationCallback` Smart Contract
 
