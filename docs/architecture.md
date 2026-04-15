@@ -93,4 +93,4 @@ We support 2 types of data to be received in a contract:
 
 ## Benchmarks
 
-You can check the benchmarks script and reports [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/benchmarks)
+You can check the benchmarks script and reports [here.](https://github.com/redstone-finance/redstone-oracles-monorepo/tree/main/packages/evm-connector/benchmarks) 
