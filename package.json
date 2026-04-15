@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "@algolia/client-search": "5.3.2",
-    "@docusaurus/core": "^3.5.2",
-    "@docusaurus/plugin-client-redirects": "^3.5.2",
-    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/core": "3.10.0",
+    "@docusaurus/plugin-client-redirects": "3.10.0",
+    "@docusaurus/preset-classic": "3.10.0",
     "@mdx-js/react": "^3.0.1",
     "@types/react": "^18.3.5",
     "clsx": "^2.1.1",
@@ -31,9 +31,12 @@
     "typescript": "^5.5.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.5.2",
+    "@docusaurus/module-type-aliases": "3.10.0",
     "markdownlint-cli2": "^0.14.0",
     "prettier": "^3.3.3"
+  },
+  "resolutions": {
+    "webpackbar": "^7.0.0"
   },
   "browserslist": {
     "production": [
