@@ -31,13 +31,14 @@ Multiple items can be batched in a single message.
 { "op": "subscribe",   "items": [{ "feedId": "ETH", "type": "price",             "dataServiceId": "redstone-primary-prod" }] }
 { "op": "unsubscribe", "items": [{ "feedId": "ETH", "type": "price",             "dataServiceId": "redstone-primary-prod" }] }
 { "op": "subscribe",   "items": [{ "feedId": "ETH", "type": "redstonePackages",  "dataServiceId": "redstone-primary-prod" }] }
+{ "op": "subscribe",   "items": [{ "feedId": "ETH", "type": "passthrough",       "dataServiceId": "redstone-primary-prod" }] }
 ```
 
-| Field           | Type                              | Description                                                           |
-| --------------- | --------------------------------- | --------------------------------------------------------------------- |
-| `feedId`        | `string`                          | Feed identifier, e.g. `"ETH"`, `"BTC"`                                |
-| `type`          | `"price"` \| `"redstonePackages"` | Subscription channel (see below)                                      |
-| `dataServiceId` | `string`                          | Data service identifier optional default is `"redstone-primary-prod"` |
+| Field           | Type                                                 | Description                                                           |
+| --------------- | ---------------------------------------------------- | --------------------------------------------------------------------- |
+| `feedId`        | `string`                                             | Feed identifier, e.g. `"ETH"`, `"BTC"`                                |
+| `type`          | `"price"` \| `"redstonePackages"` \| `"passthrough"` | Subscription channel (see below)                                      |
+| `dataServiceId` | `string`                                             | Data service identifier optional default is `"redstone-primary-prod"` |
 
 > **Note:** subscribe and unsubscribe must use the exact same `type`, `dataServiceId`, and `feedId` to address the correct channel. Unsubscribing from `price` does not affect an active `redstonePackages` subscription for the same feed.
 
@@ -110,6 +111,23 @@ Delivers the raw signed oracle packages from quorum of signers.
 
 ---
 
+### `passthrough`
+
+Delivers each individual signer payload immediately, without waiting for a quorum threshold. Use this when you need the lowest possible latency and handle signer verification yourself.
+
+```jsonc
+{
+  "dataPackageId": "ETH",
+  "timestampMilliseconds": 1712345678000,
+  "dataPoints": [{ "dataFeedId": "ETH", "value": 2543.12 }],
+  "signature": "<base64>",
+}
+```
+
+One [SignedDataPackagePlainObj](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) per signer, delivered as it arrives.
+
+---
+
 ## Parsing messages
 
 Use the `type` field to distinguish message kinds on the client side:
@@ -121,6 +139,8 @@ ws.on("message", (raw) => {
     console.log(msg.dataPackageId, msg.value);
   } else if (msg.type === "redstonePackages") {
     console.log(msg.dataPackageId, msg.payloads.length, "signers");
+  } else if (msg.dataPackageId) {
+    console.log(msg.dataPackageId, msg.timestampMilliseconds, msg.signature);
   }
 });
 ```
