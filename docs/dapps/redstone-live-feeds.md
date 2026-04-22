@@ -113,7 +113,7 @@ Delivers the raw signed oracle packages from quorum of signers.
 
 ### `passthrough`
 
-Delivers each individual signer payload immediately, without waiting for a quorum threshold. Use this when you need the lowest possible latency and handle signer verification yourself.
+Delivers each individual signer payload immediately, without waiting for a quorum threshold. Use this when you need the lowest possible latency and handle signer aggregation yourself.
 
 ```jsonc
 {
