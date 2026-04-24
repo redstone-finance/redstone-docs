@@ -1,3 +1,7 @@
+---
+slug: /redstone-credora/how-to-rate-morpho
+---
+
 # Morpho Implementation
 
 Morpho is a permissionless and non-custodial lending protocol. Morpho Vaults are designed to provide a passive lending experience by allowing users access to curated risk profiles and management. Vaults carry exposures across multiple underlying markets, creating a portfolio of risks tied to the performance of those markets.

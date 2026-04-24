@@ -135,16 +135,12 @@ const config = {
             to: "/docs/category/restaking-operators-avs/",
           },
           {
-            from: "/docs/redstone-credora/how-to-rate-morpho",
-            to: "/docs/redstone-credora/protocol-implementations/morpho/",
+            from: "/docs/redstone-credora/how-to-rate-spark",
+            to: "/docs/redstone-credora/protocol-implementations/spark-savings/",
           },
           {
             from: "/docs/redstone-credora/how-to-rate-morpho/step-by-step-vault-rating",
             to: "/docs/redstone-credora/protocol-implementations/morpho/example-vault/",
-          },
-          {
-            from: "/docs/redstone-credora/how-to-rate-spark",
-            to: "/docs/redstone-credora/protocol-implementations/spark-savings/",
           },
         ],
       },
