@@ -7,9 +7,7 @@ sidebar_position: 3
 
 Credora publishes live Spark Savings ratings that reflect the current state of collateral composition and market conditions. The latest rating report, including product-level PD/PSL estimates, collateral breakdowns, and risk modifier assessments, is available here:
 
-<!-- TODO: add actual rating report URL -->
-
-**Latest Rating Report:** _Spark Savings Rating Report_
+**Latest Rating Report:** [Spark Savings Rating Report](https://reports.credora.io/spark/latest.pdf)
 
 :::info Live Data Notice
 Credora monitors collateral composition and market parameters on a continuous basis. The ratings and PD/PSL figures in this report reflect conditions as of the effective date stated in the report. Reports and API ratings are updated as needed when there are meaningful changes in the underlying factors. Data feeds are controlled internally and ratings may be updated within 24 hours of any material exposure change.
@@ -55,9 +53,7 @@ Four of the six savings products derive their risk profile from USDS collateral 
 
 USDS is a decentralized stablecoin issued by Sky Protocol and **backed by a diversified portfolio of positions** spanning stablecoins, lending markets, private credit, and tokenized real-world assets. Because this collateral composition changes continuously, Credora sources real-time position-level data from the BlockAnalitica API and monitors it daily, automatically recalculating ratings within 24 hours of any material exposure change.
 
-<!-- TODO: add BlockAnalitica URL -->
-
-**Data Source:** _BlockAnalitica — Spark Collateral Data_
+**Data Source:** [BlockAnalitica — Spark Collateral Data](https://open.data.blockanalitica.com/v1/backed/details/)
 
 The assessment begins with an **Anchor Probability of Default (PD)** derived from the credit quality of the collateral portfolio. Then, risk modifiers are added to capture structural and qualitative risks not reflected in the underlying positions alone.
 
