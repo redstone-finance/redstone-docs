@@ -5,7 +5,8 @@ All Credora ratings are displayed in the Credora Rating Scale. A single, quantit
 ![DeFi Ratins Scale](/img/defiRatingScale.png)
 
 :::info
-The rating scale is designed to maximize differentiation across DeFi products while remaining easy to read and interpret. As benchmarks, tokenized treasuries such as BUIDL are assigned an A+ rating, while as of the date of the document Morpho vaults and markets begin at an A rating.
+Probability of Significant Loss (PSL) is an annualized probability of a product to experience a loss of 1% or more of principal. PSL is expressed as a percentage and serves as the quantitative basis for Credora's DeFi Rating Scale. A lower PSL indicates a lower likelihood of meaningful capital impairment within a given year.
+The rating scale is designed to maximize differentiation across DeFi products while remaining easy to read and interpret. As benchmarks, stablecoins such as USDC are assigned an A+ rating, while as of the date of the document Morpho vaults and markets begin at an A rating.
 :::
 
 ## Deriving the DeFi Rating Scale

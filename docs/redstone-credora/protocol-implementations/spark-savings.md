@@ -1,4 +1,19 @@
-# Spark Implementation
+---
+sidebar_label: "Spark Savings"
+sidebar_position: 3
+---
+
+# Spark Savings Implementation
+
+Credora publishes live Spark Savings ratings that reflect the current state of collateral composition and market conditions. The latest rating report, including product-level PD/PSL estimates, collateral breakdowns, and risk modifier assessments, is available here:
+
+<!-- TODO: add actual rating report URL -->
+
+**Latest Rating Report:** _Spark Savings Rating Report_
+
+:::info Live Data Notice
+Credora monitors collateral composition and market parameters on a continuous basis. The ratings and PD/PSL figures in this report reflect conditions as of the effective date stated in the report. Reports and API ratings are updated as needed when there are meaningful changes in the underlying factors. Data feeds are controlled internally and ratings may be updated within 24 hours of any material exposure change.
+:::
 
 Spark Savings is a suite of yield-generating products from the Spark Protocol that enables users to deposit stablecoins and ETH into **savings vaults**, receiving yield-bearing tokens, such as sUSDS or spETH, that accrue value over time. Yields derive from deploying assets across diversified DeFi strategies, including crypto lending protocols, Real-World Asset (RWA) products, and yield-bearing stablecoins. Allocations managed by the Spark Liquidity Layer (SLL) and separate SubDAOs, which dynamically deploy capital across protocols and blockchains based on predefined strategies and risk parameters approved by Sky Governance.
 
@@ -11,7 +26,7 @@ Four of the six rated savings products, sUSDS, spUSDC, spUSDT, and spPYUSD, shar
 Credora's Spark Savings rating system employs a bottom-up assessment approach that combines static and dynamic analysis across four hierarchical levels:
 
 1. **Collateral Assets Positions** — evaluated using the [Asset Methodology](/docs/redstone-credora/methodologies/tokens/)
-2. **Lending Markets & Liquidity Pools Positions** — evaluated using the [Lending Markets Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/) and [Liquidity Pool Methodology](/docs/redstone-credora/methodologies/vaults-pools/)
+2. **Lending Markets & Liquidity Pools Positions** — evaluated using the [Lending Markets Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/) and [Liquidity Pool Methodology](/docs/redstone-credora/methodologies/liquidity-pools/)
 3. **USDS** — aggregated exposure across all collateral positions
 4. **Savings Products** — final product ratings with entry asset and notch adjustments (e.g. liquidity buffer)
 
@@ -40,13 +55,17 @@ Four of the six savings products derive their risk profile from USDS collateral 
 
 USDS is a decentralized stablecoin issued by Sky Protocol and **backed by a diversified portfolio of positions** spanning stablecoins, lending markets, private credit, and tokenized real-world assets. Because this collateral composition changes continuously, Credora sources real-time position-level data from the BlockAnalitica API and monitors it daily, automatically recalculating ratings within 24 hours of any material exposure change.
 
+<!-- TODO: add BlockAnalitica URL -->
+
+**Data Source:** _BlockAnalitica — Spark Collateral Data_
+
 The assessment begins with an **Anchor Probability of Default (PD)** derived from the credit quality of the collateral portfolio. Then, risk modifiers are added to capture structural and qualitative risks not reflected in the underlying positions alone.
 
 ### Collateral Analysis (Anchor PD)
 
 Collateral positions are classified into four categories (Stablecoins, Lending Markets, Private Credit, and T-Bills) and each is assessed using the methodology most appropriate to its structure.
 
-Stablecoins are assessed using the Asset Methodology. Liquidity pool positions within this category are assessed using the Liquidity Pool Methodology, which evaluates smart contract risk, impermanent loss, and the default risk of each underlying asset in the pair. Lending Markets encompass both on-chain positions (SparkLend, Morpho, Aave) and OTC lending positions, assessed using the Lending Markets Methodology. When Spark supplies assets to external markets, the credit risk of the loan asset is incorporated into the assessment. Private Credit and T-Bills are tokenized real-world asset positions held in custody, both assessed using the Asset Methodology.
+Stablecoins are assessed using the [Asset Methodology](/docs/redstone-credora/methodologies/tokens/). Liquidity pool positions within this category are assessed using the [Liquidity Pool Methodology](/docs/redstone-credora/methodologies/liquidity-pools/), which evaluates smart contract risk, impermanent loss, and the default risk of each underlying asset in the pair. Lending Markets encompass both on-chain positions (SparkLend, Morpho, Aave) and OTC lending positions, assessed using the [Lending Markets Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/). When Spark supplies assets to external markets, the credit risk of the loan asset is incorporated into the assessment. Private Credit and T-Bills are tokenized real-world asset positions held in custody, both assessed using the Asset Methodology.
 
 ![USDS backing categories](/img/spark-chart.png)
 
