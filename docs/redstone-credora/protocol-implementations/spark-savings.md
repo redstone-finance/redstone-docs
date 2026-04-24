@@ -78,7 +78,7 @@ Notch-based adjustments are applied to the Anchor PD to capture risks not reflec
 The four stablecoin savings products share the same underlying USDS collateral exposure, as deposits are pooled into a common collateral portfolio regardless of entry asset. Each product holds a portion of assets as idle liquidity in the deposited currency to facilitate withdrawals — the size of this buffer varies across products, resulting in slightly different degrees of net exposure to USDS backing risk. Additionally, for lending positions denominated in the user's entry stablecoin, the loan asset PD is excluded from the assessment, since that default risk is already assumed at the point of deposit.
 
 :::note
-This assessment does not incorporate the probability of default of the deposited asset itself. Holders of spUSDC, spUSDT, or spPYUSD retain exposure to their single deposited asset. Users who enter with USDS retain the flexibility to redeem into multiple supported assets on exit.
+This assessment does not incorporate the probability of default of the deposited asset itself. Holders of spUSDC, spUSDT, or spPYUSD retain exposure to their single deposited asset. For USDS we assume that users who enter with USDS retain the flexibility to redeem into multiple supported assets on exit.
 :::
 
 ### spETH
