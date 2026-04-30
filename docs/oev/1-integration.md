@@ -227,20 +227,20 @@ contract BaseSolver is IOperationCallback {
         // e.g., (Target[] memory targets) = abi.decode(operationData, (...));
 
         // 2. Execute your liquidations on the underlying markets
-        // 3. Swap seized collateral back to native HYPE to secure your profit
+        // 3. Swap seized collateral back to native token to secure your profit
     }
 
     /// @notice Invoked by the Executor immediately after `liquidate()` to claim the bid
     function payBid(uint256 bidAmount) external override onlyExecutor {
-        // Send the exact strictly negotiated OEV bid amount in native HYPE
+        // Send the exact strictly negotiated OEV bid amount in native token
         // back to the Executor. The Executor tracks this via its receive() hook.
         (bool success, ) = payable(executor).call{value: bidAmount}("");
         require(success, "Failed to pay bid");
     }
 
-    // Required to receive unwrapped native HYPE securely into this contract.
-    // When swapping seized collateral back to HYPE via DEX routers (e.g. Hyperswap),
-    // the router natively transfers the final HYPE output back to this address.
+    // Required to receive unwrapped native token securely into this contract.
+    // When swapping seized collateral back to token via DEX routers,
+    // the router natively transfers the final output back to this address.
     // Without `receive()` and/or `fallback()`, those underlying token swaps will revert.
     receive() external payable {}
     fallback() external payable {}
