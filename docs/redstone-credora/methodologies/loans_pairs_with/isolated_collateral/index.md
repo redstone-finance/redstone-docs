@@ -34,7 +34,8 @@ Markets utilize fundamentally different types of oracles, where oracle type infl
 
 - **Dynamic Oracles:** Capture the market price of the collateral asset versus the loan asset. In these pairs, liquidations and significant losses can result from temporary or sustained moves in the market price of the underlying collateral asset, whether driven by market dynamics or collateral asset default events. The historical volatility of the asset pair is a main driver in simulations, alongside collateral asset default events and market tail events.
 
-- **Fundamental (or Exchange Rate) Oracles:** Deliver prices which reflect the exchange rate between an asset pair, using redemption values and protocol-defined calculations. For example, a stETH to ETH exchange rate oracle would return the rate at which stETH can be redeemed for ETH. As a result, simulations reduce the base volatility input of the pair to 0%, recognizing that market volatility will not drive liquidations. Liquidations and losses can result from changes in the exchange rate, which may arise through collateral default events.
+- **Fundamental Oracles:** Deliver prices reflecting the exchange rate between an asset pair, derived from redemption values and protocol-defined calculations (for example, a stETH/ETH oracle returns the rate at which stETH can be redeemed for ETH). Liquidations in these markets are driven exclusively by interest accrual pushing loans above the LLTV. Price itself adjusts on a lag through issuer-published updates, which under normal conditions would support orderly liquidations despite the absence of a secondary market, with a specialised buyer warehousing the risk.
+  Under protocol exploits or collateral asset default, the issuer may fail to publish, or fair value may be indeterminate at the time of the event, leaving the oracle to resolve to its hardcoded value. Credora therefore models these markets as hardcoded — the more conservative treatment given uncertainty around oracle behaviour under stress.
 
 - **Hardcoded Oracles:** Rely on a fixed price feed, rather than market activity. Due to their fixed or static nature, liquidations are only driven by accrued interest resulting in loans exceeding the LLTV. The No Liquidation Methodology below outlines how Credora quantifies a PSL in these scenarios.
 
@@ -131,25 +132,16 @@ The Liquidation Simulation utilizes averages of liquidity observations over the 
 
 ![Slippage](/img/slippage.png)
 
-In the Liquidation Simulation, Credora allows a maximum of 0.5% slippage. Analysis indicates that beyond 1% slippage, market depth data becomes increasingly volatile and therefore less reliable.
+### Liquidity Assumption
 
-In the initial implementation, the above maximum slippage diminishes the importance of considering the economics of a liquidation. Practically, the LIF drives incentives for liquidators, and it is dependent on the LLTV set per market. Additionally, in advance of executing a liquidation, liquidators rationally consider the cost of executing a trade (e.g. DEX transaction costs, network costs) versus the incentive for performing the liquidation, typically targeting a profit margin for their services. Credora is further exploring these variables, and evaluating their impact on the accuracy of the outputs.
+Credora’s liquidity assessment focuses on how well the market can absorb forced liquidations during stress events: specifically, whether there is sufficient DEX depth to execute liquidations at reasonable prices before positions become undercollateralized.
 
-#### Volatility Adjustment
+In stress events the liquidation pressure will come not only from the protocol being evaluated but also from markets provenient of other lending protocols that can cause the stress to accumulate. Which means that in the event of a bank run, the liquidity will be drained with very little likelihood of it being refreshed.
 
-Credora adjusts liquidity metrics to account for the relationship between the historical volatility of asset pairs during extreme or stressed market conditions and the 30-day volatility input utilized in the Loan Pair Simulation framework. This adjustment is derived from an independent analysis that evaluates the impact of volatility on liquidity dynamics across various asset pairs.
+The liquidity framework looks at a relationship between:
 
-The process uses the last three years of historical price data to isolate the 95th percentile of daily price movements and calculate the volatility during extreme market conditions. Subsequently, the ratio between this extreme volatility and the historical volatility over the past 30 days is calculated. Finally, this ratio is applied to a curve that determines the appropriate liquidity discount. For typically volatile market pairs, the discount in liquidity is on average between 20% to 50%.
-
-This liquidity adjustment aims to capture the reality that liquidity is dependent on market conditions. Recent liquidity levels are shaped by prevailing recent market volatility, with the disparity between recent volatility and that observed during extreme market events serving as a key indicator in the model. This gap informs the additional discount necessary to adjust liquidity, ensuring it accurately reflects expected values under stressed market conditions.
-
-#### Market Tier Adjustment
-
-Liquidity is further adjusted depending on the utilization of the collateral asset across similar loan pairs from the most relevant lending protocols. The Market Tier Adjustment aims to capture the risk of liquidations occurring simultaneously across multiple markets, therefore reducing the available liquidity for liquidations or more drastically impacting price.
-
-First, a discount is applied considering similar loan pairs within the protocol. Additionally, assets are tiered based on the utilization of collateral across major DeFi protocols, including AAVE and Spark. The usage of the collateral determines a tier, which is mapped to a percentage liquidity discount.
-
-In future iterations, the Market Tier Adjustment will be enhanced and calculate values at risk of liquidation across multiple protocols, considering a specific asset or pair price move. This enhancement is targeting a more accurate measurement of the liquidity available for a specific liquidation, or the higher potential for more aggressive price moves.
+- Liquidity at 2% depth aggregated across DEXs
+- Amount Borrowed at the loan network and across networks
 
 ### Liquidation Simulation Outputs
 

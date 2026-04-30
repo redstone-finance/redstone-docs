@@ -1,8 +1,18 @@
+---
+slug: /redstone-credora/how-to-rate-morpho
+---
+
 # Morpho Implementation
 
 Morpho is a permissionless and non-custodial lending protocol. Morpho Vaults are designed to provide a passive lending experience by allowing users access to curated risk profiles and management. Vaults carry exposures across multiple underlying markets, creating a portfolio of risks tied to the performance of those markets.
 
-In the Morpho Protocol, curators play a critical role in managing and mitigating risks associated with vaults and underlying exposures. They are responsible for selecting and configuring risk profiles by allocating assets across multiple markets, aiming for an optimal balance between risk and return. Beyond market selection, curators actively monitor market dynamics and adapt allocations to changing conditions, safeguarding the vault’s overall performance. Their expertise, track record, and operational effectiveness are central to the vault’s robustness, as well-managed vaults demonstrate stronger risk mitigation practices and greater resilience during periods of market volatility. In addition, the vault owners have the ability to introduce certain protective mechanisms such as guardians or timelocks that protect vault investors against adverse changes in a vault’s risk profile. Ultimately, curators and the protective mechanisms in place serve as key risk stewards, shaping the vault’s stability and risk profile.
+## Ratings Scale
+
+Vault ratings are expressed on a scale that reflects the aggregate probability of significant loss across all underlying exposures. A higher rating indicates lower risk, with ratings adjusted to reflect both the weighted average risk of individual markets and concentration risk factors. More details on the rating scale can be found here [DeFi Rating Scale](/docs/redstone-credora/methodologies/defi-rating-scale/).
+
+![DeFi Ratins Scale](/img/defiRatingScale.png)
+
+At launch, Vault Ratings are refreshed on a weekly basis and will be updated to refresh daily.
 
 ## Rating Framework Structure
 
@@ -47,9 +57,3 @@ The final Market PSL is calculated after accounting for the two additional risks
 ## Morpho Vault Ratings
 
 Vaults represent the highest level of the risk framework, treating them as aggregated exposure to underlying markets and assets, and ratings are obtained by applying the [Vaults Methodology](/docs/redstone-credora/methodologies/vaults-pools/). The vault rating aggregation process weights each underlying market exposure based on the vault's allocation to that market. Markets with higher allocations have a proportionally greater impact on the overall vault rating. This determines the Anchor Vault PSL by calculating a weighted average PSL of the markets utilized in the vault. The final PSL is derived from applying modifiers that consider the Curator, Governance, Guardian and Timelock.
-
-### Ratings Scale
-
-Vault ratings are expressed on a scale that reflects the aggregate probability of significant loss across all underlying exposures. A higher rating indicates lower risk, with ratings adjusted to reflect both the weighted average risk of individual markets and concentration risk factors. More details on the rating scale can be found here [DeFi Rating Scale](/docs/redstone-credora/methodologies/defi-rating-scale/).
-
-At launch, Vault Ratings are refreshed on a weekly basis and will be updated to refresh daily.
