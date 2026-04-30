@@ -247,6 +247,8 @@ contract BaseSolver is IOperationCallback {
 }
 ```
 
+**Note:** Example (simplified - not to be used in production code) Solver contract example can be found [here](https://github.com/redstone-finance/redstone-evm-examples/tree/main/oev/solver-example).
+
 ## 6. The Bidding & Settlement Mechanism
 
 1. **Resolution phase**: After the `timeoutMs` window expires, the Auctioneer terminates the auction loop and groups all valid solvers who responded to that unique `id`.
