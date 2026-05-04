@@ -28,15 +28,15 @@ After the connection is open, send a JSON text frame to subscribe or unsubscribe
 Multiple items can be batched in a single message.
 
 ```json
-{ "op": "subscribe",   "items": [{ "feedId": "ETH", "type": "price",             "dataServiceId": "redstone-primary-prod" }] }
-{ "op": "unsubscribe", "items": [{ "feedId": "ETH", "type": "price",             "dataServiceId": "redstone-primary-prod" }] }
-{ "op": "subscribe",   "items": [{ "feedId": "ETH", "type": "redstonePackages",  "dataServiceId": "redstone-primary-prod" }] }
-{ "op": "subscribe",   "items": [{ "feedId": "ETH", "type": "passthrough",       "dataServiceId": "redstone-primary-prod" }] }
+{ "op": "subscribe",   "items": [{ "feedId": "XAU", "type": "price", "dataServiceId": "redstone-primary-prod" }] }
+{ "op": "unsubscribe", "items": [{ "feedId": "XAU", "type": "price", "dataServiceId": "redstone-primary-prod" }] }
+{ "op": "subscribe",   "items": [{ "feedId": "XAU", "type": "redstonePackages", "dataServiceId": "redstone-primary-prod" }] }
+{ "op": "subscribe",   "items": [{ "feedId": "XAU", "type": "passthrough", "dataServiceId": "redstone-primary-prod" }] }
 ```
 
 | Field           | Type                                                 | Description                                                           |
 | --------------- | ---------------------------------------------------- | --------------------------------------------------------------------- |
-| `feedId`        | `string`                                             | Feed identifier, e.g. `"ETH"`, `"BTC"`                                |
+| `feedId`        | `string`                                             | Feed identifier, e.g. `"XAU"`, `"BTC"`                                |
 | `type`          | `"price"` \| `"redstonePackages"` \| `"passthrough"` | Subscription channel (see below)                                      |
 | `dataServiceId` | `string`                                             | Data service identifier optional default is `"redstone-primary-prod"` |
 
@@ -48,7 +48,7 @@ Multiple items can be batched in a single message.
 
 ### `price`
 
-Delivers one lightweight aggregated tick which is median from quorum of signers.
+Delivers one lightweight aggregated tick, the median from the quorum of signers.
 
 ```jsonc
 {
@@ -68,7 +68,6 @@ Delivers one lightweight aggregated tick which is median from quorum of signers.
 | `timestamp`     | `number`  | Millisecond timestamp of the data round        |
 | `value`         | `number`  | Median price across all merged signer payloads |
 
-> Only published when at least one numeric data point is present in the merged payloads.
 
 ---
 
