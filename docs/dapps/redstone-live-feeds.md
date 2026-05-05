@@ -68,7 +68,6 @@ Delivers one lightweight aggregated tick, the median from the quorum of signers.
 | `timestamp`     | `number`  | Millisecond timestamp of the data round        |
 | `value`         | `number`  | Median price across all merged signer payloads |
 
-
 ---
 
 ### `redstonePackages`
