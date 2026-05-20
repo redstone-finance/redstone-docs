@@ -114,7 +114,7 @@ When the external solver identifies a liquidation opportunity using the feeds, i
   "id": "e9803b9f-4318-4dc0-811d-23f2f0b938f2",
   "data": {
     "bid": "0.0001", // a decimal string representing your OEV bid (0.0001 ETH in this example). Result of ethers.formatEther of your bid
-    "nonce": "1", 
+    "nonce": "1",
     "operationCallback": "0x...",
     "operationData": "0x...",
     "liquidationSig": "0x...",
