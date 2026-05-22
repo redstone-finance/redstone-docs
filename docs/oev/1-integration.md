@@ -331,7 +331,7 @@ To unsubscribe:
 ```json
 {
   "op": "unsubscribe",
-  "topic": "oev/feeds" // (or the liquidator-specific topic)
+  "topic": "oev/notify" // (or the liquidator-specific topic)
 }
 ```
 
