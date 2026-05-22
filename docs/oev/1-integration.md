@@ -24,7 +24,10 @@ Every connection requires an `x-api-key` HTTP header during the initial WebSocke
 
 - The server will send a **ping** control frame automatically after 120 seconds of inactivity.
 - Any compliant WebSocket client library will emit a **pong** frame automatically in response.
-- **Note:** If the connection hangs and the server doesn't receive a pong frame, the connection will forcibly close with code `1001`. The client _must_ handle this disconnection and reconnect.
+
+:::warning
+If the connection hangs and the server doesn't receive a pong frame, the connection will forcibly close with code `1001`. The client _must_ handle this disconnection and reconnect.
+:::
 
 ### Maximum Connection Lifetime
 
@@ -42,6 +45,8 @@ const abi = [
   "function deposit() external payable",
   "function requestWithdraw(uint256 amount, address payable to) external",
   "function executeWithdraw() external",
+
+  "function deposits(address solver) external view returns (uint256)",
 ];
 ```
 
@@ -50,9 +55,13 @@ In order to withdraw the deposit:
 1. request withdrawal (`requestWithdraw`)
 2. after at least 24h - execute the withdrawal (`executeWithdraw`).
 
+:::info
+In order to check the current solver balance, use the `deposits` view function.
+:::
+
 ## 3. Feeds Subscription
 
-To receive auction payloads, the client must explicitly subscribe to the `oev/feeds` topic using a JSON message once the connection enters the `OPEN` state.
+To receive auction payloads, the websocket client must explicitly subscribe to the `oev/feeds` topic using a JSON message once the connection enters the `OPEN` state.
 
 ```json
 {
@@ -104,7 +113,9 @@ When an auction begins, the server broadcasts an auction envelope containing the
 
 When the external solver identifies a liquidation opportunity using the feeds, it constructs and sends a **Solve Message** back to the Auctioneer.
 
-**WARNING**: Submission of failing transaction could lead to deposit slashing and account blacklisting.
+:::warning
+Submission of failing transaction could lead to deposit slashing and account blacklisting.
+:::
 
 **Expected Solver Response Format:**
 
@@ -186,7 +197,18 @@ Ensure the final `operationData` output is passed as a standard hex string (e.g.
    );
    ```
 
-   The wallet signing the transaction must be the one that has the deposit on the Executor contract.
+:::info
+The wallet signing the transaction must be the one that has the deposit on the Executor contract.
+:::
+
+:::info
+Use the `nonces` view function on the Executor contract to check the currently registered nonce.
+
+```javascript
+const abi = ["function nonces(address solver) external view returns (uint256)"];
+```
+
+:::
 
 ## 5. The `operationCallback` Smart Contract
 
@@ -255,6 +277,106 @@ contract BaseSolver is IOperationCallback {
 2. **Comparison**: Responses are sorted strictly by `data.bid` in descending order.
 3. **Execution**: The greatest absolute bid (in terms of formatEther representation) is automatically prioritized, the remote payload `operationData` and `liquidationSig` are forwarded to the RedStone OEV Executor contract for liquidation execution.
 
-## 7. Examples
+## 7. Notifications
+
+### On-chain
+
+- `LiquidationFailed` event - emitted whenever liquidation fails within the `operationCallback` contract.
+
+```solidity
+    event LiquidationFailed(address indexed solver, uint256 nonce);
+```
+
+- `BidUnderpaid` event - emitted whenever the Liquidator contract does not pay enough bid to the Executor contract.
+
+```solidity
+event BidUnderpaid(address indexed solver, uint256 bidAmount, uint256 bidPaid);
+```
+
+- `Executed` event - emitted whenever the liquidation call was successful
+
+```solidity
+event Executed(
+        address indexed solver,
+        address indexed operationCallback,
+        uint256 bidAmount,
+        uint256 gasUsed,
+        uint256 liability
+    );
+```
+
+:::warning
+Multiple `LiquidationFailed` and/or `BidUnderpaid` events may lead to slashing.
+:::
+
+### Off-chain
+
+To receive notifications, the websocket client must explicitly subscribe to the `oev/notify` topic using a JSON message once the connection enters the `OPEN` state.
+
+```json
+{
+  "op": "subscribe",
+  "topic": "oev/notify"
+}
+```
+
+:::info
+You can subscribe to notifications specific to your individual Liquidator contract address using the
+`oev/notify/{liquidator_contract_address.toLowerCase()}` topic.  
+E.g. `oev/notify/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c`
+:::
+
+To unsubscribe:
+
+```json
+{
+  "op": "unsubscribe",
+  "topic": "oev/notify" // (or the liquidator-specific topic)
+}
+```
+
+#### Notifications
+
+- Auction result - which liquidator won the auction.
+
+```json
+{
+  "op": "auction-result",
+  "id": "auctionId",
+  "data": {
+    "bid": "bid",
+    "liquidator": "liquidatorAddressToLowerCase"
+  }
+}
+```
+
+- Liquidation result - whether the Executor call was successful.
+
+```json
+{
+  "op": "liquidation-result",
+  "id": "auctionId",
+  "data": {
+    "success": true/false,
+    "txHash": "txHash",
+    "liquidator": "liquidatorAddressToLowerCase"
+  }
+}
+```
+
+- Blacklist - whenever the given client's api-key has been blacklisted due to failing transactions.
+
+```json
+{
+  "op": "blacklisted",
+  "id": "auctionId",
+  "data": {
+    "liquidator": "liquidatorAddressToLowerCase",
+    "msg": "api-key blacklisted"
+  }
+}
+```
+
+## 8. Examples
 
 The subscription example is available [here](https://github.com/redstone-finance/redstone-evm-examples/tree/main/oev) .
