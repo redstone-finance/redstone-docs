@@ -124,7 +124,7 @@ Submission of failing transaction could lead to deposit slashing and account bla
   "op": "solve",
   "id": "e9803b9f-4318-4dc0-811d-23f2f0b938f2",
   "data": {
-    "bid": "10000000000",
+    "bid": "0.002", // a decimal string representing your OEV bid (0.002 ETH in this example). Result of ethers.formatEther of your bid.
     "nonce": "1",
     "operationCallback": "0x...",
     "operationData": "0x...",
