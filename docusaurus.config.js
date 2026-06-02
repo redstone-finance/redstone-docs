@@ -142,6 +142,10 @@ const config = {
             from: "/docs/redstone-credora/how-to-rate-morpho/step-by-step-vault-rating",
             to: "/docs/redstone-credora/protocol-implementations/morpho/example-vault/",
           },
+          {
+            from: "/docs/redstone-credora/methodologies/tokens",
+            to: "/docs/redstone-credora/methodologies/assets/",
+          },
         ],
       },
     ],
