@@ -153,7 +153,7 @@ If no pong is received the server closes the connection with code `1001`. Reconn
 
 ---
 
-## Rate limits
+## Limits
 
 - Connections are forcibly closed after **8 hours** (code `1006`) regardless of activity. Clients must handle this close event and reconnect.
 - 1 req/s per connection with bursts up to 20 req, more requests result in connection closing with code 1008
