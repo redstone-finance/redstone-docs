@@ -153,7 +153,9 @@ If no pong is received the server closes the connection with code `1001`. Reconn
 
 ---
 
-## Connection lifetime
+## Limits
 
-Connections are forcibly closed after **8 hours** (code `1006`) regardless of activity.
-Clients must handle this close event and reconnect.
+- Connections are forcibly closed after **8 hours** (code `1006`) regardless of activity. Clients must handle this close event and reconnect.
+- 1 req/s per connection with bursts up to 20 req, more requests result in connection closing with code 1008
+- There is an outgoing buffer of 1MB per connection, if a consumer is slow and the buffer fills up, they are disconnected.
+- Messages from a subscriber, larger than 64Kb are dropped
