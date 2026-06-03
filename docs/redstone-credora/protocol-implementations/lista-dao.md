@@ -20,7 +20,7 @@ At launch, Vault Ratings are refreshed on a weekly basis and will be updated to 
 Credora's rating framework for Lista DAO employs a bottom-up assessment approach that combines static and dynamic analysis across three hierarchical levels:
 
 1. **Collateral Assets**
-   - Simple collateral assets evaluated using the [Tokens Methodology](/docs/redstone-credora/methodologies/tokens/)
+   - Simple collateral assets evaluated using the [Tokens Methodology](/docs/redstone-credora/methodologies/assets/)
    - LP positions evaluated using the [Liquidity Pools Methodology](/docs/redstone-credora/methodologies/liquidity-pools/)
 2. **Markets** — evaluated using the [Loan Pairs with Isolated Collateral Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/)
 3. **Vaults** — aggregated exposure to underlying markets, evaluated using the [Vaults Methodology](/docs/redstone-credora/methodologies/vaults-pools/)
@@ -29,7 +29,7 @@ This modular approach means that vault ratings are a computationally efficient a
 
 ## Collateral Asset Ratings
 
-The assessment of standalone collateral assets is conducted through the [Tokens Methodology](/docs/redstone-credora/methodologies/tokens/). Asset ratings are published and maintained to ensure the most up-to-date information reflects current market conditions. In the event that Credora does not directly rate an asset, a proxy rating may be defined as an input.
+The assessment of standalone collateral assets is conducted through the [Tokens Methodology](/docs/redstone-credora/methodologies/assets/). Asset ratings are published and maintained to ensure the most up-to-date information reflects current market conditions. In the event that Credora does not directly rate an asset, a proxy rating may be defined as an input.
 
 The BNB Chain ecosystem presents a collateral universe materially distinct from Ethereum, with direct implications for oracle classification, volatility modelling, and liquidation liquidity assumptions. BNB functions as the primary base asset on the chain and the foundational collateral unit within the Lista DAO ecosystem. On-chain liquidity for BNB is deep relative to other BNB Chain-native assets; however, it remains shallower than ETH on Ethereum under stressed market conditions — a distinction captured explicitly in the liquidation liquidity curves used in the Probability of Significant Loss (PSL) calculation.
 

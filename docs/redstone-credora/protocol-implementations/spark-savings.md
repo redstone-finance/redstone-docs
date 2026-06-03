@@ -23,7 +23,7 @@ Four of the six rated savings products, sUSDS, spUSDC, spUSDT, and spPYUSD, shar
 
 Credora's Spark Savings rating system employs a bottom-up assessment approach that combines static and dynamic analysis across four hierarchical levels:
 
-1. **Collateral Assets Positions** — evaluated using the [Asset Methodology](/docs/redstone-credora/methodologies/tokens/)
+1. **Collateral Assets Positions** — evaluated using the [Asset Methodology](/docs/redstone-credora/methodologies/assets/)
 2. **Lending Markets & Liquidity Pools Positions** — evaluated using the [Lending Markets Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/) and [Liquidity Pool Methodology](/docs/redstone-credora/methodologies/liquidity-pools/)
 3. **USDS** — aggregated exposure across all collateral positions
 4. **Savings Products** — final product ratings with entry asset and notch adjustments (e.g. liquidity buffer)
@@ -61,7 +61,7 @@ The assessment begins with an **Anchor Probability of Default (PD)** derived fro
 
 Collateral positions are classified into four categories (Stablecoins, Lending Markets, Private Credit, and T-Bills) and each is assessed using the methodology most appropriate to its structure.
 
-Stablecoins are assessed using the [Asset Methodology](/docs/redstone-credora/methodologies/tokens/). Liquidity pool positions within this category are assessed using the [Liquidity Pool Methodology](/docs/redstone-credora/methodologies/liquidity-pools/), which evaluates smart contract risk, impermanent loss, and the default risk of each underlying asset in the pair. Lending Markets encompass both on-chain positions (SparkLend, Morpho, Aave) and OTC lending positions, assessed using the [Lending Markets Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/). When Spark supplies assets to external markets, the credit risk of the loan asset is incorporated into the assessment. Private Credit and T-Bills are tokenized real-world asset positions held in custody, both assessed using the Asset Methodology.
+Stablecoins are assessed using the [Asset Methodology](/docs/redstone-credora/methodologies/assets/). Liquidity pool positions within this category are assessed using the [Liquidity Pool Methodology](/docs/redstone-credora/methodologies/liquidity-pools/), which evaluates smart contract risk, impermanent loss, and the default risk of each underlying asset in the pair. Lending Markets encompass both on-chain positions (SparkLend, Morpho, Aave) and OTC lending positions, assessed using the [Lending Markets Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/). When Spark supplies assets to external markets, the credit risk of the loan asset is incorporated into the assessment. Private Credit and T-Bills are tokenized real-world asset positions held in custody, both assessed using the Asset Methodology.
 
 ![USDS backing categories](/img/spark-chart.png)
 
@@ -69,7 +69,7 @@ The Anchor PD is calculated as the union probability of PSLs across all rated co
 
 ### Risk Modifiers
 
-Notch-based adjustments are applied to the Anchor PD to capture risks not reflected in the collateral assessment itself. These modifiers evaluate the regulatory standing of the issuer, the transparency and governance of reserve management, the legal rights of token holders, the historical stability of the peg, the relative market capitalization of the stablecoin, and the structure of protocol governance and upgrade mechanisms. The full modifier framework is detailed in the [Asset Methodology](/docs/redstone-credora/methodologies/tokens/).
+Notch-based adjustments are applied to the Anchor PD to capture risks not reflected in the collateral assessment itself. These modifiers evaluate the regulatory standing of the issuer, the transparency and governance of reserve management, the legal rights of token holders, the historical stability of the peg, the relative market capitalization of the stablecoin, and the structure of protocol governance and upgrade mechanisms. The full modifier framework is detailed in the [Asset Methodology](/docs/redstone-credora/methodologies/assets/).
 
 ## Savings Product Ratings
 

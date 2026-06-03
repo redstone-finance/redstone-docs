@@ -18,7 +18,7 @@ At launch, Vault Ratings are refreshed on a weekly basis and will be updated to 
 
 Credora vault rating system employs a bottom-up assessment approach that combines static and dynamic analysis across three hierarchical levels:
 
-1. **Collateral Assets** – evaluated using the [Tokens Methodology](/docs/redstone-credora/methodologies/tokens/)
+1. **Collateral Assets** – evaluated using the [Tokens Methodology](/docs/redstone-credora/methodologies/assets/)
 2. **Markets** – evaluated using [Loan Pairs with Isolated Collateral Methodology](/docs/redstone-credora/methodologies/loans_pairs_with/isolated_collateral/)
 3. **Vaults** – aggregated exposure to underlying markets, evaluated with the [Vaults Methodology](/docs/redstone-credora/methodologies/vaults-pools/)
 
@@ -30,7 +30,7 @@ This modular approach means that vault ratings become a computationally efficien
 
 ## Collateral Asset Ratings
 
-The assessment of collateral asset ratings is done through [Credora Token Methodology](/docs/redstone-credora/methodologies/tokens/). Asset Ratings are published and maintained to ensure the most up-to-date information. In the event that Credora does not directly rate an asset, a proxy rating can be defined to serve as input to this section. Proxy ratings can come from:
+The assessment of collateral asset ratings is done through [Credora Token Methodology](/docs/redstone-credora/methodologies/assets/). Asset Ratings are published and maintained to ensure the most up-to-date information. In the event that Credora does not directly rate an asset, a proxy rating can be defined to serve as input to this section. Proxy ratings can come from:
 
 1. Direct proxy of a rated asset (e.g., wrsETH is a proxy of rsETH). In these cases, the rating used is directly the rating from the proxy asset.
 2. Adjusted proxy of a rated asset. In these cases, the rating is the rating of the proxy asset, plus a notch adjustment. This is usually done for tokens that are closely related to published tokens.
