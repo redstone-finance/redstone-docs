@@ -153,3 +153,13 @@ li.sidebar-terminal-section {
   margin: 2.5rem 0;
   border: none;
 }
+
+html[class*="docs-doc-id-redstone-credora/methodologies/assets/framework-architecture/anchor-pd"] .theme-doc-markdown h2,
+html[class*="docs-doc-id-redstone-credora/methodologies/assets/framework-architecture/modifiers"] .theme-doc-markdown h2 {
+  margin-top: 3.5rem;
+}
+
+html[class*="docs-doc-id-redstone-credora/methodologies/assets/framework-architecture/anchor-pd"] .theme-doc-markdown h3,
+html[class*="docs-doc-id-redstone-credora/methodologies/assets/framework-architecture/modifiers"] .theme-doc-markdown h3 {
+  margin-top: 2.75rem;
+}
