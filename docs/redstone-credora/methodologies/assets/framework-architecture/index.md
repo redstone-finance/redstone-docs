@@ -4,7 +4,7 @@ The framework accommodates the evaluation of a broad spectrum of assets, recogni
 
 **Anchor Methodologies** establish the starting point of each asset assessment in **Probability of Default (PD)** terms. The Anchor PD is then adjusted through a series of modifiers selected based on the asset type. Each metric below is presented with a brief definition, a description of how it is measured, and a tier table containing both the reasoning that supports each tier definition and the empirical evidence that backs the reasoning and the tiering thresholds.
 
-<!-- PLACEHOLDER FOR IMG -->
+![How an asset's rating is built](/img/howAssetIsBuilt.jpeg)
 
 The framework is structured in three steps:
 
