@@ -97,8 +97,8 @@ Delivers the raw signed oracle packages from quorum of signers.
         {
           "dataFeedId": "ETH",
           "value": 2543.12,
-          "decimals": 8,        // optional
-        }
+          "decimals": 8, // optional
+        },
       ],
       "signature": "<base64>",
       "signerAddress": "<hex>", // optional
@@ -110,29 +110,29 @@ Delivers the raw signed oracle packages from quorum of signers.
 
 **Message fields:**
 
-| Field           | Type                 | Required | Description                          |
-| --------------- | -------------------- | -------- | ------------------------------------ |
-| `type`          | `"redstonePackages"` | Yes      | Discriminant field                   |
-| `dataServiceId` | `string`             | Yes      | Data service identifier              |
-| `payloads`      | [SignedDataPackagePlainObj[]](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) | Yes | One signed package per merged signer (minimum 1) |
+| Field           | Type                                                                                                                                                                                              | Required | Description                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------ |
+| `type`          | `"redstonePackages"`                                                                                                                                                                              | Yes      | Discriminant field                               |
+| `dataServiceId` | `string`                                                                                                                                                                                          | Yes      | Data service identifier                          |
+| `payloads`      | [SignedDataPackagePlainObj[]](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) | Yes      | One signed package per merged signer (minimum 1) |
 
 **`SignedDataPackagePlainObj` fields**:
 
-| Field                    | Type                       | Required | Description                                      |
-| ------------------------ | -------------------------- | -------- | ------------------------------------------------ |
-| `dataPackageId`          | `string`                   | Yes      | Feed identifier                                  |
-| `timestampMilliseconds`  | `number`                   | Yes      | Millisecond timestamp of the data round          |
-| `dataPoints`             | `DataPoint[]`              | Yes      | Data values from this signer (minimum 1)         |
-| `signature`              | `string`                   | Yes      | Base64-encoded signer signature                  |
-| `signerAddress`          | `string`                   | No       | Recovered signer address (hex); may be absent    |
+| Field                   | Type          | Required | Description                                   |
+| ----------------------- | ------------- | -------- | --------------------------------------------- |
+| `dataPackageId`         | `string`      | Yes      | Feed identifier                               |
+| `timestampMilliseconds` | `number`      | Yes      | Millisecond timestamp of the data round       |
+| `dataPoints`            | `DataPoint[]` | Yes      | Data values from this signer (minimum 1)      |
+| `signature`             | `string`      | Yes      | Base64-encoded signer signature               |
+| `signerAddress`         | `string`      | No       | Recovered signer address (hex); may be absent |
 
 **`DataPoint` fields** (each element of `dataPoints`):
 
-| Field         | Type               | Required | Description                                                 |
-| ------------- | ------------------ | -------- | ----------------------------------------------------------- |
-| `dataFeedId`  | `string`           | Yes      | Feed identifier, e.g. `"ETH"`                               |
-| `value`       | `number \| string` | Yes      | Price value; may be delivered as a string for large numbers |
-| `decimals`    | `number`           | No       | Decimal precision of the value; may be absent               |
+| Field        | Type               | Required | Description                                                 |
+| ------------ | ------------------ | -------- | ----------------------------------------------------------- |
+| `dataFeedId` | `string`           | Yes      | Feed identifier, e.g. `"ETH"`                               |
+| `value`      | `number \| string` | Yes      | Price value; may be delivered as a string for large numbers |
+| `decimals`   | `number`           | No       | Decimal precision of the value; may be absent               |
 
 ---
 
@@ -148,8 +148,8 @@ Delivers each individual signer payload immediately, without waiting for a quoru
     {
       "dataFeedId": "ETH",
       "value": 2543.12,
-      "decimals": 8,        // optional
-    }
+      "decimals": 8, // optional
+    },
   ],
   "signature": "<base64>",
   "signerAddress": "<hex>", // optional
