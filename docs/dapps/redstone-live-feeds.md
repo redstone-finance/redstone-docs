@@ -88,7 +88,6 @@ Delivers the raw signed oracle packages from quorum of signers.
 ```jsonc
 {
   "type": "redstonePackages",
-  "dataServiceId": "redstone-primary-prod",
   "payloads": [
     {
       "dataPackageId": "ETH",
@@ -110,11 +109,10 @@ Delivers the raw signed oracle packages from quorum of signers.
 
 **Message fields:**
 
-| Field           | Type                                                                                                                                                                                              | Required | Description                                      |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------ |
-| `type`          | `"redstonePackages"`                                                                                                                                                                              | Yes      | Discriminant field                               |
-| `dataServiceId` | `string`                                                                                                                                                                                          | Yes      | Data service identifier                          |
-| `payloads`      | [SignedDataPackagePlainObj[]](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) | Yes      | One signed package per merged signer (minimum 1) |
+| Field      | Type                                                                                                                                                                                              | Required | Description                                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------ |
+| `type`     | `"redstonePackages"`                                                                                                                                                                              | Yes      | Discriminant field                               |
+| `payloads` | [SignedDataPackagePlainObj[]](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) | Yes      | One signed package per merged signer (minimum 1) |
 
 **`SignedDataPackagePlainObj` fields**:
 
