@@ -46,6 +46,8 @@ Multiple items can be batched in a single message.
 
 ## Message types
 
+> **Note:** The schemas below describe the minimum guaranteed fields. Additional fields may be present and should be ignored if not needed.
+
 ### `price`
 
 Delivers one lightweight aggregated tick, the median from the quorum of signers.
@@ -100,7 +102,6 @@ Delivers the raw signed oracle packages from quorum of signers.
         },
       ],
       "signature": "<base64>",
-      "signerAddress": "<hex>", // optional
     },
     // ... one entry per signer
   ],
@@ -116,13 +117,12 @@ Delivers the raw signed oracle packages from quorum of signers.
 
 **`SignedDataPackagePlainObj` fields**:
 
-| Field                   | Type          | Required | Description                                   |
-| ----------------------- | ------------- | -------- | --------------------------------------------- |
-| `dataPackageId`         | `string`      | Yes      | Feed identifier                               |
-| `timestampMilliseconds` | `number`      | Yes      | Millisecond timestamp of the data round       |
-| `dataPoints`            | `DataPoint[]` | Yes      | Data values from this signer (minimum 1)      |
-| `signature`             | `string`      | Yes      | Base64-encoded signer signature               |
-| `signerAddress`         | `string`      | No       | Recovered signer address (hex); may be absent |
+| Field                   | Type          | Required | Description                              |
+| ----------------------- | ------------- | -------- | ---------------------------------------- |
+| `dataPackageId`         | `string`      | Yes      | Feed identifier                          |
+| `timestampMilliseconds` | `number`      | Yes      | Millisecond timestamp of the data round  |
+| `dataPoints`            | `DataPoint[]` | Yes      | Data values from this signer (minimum 1) |
+| `signature`             | `string`      | Yes      | Base64-encoded signer signature          |
 
 **`DataPoint` fields** (each element of `dataPoints`):
 
@@ -150,7 +150,6 @@ Delivers each individual signer payload immediately, without waiting for a quoru
     },
   ],
   "signature": "<base64>",
-  "signerAddress": "<hex>", // optional
 }
 ```
 
