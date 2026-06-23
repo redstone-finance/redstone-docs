@@ -153,7 +153,7 @@ Delivers each individual signer payload immediately, without waiting for a quoru
 }
 ```
 
-One [SignedDataPackagePlainObj](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) per signer. Fields match the `SignedDataPackage` schema described under [`redstonePackages`](#redstonepackages).
+One [SignedDataPackagePlainObj](https://github.com/redstone-finance/redstone-oracles-monorepo/blob/fcc49e9e7f3e5ef2fc0aa0c4b647e42e4f7e90f0/packages/protocol/src/data-package/DataPackage.ts#L141) per signer, delivered as it arrives.
 
 ---
 
